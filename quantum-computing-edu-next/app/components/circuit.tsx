@@ -41,17 +41,17 @@ const Circuit = () => {
     registers: [
       {
         name: "ancilla",
-        qubits: 1,
+        qubits: [0],
         desc: "The ancilla qubit, also known as the auxiliary qubit in HHL, is used in the Ancilla Quantum Encoding (AQE) step to encode ..."
       },
       {
         name: "clock",
-        qubits: 8,
+        qubits: [1,2,3,4,5,6,7,8],
         desc: "The clock register is used by Quantum Phase Estimation (QPE) to store the eigenvalues of the matrix A."
       },
       {
         name: "state",
-        qubits: 2,
+        qubits: [9,10],
         desc: "The state register, also known as the result register, is initialised with the vector b and used by QPE to estimate the eigenvalues. Upon measurement, this register contains an index (encoded in binary) of the result vector."
       }
     ],
@@ -69,8 +69,8 @@ const Circuit = () => {
       </div>
       {
         data.registers.map(
-          ({name, qubits, desc}) => [...Array(5).keys()].map(
-            (_, i) => <QubitLine key={i} name={name} qubits={qubits} desc={desc}/>
+          ({name, qubits, desc}) => qubits.map(
+            (qb, i) => <QubitLine key={i} name={name} qubit={qb} desc={desc}/>
           )
         )
       }
@@ -83,7 +83,7 @@ const Circuit = () => {
  * @param data The circuit data encoded as a Qobj
  * @returns JSX quantum circuit container element
  */
-const QubitLine = ({name, qubits, desc}: {name: string, qubits: number, desc: string}) => {
+const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: string}) => {
   return <div className={styles["circuit-qubit-line"]} title={name}>
     <div className={styles["circuit-gate"]}>H</div>
   </div>
