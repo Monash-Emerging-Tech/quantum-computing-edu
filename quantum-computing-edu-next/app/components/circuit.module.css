@@ -1,0 +1,33 @@
+/*@import "tailwindcss";*/
+
+.circuit-container {
+  background: grey;
+}
+
+.circuit-header {
+  font-size: 2rem;
+}
+
+.circuit-grid {
+  display: grid;
+}
+
+.circuit-qubit-line {
+  border-top: 1px solid white;
+  margin-top: var(--qubit-line-margin);
+  margin-bottom: var(--qubit-line-margin);
+  
+  height: 0;
+}
+
+.circuit-gate {
+  width: var(--gate-size);
+  height: var(--gate-size);
+  background: red;
+  /*margin-left: calc(var(--gate-size) / -2);*/
+  margin-top: calc(var(--gate-size) / -2);
+  
+  padding-top: 0.2em;
+  
+  text-align: center;
+}
