@@ -3,9 +3,6 @@
 .circuit-page-container {
   margin: auto;
   max-width: 100rem;
-  
-  --qubit-line-margin: 1.5em;
-  --gate-size: 2em;
 }
 
 .page-header {
