@@ -119,7 +119,7 @@ const Circuit = () => {
       }
       {
         data.gates.map(
-          ({type, qubits, controls, anticontrols, step}, i) => <Gate
+          ({type, qubits, controls, anticontrols, step}, i) => <GateComponent
             key={i}
             type={type}
             qubits={qubits}
@@ -155,7 +155,7 @@ const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: stri
  * @param anticontrols Anti-control qubits
  * @returns JSX element
  */
-const Gate = ({
+const GateComponent = ({
   type,
   qubits,
   controls,
