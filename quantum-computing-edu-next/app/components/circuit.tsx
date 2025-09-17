@@ -27,7 +27,7 @@ enum GateType {
  */
 //const Circuit = ({data}: {data: Qobj}) => {
 const Circuit = () => {
-  const dummy_circuit_data = {
+  const dummyCircuitData = {
     name: "HHL",
     desc: "The Harrow-Hassidim-Lloyd algorithm ...",
     inputs: [
@@ -61,7 +61,7 @@ const Circuit = () => {
         name: "state",
         qubits: [9,10],
         desc: "The state register, also known as the result register, is initialised with the vector b and used by QPE to estimate the eigenvalues. Upon measurement, this register contains an index (encoded in binary) of the result vector."
-      }
+      },
     ],
     gates: [
       // This is the most complicated part
@@ -116,7 +116,12 @@ const Circuit = () => {
     ]
   }
   
-  const data = dummy_circuit_data;
+  const data = dummyCircuitData;
+  
+  // Calculate the vertical position of each qubit in the circuit
+  const qubitOrder = data.registers.flatMap(({qubits}) => qubits);
+  let qubitPositions: Array<number> = [];
+  qubitOrder.forEach((q, i) => qubitPositions[q] = i);
   
   return <div id="circuit-container" className={styles["circuit-container"]}>
     <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
@@ -132,7 +137,7 @@ const Circuit = () => {
       }
       {
         data.gates.map(
-          ({type, qubits, controls, anticontrols}, i) => <Gate key={i} type={type} qubits={qubits} controls={controls} anticontrols={anticontrols}/>
+          ({type, qubits, controls, anticontrols}, i) => <Gate key={i} type={type} qubits={qubits} qubitPositions={qubitPositions} controls={controls} anticontrols={anticontrols}/>
         )
       }
     </div>
@@ -164,12 +169,14 @@ const Gate = ({
   type,
   qubits,
   controls,
-  anticontrols
+  anticontrols,
+  qubitPositions
 }: {
   type: GateType,
   qubits: Array<number>,
   controls: Array<number>,
-  anticontrols: Array<number>
+  anticontrols: Array<number>,
+  qubitPositions: Array<number>
 }) => {
   const [lineSeparation, setlineSeparation] = useState(0);
   
@@ -189,13 +196,13 @@ const Gate = ({
     setlineSeparation(lineSeparationStyle);
   }, []);
   
-  const upperQubit = Math.min.apply(Math, qubits);
-  const lowerQubit = Math.max.apply(Math, qubits);
+  const upperQubitPos = Math.min.apply(Math, qubits.map(q => qubitPositions[q]));
+  const lowerQubitPos = Math.max.apply(Math, qubits.map(q => qubitPositions[q]));
   
   return <div
     className={styles["circuit-gate"]}
     style={{
-      top: (upperQubit+0.5)*lineSeparation*2 + "em",
+      top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
       //left: 1 + "em",
       padding: "1rem"
     }}
