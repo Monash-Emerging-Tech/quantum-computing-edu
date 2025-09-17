@@ -14,10 +14,13 @@ import styles from "./circuit.module.css";
 
 enum GateType {
   I = 0,
-  H,
   X,
   Y,
-  Z
+  Z,
+  H,
+  S,
+  T,
+  SWAP
 }
 
 /**
@@ -64,64 +67,43 @@ const Circuit = () => {
       },
     ],
     gates: [
-      // This is the most complicated part
-      {
+      ...([...Array(8)].map((_, i) => ({
         type: GateType.H,
+        qubits: [i+1],
+        controls: [],
+        anticontrols: [],
+        step: 0
+      }))),
+      {
+        type: GateType.Z,
         qubits: [1],
         controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [2],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [3],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [4],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [5],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [6],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [7],
-        controls: [],
-        anticontrols: []
-      },
-      {
-        type: GateType.H,
-        qubits: [8],
-        controls: [],
-        anticontrols: []
+        anticontrols: [],
+        step: 1
       }
     ]
   }
   
   const data = dummyCircuitData;
   
+  //console.log(data);
+  
   // Calculate the vertical position of each qubit in the circuit
   const qubitOrder = data.registers.flatMap(({qubits}) => qubits);
   let qubitPositions: Array<number> = [];
   qubitOrder.forEach((q, i) => qubitPositions[q] = i);
+  
+  // Calculate the horizontal positions of the gates
+  let qubitLastGatePos: Array<number> = Array(qubitOrder.length).fill(0);
+  const gateTimePositions = data.gates.map((gate, i) => {
+    // Find the qubit with the rightmost gate position
+    const gatePos = Math.max.apply(Math, gate.qubits.map(q => qubitLastGatePos[q]));
+    // Update the gate position of each applicable qubit
+    gate.qubits.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    gate.controls.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    gate.anticontrols.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    return gatePos;
+  });
   
   return <div id="circuit-container" className={styles["circuit-container"]}>
     <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
@@ -137,7 +119,15 @@ const Circuit = () => {
       }
       {
         data.gates.map(
-          ({type, qubits, controls, anticontrols}, i) => <Gate key={i} type={type} qubits={qubits} qubitPositions={qubitPositions} controls={controls} anticontrols={anticontrols}/>
+          ({type, qubits, controls, anticontrols, step}, i) => <Gate
+            key={i}
+            type={type}
+            qubits={qubits}
+            qubitPositions={qubitPositions}
+            controls={controls}
+            anticontrols={anticontrols}
+            timePosition={gateTimePositions[i]}
+          />
         )
       }
     </div>
@@ -170,15 +160,18 @@ const Gate = ({
   qubits,
   controls,
   anticontrols,
-  qubitPositions
+  qubitPositions,
+  timePosition
 }: {
   type: GateType,
   qubits: Array<number>,
   controls: Array<number>,
   anticontrols: Array<number>,
-  qubitPositions: Array<number>
+  qubitPositions: Array<number>,
+  timePosition: number
 }) => {
-  const [lineSeparation, setlineSeparation] = useState(0);
+  const [lineSeparation, setLineSeparation] = useState(0);
+  const [gateMargin, setgateMargin] = useState(0);
   
   useEffect(() => {
     //const root = document.documentElement;
@@ -192,8 +185,10 @@ const Gate = ({
     // Calculate sizes (in em)
     const computedStyle = window.getComputedStyle(container);
     const lineSeparationStyle = parseFloat(computedStyle.getPropertyValue("--qubit-line-margin"));
+    const gateMarginStyle = parseFloat(computedStyle.getPropertyValue("--gate-h-margin"));
     
-    setlineSeparation(lineSeparationStyle);
+    setLineSeparation(lineSeparationStyle);
+    setgateMargin(gateMarginStyle);
   }, []);
   
   const upperQubitPos = Math.min.apply(Math, qubits.map(q => qubitPositions[q]));
@@ -203,8 +198,7 @@ const Gate = ({
     className={styles["circuit-gate"]}
     style={{
       top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
-      //left: 1 + "em",
-      padding: "1rem"
+      left: (timePosition * gateMargin * 3 + 1) + "em"
     }}
   >H</div>
 }

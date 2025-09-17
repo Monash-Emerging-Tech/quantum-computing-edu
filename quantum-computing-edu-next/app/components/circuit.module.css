@@ -5,6 +5,7 @@
   
   --qubit-line-margin: 1.5em;
   --gate-size: 2em;
+  --gate-h-margin: 1em;
 }
 
 .circuit-header {
