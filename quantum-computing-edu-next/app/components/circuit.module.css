@@ -12,18 +12,25 @@
 }
 
 .circuit-grid {
-  display: grid;
+  position: relative;
+  
+  display: flex;
+  flex-direction: column;
 }
 
 .circuit-qubit-line {
+  /*box-sizing: content-box;*/
   border-top: 1px solid white;
   margin-top: var(--qubit-line-margin);
-  margin-bottom: var(--qubit-line-margin);
+  margin-bottom: calc(var(--qubit-line-margin) - 1px);
   
-  height: 0;
+  width: 100%;
+  height: 1px;
 }
 
 .circuit-gate {
+  position: absolute;
+  
   width: var(--gate-size);
   height: var(--gate-size);
   background: red;

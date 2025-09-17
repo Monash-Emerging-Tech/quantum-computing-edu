@@ -7,10 +7,18 @@
 
 "use client";
 
-//import { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 //import Link from "next/link";
 
 import styles from "./circuit.module.css";
+
+enum GateType {
+  I = 0,
+  H,
+  X,
+  Y,
+  Z
+}
 
 /**
  * Create the circuit
@@ -57,21 +65,74 @@ const Circuit = () => {
     ],
     gates: [
       // This is the most complicated part
+      {
+        type: GateType.H,
+        qubits: [1],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [2],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [3],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [4],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [5],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [6],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [7],
+        controls: [],
+        anticontrols: []
+      },
+      {
+        type: GateType.H,
+        qubits: [8],
+        controls: [],
+        anticontrols: []
+      }
     ]
   }
   
   const data = dummy_circuit_data;
   
   return <div id="circuit-container" className={styles["circuit-container"]}>
+    <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
+      
+    </div>
     <div id="circuit-grid" className={styles["circuit-grid"]}>
-      <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
-        
-      </div>
       {
         data.registers.map(
           ({name, qubits, desc}) => qubits.map(
             (qb, i) => <QubitLine key={i} name={name} qubit={qb} desc={desc}/>
           )
+        )
+      }
+      {
+        data.gates.map(
+          ({type, qubits, controls, anticontrols}, i) => <Gate key={i} type={type} qubits={qubits} controls={controls} anticontrols={anticontrols}/>
         )
       }
     </div>
@@ -80,13 +141,65 @@ const Circuit = () => {
 
 /**
  * Create a qubit line in the circuit
- * @param data The circuit data encoded as a Qobj
- * @returns JSX quantum circuit container element
+ * @param name Name of the parent register
+ * @param qubit Qubit ID
+ * @param desc Description of the parent register
+ * @returns JSX element
  */
 const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: string}) => {
   return <div className={styles["circuit-qubit-line"]} title={name}>
-    <div className={styles["circuit-gate"]}>H</div>
+    {/*<div className={styles["circuit-gate"]}>H</div>*/}
   </div>
+}
+
+/**
+ * Create quantum gate
+ * @param type Which type of gate it is
+ * @param qubits The qubits that the gate applies to
+ * @param controls Control qubits
+ * @param anticontrols Anti-control qubits
+ * @returns JSX element
+ */
+const Gate = ({
+  type,
+  qubits,
+  controls,
+  anticontrols
+}: {
+  type: GateType,
+  qubits: Array<number>,
+  controls: Array<number>,
+  anticontrols: Array<number>
+}) => {
+  const [lineSeparation, setlineSeparation] = useState(0);
+  
+  useEffect(() => {
+    //const root = document.documentElement;
+    const container = document.getElementById("circuit-container");
+    const grid = document.getElementById("circuit-grid");
+    if (!container || !grid) {
+      console.error("Circuit container not found - unable to add gate");
+      return;
+    }
+    
+    // Calculate sizes (in em)
+    const computedStyle = window.getComputedStyle(container);
+    const lineSeparationStyle = parseFloat(computedStyle.getPropertyValue("--qubit-line-margin"));
+    
+    setlineSeparation(lineSeparationStyle);
+  }, []);
+  
+  const upperQubit = Math.min.apply(Math, qubits);
+  const lowerQubit = Math.max.apply(Math, qubits);
+  
+  return <div
+    className={styles["circuit-gate"]}
+    style={{
+      top: (upperQubit+0.5)*lineSeparation*2 + "em",
+      //left: 1 + "em",
+      padding: "1rem"
+    }}
+  >H</div>
 }
 
 export default Circuit;
