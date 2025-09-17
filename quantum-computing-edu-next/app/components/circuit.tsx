@@ -12,16 +12,110 @@ import { useState, useEffect } from "react";
 
 import styles from "./circuit.module.css";
 
+/**
+ * Define the basic types of gates that exist
+ */
 enum GateType {
-  I = 0,
-  X,
-  Y,
-  Z,
-  H,
-  S,
-  T,
-  SWAP
+  SINGLE,
+  SWAP,
+  LARGE,
 }
+
+/**
+ * Define type for standard/common gate information.
+ */
+type StandardGate = {
+  type: GateType,
+  name: string,
+  longName: string,
+  color: string,
+}
+
+/**
+ * Define common gates
+ */
+const GateI: StandardGate = {
+  type: GateType.SINGLE,
+  name: "I",
+  longName: "Identity",
+  color: "white"
+}
+const GateX: StandardGate = {
+  type: GateType.SINGLE,
+  name: "X",
+  longName: "Pauli X", // AKA Not
+  color: "blue"
+}
+const GateY: StandardGate = {
+  type: GateType.SINGLE,
+  name: "Y",
+  longName: "Pauli Y",
+  color: "blue"
+}
+const GateZ: StandardGate = {
+  type: GateType.SINGLE,
+  name: "Z",
+  longName: "Pauli Z",
+  color: "blue"
+}
+const GateH: StandardGate = {
+  type: GateType.SINGLE,
+  name: "H",
+  longName: "Hadamard",
+  color: "red"
+}
+const GateSwap: StandardGate = {
+  type: GateType.SWAP,
+  name: "Swap",
+  longName: "Swap",
+  color: "black"
+}
+const GateCNOT: StandardGate = {
+  type: GateType.SINGLE,
+  name: "Swap",
+  longName: "Swap",
+  color: "black"
+}
+
+/**
+ * Define the structure of a gate
+ */
+type Gate = {
+  type: GateType,
+  name: string,
+  longName: string,
+  color: string,
+  qubits: Array<number>,
+  controls: Array<number>,
+  anticontrols: Array<number>,
+  
+  // For a custom gate, the constituent circuit should be defined.
+  components?: QuantumCircuit,
+}
+
+/**
+ * Define the structure of a quantum circuit
+ */
+type QuantumCircuit = {
+    name: string,
+    desc: string,
+    inputs: Array<{
+      name: string,
+      type: string,
+    }>,
+    outputs: Array<{
+      name: string,
+      type: string,
+    }>,
+    registers: Array<{
+      name: string,
+      desc: string,
+      qubits: Array<number>,
+    }>,
+    gates: Array<Gate>
+}
+
+
 
 /**
  * Create the circuit
@@ -30,7 +124,7 @@ enum GateType {
  */
 //const Circuit = ({data}: {data: Qobj}) => {
 const Circuit = () => {
-  const dummyCircuitData = {
+  const dummyCircuitData: QuantumCircuit = {
     name: "HHL",
     desc: "The Harrow-Hassidim-Lloyd algorithm ...",
     inputs: [
@@ -68,19 +162,31 @@ const Circuit = () => {
     ],
     gates: [
       ...([...Array(8)].map((_, i) => ({
-        type: GateType.H,
+        ...GateH,
         qubits: [i+1],
         controls: [],
-        anticontrols: [],
-        step: 0
-      }))),
+        anticontrols: []
+      } as Gate))),
       {
-        type: GateType.Z,
-        qubits: [1],
+        type: GateType.LARGE,
+        name: "Ψ",
+        longName: "Encode input vector",
+        color: "grey",
+        qubits: [9,10],
         controls: [],
         anticontrols: [],
-        step: 1
-      }
+        //components: 
+      } as Gate,
+      {
+        type: GateType.LARGE,
+        name: "QPE",
+        longName: "Quantum Phase Estimation",
+        color: "grey",
+        qubits: [1,2,3,4,5,6,7,8],
+        controls: [],
+        anticontrols: [],
+        //components: 
+      } as Gate
     ]
   }
   
@@ -119,13 +225,10 @@ const Circuit = () => {
       }
       {
         data.gates.map(
-          ({type, qubits, controls, anticontrols, step}, i) => <GateComponent
+          (gate, i) => <GateComponent
             key={i}
-            type={type}
-            qubits={qubits}
+            gate={gate}
             qubitPositions={qubitPositions}
-            controls={controls}
-            anticontrols={anticontrols}
             timePosition={gateTimePositions[i]}
           />
         )
@@ -156,17 +259,11 @@ const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: stri
  * @returns JSX element
  */
 const GateComponent = ({
-  type,
-  qubits,
-  controls,
-  anticontrols,
+  gate,
   qubitPositions,
   timePosition
 }: {
-  type: GateType,
-  qubits: Array<number>,
-  controls: Array<number>,
-  anticontrols: Array<number>,
+  gate: Gate,
   qubitPositions: Array<number>,
   timePosition: number
 }) => {
@@ -191,8 +288,8 @@ const GateComponent = ({
     setgateMargin(gateMarginStyle);
   }, []);
   
-  const upperQubitPos = Math.min.apply(Math, qubits.map(q => qubitPositions[q]));
-  const lowerQubitPos = Math.max.apply(Math, qubits.map(q => qubitPositions[q]));
+  const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
   
   return <div
     className={styles["circuit-gate"]}
@@ -200,7 +297,7 @@ const GateComponent = ({
       top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
       left: (timePosition * gateMargin * 3 + 1) + "em"
     }}
-  >H</div>
+  >{gate.name}</div>
 }
 
 export default Circuit;
