@@ -115,6 +115,13 @@ const GateCNOT: StandardGate = {
     [[0,0],[0,0],[1,0],[0,0]]
   ]
 }
+const Barrier: StandardGate = {
+  type: GateType.LARGE,
+  name: "Barrier",
+  longName: "Barrier",
+  color: "white",
+  unitary: []
+}
 
 /**
  * Define the structure of a gate
@@ -215,6 +222,14 @@ const Circuit = () => {
         //components: 
       } as Gate,
       
+      {
+        ...Barrier,
+        qubits: [0,1,2,3,4,5,6,7,8,9,10],
+        controls: [],
+        anticontrols: [],
+        inverse: false,
+      } as Gate,
+      
       //{
       //  type: GateType.LARGE,
       //  name: "QPE",
@@ -256,6 +271,14 @@ const Circuit = () => {
       } as Gate,
       
       {
+        ...Barrier,
+        qubits: [0,1,2,3,4,5,6,7,8,9,10],
+        controls: [],
+        anticontrols: [],
+        inverse: false,
+      } as Gate,
+      
+      {
         type: GateType.LARGE,
         name: "AQE",
         longName: "Ancilla Quantum Encoding",
@@ -266,6 +289,15 @@ const Circuit = () => {
         inverse: false,
         //components: 
       } as Gate,
+      
+      {
+        ...Barrier,
+        qubits: [0,1,2,3,4,5,6,7,8,9,10],
+        controls: [],
+        anticontrols: [],
+        inverse: false,
+      } as Gate,
+      
       {
         type: GateType.LARGE,
         name: "QPE",
@@ -404,7 +436,7 @@ const GateComponent = ({
       background: gate.color,
     }}
   >
-    {gate.name}
+    {gate.name != "Barrier" ? gate.name : <></>}
     {gate.inverse ? (<sup>†</sup>) : <></>}
   </div>
 }
@@ -418,11 +450,16 @@ const GateComponent = ({
  * @returns [width: int, height: int]
  */
 const calculateGateDimensions = (gate: Gate, qubitPositions: Array<number>): [number, number] => {
+  
   const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
   const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
   const gateHeight = lowerQubitPos - upperQubitPos + 1;
   const gateWidth = Math.round(Math.log2(gateHeight+1));
   //const gateWidth = gateHeight > 2 ? 2 : 1;
+  
+  if (gate.name == "Barrier") {
+    return [1,gateHeight];
+  }
   
   return [
     gateWidth,
