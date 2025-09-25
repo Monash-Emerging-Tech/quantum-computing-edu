@@ -1,8 +1,15 @@
 /*@import "tailwindcss";*/
 
+/* Container element around the entire interactive circuit */
 .circuit-container {
   background: grey;
   
+  position: relative;
+  
+  overflow-x: scroll;
+  
+  --register-label-container-width: 4em;
+  --register-label-width: 2em;
   --qubit-line-margin: 1.5em;
   --gate-size: 2em;
   --gate-h-margin: 1em;
@@ -12,8 +19,73 @@
   font-size: 2rem;
 }
 
+/* Contains the vertical bar to the left of the circuit that labels the registers and qubits */
+.circuit-qubit-label-container {
+  width: var(--register-label-container-width);
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Group a set of qubit labels together */
+.circuit-register {
+  position: relative;
+}
+
+/* Container around the register text to align the text element(s) */
+.circuit-register-text-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  width: var(--register-label-width);
+  height: 100%;
+  
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  
+  display: flex;
+  align-items: center;
+}
+
+/* Sub-container to be aligned */
+.circuit-register-text-align-container {
+  position: relative;
+  margin: auto;
+}
+
+/* Rotated element containing the register label text */
+.circuit-register-text {
+  transform: rotate(-90deg);
+  position: relative;
+  
+  /*text-align: center;*/
+  width: 0;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  
+  margin: auto;
+}
+
+/* Single qubit label */
+.circuit-qubit-label {
+  height: calc(var(--qubit-line-margin) * 2);
+  margin-left: var(--register-label-width);
+  text-align: right;
+  overflow: visible;
+  padding-right: 0.5em;
+  line-height: calc(var(--qubit-line-margin) * 2);
+}
+
+/* Element containing the qubit lines and gate elements */
 .circuit-grid {
   position: relative;
+  
+  margin-left: var(--register-label-container-width);
   
   display: flex;
   flex-direction: column;

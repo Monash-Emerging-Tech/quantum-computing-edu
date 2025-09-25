@@ -338,9 +338,6 @@ const Circuit = () => {
   });
   
   return <div id="circuit-container" className={styles["circuit-container"]}>
-    <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
-      
-    </div>
     <div id="circuit-grid" className={styles["circuit-grid"]}>
       {
         data.registers.map(
@@ -360,6 +357,52 @@ const Circuit = () => {
         )
       }
     </div>
+    <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
+      {
+        data.registers.map(
+          ({name, qubits, desc}, i) => <RegisterLabel
+            key={i}
+            name={name}
+            qubits={qubits}
+            desc={desc}
+            qubitPositions={qubitPositions}
+          />
+        )
+      }
+    </div>
+  </div>
+}
+
+/**
+ * Create a register label to name the qubits
+ * @param name Name of the register
+ * @param qubits List of Qubit IDs
+ * @param desc Description of the register
+ * @param qubitPositions Vertical qubit arrangement
+ * @returns JSX element
+ */
+const RegisterLabel = ({
+  name,
+  qubits,
+  desc,
+  qubitPositions
+}: {
+  name: string,
+  qubits: Array<number>,
+  desc: string,
+  qubitPositions: Array<number>
+}) => {
+  return <div className={styles["circuit-register"]} title={name+" register"}>
+    <div className={styles["circuit-register-text-container"]}>
+      <div className={styles["circuit-register-text-align-container"]}>
+        <div className={styles["circuit-register-text"]}>{name}</div>
+      </div>
+    </div>
+    {
+      qubits.map(
+        (q, i) => <div className={styles["circuit-qubit-label"]} key={i}>{q}</div>
+      )
+    }
   </div>
 }
 
@@ -371,17 +414,14 @@ const Circuit = () => {
  * @returns JSX element
  */
 const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: string}) => {
-  return <div className={styles["circuit-qubit-line"]} title={name}>
-    {/*<div className={styles["circuit-gate"]}>H</div>*/}
-  </div>
+  return <div className={styles["circuit-qubit-line"]} title={name}></div>
 }
 
 /**
  * Create quantum gate
- * @param type Which type of gate it is
- * @param qubits The qubits that the gate applies to
- * @param controls Control qubits
- * @param anticontrols Anti-control qubits
+ * @param gate All gate information
+ * @param qubitPositions Vertical qubit arrangement
+ * @param timePosition Current horizontal position in the circuit
  * @returns JSX element
  */
 const GateComponent = ({
