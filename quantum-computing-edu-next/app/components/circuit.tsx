@@ -94,25 +94,27 @@ type Gate = {
 }
 
 /**
- * Define the structure of a quantum circuit
+ * Define the structure of a quantum circuit.
+ * A quantum circuit may be made up of gates or a single unitary matrix.
  */
 type QuantumCircuit = {
+  name: string,
+  desc: string,
+  inputs: Array<{
+    name: string,
+    type: string,
+  }>,
+  outputs: Array<{
+    name: string,
+    type: string,
+  }>,
+  registers: Array<{
     name: string,
     desc: string,
-    inputs: Array<{
-      name: string,
-      type: string,
-    }>,
-    outputs: Array<{
-      name: string,
-      type: string,
-    }>,
-    registers: Array<{
-      name: string,
-      desc: string,
-      qubits: Array<number>,
-    }>,
-    gates: Array<Gate>
+    qubits: Array<number>,
+  }>,
+  gates?: Array<Gate>,
+  unitary?: Array<Array<number>>
 }
 
 
@@ -201,7 +203,7 @@ const Circuit = () => {
   
   // Calculate the horizontal positions of the gates
   let qubitLastGatePos: Array<number> = Array(qubitOrder.length).fill(0);
-  const gateTimePositions = data.gates.map((gate, i) => {
+  const gateTimePositions = data.gates!.map((gate, i) => {
     // Find the qubit with the rightmost gate position
     const gatePos = Math.max.apply(Math, gate.qubits.map(q => qubitLastGatePos[q]));
     // Update the gate position of each applicable qubit
@@ -224,7 +226,7 @@ const Circuit = () => {
         )
       }
       {
-        data.gates.map(
+        data.gates!.map(
           (gate, i) => <GateComponent
             key={i}
             gate={gate}
