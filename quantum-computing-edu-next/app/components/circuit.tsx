@@ -287,9 +287,13 @@ const Circuit = () => {
   const gateTimePositions = data.gates!.map((gate, i) => {
     // Find the qubit with the rightmost gate position
     const gatePos = Math.max.apply(Math, gate.qubits.map(q => qubitLastGatePos[q]));
-    // Update the gate position of each applicable qubit
-    gate.qubits.forEach(q => qubitLastGatePos[q] = gatePos+1);
-    gate.controls.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    
+    // Get the width of the gate
+    const [gateWidth, _] = calculateGateDimensions(gate, qubitPositions);
+    
+    // Update the next gate position for each applicable qubit
+    gate.qubits.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
+    gate.controls.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
     gate.anticontrols.forEach(q => qubitLastGatePos[q] = gatePos+1);
     return gatePos;
   });
@@ -351,7 +355,7 @@ const GateComponent = ({
   timePosition: number
 }) => {
   const [lineSeparation, setLineSeparation] = useState(0);
-  const [gateWidth, setGateWidth] = useState(0);
+  const [gateBaseSize, setGateWidth] = useState(0);
   const [gateMargin, setGateMargin] = useState(0);
   
   useEffect(() => {
@@ -377,18 +381,45 @@ const GateComponent = ({
   // Find gate position and vertical span
   const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
   const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
-  const gateSize = lowerQubitPos - upperQubitPos + 1;
+  //const gateHeight = lowerQubitPos - upperQubitPos + 1;
+  //const gateWidth = Math.round(Math.log2(gateHeight+1));
+  
+  const [gateWidth, gateHeight] = calculateGateDimensions(gate, qubitPositions);
   
   return <div
     className={styles["circuit-gate"]}
     style={{
       top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
       left: (timePosition * gateMargin * 3 + 1) + "em",
-      height: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
-      lineHeight: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
+      height: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
+      width: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1)) + "em",
+      lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
       background: gate.color,
     }}
   >{gate.name}</div>
 }
+
+
+
+/**
+ * Calculate the visual width & height of a gate
+ * @param gate The quantum gate to calculate the dimensions of
+ * @param qubitPositions The vertical arrangement of the qubits in the circuit
+ * @returns [width: int, height: int]
+ */
+const calculateGateDimensions = (gate: Gate, qubitPositions: Array<number>): [number, number] => {
+  const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const gateHeight = lowerQubitPos - upperQubitPos + 1;
+  const gateWidth = Math.round(Math.log2(gateHeight+1));
+  //const gateWidth = gateHeight > 2 ? 2 : 1;
+  
+  return [
+    gateWidth,
+    gateHeight
+  ];
+}
+
+
 
 export default Circuit;
