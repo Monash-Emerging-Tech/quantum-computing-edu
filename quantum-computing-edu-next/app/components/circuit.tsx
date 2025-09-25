@@ -309,7 +309,8 @@ const GateComponent = ({
   timePosition: number
 }) => {
   const [lineSeparation, setLineSeparation] = useState(0);
-  const [gateMargin, setgateMargin] = useState(0);
+  const [gateWidth, setGateWidth] = useState(0);
+  const [gateMargin, setGateMargin] = useState(0);
   
   useEffect(() => {
     //const root = document.documentElement;
@@ -323,20 +324,26 @@ const GateComponent = ({
     // Calculate sizes (in em)
     const computedStyle = window.getComputedStyle(container);
     const lineSeparationStyle = parseFloat(computedStyle.getPropertyValue("--qubit-line-margin"));
+    const gateWidthStyle = parseFloat(computedStyle.getPropertyValue("--gate-size"));
     const gateMarginStyle = parseFloat(computedStyle.getPropertyValue("--gate-h-margin"));
     
     setLineSeparation(lineSeparationStyle);
-    setgateMargin(gateMarginStyle);
+    setGateWidth(gateWidthStyle);
+    setGateMargin(gateMarginStyle);
   }, []);
   
+  // Find gate position and vertical span
   const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
   const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const gateSize = lowerQubitPos - upperQubitPos + 1;
   
   return <div
     className={styles["circuit-gate"]}
     style={{
       top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
-      left: (timePosition * gateMargin * 3 + 1) + "em"
+      left: (timePosition * gateMargin * 3 + 1) + "em",
+      height: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
+      lineHeight: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
     }}
   >{gate.name}</div>
 }
