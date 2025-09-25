@@ -202,12 +202,6 @@ const Circuit = () => {
       },
     ],
     gates: [
-      ...([...Array(8)].map((_, i) => ({
-        ...GateH,
-        qubits: [i+1],
-        controls: [],
-        anticontrols: []
-      } as Gate))),
       {
         type: GateType.LARGE,
         name: "Ψ",
@@ -218,16 +212,64 @@ const Circuit = () => {
         anticontrols: [],
         //components: 
       } as Gate,
+      
+      //{
+      //  type: GateType.LARGE,
+      //  name: "QPE",
+      //  longName: "Quantum Phase Estimation",
+      //  color: "blue",
+      //  qubits: [1,2,3,4,5,6,7,8,9,10],
+      //  controls: [],
+      //  anticontrols: [],
+      //  //components: 
+      //} as Gate,
+      ...([...Array(8)].map((_, i) => ({
+        ...GateH,
+        qubits: [i+1],
+        controls: [],
+        anticontrols: []
+      } as Gate))),
       {
         type: GateType.LARGE,
-        name: "QPE",
-        longName: "Quantum Phase Estimation",
-        color: "blue",
+        name: "U",
+        longName: "Hamiltonian Simulation",
+        color: "black",
+        qubits: [1,2,3,4,5,6,7,8,9,10],
+        controls: [],
+        anticontrols: [],
+        //components: 
+      } as Gate,
+      {
+        type: GateType.LARGE,
+        name: "QFT†",
+        longName: "Inverse Quantum Fourier Transform",
+        color: "green",
         qubits: [1,2,3,4,5,6,7,8],
         controls: [],
         anticontrols: [],
         //components: 
-      } as Gate
+      } as Gate,
+      
+      {
+        type: GateType.LARGE,
+        name: "AQE",
+        longName: "Ancilla Quantum Encoding",
+        color: "purple",
+        qubits: [0,1,2,3,4,5,6,7,8],
+        controls: [],
+        anticontrols: [],
+        //components: 
+      } as Gate,
+      {
+        type: GateType.LARGE,
+        name: "QPE†",
+        longName: "Inverse Quantum Phase Estimation",
+        color: "blue",
+        qubits: [1,2,3,4,5,6,7,8,9,10],
+        controls: [],
+        anticontrols: [],
+        //components: 
+      } as Gate,
     ]
   }
   
