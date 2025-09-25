@@ -127,6 +127,7 @@ type Gate = {
   qubits: Array<number>,
   controls: Array<number>,
   anticontrols: Array<number>,
+  inverse: boolean,
   
   // For a custom gate, the constituent circuit should be defined.
   components?: QuantumCircuit,
@@ -210,6 +211,7 @@ const Circuit = () => {
         qubits: [9,10],
         controls: [],
         anticontrols: [],
+        inverse: false,
         //components: 
       } as Gate,
       
@@ -227,7 +229,8 @@ const Circuit = () => {
         ...GateH,
         qubits: [i+1],
         controls: [],
-        anticontrols: []
+        anticontrols: [],
+        inverse: false,
       } as Gate))),
       {
         type: GateType.LARGE,
@@ -237,16 +240,18 @@ const Circuit = () => {
         qubits: [1,2,3,4,5,6,7,8,9,10],
         controls: [],
         anticontrols: [],
+        inverse: false,
         //components: 
       } as Gate,
       {
         type: GateType.LARGE,
-        name: "QFT†",
+        name: "QFT",
         longName: "Inverse Quantum Fourier Transform",
         color: "green",
         qubits: [1,2,3,4,5,6,7,8],
         controls: [],
         anticontrols: [],
+        inverse: true,
         //components: 
       } as Gate,
       
@@ -258,16 +263,18 @@ const Circuit = () => {
         qubits: [0,1,2,3,4,5,6,7,8],
         controls: [],
         anticontrols: [],
+        inverse: false,
         //components: 
       } as Gate,
       {
         type: GateType.LARGE,
-        name: "QPE†",
+        name: "QPE",
         longName: "Inverse Quantum Phase Estimation",
         color: "blue",
         qubits: [1,2,3,4,5,6,7,8,9,10],
         controls: [],
         anticontrols: [],
+        inverse: true,
         //components: 
       } as Gate,
     ]
@@ -396,7 +403,10 @@ const GateComponent = ({
       lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
       background: gate.color,
     }}
-  >{gate.name}</div>
+  >
+    {gate.name}
+    {gate.inverse ? (<sup>†</sup>) : <></>}
+  </div>
 }
 
 
