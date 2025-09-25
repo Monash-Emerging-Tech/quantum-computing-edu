@@ -13,6 +13,12 @@ import { useState, useEffect } from "react";
 import styles from "./circuit.module.css";
 
 /**
+ * Define a Unitary matrix datatype.
+ * Each entry in the 2D array is a complex number of the form [real, imaginary].
+ */
+type Unitary = Array<Array<[number, number]>>
+
+/**
  * Define the basic types of gates that exist
  */
 enum GateType {
@@ -29,6 +35,7 @@ type StandardGate = {
   name: string,
   longName: string,
   color: string,
+  unitary: Unitary
 }
 
 /**
@@ -38,43 +45,75 @@ const GateI: StandardGate = {
   type: GateType.SINGLE,
   name: "I",
   longName: "Identity",
-  color: "white"
+  color: "white",
+  unitary: [
+    [[1,0],[0,0]],
+    [[0,0],[1,0]]
+  ]
 }
 const GateX: StandardGate = {
   type: GateType.SINGLE,
   name: "X",
   longName: "Pauli X", // AKA Not
-  color: "blue"
+  color: "blue",
+  unitary: [
+    [[0,0],[1,0]],
+    [[1,0],[0,0]]
+  ]
 }
 const GateY: StandardGate = {
   type: GateType.SINGLE,
   name: "Y",
   longName: "Pauli Y",
-  color: "blue"
+  color: "blue",
+  unitary: [
+    [[0,0],[0,-1]],
+    [[0,1],[0,0]]
+  ]
 }
 const GateZ: StandardGate = {
   type: GateType.SINGLE,
   name: "Z",
   longName: "Pauli Z",
-  color: "blue"
+  color: "blue",
+  unitary: [
+    [[1,0],[0,0]],
+    [[0,0],[-1,0]]
+  ]
 }
 const GateH: StandardGate = {
   type: GateType.SINGLE,
   name: "H",
   longName: "Hadamard",
-  color: "red"
+  color: "red",
+  unitary: [
+    [[Math.SQRT1_2,0],[Math.SQRT1_2,0]],
+    [[Math.SQRT1_2,0],[-Math.SQRT1_2,0]]
+  ]
 }
 const GateSwap: StandardGate = {
   type: GateType.SWAP,
-  name: "Swap",
+  name: "SWAP",
   longName: "Swap",
-  color: "black"
+  color: "black",
+  unitary: [
+    [[1,0],[0,0],[0,0],[0,0]],
+    [[0,0],[0,0],[1,0],[0,0]],
+    [[0,0],[1,0],[0,0],[0,0]],
+    [[0,0],[0,0],[0,0],[1,0]]
+  ]
 }
 const GateCNOT: StandardGate = {
   type: GateType.SINGLE,
-  name: "Swap",
-  longName: "Swap",
-  color: "black"
+  name: "CX",
+  longName: "Controlled Not",
+  color: "black",
+  unitary: [
+    [[1,0],[0,0],[0,0],[0,0]],
+    [[0,0],[1,0],[0,0],[0,0]],
+    [[0,0],[0,0],[0,0],[1,0]],
+    [[0,0],[0,0],[1,0],[0,0]]
+  ]
 }
 
 /**
@@ -114,7 +153,7 @@ type QuantumCircuit = {
     qubits: Array<number>,
   }>,
   gates?: Array<Gate>,
-  unitary?: Array<Array<number>>
+  unitary?: Unitary
 }
 
 
