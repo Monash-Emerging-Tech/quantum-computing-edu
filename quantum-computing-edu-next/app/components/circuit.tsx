@@ -212,7 +212,7 @@ const Circuit = () => {
         type: GateType.LARGE,
         name: "Ψ",
         longName: "Encode input vector",
-        color: "grey",
+        color: "black",
         qubits: [9,10],
         controls: [],
         anticontrols: [],
@@ -222,7 +222,7 @@ const Circuit = () => {
         type: GateType.LARGE,
         name: "QPE",
         longName: "Quantum Phase Estimation",
-        color: "grey",
+        color: "blue",
         qubits: [1,2,3,4,5,6,7,8],
         controls: [],
         anticontrols: [],
@@ -344,6 +344,7 @@ const GateComponent = ({
       left: (timePosition * gateMargin * 3 + 1) + "em",
       height: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
       lineHeight: ((gateSize - 1) * lineSeparation * 2 + gateWidth) + "em",
+      background: gate.color,
     }}
   >{gate.name}</div>
 }
