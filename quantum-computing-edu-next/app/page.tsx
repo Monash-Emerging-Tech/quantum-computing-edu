@@ -48,7 +48,7 @@ const CircuitPage = () =>
       
       <Circuit />
       
-      <div id="circuit-information-container">
+      <div id="circuit-information-container" className={styles["circuit-information-container"]}>
         <MarkdownHHL />
       </div>
     </div>
