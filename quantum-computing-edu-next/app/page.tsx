@@ -14,6 +14,7 @@ import styles from "./page.module.css";
 
 import Circuit from "./components/circuit";
 
+import HHLCircuitData from './circuit-pages/hhl-circuit';
 import MarkdownHHL from './circuit-pages/hhl.mdx';
 
 // Import MathJax dynamically to avoid hydration errors
@@ -31,6 +32,8 @@ export default function Home() {
   return <CircuitPage />;
 }
 
+
+
 /**
  * Create the interactive circuit page
  * @returns JSX content for the circuit page
@@ -46,7 +49,7 @@ const CircuitPage = () =>
         Harrow-Hassidim-Lloyd Algorithm
       </h2>
       
-      <Circuit />
+      <Circuit data={HHLCircuitData}/>
       
       <div id="circuit-information-container" className={styles["circuit-information-container"]}>
         <MarkdownHHL />
