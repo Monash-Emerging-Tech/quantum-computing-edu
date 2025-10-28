@@ -2,7 +2,8 @@
 
 .circuit-page-container {
   margin: auto;
-  max-width: 100rem;
+  /*max-width: 100rem;*/
+  max-width: 80rem;
 }
 
 .page-header {
