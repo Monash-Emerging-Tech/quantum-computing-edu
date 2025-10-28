@@ -1,19 +1,36 @@
 ### Algorithm Overview
 
-The Harrow-Hassidim-Lloyd Algorithm inverts a Hermitian matrix, <code>A</code>,
-and creates a quantum state corresponding to the solution of <code>Ax = b</code>,
-where A and b are known.
+The HHL algorithm is a quantum circuit that inverts a Hermitian matrix, $A$,
+and encodes the dot product of the inverted matrix and a vector $\vec{b}$ into a
+quantum state, hence finding the solution, $\vec{x}$, to the linear system of
+equations $A\vec{x} = \vec{b}$.
 
 
 ### Circuit Explanation
 
-The circuit requires oracular access to the Hermitian matrix <code>A</code>.
-For current implementations, the matrix is converted to a unitary operator,
-<code>U</code>, which is used during construction of the circuit.
+The HHL circuit spans three quantum registers: the state register, with
+$n_{b} = \log_{2} N$ qubits;
+the eigenvalue register, with $n_{l}$ qubits;
+and an auxiliary register with a single qubit, also known as the ancilla qubit.
+The state register is initialised to encode $$\vec{b}$$ into a quantum state $$\ket{b}$$.
+All other qubits are initialised to $$\ket{0}$$.
+The precision of the algorithm is defined by $$n_{l}$$, as the eigenvalues are encoded in
+binary form into the eigenvalue register.
 
-After construction of the main circuit, the qubits in the <code>state</code>
-register are initialised using the input vector <code>b</code>.
-All other qubits are initialised to <code>|0⟩</code>.
+Let $$\left\lvert u_{j} \right\rangle$$ be the eigenvector basis of $$A$$, such that
+$$A \left\lvert u_{j} \right\rangle = \lambda_{j} \left\lvert u_{j} \right\rangle$$,
+where $$\lambda_{j}$$ are the eigenvalues of $$A$$.
+The HHL algorithm uses Quantum Phase Estimation (QPE) as a subroutine to find the
+eigenvalues, $$\lambda_{j}$$, of the given matrix $$A$$.
+
+It then uses controlled rotations to invert the eigenvalues in a process called
+Ancilla Quantum Encoding (AQE), and uses inverse QPE to uncompute the inverted
+eigenvalues, such that the final quantum state encodes $$\vec{x}$$ in the amplitudes of
+the quantum state.
+At the end of the algorithm, an observable constructed for the specific application
+is applied to the state to learn some information from it.
+If the full solution, $$\vec{x}$$, to the equation $$A\vec{x} = \vec{b}$$ is needed,
+then a measurement of all qubits from many executions of the circuit is required.
 
 
 ### Mathematical Proofs
