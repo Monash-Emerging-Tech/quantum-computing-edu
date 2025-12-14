@@ -15,6 +15,18 @@ import { Unitary, StandardGate, Gate, QuantumCircuit, GateType, GateI, GateX, Ga
 
 import styles from "./circuit.module.css";
 
+// Import info bubbles
+import GateInfoBubble from "./info_bubbles";
+
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeading,
+  PopoverClose
+} from "./popover";
+
 
 
 /**
@@ -177,20 +189,26 @@ const GateComponent = ({
   
   const [gateWidth, gateHeight] = calculateGateDimensions(gate, qubitPositions);
   
-  return <div
-    className={styles["circuit-gate"]}
-    style={{
-      top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
-      left: (timePosition * gateMargin * 3 + 1) + "em",
-      height: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
-      width: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1)) + "em",
-      lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
-      background: gate.color,
-    }}
-  >
-    {gate.name != "Barrier" ? gate.name : <></>}
-    {gate.inverse ? (<sup>†</sup>) : <></>}
-  </div>
+  return <Popover>
+    <PopoverTrigger asChild={true}>
+      <div
+        className={styles["circuit-gate"]}
+        style={{
+          top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
+          left: (timePosition * gateMargin * 3 + 1) + "em",
+          height: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
+          width: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1)) + "em",
+          lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
+          background: gate.color,
+        }}
+      >
+        {/*<GateInfoBubble data={gate}/>*/}
+        {gate.name != "Barrier" ? gate.name : <></>}
+        {gate.inverse ? (<sup>†</sup>) : <></>}
+      </div>
+    </PopoverTrigger>
+    <GateInfoBubble gate={gate}/>
+  </Popover>
 }
 
 

@@ -1,0 +1,31 @@
+/*@import "tailwindcss";*/
+
+.info-bubble {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  
+  background: white;
+  border: 1px solid red;
+  
+  padding: 0.2em 0.5em;
+  
+  height: 20em;
+  
+  /*display: inline-block;*/
+  /*display: none;*/
+  
+  /*z-index: 100;*/
+}
+
+.gate-info-bubble {
+  background-color: black;
+  box-shadow: 0 2px 4px rgba(0, 10, 20, 0.1);
+  border: 1px solid #ddd;
+  font-size: 90%;
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: max-content;
+  max-width: calc(100vw - 10px);
+}

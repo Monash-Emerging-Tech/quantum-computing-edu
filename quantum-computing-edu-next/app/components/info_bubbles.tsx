@@ -10,16 +10,27 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-//import styles from "./info_bubbles.module.css";
+import { Unitary, StandardGate, Gate, QuantumCircuit, GateType, GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "./circuit-types";
+
+import {
+  PopoverContent,
+  PopoverDescription,
+  PopoverHeading,
+  PopoverClose
+} from "./popover";
+
+import styles from "./info-bubbles.module.css";
 
 /**
  * Create an information bubble
  * @returns JSX information bubble element
  */
-const InfoBubble = () => {
-  return <div>
-    
-  </div>;
+const GateInfoBubble = ({gate}: {gate: Gate}) => {
+  return <PopoverContent className={styles["gate-info-bubble"]}>
+    <PopoverHeading>Gate: {gate.longName}</PopoverHeading>
+    <PopoverDescription>Description of this gate goes here.</PopoverDescription>
+    {/*<PopoverClose>Close</PopoverClose>*/}
+  </PopoverContent>;
 }
 
-export default InfoBubble;
+export default GateInfoBubble;
