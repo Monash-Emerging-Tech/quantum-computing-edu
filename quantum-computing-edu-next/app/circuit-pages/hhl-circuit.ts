@@ -3,7 +3,10 @@
  * MNET 2025
  */
 
-import { Unitary, StandardGate, Gate, QuantumCircuit, GateType, GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "../components/circuit-types";
+import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "../components/circuit-types";
+import { GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "../circuit-data/standard-gates";
+import { QFT } from "../circuit-data/qft";
+import { QPE } from "../circuit-data/qpe";
 
 const HHLCircuitData: QuantumCircuit = {
   name: "HHL",
@@ -62,16 +65,7 @@ const HHLCircuitData: QuantumCircuit = {
       inverse: false,
     } as Gate,
     
-    //{
-    //  type: GateType.LARGE,
-    //  name: "QPE",
-    //  longName: "Quantum Phase Estimation",
-    //  color: "blue",
-    //  qubits: [1,2,3,4,5,6,7,8,9,10],
-    //  controls: [],
-    //  anticontrols: [],
-    //  //components: 
-    //} as Gate,
+    //QPE([1,2,3,4,5,6,7,8], [9,10], false),
     ...([...Array(8)].map((_, i) => ({
       ...GateH,
       qubits: [i+1],
@@ -90,17 +84,7 @@ const HHLCircuitData: QuantumCircuit = {
       inverse: false,
       //components: 
     } as Gate,
-    {
-      type: GateType.LARGE,
-      name: "QFT",
-      longName: "Inverse Quantum Fourier Transform",
-      color: "green",
-      qubits: [1,2,3,4,5,6,7,8],
-      controls: [],
-      anticontrols: [],
-      inverse: true,
-      //components: 
-    } as Gate,
+    QFT([1,2,3,4,5,6,7,8], true),
     
     {
       ...Barrier,
@@ -130,17 +114,7 @@ const HHLCircuitData: QuantumCircuit = {
       inverse: false,
     } as Gate,
     
-    {
-      type: GateType.LARGE,
-      name: "QPE",
-      longName: "Inverse Quantum Phase Estimation",
-      color: "blue",
-      qubits: [1,2,3,4,5,6,7,8,9,10],
-      controls: [],
-      anticontrols: [],
-      inverse: true,
-      //components: 
-    } as Gate,
+    QPE([1,2,3,4,5,6,7,8], [9,10], true),
   ]
 }
 

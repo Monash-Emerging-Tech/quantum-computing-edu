@@ -10,7 +10,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { Unitary, StandardGate, Gate, QuantumCircuit, GateType, GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "./circuit-types";
+import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "./circuit-types";
 
 import {
   PopoverContent,

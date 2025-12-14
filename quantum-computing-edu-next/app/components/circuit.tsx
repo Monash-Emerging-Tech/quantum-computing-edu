@@ -11,7 +11,8 @@ import { useState, useEffect } from "react";
 //import Link from "next/link";
 
 // Import types and basic gates
-import { Unitary, StandardGate, Gate, QuantumCircuit, GateType, GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "./circuit-types";
+import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "../components/circuit-types";
+//import { GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "../circuit-data/standard-gates";
 
 import styles from "./circuit.module.css";
 
