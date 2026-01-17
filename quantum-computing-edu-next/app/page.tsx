@@ -14,8 +14,8 @@ import styles from "./page.module.css";
 
 import Circuit from "./components/circuit";
 
-import HHLCircuitData from './circuit-pages/hhl-circuit';
-import MarkdownHHL from './circuit-pages/hhl.mdx';
+import HHLCircuitData from './circuit-data/hhl';
+import MarkdownHHL from './circuit-data/page-information/hhl.mdx';
 
 // Import MathJax dynamically to avoid hydration errors
 const MathJaxContext = dynamic(

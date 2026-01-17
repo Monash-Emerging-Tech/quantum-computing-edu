@@ -1,6 +1,8 @@
 /**
  * Interactive quantum computing education web interface
  * MNET 2025
+ * 
+ * Harrow-Hassidim-Lloyd algorithm.
  */
 
 import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "../components/circuit-types";
@@ -8,6 +10,9 @@ import { GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "
 import { QFT } from "../circuit-data/qft";
 import { QPE } from "../circuit-data/qpe";
 
+/**
+ * Define an example HHL circuit
+ */
 const HHLCircuitData: QuantumCircuit = {
   name: "HHL",
   desc: "The Harrow-Hassidim-Lloyd algorithm ...",
