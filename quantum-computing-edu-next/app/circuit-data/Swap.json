@@ -1,0 +1,13 @@
+{
+  "gate_id": "swap",
+  "full_name": "Swap",
+  "display_name": "SWAP",
+  "color": "black",
+  "arity": 2,
+  "unitary": [
+    [1,0,0,0],
+    [0,0,1,0],
+    [0,1,0,0],
+    [0,0,0,1]
+  ]
+}

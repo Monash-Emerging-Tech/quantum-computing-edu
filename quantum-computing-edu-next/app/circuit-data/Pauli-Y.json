@@ -1,0 +1,11 @@
+{
+  "gate_id": "y",
+  "full_name": "Pauli Y",
+  "display_name": "Y",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    [0, "-i"],
+    ["i", 0]
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "gate_id": "hadamard",
+  "full_name": "Hadamard",
+  "display_name": "H",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    ["1/sqrt(2)", "1/sqrt(2)"],
+    ["1/sqrt(2)", "-1/sqrt(2)"]
+  ]
+}

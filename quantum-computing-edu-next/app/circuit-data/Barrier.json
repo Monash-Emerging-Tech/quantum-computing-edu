@@ -1,0 +1,10 @@
+{
+  "gate_id": "barrier",
+  "full_name": "Barrier",
+  "display_name": "",
+  "arity": 1,
+  "unitary": [
+    [1,0],
+    [0,1]
+  ]
+}

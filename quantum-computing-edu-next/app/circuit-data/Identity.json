@@ -1,0 +1,11 @@
+{
+  "gate_id": "i",
+  "full_name": "Identity",
+  "display_name": "I",
+  "color": "white",
+  "arity": 1,
+  "unitary": [
+    [1,0],
+    [0,1]
+  ]
+}
