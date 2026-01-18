@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Monash-Emerging-Tech/quantum-computing-edu/refs/heads/main/schemas/quantum-circuit-schema.json",
+  "title": "Quantum Circuit",
+  "type": "object",
+  "required": ["circuit_id", "name", "registers", "operations"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0"
+    },
+    
+    "circuit_id": {
+      "type": "string",
+      "description": "Unique circuit identifier"
+    },
+    
+    "full_name": {
+      "type": "string",
+      "description": "Name of the circuit"
+    },
+    
+    "display_name": {
+      "type": "string",
+      "description": "Short name for the circuit"
+    },
+    
+    "registers": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/register" }
+    },
+    
+    "operations": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/operation" }
+    },
+    
+    "documentation_file": {
+      "type": "string"
+    }
+  },
+  
+  "$defs": {
+    "qubit": {
+      "type": "integer",
+      "minimum": 0
+    },
+    
+    "operation": {
+      "type": "object",
+      "oneOf": [
+        { "required": ["id", "gate_id", "qubits"] },
+        { "required": ["id", "custom_gate", "qubits"] }
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique operation identifier"
+        },
+        
+        "gate_id": {
+          "type": "string",
+          "description": "The ID of the gate that makes up this operation"
+        },
+        
+        "custom_gate": {
+          "description": "Definition of a custom gate",
+          "$ref": "https://raw.githubusercontent.com/Monash-Emerging-Tech/quantum-computing-edu/refs/heads/main/schemas/quantum-gate-schema.json"
+        },
+        
+        "qubits": {
+          "type": "array",
+          "description": "Qubits operated upon by this gate (in the correct order to match the gate)",
+          "items": { "$ref": "#/$defs/qubit" },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        
+        "controls": {
+          "type": "array",
+          "description": "Control qubits",
+          "items": { "$ref": "#/$defs/qubit" },
+          "uniqueItems": true,
+          "minItems": 1,
+          "default": []
+        },
+        
+        "anticontrols": {
+          "type": "array",
+          "description": "Anti-control qubits",
+          "items": { "$ref": "#/$defs/qubit" },
+          "uniqueItems": true,
+          "minItems": 1,
+          "default": []
+        },
+        
+        "inverse": {
+          "type": "boolean",
+          "description": "Whether the gate is inverted"
+        }
+      }
+    },
+    
+    "register": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        
+        "description": { "type": "string" },
+        
+        "qubits": {
+          "type": "array",
+          "description": "Qubits included in this register",
+          "items": { "$ref": "#/$defs/qubit" },
+          "uniqueItems": true,
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

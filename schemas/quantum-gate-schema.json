@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Monash-Emerging-Tech/quantum-computing-edu/refs/heads/main/schemas/quantum-gate-schema.json",
+  "title": "Quantum Gate",
+  "type": "object",
+  "oneOf": [
+    { "required": ["gate_id", "full_name", "display_name", "arity", "unitary"] },
+    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit"] }
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "1.0"
+    },
+    
+    "gate_id": {
+      "type": "string",
+      "description": "Unique gate identifier"
+    },
+    
+    "full_name": {
+      "type": "string",
+      "description": "Name of the gate"
+    },
+    
+    "display_name": {
+      "type": "string",
+      "description": "Symbols to display on the gate in the interactive view"
+    },
+    
+    "color": {
+      "type": "string",
+      "description": "Color of the gate in the interactive view"
+    },
+    
+    "arity": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of qubits that this gate acts upon"
+    },
+    
+    "unitary": {
+      "description": "Unitary matrix representation",
+      "$ref": "#/$defs/unitaryMatrix"
+    },
+    
+    "subcircuit": {
+      "description": "Circuit representation",
+      "$ref": "https://raw.githubusercontent.com/Monash-Emerging-Tech/quantum-computing-edu/refs/heads/main/schemas/quantum-circuit-schema.json"
+    },
+    
+    "documentation_file": {
+      "type": "string",
+      "description": "File path of the accompanying documentation"
+    }
+  },
+  
+  "$defs": {
+    "complex": {
+      "type": "object",
+      "required": ["re", "im"],
+      "properties": {
+        "re": { "type": "number" },
+        "im": { "type": "number" }
+      }
+    },
+    
+    "unitaryMatrix": {
+      "type": "object",
+      "required": ["format", "matrix"],
+      "properties": {
+        "format": {
+          "type": "string",
+          "enum": ["row-major"]
+        },
+        "matrix": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                { "type": "number" },
+                { "$ref": "#/$defs/complex" }
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}
