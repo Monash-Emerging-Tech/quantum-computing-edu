@@ -36,7 +36,7 @@
     "arity": {
       "type": "integer",
       "minimum": 1,
-      "description": "Number of qubits that this gate acts upon"
+      "description": "Number of qubits that this gate acts upon. It must agree with the unitary or subcircuit definition."
     },
     
     "unitary": {
@@ -56,36 +56,24 @@
   },
   
   "$defs": {
-    "complex": {
-      "type": "object",
-      "required": ["re", "im"],
-      "properties": {
-        "re": { "type": "number" },
-        "im": { "type": "number" }
-      }
+    "math_expr": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Mathematical expression that can be parsed by MathJS. See https://mathjs.org/docs/expressions/syntax.html."
     },
     
     "unitaryMatrix": {
-      "type": "object",
-      "required": ["format", "matrix"],
-      "properties": {
-        "format": {
-          "type": "string",
-          "enum": ["row-major"]
-        },
-        "matrix": {
-          "type": "array",
-          "items": {
-            "type": "array",
-            "items": {
-              "oneOf": [
-                { "type": "number" },
-                { "$ref": "#/$defs/complex" }
-              ]
-            }
-          }
+      "type": "array",
+      "items": {
+        "type": "array",
+        "items": {
+          "oneOf": [
+            { "type": "number" },
+            { "$ref": "#/$defs/math_expr" }
+          ]
         }
-      }
+      },
+      "description": "Unitary matrix in row-major format"
     }
   }
 }
