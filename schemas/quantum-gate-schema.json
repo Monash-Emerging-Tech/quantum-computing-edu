@@ -16,6 +16,7 @@
     
     "gate_id": {
       "type": "string",
+      "minLength": 1,
       "description": "Unique gate identifier"
     },
     
@@ -52,6 +53,7 @@
     
     "subcircuit_id": {
       "type": "string",
+      "minLength": 1,
       "description": "The ID of the circuit that defines this gate"
     },
     
