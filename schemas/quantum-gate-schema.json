@@ -5,7 +5,8 @@
   "type": "object",
   "oneOf": [
     { "required": ["gate_id", "full_name", "display_name", "arity", "unitary"] },
-    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit"] }
+    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit"] },
+    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit_id"] }
   ],
   "properties": {
     "schema_version": {
@@ -47,6 +48,11 @@
     "subcircuit": {
       "description": "Circuit representation",
       "$ref": "https://raw.githubusercontent.com/Monash-Emerging-Tech/quantum-computing-edu/refs/heads/main/schemas/quantum-circuit-schema.json"
+    },
+    
+    "subcircuit_id": {
+      "type": "string",
+      "description": "The ID of the circuit that defines this gate"
     },
     
     "documentation_file": {
