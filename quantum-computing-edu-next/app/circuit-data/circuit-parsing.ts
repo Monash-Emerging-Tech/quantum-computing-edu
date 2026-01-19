@@ -139,13 +139,16 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
     row => row.map(
       cell => {
         if (typeof cell == "number") {
+          // Real numbers are easy
           return [cell,0] as [number, number];
+          
         } else if (typeof cell == "string") {
+          // Extract the real and imaginary floating-point values from the mathematical expression
           let full_number = math.evaluate(cell);
           let real_part = math.re(full_number);
           let imag_part = math.im(full_number);
           if (math.typeOf(real_part) == "number" && math.typeOf(imag_part) == "number") {
-            return [real_part.done(), imag_part.done()] as [number, number];
+            return [real_part.valueOf(), imag_part.valueOf()] as [number, number];
           } else {
             throw new Error("Expression '"+cell+"' in matrix cell does not evaluate to a single complex number.");
           }
@@ -162,8 +165,10 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
       row => row.map(
         cell => {
           if (typeof cell == "number") {
+            // Keep numbers as numbers
             return cell;
           } else if (typeof cell == "string") {
+            // Evaluate the string expression and leave it as an expression
             return math.evaluate(cell);
           } else {
             throw new Error("Matrix cell is not of the correct type");

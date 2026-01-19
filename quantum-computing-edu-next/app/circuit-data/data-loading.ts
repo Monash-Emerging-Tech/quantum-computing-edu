@@ -21,8 +21,8 @@ const loadGate = (data_file_name: string) => {
   }
   
   // Read the JSON file and parse it
-  //return parseGate(JSON.parse(fs.readFileSync(file_path).toString("utf8")));
-  return JSON.parse(fs.readFileSync(file_path).toString("utf8"));
+  return parseGate(JSON.parse(fs.readFileSync(file_path).toString("utf8")));
+  //return JSON.parse(fs.readFileSync(file_path).toString("utf8"));
 }
 
 export { gateDataDir, loadGate };
