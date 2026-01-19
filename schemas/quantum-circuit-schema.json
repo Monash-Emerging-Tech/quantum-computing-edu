@@ -49,15 +49,10 @@
     "operation": {
       "type": "object",
       "oneOf": [
-        { "required": ["id", "gate_id", "qubits"] },
-        { "required": ["id", "custom_gate", "qubits"] }
+        { "required": ["gate_id", "qubits"] },
+        { "required": ["custom_gate", "qubits"] }
       ],
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique operation identifier"
-        },
-        
         "gate_id": {
           "type": "string",
           "description": "The ID of the gate that makes up this operation"
