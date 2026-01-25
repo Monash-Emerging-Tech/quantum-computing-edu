@@ -3,18 +3,23 @@
  * MNET 2025
  * 
  * Parse gate and circuit JSON data that follows either the quantum-gate-schema.json and quantum-circuit-schema.json schemas.
+ * Includes type definitions for common quantum computing types.
  */
 
 import { create, all } from 'mathjs';
 
 const math = create(all, { });
 
-//import { Unitary, StandardGate, GateType } from "../components/circuit-types";
 
 
-
+/**
+ * The structure of a matrix in JSON data
+ */
 type MatrixData = (number | string)[][];
 
+/**
+ * The structure of quantum gate JSON data
+ */
 type GateData = {
   gate_id: string,
   full_name: string,
@@ -27,12 +32,18 @@ type GateData = {
   documentation_file?: string
 };
 
+/**
+ * The structure of quantum registers in quantum circuit JSON data
+ */
 type RegisterData = {
   name: string,
   description: string,
   qubits: number[]
 };
 
+/**
+ * The structure of operations in quantum circuit JSON data
+ */
 type OperationData = {
   gate_id?: string,
   custom_gate?: GateData,
@@ -42,6 +53,9 @@ type OperationData = {
   inverse: boolean
 };
 
+/**
+ * The structure of quantum circuit JSON data
+ */
 type QuantumCircuitData = {
   circuit_id: string,
   full_name: string,
@@ -53,9 +67,18 @@ type QuantumCircuitData = {
 
 
 
+/**
+ * Unitary matrix stored in Math JS's Matrix format, containing expressions
+ */
 type ExpressionUnitary = math.Matrix<math.MathNumericType>;
+/**
+ * Complex-numbered unitary matrix, containing floating-point values
+ */
 type ComplexFloatUnitary = [number, number][][];
 
+/**
+ * The structure of a quantum gate (independent of a quantum circuit)
+ */
 type Gate = {
   gate_id: string,
   full_name: string,
@@ -68,8 +91,14 @@ type Gate = {
   documentation_file?: string
 };
 
+/**
+ * The structure of a quantum register
+ */
 type Register = RegisterData;
 
+/**
+ * The structure of a quantum operation (a gate within a quantum circuit)
+ */
 type Operation = {
   gate: Gate,
   qubits: number[],
@@ -78,6 +107,9 @@ type Operation = {
   inverse: boolean
 };
 
+/**
+ * The structure of a quantum circuit
+ */
 type QuantumCircuit = {
   circuit_id: string,
   full_name: string,
@@ -87,7 +119,13 @@ type QuantumCircuit = {
   documentation_file?: string
 };
 
+/**
+ * Map gate ids to Gate object instances
+ */
 type GateMap = Map<string, Gate>;
+/**
+ * Map circuit ids to QuantumCircuit object instances
+ */
 type CircuitMap = Map<string, QuantumCircuit>;
 
 
