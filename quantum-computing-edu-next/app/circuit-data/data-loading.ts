@@ -10,7 +10,7 @@ import { cache } from "react";
 import fs from "fs";
 import path from "path";
 
-import { parseGate, parseCircuit, Gate, QuantumCircuit, GateData, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError, QuantumCircuitData } from '@/app/circuit-data/circuit-parsing';
+import { parseGate, parseCircuit, Gate, QuantumCircuit, GateData, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError, QuantumCircuitData, GateMap, CircuitMap } from '@/app/circuit-data/circuit-parsing';
 
 const gateDataDir = path.join(process.cwd(), "app/circuit-data/gates/");
 const circuitDataDir = path.join(process.cwd(), "app/circuit-data/circuits/");
@@ -56,7 +56,7 @@ const loadDataFile = (data_file_name: string, directory: string): any => {
  * 
  * @returns 
  */
-const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCircuit>] => {
+const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
   const gate_data = fs.readdirSync(gateDataDir)
     .filter(file => file.endsWith(".json"))
     .toSorted()
@@ -138,40 +138,4 @@ const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCi
   return [gate_map, circuit_map];
 });
 
-/**
- * 
- * @returns 
- */
-const loadAllGates = cache((): {filename: string, gate: Gate}[] => {
-  const jsonFiles = fs.readdirSync(gateDataDir)
-    .filter(file => file.endsWith(".json"))
-    .toSorted()
-    .toReversed();
-  
-  const gates = jsonFiles.map(
-    file => ({
-      filename: file.replace(".json", ""),
-      gate: loadGate(file)
-    })
-  );
-  
-  return gates;
-});
-
-/**
- * 
- * @param gates 
- * @returns 
- */
-const createGateMap = (gates: {filename: string, gate: Gate}[]): Map<string, Gate> => {
-  let gate_map = new Map<string, Gate>();
-  
-  // Add all gates to the map
-  gates.forEach(({gate}: {filename: string, gate: Gate}) => {
-    gate_map.set(gate.gate_id, gate);
-  });
-  
-  return gate_map;
-}
-
-export { gateDataDir, loadGate, loadGatesAndCircuits };
+export { gateDataDir, circuitDataDir, loadGate, loadGatesAndCircuits };
