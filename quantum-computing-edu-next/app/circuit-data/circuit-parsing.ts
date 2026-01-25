@@ -26,19 +26,28 @@ type GateData = {
   documentation_file?: string
 };
 
+type RegisterData = {
+  name: string,
+  description: string,
+  qubits: number[]
+};
+
 type OperationData = {
   gate_id?: string,
   custom_gate?: GateData,
-  qubits: Array<number>,
-  controls: Array<number>,
-  anticontrols: Array<number>,
+  qubits: number[],
+  controls: number[],
+  anticontrols: number[],
   inverse: boolean
 };
 
 type QuantumCircuitData = {
-  
-  
-  operations: OperationData[]
+  circuit_id: string,
+  full_name: string,
+  display_name: string,
+  registers: RegisterData[],
+  operations: OperationData[],
+  documentation_file?: string
 };
 
 
@@ -58,17 +67,73 @@ type Gate = {
   documentation_file?: string
 };
 
+type Register = RegisterData;
+
 type Operation = {
   gate: Gate,
-  qubits: Array<number>,
-  controls: Array<number>,
-  anticontrols: Array<number>,
+  qubits: number[],
+  controls: number[],
+  anticontrols: number[],
   inverse: boolean
 };
 
 type QuantumCircuit = {
-  
+  circuit_id: string,
+  full_name: string,
+  display_name: string,
+  registers: Register[],
+  operations: Operation[],
+  documentation_file?: string
 };
+
+type GateMap = Map<string, Gate>;
+type CircuitMap = Map<string, QuantumCircuit>;
+
+
+
+/**
+ * Generic parsing error triggered by the gate parser
+ */
+class GateParsingError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "GateParsingError";
+    Object.setPrototypeOf(this, GateParsingError.prototype);
+  }
+}
+
+/**
+ * Generic parsing error triggered by the circuit parser
+ */
+class CircuitParsingError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "CircuitParsingError";
+    Object.setPrototypeOf(this, CircuitParsingError.prototype);
+  }
+}
+
+/**
+ * Error triggered by the gate parser if a subcircuit id is not found
+ */
+class CircuitNotFoundError extends GateParsingError {
+  constructor(message: string) {
+    super(message);
+    this.name = "CircuitNotFoundError";
+    Object.setPrototypeOf(this, CircuitNotFoundError.prototype);
+  }
+}
+
+/**
+ * Error triggered by the circuit parser if a gate id in an operation is not found
+ */
+class GateNotFoundError extends CircuitParsingError {
+  constructor(message: string) {
+    super(message);
+    this.name = "GateNotFoundError";
+    Object.setPrototypeOf(this, GateNotFoundError.prototype);
+  }
+}
 
 
 
@@ -77,30 +142,30 @@ type QuantumCircuit = {
  * @param json_data Quantum gate data that has been converted from JSON to object form with no special parsing.
  * @returns 
  */
-const parseGate = (json_data: GateData): Gate => {
-  let object = {
-    gate_id: json_data.gate_id as string,
-    full_name: json_data.full_name as string,
-    display_name: json_data.display_name as string,
-    color: json_data?.color,
-    arity: json_data.arity as number,
-    documentation_file: json_data?.documentation_file
+const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitMap): Gate => {
+  let gate_base_obj = {
+    gate_id: gate_data.gate_id,
+    full_name: gate_data.full_name,
+    display_name: gate_data.display_name,
+    color: gate_data?.color,
+    arity: gate_data.arity,
+    documentation_file: gate_data?.documentation_file
   };
   
-  if (json_data.unitary) {
-    let [unitary_expr, unitary_float] = parseUnitary(json_data.unitary);
+  if (gate_data.unitary) {
+    let [unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
     return {
-      ...object,
+      ...gate_base_obj,
       unitary: unitary_expr,
       unitary_float: unitary_float
     } as Gate;
-  } else if (json_data.subcircuit) {
+  } else if (gate_data.subcircuit) {
     return {
-      ...object,
-      subcircuit: parseCircuit(json_data.subcircuit)
+      ...gate_base_obj,
+      subcircuit: parseCircuit(gate_data.subcircuit, gate_map, circuit_map)
     } as Gate;
   } else {
-    throw new Error("JSON data for gate "+json_data.gate_id+" does not have a unitary or subcircuit definition.");
+    throw new GateParsingError("JSON data for gate "+gate_data.gate_id+" does not have a unitary or subcircuit definition.");
   }
 }
 
@@ -109,10 +174,32 @@ const parseGate = (json_data: GateData): Gate => {
  * @param circuit_data 
  * @returns 
  */
-const parseCircuit = (circuit_data: QuantumCircuitData): QuantumCircuit => {
+const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circuit_map: CircuitMap): QuantumCircuit => {
+  let circuit_base_obj = {
+    circuit_id: circuit_data.circuit_id,
+    full_name: circuit_data.full_name,
+    display_name: circuit_data.display_name,
+    registers: circuit_data.registers.map((register_data) => register_data as Register),
+    operations: circuit_data.operations.map((operation_data) => {
+      if (operation_data.gate_id) {
+        if (operation_data.gate_id in gate_map) {
+          
+        } else {
+          throw new GateNotFoundError("Gate with id "+operation_data.gate_id+" does not exist in the given gate map.");
+        }
+      } else if (operation_data.custom_gate) {
+        
+      } else {
+        throw new CircuitParsingError("JSON data for circuit "+circuit_data.circuit_id+" contains an operation with no defined gate.");
+      }
+      
+      return operation_data as Operation
+    }),
+    documentation_file: circuit_data?.documentation_file
+  };
   
-  throw new Error();
-  //return {};
+  //throw new Error();
+  return circuit_base_obj;
 }
 
 /**
@@ -124,13 +211,13 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
   // Verify matrix is square and has a size equal to 2^n, where n ≥ 1.
   let size = matrix_data.length;
   if (size <= 1 || Math.log2(size) % 1 != 0) {
-    throw new Error("Given matrix data doesn't have valid dimensions. Must be a square matrix with width equal to 2^n, where n is an integer >= 1.");
+    throw new GateParsingError("Given matrix data doesn't have valid dimensions. Must be a square matrix with width equal to 2^n, where n is an integer >= 1.");
   }
   
   // Verify the matrix is square
   for (let i = 0; i < size; i ++) {
     if (matrix_data[i].length != size) {
-      throw new Error("Given array data is not a square matrix.");
+      throw new GateParsingError("Given array data is not a square matrix.");
     }
   }
   
@@ -150,10 +237,10 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
           if (math.typeOf(real_part) == "number" && math.typeOf(imag_part) == "number") {
             return [real_part.valueOf(), imag_part.valueOf()] as [number, number];
           } else {
-            throw new Error("Expression '"+cell+"' in matrix cell does not evaluate to a single complex number.");
+            throw new GateParsingError("Expression '"+cell+"' in matrix cell does not evaluate to a single complex number.");
           }
         } else {
-          throw new Error("Matrix cell is not of the correct type");
+          throw new GateParsingError("Matrix cell is not of the correct type");
         }
       }
     )
@@ -171,7 +258,7 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
             // Evaluate the string expression and leave it as an expression
             return math.evaluate(cell);
           } else {
-            throw new Error("Matrix cell is not of the correct type");
+            throw new GateParsingError("Matrix cell is not of the correct type");
           }
         }
       )
@@ -180,10 +267,11 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
   
   // Ensure the matrix is unitary
   if (!math.deepEqual(math.multiply(math.inv(expression_unitary), math.transpose(math.conj(expression_unitary))), math.identity(size))) {
-    throw new Error("Matrix is not unitary");
+    throw new GateParsingError("Matrix is not unitary");
   }
   
   return [expression_unitary, complex_unitary];
 }
 
+export type { Gate, QuantumCircuit };
 export { parseGate, parseCircuit };
