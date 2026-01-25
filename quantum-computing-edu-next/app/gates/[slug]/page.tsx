@@ -6,7 +6,7 @@
  */
 
 import { GateMap } from '@/app/circuit-data/circuit-parsing';
-import { loadGate, loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 //export async function generateStaticParams() {

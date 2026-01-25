@@ -20,25 +20,6 @@ const circuitDataDir = path.join(process.cwd(), "app/circuit-data/circuits/");
  * @param data_file_name 
  * @returns 
  */
-const loadGate = (data_file_name: string) => {
-  // Construct file path to gate JSON file corresponding to the slug
-  const file_path = path.join(gateDataDir, data_file_name);
-  
-  // Check if the file exists
-  if (!fs.existsSync(file_path)) {
-    throw new Error("Given slug name does not point to a JSON file.");
-  }
-  
-  // Read the JSON file and parse it
-  return parseGate(JSON.parse(fs.readFileSync(file_path).toString("utf8")), new Map(), new Map());
-  //return JSON.parse(fs.readFileSync(file_path).toString("utf8"));
-}
-
-/**
- * 
- * @param data_file_name 
- * @returns 
- */
 const loadDataFile = (data_file_name: string, directory: string): any => {
   // Construct file path to gate JSON file corresponding to the slug
   const file_path = path.join(directory, data_file_name);
@@ -138,4 +119,4 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
   return [gate_map, circuit_map];
 });
 
-export { gateDataDir, circuitDataDir, loadGate, loadGatesAndCircuits };
+export { gateDataDir, circuitDataDir, loadGatesAndCircuits };
