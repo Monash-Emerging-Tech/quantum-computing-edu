@@ -23,6 +23,7 @@ type GateData = {
   arity: number,
   unitary?: MatrixData,
   subcircuit?: QuantumCircuitData,
+  subcircuit_id?: string,
   documentation_file?: string
 };
 
@@ -143,6 +144,7 @@ class GateNotFoundError extends CircuitParsingError {
  * @returns 
  */
 const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitMap): Gate => {
+  // Copy basic attributes
   let gate_base_obj = {
     gate_id: gate_data.gate_id,
     full_name: gate_data.full_name,
@@ -153,17 +155,33 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
   };
   
   if (gate_data.unitary) {
+    // Defined by a unitary matrix
     let [unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
     return {
       ...gate_base_obj,
       unitary: unitary_expr,
       unitary_float: unitary_float
     } as Gate;
+    
   } else if (gate_data.subcircuit) {
+    // Defined by a custom subcircuit
     return {
       ...gate_base_obj,
       subcircuit: parseCircuit(gate_data.subcircuit, gate_map, circuit_map)
     } as Gate;
+    
+  } else if (gate_data.subcircuit_id) {
+    // Defined by a subcircuit in the circuit map
+    if (circuit_map.has(gate_data.subcircuit_id)) {
+      return {
+        ...gate_base_obj,
+        subcircuit: circuit_map.get(gate_data.subcircuit_id)
+      } as Gate;
+    } else {
+      // If the subcircuit isn't (yet) in the map, throw an error
+      throw new CircuitNotFoundError("Circuit with id "+gate_data.subcircuit_id+" does not exist in the given circuit map.");
+    }
+    
   } else {
     throw new GateParsingError("JSON data for gate "+gate_data.gate_id+" does not have a unitary or subcircuit definition.");
   }
@@ -198,6 +216,7 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
             inverse: operation_data.inverse
           } as Operation;
         } else {
+          // If the gate isn't (yet) in the map, throw an error
           throw new GateNotFoundError("Gate with id "+operation_data.gate_id+" does not exist in the given gate map.");
         }
         
