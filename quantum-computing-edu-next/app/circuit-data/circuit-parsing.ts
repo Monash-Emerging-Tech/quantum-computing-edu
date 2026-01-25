@@ -273,5 +273,5 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
   return [expression_unitary, complex_unitary];
 }
 
-export type { Gate, QuantumCircuit };
-export { parseGate, parseCircuit };
+export type { GateData, QuantumCircuitData, Gate, QuantumCircuit };
+export { parseGate, parseCircuit, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError };
