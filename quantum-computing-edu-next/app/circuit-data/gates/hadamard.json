@@ -1,5 +1,5 @@
 {
-  "gate_id": "hadamard",
+  "gate_id": "h",
   "full_name": "Hadamard",
   "display_name": "H",
   "color": "blue",

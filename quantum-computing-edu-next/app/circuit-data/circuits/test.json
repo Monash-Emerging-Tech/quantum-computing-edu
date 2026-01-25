@@ -44,7 +44,7 @@
       "inverse": false
     },
     {
-      "gate_id": "hadamard",
+      "gate_id": "h",
       "qubits": [0],
       "controls": [],
       "anticontrols": [],
