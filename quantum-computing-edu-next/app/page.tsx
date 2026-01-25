@@ -17,7 +17,7 @@ import Circuit from "./components/circuit";
 import HHLCircuitData from './circuit-data/hhl';
 import MarkdownHHL from './circuit-data/page-information/hhl.mdx';
 
-import { gateDataDir, loadGate } from '@/app/circuit-data/data-loading';
+import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
 
 // Import MathJax dynamically to avoid hydration errors
 //const MathJaxContext = dynamic(
@@ -61,17 +61,9 @@ const CircuitPage = () =>
   //</MathJaxContext>
 
 const HomePage = () => {
-  const jsonFiles = fs.readdirSync(gateDataDir)
-    .filter(file => file.endsWith(".json"))
-    .toSorted()
-    .toReversed();
-  
-  const gates = jsonFiles.map(
-    file => ({
-      filename: file.replace(".json", ""),
-      gate: loadGate(file)
-    })
-  );
+  // Load all the gates and circuits in the database
+  const [gate_map, circuit_map] = loadGatesAndCircuits();
+  console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
   
   return <div>
     <header>
@@ -83,15 +75,24 @@ const HomePage = () => {
     <h2>Gates:</h2>
     <div id="gates-list">
       {
-        gates.map(
-          ({filename, gate}) => <div key={filename}>
-              <Link href={"gates/"+filename}>{gate.full_name}</Link>
+        gate_map.values().map(
+          (gate) => <div key={gate.gate_id}>
+              <Link href={"gates/"+gate.gate_id}>{gate.full_name}</Link>
             </div>
-        )
+        ).toArray()
       }
     </div>
     
     <h2>Circuits:</h2>
+    <div id="circuits-list">
+      {
+        circuit_map.values().map(
+          (circuit) => <div key={circuit.circuit_id}>
+              <Link href={"circuits/"+circuit.circuit_id}>{circuit.full_name}</Link>
+            </div>
+        ).toArray()
+      }
+    </div>
     
     <CircuitPage />
   </div>;
