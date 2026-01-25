@@ -74,7 +74,7 @@ const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCi
   
   let prev_pending_count = gate_data.length + circuit_data.length;
   
-  while (gate_data.length > 0) {
+  while (gate_data.length > 0 || circuit_data.length > 0) {
     let i = 0;
     while (i < gate_data.length) {
       try {
@@ -89,9 +89,11 @@ const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCi
         if (error instanceof CircuitNotFoundError || error instanceof GateNotFoundError) {
           // A gate uses a currently-unknown circuit, or a circuit uses a currently-unknown gate
           i += 1;
+          console.warn(error.message);
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           gate_data.splice(i, 1);
+          console.error(error.message);
         } else {
           // Some other error happened, possibly fatal
           throw error;
@@ -113,9 +115,11 @@ const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCi
         if (error instanceof CircuitNotFoundError || error instanceof GateNotFoundError) {
           // A gate uses a currently-unknown circuit, or a circuit uses a currently-unknown gate
           i += 1;
+          console.warn(error.message);
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           circuit_data.splice(i, 1);
+          console.error(error.message);
         } else {
           // Some other error happened, possibly fatal
           throw error;
@@ -125,7 +129,7 @@ const loadGatesAndCircuits = cache((): [Map<string, Gate>, Map<string, QuantumCi
     
     // Verify that the number of pending gates or circuits decreased
     if (gate_data.length + circuit_data.length == prev_pending_count) {
-      throw new Error("Some gates/circuits could not be parsed, due to missing circuit/gate dependencies. Check gates " + gate_data.map((gate) => gate.gate_id) + " and circuits " + circuit_data.map((circuit) => circuit.circuit_id));
+      throw new Error("Some gates/circuits could not be parsed due to missing circuit/gate dependencies. Check gates [" + gate_data.map((gate) => gate.gate_id).toString() + "] and circuits [" + circuit_data.map((circuit) => circuit.circuit_id).toString() + "]");
     }
     
     prev_pending_count = gate_data.length + circuit_data.length;

@@ -174,33 +174,49 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
  * @param circuit_data 
  * @returns 
  */
-const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circuit_map: CircuitMap): QuantumCircuit => {
-  let circuit_base_obj = {
+const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circuit_map: CircuitMap): QuantumCircuit => (
+  {
+    // Copy basic attributes
     circuit_id: circuit_data.circuit_id,
     full_name: circuit_data.full_name,
     display_name: circuit_data.display_name,
+    documentation_file: circuit_data?.documentation_file,
+    
+    // Copy registers directly (no formatting changes)
     registers: circuit_data.registers.map((register_data) => register_data as Register),
+    
+    // Parse operations
     operations: circuit_data.operations.map((operation_data) => {
       if (operation_data.gate_id) {
-        if (operation_data.gate_id in gate_map) {
-          
+        // References a gate in the gate map
+        if (gate_map.has(operation_data.gate_id)) {
+          return {
+            gate: gate_map.get(operation_data.gate_id),
+            qubits: operation_data.qubits,
+            controls: operation_data.controls,
+            anticontrols: operation_data.anticontrols,
+            inverse: operation_data.inverse
+          } as Operation;
         } else {
           throw new GateNotFoundError("Gate with id "+operation_data.gate_id+" does not exist in the given gate map.");
         }
+        
       } else if (operation_data.custom_gate) {
+        // Defines a custom gate
+        return {
+          gate: parseGate(operation_data.custom_gate, gate_map, circuit_map),
+          qubits: operation_data.qubits,
+          controls: operation_data.controls,
+          anticontrols: operation_data.anticontrols,
+          inverse: operation_data.inverse
+        } as Operation;
         
       } else {
         throw new CircuitParsingError("JSON data for circuit "+circuit_data.circuit_id+" contains an operation with no defined gate.");
       }
-      
-      return operation_data as Operation
-    }),
-    documentation_file: circuit_data?.documentation_file
-  };
-  
-  //throw new Error();
-  return circuit_base_obj;
-}
+    })
+  } as QuantumCircuit
+);
 
 /**
  * Parse and validate a unitary matrix from JSON data
