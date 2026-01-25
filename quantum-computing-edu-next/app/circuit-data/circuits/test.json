@@ -1,0 +1,68 @@
+{
+  "circuit_id": "test",
+  "full_name": "Test circuit with basic gates",
+  "display_name": "TEST",
+  "registers": [
+    {
+      "name": "reg 1",
+      "description": "First register",
+      "qubits": [0,1,2,3]
+    },
+    {
+      "name": "reg 2",
+      "description": "Second register",
+      "qubits": [4,5]
+    }
+  ],
+  "operations": [
+    {
+      "gate_id": "i",
+      "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "x",
+      "qubits": [1],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "y",
+      "qubits": [2],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "z",
+      "qubits": [3],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "hadamard",
+      "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "swap",
+      "qubits": [4,5],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "barrier",
+      "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    }
+  ]
+}
