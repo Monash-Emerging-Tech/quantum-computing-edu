@@ -5,8 +5,14 @@
  * Page generator for quantum circuit information pages (part of a dynamic route).
  */
 
-import { CircuitMap } from '@/app/circuit-data/circuit-parsing';
+import { CircuitMap, QuantumCircuit } from '@/app/circuit-data/circuit-parsing';
 import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+
+import Circuit from "@/app/components/circuit";
+
+import styles from "@/app/page.module.css";
+
+import MarkdownHHL from '@/app/circuit-data/page-information/hhl.mdx';
 
 /**
  * 
@@ -20,26 +26,36 @@ export default async function Page({ params }: PageProps<'/circuits/[slug]'>) {
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
   
-  return (
-    <div>
-      <h1>Interactive Quantum Circuit</h1>
-      <Content slug={slug} circuit_map={circuit_map} />
-    </div>
-  )
+  return <Content slug={slug} circuit_map={circuit_map} />
 }
 
+/**
+ * Create the interactive circuit page
+ * @returns JSX content for the circuit page
+ */
 async function Content({ slug, circuit_map }: { slug: string, circuit_map: CircuitMap }) {
   // Check if the page slug corresponds to a valid circuit id
   if (!circuit_map.has(slug)) {
     throw new Error("There is no quantum circuit with id "+slug);
   }
   
-  const circuit = circuit_map.get(slug)!;
+  const circuit: QuantumCircuit = circuit_map.get(slug)!;
   
   return (
-    <article>
-      <h2>{circuit.full_name}</h2>
-      <p>ID: {circuit.circuit_id}<br/>Number of gates: {circuit.operations.length}</p>
-    </article>
+    <div id="circuit-page-container" className={styles["circuit-page-container"]}>
+      <h1 id="page-header"  className={styles["page-header"]}>
+        Interactive Quantum Circuits
+      </h1>
+      
+      <h2 id="circuit-header" className={styles["circuit-header"]}>
+        {circuit.full_name}
+      </h2>
+      
+      <Circuit circuit={circuit} />
+      
+      <div id="circuit-information-container" className={styles["circuit-information-container"]}>
+        <MarkdownHHL />
+      </div>
+    </div>
   )
 }

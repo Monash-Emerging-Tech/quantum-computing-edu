@@ -10,7 +10,8 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "./circuit-types";
+//import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "./circuit-types";
+import { Gate } from "../circuit-data/circuit-parsing";
 
 import {
   PopoverContent,
@@ -27,7 +28,7 @@ import styles from "./info-bubbles.module.css";
  */
 const GateInfoBubble = ({gate}: {gate: Gate}) => {
   return <PopoverContent className={styles["gate-info-bubble"]}>
-    <PopoverHeading>Gate: {gate.longName}</PopoverHeading>
+    <PopoverHeading>Gate: {gate.full_name}</PopoverHeading>
     <PopoverDescription>Description of this gate goes here.</PopoverDescription>
     {/*<PopoverClose>Close</PopoverClose>*/}
   </PopoverContent>;

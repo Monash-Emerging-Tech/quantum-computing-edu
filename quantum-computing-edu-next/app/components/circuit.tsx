@@ -11,7 +11,8 @@ import { useState, useEffect } from "react";
 //import Link from "next/link";
 
 // Import types and basic gates
-import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "../components/circuit-types";
+//import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "../components/circuit-types";
+import { Gate, QuantumCircuit, Operation } from "@/app/circuit-data/circuit-parsing";
 //import { GateI, GateX, GateY, GateZ, GateH, GateSwap, GateCNOT, Barrier } from "../circuit-data/standard-gates";
 
 import styles from "./circuit.module.css";
@@ -32,50 +33,50 @@ import {
 
 /**
  * Create the circuit
- * @param data The circuit data encoded as a Qobj
+ * @param data The circuit data
  * @returns JSX quantum circuit container element
  */
-const Circuit = ({data}: {data: QuantumCircuit}) => {
+const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
 //const Circuit = () => {
   //const data = dummyCircuitData;
   
   //console.log(data);
   
   // Calculate the vertical position of each qubit in the circuit
-  const qubitOrder = data.registers.flatMap(({qubits}) => qubits);
+  const qubitOrder = circuit.registers.flatMap(({qubits}) => qubits);
   let qubitPositions: Array<number> = [];
   qubitOrder.forEach((q, i) => qubitPositions[q] = i);
   
   // Calculate the horizontal positions of the gates
   let qubitLastGatePos: Array<number> = Array(qubitOrder.length).fill(0);
-  const gateTimePositions = data.gates!.map((gate, i) => {
+  const gateTimePositions = circuit.operations.map((operation, i) => {
     // Find the qubit with the rightmost gate position
-    const gatePos = Math.max.apply(Math, gate.qubits.map(q => qubitLastGatePos[q]));
+    const gatePos = Math.max.apply(Math, operation.qubits.map(q => qubitLastGatePos[q]));
     
     // Get the width of the gate
-    const [gateWidth, _] = calculateGateDimensions(gate, qubitPositions);
+    const [gateWidth, _] = calculateGateDimensions(operation, qubitPositions);
     
     // Update the next gate position for each applicable qubit
-    gate.qubits.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
-    gate.controls.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
-    gate.anticontrols.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    operation.qubits.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
+    operation.controls.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
+    operation.anticontrols.forEach(q => qubitLastGatePos[q] = gatePos+1);
     return gatePos;
   });
   
   return <div id="circuit-container" className={styles["circuit-container"]}>
     <div id="circuit-grid" className={styles["circuit-grid"]}>
       {
-        data.registers.map(
-          ({name, qubits, desc}) => qubits.map(
-            (qb, i) => <QubitLine key={i} name={name} qubit={qb} desc={desc}/>
+        circuit.registers.map(
+          ({name, qubits, description}) => qubits.map(
+            (qb, i) => <QubitLine key={i} name={name} qubit={qb} desc={description}/>
           )
         )
       }
       {
-        data.gates!.map(
-          (gate, i) => <GateComponent
+        circuit.operations.map(
+          (operation, i) => <GateComponent
             key={i}
-            gate={gate}
+            operation={operation}
             qubitPositions={qubitPositions}
             timePosition={gateTimePositions[i]}
           />
@@ -84,12 +85,12 @@ const Circuit = ({data}: {data: QuantumCircuit}) => {
     </div>
     <div id="circuit-qubit-label-container" className={styles["circuit-qubit-label-container"]}>
       {
-        data.registers.map(
-          ({name, qubits, desc}, i) => <RegisterLabel
+        circuit.registers.map(
+          ({name, qubits, description}, i) => <RegisterLabel
             key={i}
             name={name}
             qubits={qubits}
-            desc={desc}
+            desc={description}
             qubitPositions={qubitPositions}
           />
         )
@@ -150,11 +151,11 @@ const QubitLine = ({name, qubit, desc}: {name: string, qubit: number, desc: stri
  * @returns JSX element
  */
 const GateComponent = ({
-  gate,
+  operation,
   qubitPositions,
   timePosition
 }: {
-  gate: Gate,
+  operation: Operation,
   qubitPositions: Array<number>,
   timePosition: number
 }) => {
@@ -183,12 +184,12 @@ const GateComponent = ({
   }, []);
   
   // Find gate position and vertical span
-  const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
-  const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const upperQubitPos = Math.min.apply(Math, operation.qubits.map(q => qubitPositions[q]));
+  const lowerQubitPos = Math.max.apply(Math, operation.qubits.map(q => qubitPositions[q]));
   //const gateHeight = lowerQubitPos - upperQubitPos + 1;
   //const gateWidth = Math.round(Math.log2(gateHeight+1));
   
-  const [gateWidth, gateHeight] = calculateGateDimensions(gate, qubitPositions);
+  const [gateWidth, gateHeight] = calculateGateDimensions(operation, qubitPositions);
   
   return <Popover>
     <PopoverTrigger asChild={true}>
@@ -200,15 +201,15 @@ const GateComponent = ({
           height: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
           width: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1)) + "em",
           lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
-          background: gate.color,
+          background: operation.gate.color,
         }}
       >
         {/*<GateInfoBubble data={gate}/>*/}
-        {gate.name != "Barrier" ? gate.name : <></>}
-        {gate.inverse ? (<sup>†</sup>) : <></>}
+        {operation.gate.gate_id != "barrier" ? operation.gate.display_name : <></>}
+        {operation.inverse ? (<sup>†</sup>) : <></>}
       </div>
     </PopoverTrigger>
-    <GateInfoBubble gate={gate}/>
+    <GateInfoBubble gate={operation.gate}/>
   </Popover>
 }
 
@@ -216,20 +217,20 @@ const GateComponent = ({
 
 /**
  * Calculate the visual width & height of a gate
- * @param gate The quantum gate to calculate the dimensions of
+ * @param operation The quantum gate to calculate the dimensions of
  * @param qubitPositions The vertical arrangement of the qubits in the circuit
  * @returns [width: int, height: int]
  */
-const calculateGateDimensions = (gate: Gate, qubitPositions: Array<number>): [number, number] => {
+const calculateGateDimensions = (operation: Operation, qubitPositions: Array<number>): [number, number] => {
   
-  const upperQubitPos = Math.min.apply(Math, gate.qubits.map(q => qubitPositions[q]));
-  const lowerQubitPos = Math.max.apply(Math, gate.qubits.map(q => qubitPositions[q]));
+  const upperQubitPos = Math.min.apply(Math, operation.qubits.map(q => qubitPositions[q]));
+  const lowerQubitPos = Math.max.apply(Math, operation.qubits.map(q => qubitPositions[q]));
   const gateHeight = lowerQubitPos - upperQubitPos + 1;
   const gateWidth = Math.round(Math.log2(gateHeight+1));
   //const gateWidth = gateHeight > 2 ? 2 : 1;
   
-  if (gate.name == "Barrier") {
-    return [1,gateHeight];
+  if (operation.gate.gate_id == "barrier") {
+    return [1,qubitPositions.length];
   }
   
   return [
