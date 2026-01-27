@@ -10,7 +10,7 @@ import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
 
 import Circuit from "@/app/components/circuit";
 
-import styles from "@/app/page.module.css";
+import styles from "./page.module.css";
 
 import MarkdownHHL from '@/app/circuit-data/page-information/hhl.mdx';
 

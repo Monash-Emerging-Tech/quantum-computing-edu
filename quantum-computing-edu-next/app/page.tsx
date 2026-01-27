@@ -1,17 +1,13 @@
 /**
  * Interactive quantum computing education web interface
  * MNET 2025
+ * 
+ * Main page, linking to other pages.
  */
 
 import Link from "next/link";
-//import Image from "next/image";
 
 import styles from "./page.module.css";
-
-import Circuit from "./components/circuit";
-
-//import HHLCircuitData from './circuit-data/hhl';
-//import MarkdownHHL from './circuit-data/page-information/hhl.mdx';
 
 import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
 
@@ -26,7 +22,7 @@ const HomePage = () => {
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
   
-  return <div>
+  return <div id="main-page-container" className={styles["main-page-container"]}>
     <header>
       <h1 id="page-header"  className={styles["page-header"]}>
         Interactive Quantum Circuits
