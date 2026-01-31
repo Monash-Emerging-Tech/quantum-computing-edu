@@ -220,9 +220,9 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
       throw new CircuitNotFoundError("Circuit with id "+gate_data.subcircuit_id+" does not exist in the given circuit map.");
     }
     
-  } else {
-    throw new GateParsingError("JSON data for gate "+gate_data.gate_id+" does not have a unitary or subcircuit definition.");
   }
+  
+  return gate_base_obj as Gate;
 }
 
 /**

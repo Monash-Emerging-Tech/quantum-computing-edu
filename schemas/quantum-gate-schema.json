@@ -4,9 +4,7 @@
   "title": "Quantum Gate",
   "type": "object",
   "oneOf": [
-    { "required": ["gate_id", "full_name", "display_name", "arity", "unitary"] },
-    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit"] },
-    { "required": ["gate_id", "full_name", "display_name", "arity", "subcircuit_id"] }
+    { "required": ["gate_id", "full_name", "display_name", "arity"] }
   ],
   "properties": {
     "schema_version": {
