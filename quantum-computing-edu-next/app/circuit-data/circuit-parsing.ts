@@ -85,7 +85,7 @@ type Gate = {
   display_name: string,
   color?: string,
   arity: number,
-  unitary?: ExpressionUnitary,
+  unitary?: MatrixData,
   unitary_float?: ComplexFloatUnitary,
   subcircuit?: QuantumCircuit,
   documentation_file?: string
@@ -194,10 +194,10 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
   
   if (gate_data.unitary) {
     // Defined by a unitary matrix
-    let [unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
+    let [_unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
     return {
       ...gate_base_obj,
-      unitary: unitary_expr,
+      unitary: gate_data.unitary,
       unitary_float: unitary_float
     } as Gate;
     
