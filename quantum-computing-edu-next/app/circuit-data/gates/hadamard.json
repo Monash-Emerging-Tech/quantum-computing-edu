@@ -2,7 +2,7 @@
   "gate_id": "h",
   "full_name": "Hadamard",
   "display_name": "H",
-  "color": "blue",
+  "color": "red",
   "arity": 1,
   "unitary": [
     ["1/sqrt(2)", "1/sqrt(2)"],
