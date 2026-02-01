@@ -48,9 +48,9 @@ type OperationData = {
   gate_id?: string,
   custom_gate?: GateData,
   qubits: number[],
-  controls: number[],
-  anticontrols: number[],
-  inverse: boolean,
+  controls?: number[],
+  anticontrols?: number[],
+  inverse?: boolean,
   exponent?: number
 };
 
@@ -247,10 +247,10 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
     operations: circuit_data.operations.map((operation_data) => {
       const operation_base_obj = {
         qubits: operation_data.qubits,
-        controls: operation_data.controls,
-        anticontrols: operation_data.anticontrols,
-        inverse: operation_data.inverse,
-        exponent: operation_data.exponent ? operation_data.exponent : 1
+        controls: operation_data.controls === undefined ? [] : operation_data.controls,
+        anticontrols: operation_data.anticontrols === undefined ? [] : operation_data.anticontrols,
+        inverse: operation_data.inverse === undefined ? false : operation_data.inverse,
+        exponent: operation_data.exponent === undefined ? 1 : operation_data.exponent
       };
       
       if (operation_data.gate_id) {
