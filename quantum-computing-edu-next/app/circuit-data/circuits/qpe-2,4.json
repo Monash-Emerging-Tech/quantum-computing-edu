@@ -1,0 +1,113 @@
+{
+  "circuit_id": "qpe_2_4",
+  "full_name": "Quantum Phase Estimation",
+  "display_name": "QPE",
+  "registers": [
+    {
+      "name": "clock",
+      "description": "Qubits to store the binary-encoded eigenvalues of the matrix. Named the 'clock' (or 'c') register.",
+      "qubits": [0,1,2,3]
+    },
+    {
+      "name": "state",
+      "description": "Qubits to encode the input vector.",
+      "qubits": [4,5]
+    }
+  ],
+  "operations": [
+    {
+      "gate_id": "h",
+      "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "h",
+      "qubits": [1],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "h",
+      "qubits": [2],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "gate_id": "h",
+      "qubits": [3],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "custom_gate": {
+        "gate_id": "U_qpe_input",
+        "full_name": "Input Unitary Matrix",
+        "display_name": "U",
+        "color": "darkgrey",
+        "arity": 2
+      },
+      "qubits": [4,5],
+      "controls": [0],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "custom_gate": {
+        "gate_id": "U_qpe_input",
+        "full_name": "Input Unitary Matrix",
+        "display_name": "U",
+        "color": "darkgrey",
+        "arity": 2
+      },
+      "qubits": [4,5],
+      "controls": [1],
+      "anticontrols": [],
+      "inverse": false,
+      "exponent": 2
+    },
+    {
+      "custom_gate": {
+        "gate_id": "U_qpe_input",
+        "full_name": "Input Unitary Matrix",
+        "display_name": "U",
+        "color": "darkgrey",
+        "arity": 2
+      },
+      "qubits": [4,5],
+      "controls": [2],
+      "anticontrols": [],
+      "inverse": false,
+      "exponent": 4
+    },
+    {
+      "custom_gate": {
+        "gate_id": "U_qpe_input",
+        "full_name": "Input Unitary Matrix",
+        "display_name": "U",
+        "color": "darkgrey",
+        "arity": 2
+      },
+      "qubits": [4,5],
+      "controls": [3],
+      "anticontrols": [],
+      "inverse": false,
+      "exponent": 8
+    },
+    {
+      "custom_gate": {
+        "gate_id": "QFT",
+        "full_name": "Quantum Fourier Transform",
+        "display_name": "QFT",
+        "color": "black",
+        "arity": 4
+      },
+      "qubits": [0,1,2,3],
+      "inverse": true
+    }
+  ]
+}
