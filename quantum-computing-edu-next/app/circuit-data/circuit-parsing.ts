@@ -50,7 +50,8 @@ type OperationData = {
   qubits: number[],
   controls: number[],
   anticontrols: number[],
-  inverse: boolean
+  inverse: boolean,
+  exponent?: number
 };
 
 /**
@@ -104,7 +105,8 @@ type Operation = {
   qubits: number[],
   controls: number[],
   anticontrols: number[],
-  inverse: boolean
+  inverse: boolean,
+  exponent: number
 };
 
 /**
@@ -183,7 +185,7 @@ class GateNotFoundError extends CircuitParsingError {
  */
 const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitMap): Gate => {
   // Copy basic attributes
-  let gate_base_obj = {
+  const gate_base_obj = {
     gate_id: gate_data.gate_id,
     full_name: gate_data.full_name,
     display_name: gate_data.display_name,
@@ -199,14 +201,14 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
       ...gate_base_obj,
       unitary: gate_data.unitary,
       unitary_float: unitary_float
-    } as Gate;
+    }/* as Gate */;
     
   } else if (gate_data.subcircuit) {
     // Defined by a custom subcircuit
     return {
       ...gate_base_obj,
       subcircuit: parseCircuit(gate_data.subcircuit, gate_map, circuit_map)
-    } as Gate;
+    }/* as Gate */;
     
   } else if (gate_data.subcircuit_id) {
     // Defined by a subcircuit in the circuit map
@@ -214,7 +216,7 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
       return {
         ...gate_base_obj,
         subcircuit: circuit_map.get(gate_data.subcircuit_id)
-      } as Gate;
+      }/* as Gate */;
     } else {
       // If the subcircuit isn't (yet) in the map, throw an error
       throw new CircuitNotFoundError("Circuit with id "+gate_data.subcircuit_id+" does not exist in the given circuit map.");
@@ -222,7 +224,7 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
     
   }
   
-  return gate_base_obj as Gate;
+  return gate_base_obj/* as Gate */;
 }
 
 /**
@@ -243,16 +245,21 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
     
     // Parse operations
     operations: circuit_data.operations.map((operation_data) => {
+      const operation_base_obj = {
+        qubits: operation_data.qubits,
+        controls: operation_data.controls,
+        anticontrols: operation_data.anticontrols,
+        inverse: operation_data.inverse,
+        exponent: operation_data.exponent ? operation_data.exponent : 1
+      };
+      
       if (operation_data.gate_id) {
         // References a gate in the gate map
         if (gate_map.has(operation_data.gate_id)) {
           return {
-            gate: gate_map.get(operation_data.gate_id),
-            qubits: operation_data.qubits,
-            controls: operation_data.controls,
-            anticontrols: operation_data.anticontrols,
-            inverse: operation_data.inverse
-          } as Operation;
+            ...operation_base_obj,
+            gate: gate_map.get(operation_data.gate_id)!
+          }/* as Operation*/;
         } else {
           // If the gate isn't (yet) in the map, throw an error
           throw new GateNotFoundError("Gate with id "+operation_data.gate_id+" does not exist in the given gate map.");
@@ -261,18 +268,15 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
       } else if (operation_data.custom_gate) {
         // Defines a custom gate
         return {
-          gate: parseGate(operation_data.custom_gate, gate_map, circuit_map),
-          qubits: operation_data.qubits,
-          controls: operation_data.controls,
-          anticontrols: operation_data.anticontrols,
-          inverse: operation_data.inverse
-        } as Operation;
+          ...operation_base_obj,
+          gate: parseGate(operation_data.custom_gate, gate_map, circuit_map)
+        }/* as Operation*/;
         
       } else {
         throw new CircuitParsingError("JSON data for circuit "+circuit_data.circuit_id+" contains an operation with no defined gate.");
       }
     })
-  } as QuantumCircuit
+  }/* as QuantumCircuit*/
 );
 
 /**

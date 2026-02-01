@@ -94,6 +94,12 @@
         "inverse": {
           "type": "boolean",
           "description": "Whether the gate is inverted"
+        },
+        
+        "exponent": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Optional exponent to raise the gate to, for repeated application of the gate"
         }
       }
     },
