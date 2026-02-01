@@ -204,9 +204,8 @@ const GateComponent = ({
           background: operation.gate.color,
         }}
       >
-        {/*<GateInfoBubble data={gate}/>*/}
         {operation.gate.gate_id != "barrier" ? operation.gate.display_name : <></>}
-        {operation.inverse ? (<sup>†</sup>) : <></>}
+        {operation.exponent > 1 ? (<sup>{(operation.inverse ? "-" : "") + operation.exponent.toString()}</sup>) : (operation.inverse ? (<sup>†</sup>) : <></>)}
       </div>
     </PopoverTrigger>
     <GateInfoBubble gate={operation.gate}/>
