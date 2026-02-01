@@ -5,14 +5,14 @@
  * Page generator for quantum circuit information pages (part of a dynamic route).
  */
 
+import fs from "fs";
+
 import { CircuitMap, QuantumCircuit } from '@/app/circuit-data/circuit-parsing';
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { loadGatesAndCircuits, circuitDataDir } from '@/app/circuit-data/data-loading';
 
 import Circuit from "@/app/components/circuit";
 
 import styles from "./page.module.css";
-
-import MarkdownHHL from '@/app/circuit-data/page-information/hhl.mdx';
 
 /**
  * 
@@ -21,7 +21,6 @@ import MarkdownHHL from '@/app/circuit-data/page-information/hhl.mdx';
  */
 export default async function Page({ params }: PageProps<'/circuits/[slug]'>) {
   const { slug } = await params;
-  
   // Load all the gates and circuits in the database
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
@@ -39,7 +38,19 @@ async function Content({ slug, circuit_map }: { slug: string, circuit_map: Circu
     throw new Error("There is no quantum circuit with id "+slug);
   }
   
+  // Get the relevant quantum circuit from the circuit map
   const circuit: QuantumCircuit = circuit_map.get(slug)!;
+  
+  // Attempt to import the circuit documentation from the relevant markdown file, if it is defined & it exists
+  let MarkdownPage = () => <></>;
+  if (
+    circuit.documentation_file !== undefined &&
+    circuit.documentation_file !== "" &&
+    fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${circuit.documentation_file}`)
+  ) {
+    const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${circuit.documentation_file}`);
+    MarkdownPage = MarkdownPage_import;
+  }
   
   return (
     <div id="circuit-page-container" className={styles["circuit-page-container"]}>
@@ -54,7 +65,7 @@ async function Content({ slug, circuit_map }: { slug: string, circuit_map: Circu
       <Circuit circuit={circuit} />
       
       <div id="circuit-information-container" className={styles["circuit-information-container"]}>
-        <MarkdownHHL />
+        <MarkdownPage />
       </div>
     </div>
   )
