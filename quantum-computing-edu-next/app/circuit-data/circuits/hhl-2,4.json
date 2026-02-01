@@ -1,0 +1,78 @@
+{
+  "circuit_id": "hhl_2_4",
+  "full_name": "Harrow-Hassidim-Lloyd Algorithm",
+  "display_name": "HHL",
+  "documentation_file": "hhl.mdx",
+  "registers": [
+    {
+      "name": "ancilla",
+      "description": "The ancilla qubit, also known as the auxiliary qubit in HHL, is used in the Ancilla Quantum Encoding (AQE) step to encode the eigenvalue phases into the qubit.",
+      "qubits": [0]
+    },
+    {
+      "name": "clock",
+      "description": "The clock register is used by Quantum Phase Estimation (QPE) to store the binary-encoded eigenvalues of the matrix A. Named the 'clock' (or 'c') register.",
+      "qubits": [1,2,3,4]
+    },
+    {
+      "name": "state",
+      "description": "Qubits to encode the input vector.",
+      "qubits": [5,6]
+    }
+  ],
+  "operations": [
+    {
+      "custom_gate": {
+        "gate_id": "input_vector_encoding",
+        "full_name": "Encode the input vector",
+        "display_name": "Ψ",
+        "color": "black",
+        "arity": 2
+      },
+      "qubits": [5,6],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "custom_gate": {
+        "gate_id": "qpe_in_hhl",
+        "full_name": "Quantum Phase Estimation",
+        "display_name": "QPE",
+        "color": "green",
+        "arity": 6
+      },
+      "qubits": [1,2,3,4,5,6],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "custom_gate": {
+        "gate_id": "aqe_in_hhl",
+        "full_name": "Ancilla Quantum Encoding",
+        "display_name": "AQE",
+        "color": "red",
+        "arity": 5
+      },
+      "qubits": [0,1,2,3,4],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    {
+      "custom_gate": {
+        "gate_id": "qpe_in_hhl",
+        "full_name": "Quantum Phase Estimation",
+        "display_name": "QPE",
+        "color": "green",
+        "arity": 6,
+        "subcircuit_id": "qpe_2_4"
+      },
+      "qubits": [1,2,3,4,5,6],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    }
+  ]
+}
