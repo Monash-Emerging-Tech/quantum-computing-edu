@@ -229,7 +229,7 @@ const calculateGateDimensions = (operation: Operation, qubitPositions: Array<num
   //const gateWidth = gateHeight > 2 ? 2 : 1;
   
   if (operation.gate.gate_id == "barrier") {
-    return [1,qubitPositions.length];
+    return [1,gateHeight];
   }
   
   return [
