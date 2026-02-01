@@ -2,6 +2,7 @@
   "circuit_id": "test",
   "full_name": "Test circuit with basic gates",
   "display_name": "TEST",
+  "documentation_file": "test-circuit.mdx",
   "registers": [
     {
       "name": "reg 1",
