@@ -59,7 +59,57 @@
     },
     {
       "gate_id": "barrier",
+      "qubits": [0,1,2,3,4,5],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": false
+    },
+    
+    {
+      "gate_id": "i",
       "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "x",
+      "qubits": [1],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "y",
+      "qubits": [2],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "z",
+      "qubits": [3],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "h",
+      "qubits": [0],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "swap",
+      "qubits": [4,5],
+      "controls": [],
+      "anticontrols": [],
+      "inverse": true
+    },
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1,2,3,4,5],
       "controls": [],
       "anticontrols": [],
       "inverse": false
