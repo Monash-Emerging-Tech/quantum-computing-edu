@@ -25,95 +25,157 @@
     },
     {
       "gate_id": "x",
-      "qubits": [1],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [1]
     },
     {
       "gate_id": "y",
-      "qubits": [2],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [2]
     },
     {
       "gate_id": "z",
-      "qubits": [3],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [3]
     },
     {
       "gate_id": "h",
-      "qubits": [0],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [0]
     },
     {
       "gate_id": "swap",
-      "qubits": [4,5],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [4,5]
     },
+    
     {
       "gate_id": "barrier",
-      "qubits": [0,1,2,3,4,5],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [0,1,2,3,4,5]
     },
     
     {
       "gate_id": "i",
       "qubits": [0],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "x",
       "qubits": [1],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "y",
       "qubits": [2],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "z",
       "qubits": [3],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "h",
       "qubits": [0],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "swap",
       "qubits": [4,5],
-      "controls": [],
-      "anticontrols": [],
       "inverse": true
     },
     {
       "gate_id": "barrier",
-      "qubits": [0,1,2,3,4,5],
-      "controls": [],
-      "anticontrols": [],
-      "inverse": false
+      "qubits": [0,1,2,3,4,5]
+    },
+    
+    {
+      "gate_id": "i",
+      "qubits": [0],
+      "exponent": 2
+    },
+    {
+      "gate_id": "x",
+      "qubits": [1],
+      "exponent": 3
+    },
+    {
+      "gate_id": "y",
+      "qubits": [2],
+      "exponent": 4
+    },
+    {
+      "gate_id": "z",
+      "qubits": [3],
+      "exponent": 5
+    },
+    {
+      "gate_id": "h",
+      "qubits": [0],
+      "inverse": true,
+      "exponent": 2
+    },
+    {
+      "gate_id": "swap",
+      "qubits": [4,5],
+      "exponent": 7
+    },
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1,2,3,4,5]
+    },
+    
+    {
+      "gate_id": "i",
+      "qubits": [0],
+      "controls": [1],
+      "anticontrols": []
+    },
+    {
+      "gate_id": "x",
+      "qubits": [1],
+      "controls": [0],
+      "anticontrols": []
+    },
+    {
+      "gate_id": "y",
+      "qubits": [2],
+      "controls": [0],
+      "anticontrols": [0]
+    },
+    {
+      "gate_id": "z",
+      "qubits": [3],
+      "controls": [0,1],
+      "anticontrols": []
+    },
+    {
+      "gate_id": "h",
+      "qubits": [0],
+      "controls": [1],
+      "anticontrols": [0]
+    },
+    {
+      "gate_id": "swap",
+      "qubits": [4,5],
+      "controls": [2],
+      "anticontrols": []
+    },
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1,2,3,4,5]
+    },
+    
+    {
+      "gate_id": "measure",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [1]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [2]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [3]
     }
   ]
 }
