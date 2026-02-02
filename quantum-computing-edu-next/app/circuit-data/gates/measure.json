@@ -1,0 +1,7 @@
+{
+  "gate_id": "measure",
+  "full_name": "Measure",
+  "display_name": "⦨",
+  "color": "darkgrey",
+  "arity": 1
+}
