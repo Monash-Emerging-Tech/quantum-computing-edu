@@ -3,9 +3,5 @@
   "full_name": "Barrier",
   "display_name": "",
   "color": "white",
-  "arity": 1,
-  "unitary": [
-    [1,0],
-    [0,1]
-  ]
+  "arity": 1
 }
