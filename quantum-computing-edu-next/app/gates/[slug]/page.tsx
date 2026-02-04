@@ -5,8 +5,14 @@
  * Page generator for quantum gate information pages (part of a dynamic route).
  */
 
-import { GateMap } from '@/app/circuit-data/circuit-parsing';
+import fs from "fs";
+
+import { GateMap, Gate } from '@/app/circuit-data/circuit-parsing';
 import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+
+import UnitaryMatrixVisual from "@/app/components/matrix";
+
+import styles from "./page.module.css";
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 //export async function generateStaticParams() {
@@ -25,26 +31,48 @@ export default async function Page({ params }: PageProps<'/gates/[slug]'>) {
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
   
-  return (
-    <div>
-      <h1>Quantum Gate</h1>
-      <Content slug={slug} gate_map={gate_map} />
-    </div>
-  )
+  return <Content slug={slug} gate_map={gate_map} />
 }
 
+/**
+ * Create the gate information page
+ * @returns JSX content for the gate page
+ */
 async function Content({ slug, gate_map }: { slug: string, gate_map: GateMap }) {
   // Check if the page slug corresponds to a valid gate id
   if (!gate_map.has(slug)) {
     throw new Error("There is no quantum gate with id "+slug);
   }
   
-  const gate = gate_map.get(slug)!;
+  // Get the relevant quantum gate from the gate map
+  const gate: Gate = gate_map.get(slug)!;
+  
+  // Attempt to import the gate documentation from the relevant markdown file, if it is defined & it exists
+  let MarkdownPage = () => <></>;
+  if (
+    gate.documentation_file !== undefined &&
+    gate.documentation_file !== "" &&
+    fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${gate.documentation_file}`)
+  ) {
+    const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${gate.documentation_file}`);
+    MarkdownPage = MarkdownPage_import;
+  }
   
   return (
-    <article>
-      <h2>{gate.full_name}</h2>
-      <p>{gate.gate_id}</p>
-    </article>
+    <div id="gate-page-container" className={styles["gate-page-container"]}>
+      <h1 id="page-header"  className={styles["page-header"]}>
+        Quantum Gate
+      </h1>
+      
+      <h2 id="circuit-header" className={styles["circuit-header"]}>
+        {gate.full_name}
+      </h2>
+      
+      { gate.unitary ? <UnitaryMatrixVisual matrix={gate.unitary} /> : <></> }
+      
+      <div id="gate-information-container" className={styles["gate-information-container"]}>
+        <MarkdownPage />
+      </div>
+    </div>
   )
 }
