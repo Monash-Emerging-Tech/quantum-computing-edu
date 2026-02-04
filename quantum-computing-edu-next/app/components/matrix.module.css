@@ -1,0 +1,6 @@
+/*@import "tailwindcss";*/
+
+/* Container element around the matrix visual */
+.matrix-container {
+  display: inline-block;
+}
