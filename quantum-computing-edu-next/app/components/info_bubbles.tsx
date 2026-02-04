@@ -47,11 +47,18 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
   let MarkdownPage = () => <></>;
   if (
     operation.gate.documentation_file !== undefined &&
-    operation.gate.documentation_file !== "" &&
-    fs.existsSync(`${process.cwd()}/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`)
+    operation.gate.documentation_file !== ""
   ) {
-    const { default: MarkdownPage_import } = await import(`@/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`);
-    MarkdownPage = MarkdownPage_import;
+    // Look for the popup description first
+    if (fs.existsSync(`${process.cwd()}/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`)) {
+      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`);
+      MarkdownPage = MarkdownPage_import;
+      
+    } else if (fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${operation.gate.documentation_file}`)) {
+      // Fall back to the full-page gate information
+      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${operation.gate.documentation_file}`);
+      MarkdownPage = MarkdownPage_import;
+    }
   }
   
   return (
