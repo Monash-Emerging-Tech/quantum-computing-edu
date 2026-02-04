@@ -61,12 +61,25 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
     }
   }
   
+  let extra_info = [];
+  if (operation.inverse) {
+    extra_info.push(<div key="inv">This gate is inverted.</div>);
+  }
+  if (operation.exponent > 1) {
+    extra_info.push(<div key="exp">This gate is repeated {operation.exponent} times.</div>);
+  }
+  
   return (
     <div>
       { operation.gate.unitary ? <UnitaryMatrixVisual matrix={operation.gate.unitary} /> : <></> }
       
       <div id="gate-information-container" className={styles["gate-information-container"]}>
         <MarkdownPage />
+      </div>
+      
+      <br/>
+      <div>
+        {extra_info}
       </div>
     </div>
   )
