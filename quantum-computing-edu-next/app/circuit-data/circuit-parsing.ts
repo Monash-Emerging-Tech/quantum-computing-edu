@@ -69,13 +69,9 @@ type QuantumCircuitData = {
 
 
 /**
- * Unitary matrix stored in Math JS's Matrix format, containing expressions
+ * Unitary matrix in Math JS's stringified format
  */
-type ExpressionUnitary = math.Matrix<math.MathNumericType>;
-/**
- * Complex-numbered unitary matrix, containing floating-point values
- */
-type ComplexFloatUnitary = [number, number][][];
+type StringExpressionUnitary = string;
 
 /**
  * The structure of a quantum gate (independent of a quantum circuit)
@@ -86,8 +82,7 @@ type Gate = {
   display_name: string,
   color?: string,
   arity: number,
-  unitary?: MatrixData,
-  unitary_float?: ComplexFloatUnitary,
+  unitary?: StringExpressionUnitary,
   subcircuit?: QuantumCircuit,
   documentation_file?: string
 };
@@ -196,11 +191,11 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
   
   if (gate_data.unitary) {
     // Defined by a unitary matrix
-    let [_unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
+    //let [_unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
+    let unitary_string = parseUnitary(gate_data.unitary);
     return {
       ...gate_base_obj,
-      unitary: gate_data.unitary,
-      unitary_float: unitary_float
+      unitary: unitary_string
     }/* as Gate */;
     
   } else if (gate_data.subcircuit) {
@@ -282,9 +277,9 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
 /**
  * Parse and validate a unitary matrix from JSON data
  * @param matrix_data a 2D array of numbers and/or strings containing mathematical expressions
- * @returns 
+ * @returns Math JS's stringified expression representing the parsed matrix
  */
-const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloatUnitary] => {
+const parseUnitary = (matrix_data: MatrixData): StringExpressionUnitary => {
   // Verify matrix is square and has a size equal to 2^n, where n ≥ 1.
   let size = matrix_data.length;
   if (size <= 1 || Math.log2(size) % 1 != 0) {
@@ -298,57 +293,68 @@ const parseUnitary = (matrix_data: MatrixData): [ExpressionUnitary, ComplexFloat
     }
   }
   
-  // Parse each matrix cell into its real and imaginary components
-  let complex_unitary = matrix_data.map(
-    row => row.map(
+  // Parse each cell and stringify the arrays into a string representation of the full matrix
+  const unitary_string = "[" + matrix_data.map(
+    row => "[" + row.map(
       cell => {
         if (typeof cell == "number") {
-          // Real numbers are easy
-          return [cell,0] as [number, number];
-          
+          // Keep numbers as numbers
+          return cell;
         } else if (typeof cell == "string") {
-          // Extract the real and imaginary floating-point values from the mathematical expression
-          let full_number = math.evaluate(cell);
-          let real_part = math.re(full_number);
-          let imag_part = math.im(full_number);
-          if (math.typeOf(real_part) == "number" && math.typeOf(imag_part) == "number") {
-            return [real_part.valueOf(), imag_part.valueOf()] as [number, number];
-          } else {
-            throw new GateParsingError("Expression '"+cell+"' in matrix cell does not evaluate to a single complex number.");
-          }
+          // Leave this cell as a string expression
+          return cell;
+          
+          /* 
+           * NOTE:
+           * This commented code is an extra explicit check to ensure each individual cell
+           * is of the correct form, but ultimately the same checks are implicitly performed
+           * later when we parse & evaluate the matrix and check whether it is unitary.
+           */
+          //let full_number;
+          //try {
+          //  full_number = math.evaluate(cell);
+          //} catch (error: any) {
+          //  throw new GateParsingError("Evaluating matrix cell failed with error: " + error.message);
+          //}
+          //const real_part = math.re(full_number);
+          //const imag_part = math.im(full_number);
+          //if (math.typeOf(real_part) == "number" && math.typeOf(imag_part) == "number") {
+          //  // Leave this cell as a string expression
+          //  return cell;
+          //} else {
+          //  throw new GateParsingError("Expression '"+cell+"' in matrix cell does not evaluate to a single complex number.");
+          //}
+          
         } else {
           throw new GateParsingError("Matrix cell is not of the correct type");
         }
       }
-    )
-  );
+    ).toString() + "]"
+  ).toString() + "]";
   
-  // Evaluate each matrix cell and create a MathJS Matrix object
-  let expression_unitary = math.matrix(
-    matrix_data.map(
-      row => row.map(
-        cell => {
-          if (typeof cell == "number") {
-            // Keep numbers as numbers
-            return cell;
-          } else if (typeof cell == "string") {
-            // Evaluate the string expression and leave it as an expression
-            return math.evaluate(cell);
-          } else {
-            throw new GateParsingError("Matrix cell is not of the correct type");
-          }
-        }
-      )
-    )
-  );
+  // Parse & evaluate the entire matrix
+  let unitary_evaluated;
+  try {
+    unitary_evaluated = math.matrix(math.parse(unitary_string).evaluate());
+  } catch (error: any) {
+    throw new GateParsingError("Creating a Math JS matrix from the parsed and evaluated matrix string failed with error: " + error.message);
+  }
+  
+  // Multiply the inverse of the unitary matrix by its conjugate transpose (should result in an identity matrix)
+  let cancelled_unitary;
+  try {
+    cancelled_unitary = math.multiply(math.inv(unitary_evaluated), math.transpose(math.conj(unitary_evaluated)));
+  } catch (error: any) {
+    throw new GateParsingError("Multiplying the inverse of the unitary matrix by its conjugate transpose failed with error: " + error.message);
+  }
   
   // Ensure the matrix is unitary
-  if (!math.deepEqual(math.multiply(math.inv(expression_unitary), math.transpose(math.conj(expression_unitary))), math.identity(size))) {
+  if (!math.deepEqual(cancelled_unitary, math.identity(size))) {
     throw new GateParsingError("Matrix is not unitary");
   }
   
-  return [expression_unitary, complex_unitary];
+  return unitary_string;
 }
 
-export type { MatrixData, GateData, QuantumCircuitData, Gate, Operation, Register, QuantumCircuit, GateMap, CircuitMap };
+export type { StringExpressionUnitary, GateData, QuantumCircuitData, Gate, Operation, Register, QuantumCircuit, GateMap, CircuitMap };
 export { parseUnitary, parseGate, parseCircuit, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError };

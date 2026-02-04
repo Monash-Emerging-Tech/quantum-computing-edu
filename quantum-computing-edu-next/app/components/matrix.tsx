@@ -12,7 +12,7 @@
 import { create, all } from 'mathjs';
 const math = create(all, { });
 
-import { MatrixData, Gate, QuantumCircuit, Operation, parseUnitary } from "@/app/circuit-data/circuit-parsing";
+import { StringExpressionUnitary, Gate, QuantumCircuit, Operation, parseUnitary } from "@/app/circuit-data/circuit-parsing";
 
 import styles from "./matrix.module.css";
 
@@ -41,13 +41,10 @@ import { MathJaxContext, MathJax } from "nextjs-mathjax";
  * @param matrix The matrix data
  * @returns JSX matrix visual container element
  */
-const UnitaryMatrixVisual = ({matrix}: {matrix: MatrixData}) => {
+const UnitaryMatrixVisual = ({matrix}: {matrix: StringExpressionUnitary}) => {
   
-  // Convert the matrix data to the Math JS matrix
-  const [matrix_expression, _matrix_float] = parseUnitary(matrix);
-  
-  // Convert the matrix into a LaTeX string
-  const matrix_latex = math.parse(matrix_expression.toString()).toTex();
+  // Parse the matrix and convert it into a LaTeX string
+  const matrix_latex = math.parse(matrix).toTex();
   
   // Insert the LaTeX string into a MathJax component
   return <MathJaxContext>
