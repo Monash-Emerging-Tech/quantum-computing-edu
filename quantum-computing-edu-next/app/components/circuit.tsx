@@ -13,6 +13,9 @@ import styles from "./circuit.module.css";
 // Import gate component
 import GateComponent from "./gate";
 
+// Import info bubbles
+import GateInfoBubble from "./info_bubbles";
+
 import { calculateGateDimensions } from "./circuit-functions";
 
 
@@ -60,6 +63,7 @@ const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
             operation={operation}
             qubitPositions={qubitPositions}
             timePosition={gateTimePositions[i]}
+            info_bubble_child={<GateInfoBubble operation={operation} />}
           />
         )
       }

@@ -38,15 +38,19 @@ import {
  * @param timePosition Current horizontal position in the circuit
  * @returns JSX element
  */
-const GateComponent = ({
-  operation,
-  qubitPositions,
-  timePosition
-}: {
-  operation: Operation,
-  qubitPositions: Array<number>,
-  timePosition: number
-}) => {
+const GateComponent = (
+  {
+    operation,
+    qubitPositions,
+    timePosition,
+    info_bubble_child
+  }: {
+    operation: Operation,
+    qubitPositions: Array<number>,
+    timePosition: number,
+    info_bubble_child: React.ReactNode
+  }
+) => {
   const [lineSeparation, setLineSeparation] = useState(0);
   const [gateBaseSize, setGateWidth] = useState(0);
   const [gateMargin, setGateMargin] = useState(0);
@@ -96,7 +100,7 @@ const GateComponent = ({
         {operation.exponent > 1 ? (<sup>{(operation.inverse ? "-" : "") + operation.exponent.toString()}</sup>) : (operation.inverse ? (<sup>†</sup>) : <></>)}
       </div>
     </PopoverTrigger>
-    <GateInfoBubble gate={operation.gate}/>
+    {info_bubble_child}
   </Popover>
 }
 

@@ -1,6 +1,8 @@
 // Reusable popover component definitions
 // From Floating UI: https://floating-ui.com/docs/popover
 
+"use client";
+
 import * as React from "react";
 import {
   useFloating,

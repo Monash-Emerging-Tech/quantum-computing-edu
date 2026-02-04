@@ -5,13 +5,7 @@
  * Components for the the information bubbles that pop up upon hover.
  */
 
-"use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
-
-//import { Unitary, StandardGate, Gate, QuantumCircuit, GateType } from "./circuit-types";
-import { Gate } from "../circuit-data/circuit-parsing";
+import { Operation } from "../circuit-data/circuit-parsing";
 
 import {
   PopoverContent,
@@ -26,9 +20,9 @@ import styles from "./info-bubbles.module.css";
  * Create an information bubble
  * @returns JSX information bubble element
  */
-const GateInfoBubble = ({gate}: {gate: Gate}) => {
+const GateInfoBubble = ({operation}: {operation: Operation}) => {
   return <PopoverContent className={styles["gate-info-bubble"]}>
-    <PopoverHeading>Gate: {gate.full_name}</PopoverHeading>
+    <PopoverHeading>Gate: {operation.gate.full_name}</PopoverHeading>
     <PopoverDescription>Description of this gate goes here.</PopoverDescription>
     {/*<PopoverClose>Close</PopoverClose>*/}
   </PopoverContent>;
