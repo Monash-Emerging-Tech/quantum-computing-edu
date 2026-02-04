@@ -74,7 +74,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           gate_data.splice(i, 1);
-          console.error(error.message);
+          console.error("ERROR: " + error.message);
         } else {
           // Some other error happened, possibly fatal
           throw error;
@@ -100,7 +100,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           circuit_data.splice(i, 1);
-          console.error(error.message);
+          console.error("ERROR: " + error.message);
         } else {
           // Some other error happened, possibly fatal
           throw error;
