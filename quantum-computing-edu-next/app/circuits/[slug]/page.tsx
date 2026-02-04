@@ -8,11 +8,16 @@
 import fs from "fs";
 
 import { CircuitMap, QuantumCircuit } from '@/app/circuit-data/circuit-parsing';
-import { loadGatesAndCircuits, circuitDataDir } from '@/app/circuit-data/data-loading';
+import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
 
 import Circuit from "@/app/components/circuit";
 
 import styles from "./page.module.css";
+
+// Ensure that some core gates have pre-built pages (this is entirely optional)
+//export async function generateStaticParams() {
+//  return [{ slug: 'test' }]
+//}
 
 /**
  * 
@@ -21,6 +26,7 @@ import styles from "./page.module.css";
  */
 export default async function Page({ params }: PageProps<'/circuits/[slug]'>) {
   const { slug } = await params;
+  
   // Load all the gates and circuits in the database
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
