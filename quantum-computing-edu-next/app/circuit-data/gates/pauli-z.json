@@ -7,5 +7,6 @@
   "unitary": [
     [1,0],
     [0,-1]
-  ]
+  ],
+  "documentation_file": "pauli-z.mdx"
 }

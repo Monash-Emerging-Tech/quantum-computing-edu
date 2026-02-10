@@ -3,5 +3,6 @@
   "full_name": "Barrier",
   "display_name": "",
   "color": "white",
-  "arity": 1
+  "arity": 1,
+  "documentation_file": "barrier.mdx"
 }
