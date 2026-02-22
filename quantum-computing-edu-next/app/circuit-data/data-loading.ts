@@ -41,13 +41,11 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
   const gate_data = fs.readdirSync(gateDataDir)
     .filter(file => file.endsWith(".json"))
     .toSorted()
-    .toReversed()
     .map(file => loadDataFile(file, gateDataDir) as GateData);
   
   const circuit_data = fs.readdirSync(circuitDataDir)
     .filter(file => file.endsWith(".json"))
     .toSorted()
-    .toReversed()
     .map(file => loadDataFile(file, circuitDataDir) as QuantumCircuitData);
   
   let gate_map = new Map<string, Gate>();
