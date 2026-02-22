@@ -1,3 +1,4 @@
+/* Main container for the side navigation menu */
 .side-index-container {
   position: fixed;
   top: 0;
@@ -10,10 +11,12 @@
   border-right: 1px solid var(--color-accent);
 }
 
+/* Table inside the side navigation menu */
 .index-table {
   width: 100%;
 }
 
+/* Header cell of an index */
 .index-header {
   padding-top: 1rem;
   padding-bottom: 0.4rem;
@@ -27,13 +30,21 @@
   color: var(--color-accent);
 }
 
-.index-link-box {
+/* Home header cell */
+.index-home {
+  border-bottom: 1px dotted var(--color-accent);
+  margin: 0;
+}
+
+/* A row in an index table */
+.index-link-row {
   border-top: 1px dotted var(--color-accent);
   border-bottom: 1px dotted var(--color-accent);
   
   border-collapse: collapse;
 }
 
+/* A link cell in an index table */
 .index-link-box {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
