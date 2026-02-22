@@ -1,0 +1,54 @@
+# Project structure
+
+## Git repository
+
+This project is hosted on GitHub at [Monash-Emerging-Tech/quantum-computing-edu](https://github.com/Monash-Emerging-Tech/quantum-computing-edu).
+
+
+
+## Schemas
+
+The JSON schemas defining the data formats to store circuits and gates in are located in `/schemas`.
+
+
+
+## Site source
+
+The Next JS project root is `/quantum-computing-edu-next`.
+
+### Packages
+
+The Next JS site uses the following packages:
+- `mdx`
+- `nextjs-mathjax`
+- `mathjs`
+
+### Next JS configuration
+
+`next.config.ts` is modified to include 'md' and 'mdx' page extensions, and to activate the `remark-math` and `rehype-mathjax` mdx plugins.
+
+### Main page
+
+### Circuit data
+
+`/quantum-computing-edu-next/app/circuit-data`
+
+### Circuit pages
+
+`/quantum-computing-edu-next/app/circuits/[slug]/page.tsx`
+
+### Gate pages
+
+`/quantum-computing-edu-next/app/gates/[slug]/page.tsx`
+
+### Components
+
+`/quantum-computing-edu-next/app/components`
+
+### Meta documentation
+
+`/quantum-computing-edu-next/app/doc-data`
+
+`/quantum-computing-edu-next/app/docs/[slug]/page.tsx`
+
+

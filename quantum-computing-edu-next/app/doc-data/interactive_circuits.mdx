@@ -1,0 +1,32 @@
+# Interactive Quantum Circuits
+
+## Components
+
+Registers (with their names) are on the left side.
+
+The numbered qubits are represented by horizontal lines spanning the entire interactive circuit box, with their unique number on the left side.
+
+Gates are represented by coloured rectangles positioned such that they overlap at least one qubit line.
+For every qubit line that a gate overlaps, that gate involves the corresponding qubit (but does not necessarily change the state of that qubit).
+
+Time progresses towards the right — that is, the gates are applied to the qubits sequentially from left to right.
+
+If two gates are parallel (in time) to each other (not acting upon the same qubits), the true relative order of execution does not matter.
+
+Vertical barrier lines may be inserted to visually separate sections of the circuit.
+These barriers are purely visual, and do not change the functionality of the circuit in any way.
+
+
+## Selecting gates
+
+To select a gate in the interactive circuit view, left-click on the coloured rectangle that represents the gate.
+A popup will appear below the gate, with the title of the gate and some brief information about it.
+
+To view more information about the gate, left-click on the title of the gate within the popup.
+This will take you to a page dedicated to that quantum gate.
+
+
+## Subcircuits
+
+Sometimes a gate will be defined by a quantum circuit, letting smaller quantum circuits be inserted into larger ones.
+
