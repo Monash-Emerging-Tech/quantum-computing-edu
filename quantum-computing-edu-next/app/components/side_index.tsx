@@ -10,6 +10,7 @@ import Link from "next/link";
 import styles from "./side_index.module.css";
 
 import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { loadDocPagesList } from '@/app/doc-data/load-docs-list';
 
 export default function SideIndexMenu() {
   // Load all the gates and circuits in the database
@@ -19,7 +20,7 @@ export default function SideIndexMenu() {
   return <div className={styles["side-index-container"]}>
     <header>
       <Link href="/">
-        <h2 className={styles["index-header"]}>
+        <h2 className={styles["index-header"]+" "+styles["index-home"]}>
           Home
         </h2>
       </Link>
@@ -29,7 +30,7 @@ export default function SideIndexMenu() {
       <thead>
         <tr>
           <th className={styles["index-header"]}>
-            Gate Index
+            Gates
           </th>
         </tr>
       </thead>
@@ -55,7 +56,7 @@ export default function SideIndexMenu() {
       <thead>
         <tr>
           <th className={styles["index-header"]}>
-            Circuit Index
+            Circuits
           </th>
         </tr>
       </thead>
@@ -73,6 +74,32 @@ export default function SideIndexMenu() {
                 </td>
               </tr>
           ).toArray()
+        }
+      </tbody>
+    </table>
+    
+    <table className={styles["index-table"]}>
+      <thead>
+        <tr>
+          <th className={styles["index-header"]}>
+            Documentation
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          loadDocPagesList().map(
+            ({doc_name}) =>
+              <tr key={doc_name} id={"doc-page-"+doc_name} className={styles["index-link-row"]}>
+                <td>
+                  <Link href={"/docs/"+doc_name}>
+                    <div className={styles["index-link-box"]}>
+                      {doc_name.charAt(0).toUpperCase() + doc_name.slice(1).replaceAll("_", " ")}
+                    </div>
+                  </Link>
+                </td>
+              </tr>
+          )
         }
       </tbody>
     </table>
