@@ -18,6 +18,15 @@ const math = create(all, { });
 type MatrixData = (number | string)[][];
 
 /**
+ * The structure of parameter definitions in quantum gate JSON data
+ */
+type ParameterData = {
+  symbol: string,
+  min?: string,
+  max?: string
+};
+
+/**
  * The structure of quantum gate JSON data
  */
 type GateData = {
@@ -29,6 +38,7 @@ type GateData = {
   unitary?: MatrixData,
   subcircuit?: QuantumCircuitData,
   subcircuit_id?: string,
+  parameters: ParameterData[],
   documentation_file?: string
 };
 
@@ -74,6 +84,15 @@ type QuantumCircuitData = {
 type StringExpressionUnitary = string;
 
 /**
+ * The structure of parameter definitions in quantum gate JSON data
+ */
+type GateParameter = {
+  symbol: string,
+  min?: string,
+  max?: string
+};
+
+/**
  * The structure of a quantum gate (independent of a quantum circuit)
  */
 type Gate = {
@@ -84,6 +103,7 @@ type Gate = {
   arity: number,
   unitary?: StringExpressionUnitary,
   subcircuit?: QuantumCircuit,
+  parameters: GateParameter[],
   documentation_file?: string
 };
 
@@ -186,13 +206,13 @@ const parseGate = (gate_data: GateData, gate_map: GateMap, circuit_map: CircuitM
     display_name: gate_data.display_name,
     color: gate_data?.color,
     arity: gate_data.arity,
+    parameters: (gate_data.parameters !== undefined ? gate_data.parameters : []) as GateParameter[],
     documentation_file: gate_data?.documentation_file
   };
   
   if (gate_data.unitary) {
     // Defined by a unitary matrix
-    //let [_unitary_expr, unitary_float] = parseUnitary(gate_data.unitary);
-    let unitary_string = parseUnitary(gate_data.unitary);
+    const unitary_string = parseUnitary(gate_data.unitary, gate_base_obj.parameters);
     return {
       ...gate_base_obj,
       unitary: unitary_string
@@ -277,9 +297,10 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
 /**
  * Parse and validate a unitary matrix from JSON data
  * @param matrix_data a 2D array of numbers and/or strings containing mathematical expressions
+ * @param parameters list of parameter symbols used in the unitary matrix data
  * @returns Math JS's stringified expression representing the parsed matrix
  */
-const parseUnitary = (matrix_data: MatrixData): StringExpressionUnitary => {
+const parseUnitary = (matrix_data: MatrixData, parameters: GateParameter[]): StringExpressionUnitary => {
   // Verify matrix is square and has a size equal to 2^n, where n ≥ 1.
   let size = matrix_data.length;
   if (size <= 1 || Math.log2(size) % 1 != 0) {
@@ -332,18 +353,34 @@ const parseUnitary = (matrix_data: MatrixData): StringExpressionUnitary => {
     ).toString() + "]"
   ).toString() + "]";
   
+  // Define a Math JS parser to parse the matrix expression
+  const parser = math.parser();
+  
+  // Assign all parameters with values between their parameter bounds (but not equal to their bounds)
+  parameters.forEach((parameter) => {
+    let value = "1";
+    if (parameter.min && parameter.max) {
+      value = `(${parameter.min} + ${parameter.max})/2`;
+    } else if (parameter.min) {
+      value = `${parameter.min} + 1`;
+    } else if (parameter.max) {
+      value = `${parameter.max} - 1`;
+    }
+    parser.evaluate(parameter.symbol + " = " + value.toString());
+  });
+  
   // Parse & evaluate the entire matrix
   let unitary_evaluated;
   try {
-    unitary_evaluated = math.matrix(math.parse(unitary_string).evaluate());
+    unitary_evaluated = math.matrix(parser.evaluate(unitary_string));
   } catch (error: any) {
     throw new GateParsingError("Creating a Math JS matrix from the parsed and evaluated matrix string failed with error: " + error.message);
   }
   
-  // Multiply the inverse of the unitary matrix by its conjugate transpose (should result in an identity matrix)
+  // Multiply the unitary matrix by its conjugate transpose (should result in an identity matrix)
   let cancelled_unitary;
   try {
-    cancelled_unitary = math.multiply(math.inv(unitary_evaluated), math.transpose(math.conj(unitary_evaluated)));
+    cancelled_unitary = math.multiply(unitary_evaluated, math.transpose(math.conj(unitary_evaluated)));
   } catch (error: any) {
     throw new GateParsingError("Multiplying the inverse of the unitary matrix by its conjugate transpose failed with error: " + error.message);
   }
