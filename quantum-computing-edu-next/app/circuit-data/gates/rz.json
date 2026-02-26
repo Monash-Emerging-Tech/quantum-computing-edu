@@ -1,0 +1,15 @@
+{
+  "gate_id": "rz",
+  "full_name": "Rotate about Z",
+  "display_name": "RZ",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    ["e^(-i*ϕ/2)","0"],
+    ["0","e^(i*ϕ/2)"]
+  ],
+  "parameters": [
+    { "symbol": "ϕ" }
+  ],
+  "documentation_file": "rz.mdx"
+}

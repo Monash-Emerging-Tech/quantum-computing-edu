@@ -1,0 +1,15 @@
+{
+  "gate_id": "ry",
+  "full_name": "Rotate about Y",
+  "display_name": "RY",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    ["cos(θ/2)","-sin(θ/2)"],
+    ["sin(θ/2)","cos(θ/2)"]
+  ],
+  "parameters": [
+    { "symbol": "θ" }
+  ],
+  "documentation_file": "ry.mdx"
+}

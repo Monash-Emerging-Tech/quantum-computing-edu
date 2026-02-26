@@ -1,0 +1,15 @@
+{
+  "gate_id": "rx",
+  "full_name": "Rotate about X",
+  "display_name": "RX",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    ["cos(θ/2)","-i*sin(θ/2)"],
+    ["-i*sin(θ/2)","cos(θ/2)"]
+  ],
+  "parameters": [
+    { "symbol": "θ" }
+  ],
+  "documentation_file": "rx.mdx"
+}
