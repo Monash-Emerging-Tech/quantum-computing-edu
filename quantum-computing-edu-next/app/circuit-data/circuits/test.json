@@ -237,7 +237,7 @@
     {
       "gate_id": "z",
       "qubits": [3],
-      "controls": [0,1],
+      "controls": [5],
       "anticontrols": []
     },
     {
@@ -255,7 +255,7 @@
           "value": "pi"
         }
       ],
-      "controls": [0],
+      "controls": [0,2],
       "anticontrols": []
     },
     {
@@ -279,7 +279,7 @@
           "value": "pi"
         }
       ],
-      "controls": [0,1],
+      "controls": [4],
       "anticontrols": []
     },
     {
