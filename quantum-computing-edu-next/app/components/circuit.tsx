@@ -34,16 +34,23 @@ const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
   // Calculate the horizontal positions of the gates
   let qubitLastGatePos: Array<number> = Array(qubitOrder.length).fill(0);
   const gateTimePositions = circuit.operations.map((operation, i) => {
+    // Find all qubit positions covered by the gate and its control points
+    const covered_positions = [...operation.qubits, ...operation.controls, ...operation.anticontrols].map((qubit) => qubitPositions[qubit]);
+    const min_qubit_pos = Math.min(...covered_positions);
+    const max_qubit_pos = Math.max(...covered_positions);
+    const covered_positions_filled = Array(max_qubit_pos - min_qubit_pos + 1).fill(0).map((_, j) => min_qubit_pos+j);
+    const covered_qubits_filled = covered_positions_filled.map((pos) => qubitOrder[pos]);
+    
     // Find the qubit with the rightmost gate position
-    const gatePos = Math.max.apply(Math, operation.qubits.map(q => qubitLastGatePos[q]));
+    const gatePos = Math.max.apply(Math, covered_qubits_filled.map(q => qubitLastGatePos[q]));
     
     // Get the width of the gate
     const [gateWidth, _] = calculateGateDimensions(operation, qubitPositions);
     
     // Update the next gate position for each applicable qubit
-    operation.qubits.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
-    operation.controls.forEach(q => qubitLastGatePos[q] = gatePos+gateWidth);
-    operation.anticontrols.forEach(q => qubitLastGatePos[q] = gatePos+1);
+    covered_positions_filled.forEach((j) => {
+      qubitLastGatePos[qubitOrder[j]] = gatePos+gateWidth;
+    });
     return gatePos;
   });
   
