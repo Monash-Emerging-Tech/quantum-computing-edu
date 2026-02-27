@@ -16,7 +16,7 @@ import OperationComponent from "./gate";
 // Import info bubbles
 import GateInfoBubble from "./info_bubbles";
 
-import { calculateGateDimensions } from "./circuit-functions";
+import { calculateGateDimensions, calculateOperationSpan } from "./circuit-functions";
 
 
 
@@ -35,11 +35,7 @@ const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
   let qubitLastGatePos: Array<number> = Array(qubitOrder.length).fill(0);
   const gateTimePositions = circuit.operations.map((operation, i) => {
     // Find all qubit positions covered by the gate and its control points
-    const covered_positions = [...operation.qubits, ...operation.controls, ...operation.anticontrols].map((qubit) => qubitPositions[qubit]);
-    const min_qubit_pos = Math.min(...covered_positions);
-    const max_qubit_pos = Math.max(...covered_positions);
-    const covered_positions_filled = Array(max_qubit_pos - min_qubit_pos + 1).fill(0).map((_, j) => min_qubit_pos+j);
-    const covered_qubits_filled = covered_positions_filled.map((pos) => qubitOrder[pos]);
+    const [_min_qubit_pos, _max_qubit_pos, covered_positions_filled, covered_qubits_filled] = calculateOperationSpan(operation, qubitOrder, qubitPositions);
     
     // Find the qubit with the rightmost gate position
     const gatePos = Math.max.apply(Math, covered_qubits_filled.map(q => qubitLastGatePos[q]));
@@ -68,6 +64,7 @@ const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
           (operation, i) => <OperationComponent
             key={i}
             operation={operation}
+            qubitOrder={qubitOrder}
             qubitPositions={qubitPositions}
             timePosition={gateTimePositions[i]}
             info_bubble_child={<GateInfoBubble operation={operation} />}

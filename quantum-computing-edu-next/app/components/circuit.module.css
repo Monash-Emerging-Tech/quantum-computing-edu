@@ -119,3 +119,10 @@
   text-align: center;
   white-space: nowrap;
 }
+
+.circuit-control-line {
+  position: absolute;
+  
+  width: 0.2em;
+  margin-left: -0.1em;
+}

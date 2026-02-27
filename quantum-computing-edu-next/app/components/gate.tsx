@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 // Import types and basic gates
 import { Gate, QuantumCircuit, Operation } from "@/app/circuit-data/circuit-parsing";
 
-import { calculateGateDimensions } from "./circuit-functions";
+import { calculateGateDimensions, calculateOperationSpan } from "./circuit-functions";
 
 import styles from "./circuit.module.css";
 
@@ -31,7 +31,8 @@ import {
 /**
  * Create quantum gate (operation) visual in the context of a circuit
  * @param operation All gate information
- * @param qubitPositions Vertical qubit arrangement
+ * @param qubitOrder The qubit IDs arranged in vertical display order
+ * @param qubitPositions The vertical position of each qubit in the circuit
  * @param timePosition Current horizontal position in the circuit
  * @param info_bubble_child Child information bubble element
  * @returns JSX element
@@ -39,11 +40,13 @@ import {
 const OperationComponent = (
   {
     operation,
+    qubitOrder,
     qubitPositions,
     timePosition,
     info_bubble_child
   }: {
     operation: Operation,
+    qubitOrder: Array<number>,
     qubitPositions: Array<number>,
     timePosition: number,
     info_bubble_child: React.ReactNode
@@ -81,6 +84,8 @@ const OperationComponent = (
   
   const [gateWidth, gateHeight] = calculateGateDimensions(operation, qubitPositions);
   
+  const [min_qubit_pos, _max_qubit_pos, covered_positions_filled, covered_qubits_filled] = calculateOperationSpan(operation, qubitOrder, qubitPositions);
+  
   return <div
     className={styles["circuit-operation-container"]}
     style={{
@@ -88,6 +93,15 @@ const OperationComponent = (
       left: (timePosition * gateMargin * 3 + 1) + "em",
     }}
   >
+    <ControlLineComponent
+      operation={operation}
+      lineSeparation={lineSeparation}
+      gateBaseSize={gateBaseSize}
+      gateMargin={gateMargin}
+      gateWidth={gateWidth}
+      lineHeight={covered_positions_filled.length}
+      topOffset={min_qubit_pos - upperQubitPos}
+    />
     <GateComponent
       operation={operation}
       lineSeparation={lineSeparation}
@@ -148,6 +162,44 @@ const GateComponent = (
   </PopoverTrigger>
   {info_bubble_child}
 </Popover>;
+
+
+
+/**
+ * Create quantum gate visual independent of the circuit context
+ * @param operation All gate information
+ * @param lineSeparation Distance between lines in the circuit defined by CSS
+ * @param lineHeight Height of the line (in qubits)
+ * @returns JSX element
+ */
+const ControlLineComponent = (
+  {
+    operation,
+    lineSeparation,
+    gateBaseSize,
+    gateMargin,
+    gateWidth,
+    lineHeight,
+    topOffset
+  }: {
+    operation: Operation,
+    lineSeparation: number,
+    gateBaseSize: number,
+    gateMargin: number,
+    gateWidth: number,
+    lineHeight: number,
+    topOffset: number
+  }
+) => 
+    <div
+      className={styles["circuit-control-line"]}
+      style={{
+        top: lineSeparation * topOffset * 2 + "em",
+        left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
+        height: lineSeparation * (lineHeight-1) * 2 + "em",
+        background: operation.gate.color,
+      }}
+    ></div>;
 
 
 
