@@ -40,6 +40,36 @@
       "qubits": [0]
     },
     {
+      "gate_id": "rx",
+      "qubits": [1],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ]
+    },
+    {
+      "gate_id": "ry",
+      "qubits": [2],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ]
+    },
+    {
+      "gate_id": "rz",
+      "qubits": [3],
+      "parameter_values": [
+        {
+          "symbol": "Φ",
+          "value": "pi"
+        }
+      ]
+    },
+    {
       "gate_id": "swap",
       "qubits": [4,5]
     },
@@ -72,6 +102,39 @@
     {
       "gate_id": "h",
       "qubits": [0],
+      "inverse": true
+    },
+    {
+      "gate_id": "rx",
+      "qubits": [1],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "inverse": true
+    },
+    {
+      "gate_id": "ry",
+      "qubits": [2],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "inverse": true
+    },
+    {
+      "gate_id": "rz",
+      "qubits": [3],
+      "parameter_values": [
+        {
+          "symbol": "Φ",
+          "value": "pi"
+        }
+      ],
       "inverse": true
     },
     {
@@ -109,6 +172,39 @@
       "qubits": [0],
       "inverse": true,
       "exponent": 2
+    },
+    {
+      "gate_id": "rx",
+      "qubits": [1],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "exponent": 3
+    },
+    {
+      "gate_id": "ry",
+      "qubits": [2],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "exponent": 4
+    },
+    {
+      "gate_id": "rz",
+      "qubits": [3],
+      "parameter_values": [
+        {
+          "symbol": "Φ",
+          "value": "pi"
+        }
+      ],
+      "exponent": 5
     },
     {
       "gate_id": "swap",
@@ -149,6 +245,42 @@
       "qubits": [0],
       "controls": [1],
       "anticontrols": [0]
+    },
+    {
+      "gate_id": "rx",
+      "qubits": [1],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "controls": [0],
+      "anticontrols": []
+    },
+    {
+      "gate_id": "ry",
+      "qubits": [2],
+      "parameter_values": [
+        {
+          "symbol": "θ",
+          "value": "pi"
+        }
+      ],
+      "controls": [0],
+      "anticontrols": [0]
+    },
+    {
+      "gate_id": "rz",
+      "qubits": [3],
+      "parameter_values": [
+        {
+          "symbol": "Φ",
+          "value": "pi"
+        }
+      ],
+      "controls": [0,1],
+      "anticontrols": []
     },
     {
       "gate_id": "swap",
