@@ -1,0 +1,15 @@
+{
+  "gate_id": "phase",
+  "full_name": "Phase",
+  "display_name": "P",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    ["1","0"],
+    ["0","e^(i*θ)"]
+  ],
+  "parameters": [
+    { "symbol": "θ" }
+  ],
+  "documentation_file": "phase.mdx"
+}

@@ -1,0 +1,12 @@
+{
+  "gate_id": "s",
+  "full_name": "S",
+  "display_name": "S",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    [1,0],
+    [0,"i"]
+  ],
+  "documentation_file": "s.mdx"
+}

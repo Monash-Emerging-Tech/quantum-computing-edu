@@ -1,0 +1,12 @@
+{
+  "gate_id": "t",
+  "full_name": "T",
+  "display_name": "T",
+  "color": "blue",
+  "arity": 1,
+  "unitary": [
+    [1,0],
+    [0,"e^(i*pi/4)"]
+  ],
+  "documentation_file": "t.mdx"
+}
