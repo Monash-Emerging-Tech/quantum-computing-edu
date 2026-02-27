@@ -38,7 +38,7 @@ import {
  * @param timePosition Current horizontal position in the circuit
  * @returns JSX element
  */
-const GateComponent = (
+const OperationComponent = (
   {
     operation,
     qubitPositions,
@@ -106,4 +106,4 @@ const GateComponent = (
 
 
 
-export default GateComponent;
+export default OperationComponent;

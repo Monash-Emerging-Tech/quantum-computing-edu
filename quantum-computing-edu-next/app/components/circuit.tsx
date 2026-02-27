@@ -11,7 +11,7 @@ import { QuantumCircuit, Operation } from "@/app/circuit-data/circuit-parsing";
 import styles from "./circuit.module.css";
 
 // Import gate component
-import GateComponent from "./gate";
+import OperationComponent from "./gate";
 
 // Import info bubbles
 import GateInfoBubble from "./info_bubbles";
@@ -58,7 +58,7 @@ const Circuit = ({circuit}: {circuit: QuantumCircuit}) => {
       }
       {
         circuit.operations.map(
-          (operation, i) => <GateComponent
+          (operation, i) => <OperationComponent
             key={i}
             operation={operation}
             qubitPositions={qubitPositions}
