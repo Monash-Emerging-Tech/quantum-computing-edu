@@ -61,13 +61,18 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
     }
   }
   
-  let extra_info = [];
+  let extra_info = [
+    <div key="qubits">This gate is applied to qubit{operation.qubits.length > 1 ? ("s "+operation.qubits.join(", ")) : (" "+operation.qubits[0])}.</div>
+  ];
   if (operation.inverse) {
     extra_info.push(<div key="inv">This gate is inverted.</div>);
   }
   if (operation.exponent > 1) {
     extra_info.push(<div key="exp">This gate is repeated {operation.exponent} times.</div>);
   }
+  operation.parameter_values.forEach(({symbol, value}) => {
+    extra_info.push(<div key={"param"+symbol}>Parameter {symbol} = {value}.</div>);
+  });
   
   return (
     <div>
@@ -78,6 +83,7 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
       </div>
       
       <br/>
+      <h2>Operation Information</h2>
       <div>
         {extra_info}
       </div>
