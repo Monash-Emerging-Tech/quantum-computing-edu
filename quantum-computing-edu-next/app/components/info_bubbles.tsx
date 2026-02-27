@@ -38,8 +38,9 @@ const GateInfoBubble = ({operation}: {operation: Operation}) => {
 }
 
 /**
- * Create the gate information page
- * @returns JSX content for the gate page
+ * Create the operation information popup content
+ * @param operation operation object containing all relevant information about the operation in the context of the circuit
+ * @returns JSX content for the operation popup
  */
 async function GatePopoverDescription({operation}: {operation: Operation}) {
   
@@ -61,17 +62,18 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
     }
   }
   
-  let extra_info = [
+  // Add information about the operation (the specific instance of the gate in the context of the circuit)
+  let operation_info = [
     <div key="qubits">This gate is applied to qubit{operation.qubits.length > 1 ? ("s "+operation.qubits.join(", ")) : (" "+operation.qubits[0])}.</div>
   ];
   if (operation.inverse) {
-    extra_info.push(<div key="inv">This gate is inverted.</div>);
+    operation_info.push(<div key="inv">This gate is inverted.</div>);
   }
   if (operation.exponent > 1) {
-    extra_info.push(<div key="exp">This gate is repeated {operation.exponent} times.</div>);
+    operation_info.push(<div key="exp">This gate is repeated {operation.exponent} times.</div>);
   }
   operation.parameter_values.forEach(({symbol, value}) => {
-    extra_info.push(<div key={"param"+symbol}>Parameter {symbol} = {value}.</div>);
+    operation_info.push(<div key={"param"+symbol}>Parameter {symbol} = {value}.</div>);
   });
   
   return (
@@ -85,7 +87,7 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
       <br/>
       <h2>Operation Information</h2>
       <div>
-        {extra_info}
+        {operation_info}
       </div>
     </div>
   )
