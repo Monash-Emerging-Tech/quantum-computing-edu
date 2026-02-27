@@ -101,8 +101,12 @@
   height: 1px;
 }
 
-.circuit-gate {
+.circuit-operation-container {
   position: absolute;
+}
+
+.circuit-gate {
+  position: relative;
   
   width: var(--gate-size);
   height: var(--gate-size);
