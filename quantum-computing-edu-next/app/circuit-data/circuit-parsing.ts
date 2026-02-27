@@ -20,7 +20,7 @@ type MatrixData = (number | string)[][];
 /**
  * The structure of parameter definitions in quantum gate JSON data
  */
-type ParameterData = {
+type ParameterDefData = {
   symbol: string,
   min?: string,
   max?: string
@@ -38,7 +38,7 @@ type GateData = {
   unitary?: MatrixData,
   subcircuit?: QuantumCircuitData,
   subcircuit_id?: string,
-  parameters: ParameterData[],
+  parameters: ParameterDefData[],
   documentation_file?: string
 };
 
@@ -52,6 +52,14 @@ type RegisterData = {
 };
 
 /**
+ * The structure of gate parameter value assignments in quantum circuit JSON data
+ */
+type ParameterValData = {
+  symbol: string,
+  value: string,
+};
+
+/**
  * The structure of operations in quantum circuit JSON data
  */
 type OperationData = {
@@ -61,7 +69,8 @@ type OperationData = {
   controls?: number[],
   anticontrols?: number[],
   inverse?: boolean,
-  exponent?: number
+  exponent?: number,
+  parameter_values?: ParameterValData[]
 };
 
 /**
@@ -86,11 +95,7 @@ type StringExpressionUnitary = string;
 /**
  * The structure of parameter definitions in quantum gate JSON data
  */
-type GateParameter = {
-  symbol: string,
-  min?: string,
-  max?: string
-};
+type GateParameter = ParameterDefData;
 
 /**
  * The structure of a quantum gate (independent of a quantum circuit)
@@ -113,6 +118,11 @@ type Gate = {
 type Register = RegisterData;
 
 /**
+ * The structure of gate parameter value assignments in quantum circuit JSON data
+ */
+type OperationParameterValue = ParameterValData;
+
+/**
  * The structure of a quantum operation (a gate within a quantum circuit)
  */
 type Operation = {
@@ -121,7 +131,8 @@ type Operation = {
   controls: number[],
   anticontrols: number[],
   inverse: boolean,
-  exponent: number
+  exponent: number,
+  parameter_values: OperationParameterValue[]
 };
 
 /**
@@ -265,7 +276,8 @@ const parseCircuit = (circuit_data: QuantumCircuitData, gate_map: GateMap, circu
         controls: operation_data.controls === undefined ? [] : operation_data.controls,
         anticontrols: operation_data.anticontrols === undefined ? [] : operation_data.anticontrols,
         inverse: operation_data.inverse === undefined ? false : operation_data.inverse,
-        exponent: operation_data.exponent === undefined ? 1 : operation_data.exponent
+        exponent: operation_data.exponent === undefined ? 1 : operation_data.exponent,
+        parameter_values: (operation_data.parameter_values === undefined ? [] : operation_data.parameter_values) as OperationParameterValue[],
       };
       
       if (operation_data.gate_id) {
