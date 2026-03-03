@@ -126,3 +126,26 @@
   width: 0.2em;
   margin-left: -0.1em;
 }
+
+.circuit-control-circle {
+  position: absolute;
+  
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin-left: -0.4em;
+  margin-top: -0.4em;
+  background-color: currentColor;
+}
+
+.circuit-anticontrol-circle {
+  position: absolute;
+  
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  margin-left: -0.4em;
+  margin-top: -0.4em;
+  border: 0.18em solid currentColor;
+  background-color: grey;
+}

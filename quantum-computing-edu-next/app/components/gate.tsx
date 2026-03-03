@@ -102,6 +102,30 @@ const OperationComponent = (
       lineHeight={covered_positions_filled.length}
       topOffset={min_qubit_pos - upperQubitPos}
     />
+    {
+      operation.controls.map((ctrl_qubit) => <ControlCircleComponent
+        key={ctrl_qubit}
+        operation={operation}
+        lineSeparation={lineSeparation}
+        gateBaseSize={gateBaseSize}
+        gateMargin={gateMargin}
+        gateWidth={gateWidth}
+        topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
+        targetState={true}
+      />)
+    }
+    {
+      operation.anticontrols.map((ctrl_qubit) => <ControlCircleComponent
+        key={ctrl_qubit}
+        operation={operation}
+        lineSeparation={lineSeparation}
+        gateBaseSize={gateBaseSize}
+        gateMargin={gateMargin}
+        gateWidth={gateWidth}
+        topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
+        targetState={false}
+      />)
+    }
     <GateComponent
       operation={operation}
       lineSeparation={lineSeparation}
@@ -166,10 +190,14 @@ const GateComponent = (
 
 
 /**
- * Create quantum gate visual independent of the circuit context
+ * Create control line visual independent of the circuit context
  * @param operation All gate information
  * @param lineSeparation Distance between lines in the circuit defined by CSS
+ * @param gateBaseSize Base gate size defined by CSS
+ * @param gateMargin Margin between gates defined by CSS
+ * @param gateWidth Relative width of the gate
  * @param lineHeight Height of the line (in qubits)
+ * @param topOffset Upper positional offset of the line (in qubits)
  * @returns JSX element
  */
 const ControlLineComponent = (
@@ -191,15 +219,57 @@ const ControlLineComponent = (
     topOffset: number
   }
 ) => 
-    <div
-      className={styles["circuit-control-line"]}
-      style={{
-        top: lineSeparation * topOffset * 2 + "em",
-        left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
-        height: lineSeparation * (lineHeight-1) * 2 + "em",
-        background: operation.gate.color,
-      }}
-    ></div>;
+  <div
+    className={styles["circuit-control-line"]}
+    style={{
+      top: lineSeparation * topOffset * 2 + "em",
+      left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
+      height: lineSeparation * (lineHeight-1) * 2 + "em",
+      background: operation.gate.color,
+    }}
+  ></div>;
+
+
+
+/**
+ * Create control point visual independent of the circuit context
+ * @param operation All gate information
+ * @param lineSeparation Distance between lines in the circuit defined by CSS
+ * @param gateBaseSize Base gate size defined by CSS
+ * @param gateMargin Margin between gates defined by CSS
+ * @param gateWidth Relative width of the gate
+ * @param gateHeight Height of the gate (in qubits)
+ * @param topOffset Upper positional offset of the point (in qubits)
+ * @param targetState Whether the control is 1 (true) or 0 (false)
+ * @returns JSX element
+ */
+const ControlCircleComponent = (
+  {
+    operation,
+    lineSeparation,
+    gateBaseSize,
+    gateMargin,
+    gateWidth,
+    topOffset,
+    targetState
+  }: {
+    operation: Operation,
+    lineSeparation: number,
+    gateBaseSize: number,
+    gateMargin: number,
+    gateWidth: number,
+    topOffset: number,
+    targetState: boolean
+  }
+) => 
+  <div
+    className={styles[`circuit-${targetState ? "" : "anti"}control-circle`]}
+    style={{
+      top: lineSeparation * topOffset * 2 + "em",
+      left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
+      color: operation.gate.color,
+    }}
+  ></div>;
 
 
 
