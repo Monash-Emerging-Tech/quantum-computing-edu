@@ -231,7 +231,7 @@
     {
       "gate_id": "y",
       "qubits": [2],
-      "controls": [0],
+      "controls": [],
       "anticontrols": [0]
     },
     {
@@ -255,8 +255,8 @@
           "value": "pi"
         }
       ],
-      "controls": [0,2],
-      "anticontrols": []
+      "controls": [0],
+      "anticontrols": [2]
     },
     {
       "gate_id": "ry",
@@ -268,7 +268,7 @@
         }
       ],
       "controls": [0],
-      "anticontrols": [0]
+      "anticontrols": []
     },
     {
       "gate_id": "rz",
