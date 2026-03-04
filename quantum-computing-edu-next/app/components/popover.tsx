@@ -146,7 +146,7 @@ export const PopoverTrigger = React.forwardRef<
         ref,
         ...props,
         ...children.props,
-        "data-state": context.open ? "open" : "closed" // Typescript linting may complain about this line, but it works fine
+        //"data-state": context.open ? "open" : "closed" // Typescript linting may complain about this line, but it works fine
       })
     );
   }

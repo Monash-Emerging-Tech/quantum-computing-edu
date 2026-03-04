@@ -170,7 +170,7 @@ const GateComponent = (
     info_bubble_child: React.ReactNode
   }
 ) => <Popover>
-  <PopoverTrigger asChild={true}>
+  <PopoverTrigger>
     <div
       className={styles["circuit-gate"]}
       style={{

@@ -105,6 +105,12 @@
   position: absolute;
 }
 
+/* Popover trigger */
+.circuit-operation-container > button {
+  position: absolute;
+  display: block;
+}
+
 .circuit-gate {
   position: relative;
   
