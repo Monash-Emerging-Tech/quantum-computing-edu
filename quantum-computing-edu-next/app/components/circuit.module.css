@@ -67,6 +67,7 @@
   justify-content: center;
   align-items: center;
   overflow: visible;
+  white-space: nowrap;
   
   margin: auto;
 }
