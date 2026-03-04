@@ -5,6 +5,14 @@ import createMDX from '@next/mdx';
 //import rehypeMathJax from 'rehype-mathjax'
 
 const nextConfig: NextConfig = {
+  output: 'export',
+  distDir: `dist/${process.env.NEXT_PUBLIC_BUILD}`,
+  basePath: process.env.NEXT_PUBLIC_BASEPATH,
+  trailingSlash: true,
+  images: { unoptimized: true },
+  //experimental: {
+  //  inlineCss: true,
+  //},
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 

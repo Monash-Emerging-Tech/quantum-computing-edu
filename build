@@ -1,0 +1,7 @@
+#!/bin/bash
+
+SCRIPTPATH=$(dirname $0)
+cd $SCRIPTPATH/quantum-computing-edu-next
+
+npm run build
+npm run build:gh-pages
