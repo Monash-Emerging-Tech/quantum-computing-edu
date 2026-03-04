@@ -15,9 +15,10 @@ import Circuit from "@/app/components/circuit";
 import styles from "./page.module.css";
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
-//export async function generateStaticParams() {
-//  return [{ slug: 'test' }]
-//}
+export async function generateStaticParams() {
+  const [_gate_map, circuit_map] = loadGatesAndCircuits();
+  return circuit_map.values().map((circuit) => ({slug: circuit.circuit_id})).toArray();
+}
 
 /**
  * 

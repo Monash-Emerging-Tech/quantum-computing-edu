@@ -12,9 +12,9 @@ import { loadDocPagesList } from '@/app/doc-data/load-docs-list';
 import styles from "./page.module.css";
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
-//export async function generateStaticParams() {
-//  return [{ slug: 'identity' }, { slug: 'pauli-x' }, { slug: 'pauli-y' }, { slug: 'pauli-z' }, { slug: 'hadamard' }, { slug: 'barrier' }, { slug: 'swap' }]
-//}
+export async function generateStaticParams() {
+  return loadDocPagesList().map(({doc_name}) => ({slug: doc_name}));
+}
 
 /**
  * 

@@ -15,9 +15,10 @@ import UnitaryMatrixVisual from "@/app/components/matrix";
 import styles from "./page.module.css";
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
-//export async function generateStaticParams() {
-//  return [{ slug: 'identity' }, { slug: 'pauli-x' }, { slug: 'pauli-y' }, { slug: 'pauli-z' }, { slug: 'hadamard' }, { slug: 'barrier' }, { slug: 'swap' }]
-//}
+export async function generateStaticParams() {
+  const [gate_map, _circuit_map] = loadGatesAndCircuits();
+  return gate_map.values().map((gate) => ({slug: gate.gate_id})).toArray();
+}
 
 /**
  * 
