@@ -58,3 +58,8 @@ h3 {
 svg {
   display: unset;
 }
+
+a {
+  text-decoration: underline;
+  color: var(--color-accent);
+}

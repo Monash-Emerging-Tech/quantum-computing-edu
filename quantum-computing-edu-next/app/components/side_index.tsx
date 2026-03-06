@@ -19,7 +19,7 @@ export default function SideIndexMenu() {
   
   return <div className={styles["side-index-container"]}>
     <header>
-      <Link href="/">
+      <Link href="/" className={styles["side-index-link-nounderline"]}>
         <h2 className={styles["index-header"]+" "+styles["index-home"]}>
           Home
         </h2>
@@ -40,7 +40,7 @@ export default function SideIndexMenu() {
             (gate) =>
               <tr key={gate.gate_id} id={"circuit-"+gate.gate_id} className={styles["index-link-row"]}>
                 <td>
-                  <Link href={"/gates/"+gate.gate_id}>
+                  <Link href={"/gates/"+gate.gate_id} className={styles["side-index-link-nounderline"]}>
                     <div className={styles["index-link-box"]}>
                       {gate.full_name}
                     </div>
@@ -66,7 +66,7 @@ export default function SideIndexMenu() {
             (circuit) =>
               <tr key={circuit.circuit_id} id={"circuit-"+circuit.circuit_id} className={styles["index-link-row"]}>
                 <td>
-                  <Link href={"/circuits/"+circuit.circuit_id}>
+                  <Link href={"/circuits/"+circuit.circuit_id} className={styles["side-index-link-nounderline"]}>
                     <div className={styles["index-link-box"]}>
                       {circuit.full_name}
                     </div>
@@ -92,7 +92,7 @@ export default function SideIndexMenu() {
             ({doc_name}) =>
               <tr key={doc_name} id={"doc-page-"+doc_name} className={styles["index-link-row"]}>
                 <td>
-                  <Link href={"/docs/"+doc_name}>
+                  <Link href={"/docs/"+doc_name} className={styles["side-index-link-nounderline"]}>
                     <div className={styles["index-link-box"]}>
                       {doc_name.charAt(0).toUpperCase() + doc_name.slice(1).replaceAll("_", " ")}
                     </div>

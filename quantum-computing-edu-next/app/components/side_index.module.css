@@ -16,6 +16,11 @@
   width: 100%;
 }
 
+.side-index-link-nounderline {
+  text-decoration: none;
+  color: var(--foreground);
+}
+
 /* Header cell of an index */
 .index-header {
   padding-top: 1rem;
