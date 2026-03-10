@@ -42,6 +42,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" type="image/svg+xml" href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`} />
+        <link rel="shortcut icon" type="image/svg+xml" href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`} />
+        <meta name="theme-color" content="#000000" />
+        <meta name="color-scheme" content="light dark" />
+        <meta name="darkreader-lock" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
