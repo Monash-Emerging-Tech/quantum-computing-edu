@@ -1,8 +1,17 @@
-# Project structure
+# Project structure and development
 
 ## Git repository
 
 This project is hosted on GitHub at [Monash-Emerging-Tech/quantum-computing-edu](https://github.com/Monash-Emerging-Tech/quantum-computing-edu).
+
+
+
+## Running & building
+
+To run the Next JS website for development purposes, execute the `run-dev` Bash script in the repository root.
+<br />
+
+To build the Next JS website, execute the `build` Bash script, which produces a static website as output in `quantum-computing-edu-next/dist/production/`.
 
 
 
@@ -12,43 +21,104 @@ The JSON schemas defining the data formats to store circuits and gates in are lo
 
 
 
-## Site source
+## Site source & structure
 
 The Next JS project root is `/quantum-computing-edu-next`.
 
 ### Packages
 
-The Next JS site uses the following packages:
-- `mdx`
-- `nextjs-mathjax`
-- `mathjs`
+The Next JS site uses the following notable packages:
+- [`@next/mdx`](https://www.npmjs.com/package/@next/mdx)
+  - with [`rehype-mathjax`](https://www.npmjs.com/package/rehype-mathjax)
+  - and [`remark-math`](https://www.npmjs.com/package/remark-math)
+- [`nextjs-mathjax`](https://www.npmjs.com/package/nextjs-mathjax)
+- [`mathjs`](https://www.npmjs.com/package/mathjs)
 
-### Next JS configuration
+### Package configuration
 
-`next.config.ts` is modified to include 'md' and 'mdx' page extensions, and to activate the `remark-math` and `rehype-mathjax` mdx plugins.
+`next.config.ts` is modified as follows:
+- includes 'md' and 'mdx' page extensions;
+- activates the `remark-math` and `rehype-mathjax` mdx plugins;
+- specifies that the site should be exported as a static site when built;
+- defines destination directories for builds.
+<br />
+
+The `"scripts"` section in `package.json` is modified to include a definition for the GitHub pages build script.
+<br />
+
+`tsconfig.json` specifies some TypeScript options, all of which are left as reasonable defaults.
+<br />
+
+`mdx-components.tsx` can specify custom mdx behaviour, but is currently unmodified (there are no custom components or behaviour defined).
 
 ### Main page
 
+The current main page is a work-in-progress, with a page index as a placeholder.
+This page needs to become a proper introductory page, with links to getting-started documentation and notable circuits.
+
 ### Circuit data
 
-`/quantum-computing-edu-next/app/circuit-data`
+The two files `app/circuit-data/circuit-parsing.ts` and `app/circuit-data/data-loading.ts`
+define functions that handle loading circuit data from JSON files and parsing it into relevant objects.
+<br />
+
+`app/circuit-data/circuits/` stores quantum circuit definitions in the data format defined by `/schemas/quantum-circuit-schema.json`.
+<br />
+
+`app/circuit-data/gates/` stores quantum gate definitions in the data format defined by `/schemas/quantum-gate-schema.json`.
+<br />
+
+`app/circuit-data/page-information/` stores markdown files that contain information on gates and circuits.
+When the site is built, these files are converted into pages attached to the gate and circuit definitions.
+<br />
+
+`app/circuit-data/popup-descriptions/` stores smaller markdown files that contain information on gates
+and circuits to be displayed in popups opened from the interactive circuit interface.
+These are generally cut-down copies from `app/circuit-data/page-information/`.
 
 ### Circuit pages
 
-`/quantum-computing-edu-next/app/circuits/[slug]/page.tsx`
+`app/circuits/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
+
+Each circuit defined in `app/circuit-data/circuits/` gets one page that displays the circuit in the interactive
+interface with information about it from `app/circuit-data/page-information/`.
 
 ### Gate pages
 
-`/quantum-computing-edu-next/app/gates/[slug]/page.tsx`
+`app/gates/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
+
+Each gate defined in `app/circuit-data/gates/` gets one page that displays the definition of the gate
+with information about it from `app/circuit-data/page-information/`.
 
 ### Components
 
-`/quantum-computing-edu-next/app/components`
+`app/components/circuit.tsx` defines the interactive circuit interface component.
+<br />
+
+`app/components/gate.tsx` defines the operation components used in the interactive circuit interface.
+<br />
+
+`app/components/info_bubbles.tsx` defines the popup components included in the interactive circuit interface.
+
+Info bubbles use components defined in `app/components/popover.tsx`, which is from [Floating UI](https://floating-ui.com/docs/popover) (also licensed under MIT).
+<br />
+
+`app/components/matrix.tsx` defines a component that parses the
+stringified form of a matrix definition and displays it in a nice format
+using [NextJS MathJax](https://www.npmjs.com/package/nextjs-mathjax).
+<br />
+
+`app/components/side_index.tsx` defines the components used in the page index that is displayed on the left side of the page.
 
 ### Meta documentation
 
-`/quantum-computing-edu-next/app/doc-data`
+`app/doc-data/` contains documentation stored in markdown format that
+informs users and developers about various parts of this project and website.
+That includes this very documentation you're reading now!
+<br />
 
-`/quantum-computing-edu-next/app/docs/[slug]/page.tsx`
+`app/docs/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
 
 
+
+<br />
