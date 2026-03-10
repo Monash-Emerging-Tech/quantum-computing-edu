@@ -63,3 +63,11 @@ a {
   text-decoration: underline;
   color: var(--color-accent);
 }
+
+ul {
+  list-style: disc;
+}
+
+li {
+  margin-left: 1em;
+}
