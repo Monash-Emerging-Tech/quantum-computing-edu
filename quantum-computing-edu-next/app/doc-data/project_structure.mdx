@@ -23,6 +23,9 @@ To run the Next JS website for development purposes, execute the `run-dev` Bash 
 
 To build the Next JS website, execute the `build` Bash script, which produces a static website as output in `quantum-computing-edu-next/dist/production/`.
 
+The build script also builds the website for deployment on GitHub pages.
+A `.nojekyll` file is added by the script to ensure that the site is deployed correctly.
+
 
 
 ## Schemas
@@ -60,6 +63,18 @@ The `"scripts"` section in `package.json` is modified to include a definition fo
 <br />
 
 `mdx-components.tsx` can specify custom mdx behaviour, but is currently unmodified (there are no custom components or behaviour defined).
+
+### Environment files
+
+`.env.development` is used by `npm run dev`, and specifies `NEXT_PUBLIC_BUILD` and `NEXT_PUBLIC_BASEPATH` accordingly.
+<br />
+
+`.env.production` is used by `npm run build`, and specifies `NEXT_PUBLIC_BUILD` accordingly.
+Currently it defines `NEXT_PUBLIC_BASEPATH` assuming that the site is hosted within a subdirectory `/quantum-computing-edu`.
+You may wish to edit this file for static site testing on your local machine.
+<br />
+
+`.env.gh-pages` is used by `npm run build:gh-pages`, and specifies `NEXT_PUBLIC_BUILD` and `NEXT_PUBLIC_BASEPATH` accordingly.
 
 ### Main page
 
