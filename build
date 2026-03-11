@@ -5,3 +5,7 @@ cd $SCRIPTPATH/quantum-computing-edu-next
 
 npm run build
 npm run build:gh-pages
+
+# Add .nojekyll file to GitHub pages build
+source .env.gh-pages
+touch dist/$NEXT_PUBLIC_BUILD/.nojekyll
