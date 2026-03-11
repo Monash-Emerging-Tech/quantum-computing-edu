@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+2:I[14214,["/quantum-computing-edu/_next/static/chunks/7c92e96509cd355e.js","/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js"],"default"]
+7:I[97367,["/quantum-computing-edu/_next/static/chunks/ff1a16fafef87110.js","/quantum-computing-edu/_next/static/chunks/4dd57ee4807393a6.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+:HL["/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","style"]
+3:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+0:{"buildId":"K0eor7ScIkMi2fuVdS8Ao","rsc":["$","$1","c",{"children":[["$","div",null,{"id":"gate-page-container","children":[["$","h1",null,{"id":"page-header","children":"Quantum Gate"}],["$","h2",null,{"id":"circuit-header","children":"Pauli X"}],["$","$L2",null,{"matrix":"[[0,1],[1,0]]"}],["$","div",null,{"id":"gate-information-container","className":"page-module__hWbR0a__gate-information-container","children":[["$","h3",null,{"children":"Pauli X Gate"}],"\n",["$","p",null,{"children":["Also known as the NOT gate, this gate applies a rotation of ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.29ex","height":"1ex","role":"img","focusable":"false","viewBox":"0 -431 570 442","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-1-TEX-I-1D70B","d":"M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D70B","xlinkHref":"#MJX-1-TEX-I-1D70B"}]}]}]}]]}]}]," radians about the ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.294ex","height":"1.025ex","role":"img","focusable":"false","viewBox":"0 -442 572 453","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-2-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-2-TEX-I-1D465"}]}]}]}]]}]}],"-axis."]}],"\n",["$","h3",null,{"children":"Resources"}],"\n",["$","p",null,{"children":["See the Qiskit documentation for the x gate:\n",["$","a",null,{"href":"https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.XGate","children":"https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.XGate"}]]}],["$","style",null,{"children":"$3"}]]}]]}],["$L4","$L5"],"$L6"]}],"loading":null,"isPartial":false}
+4:["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","precedence":"next"}]
+5:["$","script","script-0",{"src":"/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js","async":true}]
+6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

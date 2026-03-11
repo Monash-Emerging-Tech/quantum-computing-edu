@@ -1,0 +1,126 @@
+1:"$Sreact.fragment"
+7:I[97367,["/quantum-computing-edu/_next/static/chunks/ff1a16fafef87110.js","/quantum-computing-edu/_next/static/chunks/4dd57ee4807393a6.js"],"OutletBoundary"]
+8:"$Sreact.suspense"
+:HL["/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","style"]
+0:{"buildId":"K0eor7ScIkMi2fuVdS8Ao","rsc":["$","$1","c",{"children":[["$","div",null,{"id":"gate-page-container","children":[["$","h1",null,{"id":"page-header","children":"Quantum Gate"}],["$","h2",null,{"id":"circuit-header","children":"Measure"}],"$undefined",["$","div",null,{"id":"gate-information-container","className":"page-module__hWbR0a__gate-information-container","children":[["$","h3",null,{"children":"Measurement"}],"\n",["$","p",null,{"children":["This gate conducts a measurement on a single qubit, collapsing its state to ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-1-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-1-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}],["$","path",null,{"id":"MJX-1-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-1-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"30","xlinkHref":"#MJX-1-TEX-N-30"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-1-TEX-N-27E9"}]}]]}]}]}]]}]}]," or ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-2-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-2-TEX-N-31","d":"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"}],["$","path",null,{"id":"MJX-2-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-2-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-2-TEX-N-31"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-2-TEX-N-27E9"}]}]]}]}]}]]}]}]," and storing the result in a classical bit."]}],"$L2"]}]]}],["$L3","$L4"],"$L5"]}],"loading":null,"isPartial":false}
+6:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+2:["$","style",null,{"children":"$6"}]
+3:["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","precedence":"next"}]
+4:["$","script","script-0",{"src":"/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js","async":true}]
+5:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
+9:null

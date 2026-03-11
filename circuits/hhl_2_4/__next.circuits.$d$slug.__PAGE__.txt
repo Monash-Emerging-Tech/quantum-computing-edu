@@ -1,0 +1,566 @@
+1:"$Sreact.fragment"
+2:I[12105,["/quantum-computing-edu/_next/static/chunks/7c92e96509cd355e.js","/quantum-computing-edu/_next/static/chunks/7ef0393121fcc08b.js","/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js"],"default"]
+3:I[11518,["/quantum-computing-edu/_next/static/chunks/7c92e96509cd355e.js","/quantum-computing-edu/_next/static/chunks/7ef0393121fcc08b.js","/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js"],"PopoverContent"]
+4:I[11518,["/quantum-computing-edu/_next/static/chunks/7c92e96509cd355e.js","/quantum-computing-edu/_next/static/chunks/7ef0393121fcc08b.js","/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js"],"PopoverHeading"]
+5:I[22016,["/quantum-computing-edu/_next/static/chunks/7c92e96509cd355e.js","/quantum-computing-edu/_next/static/chunks/7ef0393121fcc08b.js","/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js"],""]
+32:I[97367,["/quantum-computing-edu/_next/static/chunks/ff1a16fafef87110.js","/quantum-computing-edu/_next/static/chunks/4dd57ee4807393a6.js"],"OutletBoundary"]
+33:"$Sreact.suspense"
+:HL["/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","style"]
+0:{"buildId":"K0eor7ScIkMi2fuVdS8Ao","rsc":["$","$1","c",{"children":[["$","div",null,{"id":"circuit-page-container","children":[["$","h1",null,{"id":"page-header","children":"Interactive Quantum Circuits"}],["$","h2",null,{"id":"circuit-header","children":"Harrow-Hassidim-Lloyd Algorithm"}],["$","div",null,{"id":"circuit-container","className":"circuit-module__VVaLHq__circuit-container","children":[["$","div",null,{"id":"circuit-grid","className":"circuit-module__VVaLHq__circuit-grid","children":[[[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"ancilla"}]],[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"clock"}],["$","div","1",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"clock"}],["$","div","2",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"clock"}],["$","div","3",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"clock"}]],[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"state"}],["$","div","1",{"className":"circuit-module__VVaLHq__circuit-qubit-line","title":"state"}]]],[["$","$L2","0",{"operation":{"qubits":[5,6],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"input_vector_encoding","full_name":"Encode the input vector","display_name":"Ψ","color":"black","arity":2,"parameters":[]}},"qubitOrder":[0,1,2,3,4,5,6],"qubitPositions":[0,1,2,3,4,5,6],"timePosition":0,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/input_vector_encoding","children":["Gate: ","Encode the input vector"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container"}],["$","br",null,{}],["$","h2",null,{"children":"Operation Information"}],["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit","s 5, 6","."]}]]}]]}]]}]}],["$","$L2","1",{"operation":{"qubits":[1,2,3,4,5,6],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"qpe_in_hhl","full_name":"Quantum Phase Estimation","display_name":"QPE","color":"green","arity":6,"parameters":[]}},"qubitOrder":[0,1,2,3,4,5,6],"qubitPositions":[0,1,2,3,4,5,6],"timePosition":2,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/qpe_in_hhl","children":["Gate: ","Quantum Phase Estimation"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container"}],["$","br",null,{}],["$","h2",null,{"children":"Operation Information"}],["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit","s 1, 2, 3, 4, 5, 6","."]}]]}]]}]]}]}],["$","$L2","2",{"operation":{"qubits":[0,1,2,3,4],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"aqe_in_hhl","full_name":"Ancilla Quantum Encoding","display_name":"AQE","color":"red","arity":5,"parameters":[]}},"qubitOrder":[0,1,2,3,4,5,6],"qubitPositions":[0,1,2,3,4,5,6],"timePosition":5,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/aqe_in_hhl","children":["Gate: ","Ancilla Quantum Encoding"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container"}],["$","br",null,{}],["$","h2",null,{"children":"Operation Information"}],["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit","s 0, 1, 2, 3, 4","."]}]]}]]}]]}]}],["$","$L2","3",{"operation":{"qubits":[1,2,3,4,5,6],"controls":[],"anticontrols":[],"inverse":true,"exponent":1,"parameter_values":[],"gate":{"gate_id":"qpe_in_hhl","full_name":"Quantum Phase Estimation","display_name":"QPE","color":"green","arity":6,"parameters":[],"subcircuit":{"circuit_id":"qpe_2_4","full_name":"Quantum Phase Estimation","display_name":"QPE","registers":[{"name":"clock","description":"Qubits to store the binary-encoded eigenvalues of the matrix. Named the 'clock' (or 'c') register.","qubits":[0,1,2,3]},{"name":"state","description":"Qubits to encode the input vector.","qubits":[4,5]}],"operations":[{"qubits":[0],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"h","full_name":"Hadamard","display_name":"H","color":"red","arity":1,"parameters":[],"documentation_file":"hadamard.mdx","unitary":"[[1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-1/sqrt(2)]]"}},{"qubits":[1],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"h","full_name":"Hadamard","display_name":"H","color":"red","arity":1,"parameters":[],"documentation_file":"hadamard.mdx","unitary":"[[1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-1/sqrt(2)]]"}},{"qubits":[2],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"h","full_name":"Hadamard","display_name":"H","color":"red","arity":1,"parameters":[],"documentation_file":"hadamard.mdx","unitary":"[[1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-1/sqrt(2)]]"}},{"qubits":[3],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"h","full_name":"Hadamard","display_name":"H","color":"red","arity":1,"parameters":[],"documentation_file":"hadamard.mdx","unitary":"[[1/sqrt(2),1/sqrt(2)],[1/sqrt(2),-1/sqrt(2)]]"}},{"qubits":[4,5],"controls":[0],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"U_qpe_input","full_name":"Input Unitary Matrix","display_name":"U","color":"darkgrey","arity":2,"parameters":[]}},{"qubits":[4,5],"controls":[1],"anticontrols":[],"inverse":false,"exponent":2,"parameter_values":[],"gate":{"gate_id":"U_qpe_input","full_name":"Input Unitary Matrix","display_name":"U","color":"darkgrey","arity":2,"parameters":[]}},{"qubits":[4,5],"controls":[2],"anticontrols":[],"inverse":false,"exponent":4,"parameter_values":[],"gate":{"gate_id":"U_qpe_input","full_name":"Input Unitary Matrix","display_name":"U","color":"darkgrey","arity":2,"parameters":[]}},{"qubits":[4,5],"controls":[3],"anticontrols":[],"inverse":false,"exponent":8,"parameter_values":[],"gate":{"gate_id":"U_qpe_input","full_name":"Input Unitary Matrix","display_name":"U","color":"darkgrey","arity":2,"parameters":[]}},{"qubits":[0,1,2,3],"controls":[],"anticontrols":[],"inverse":true,"exponent":1,"parameter_values":[],"gate":{"gate_id":"QFT","full_name":"Quantum Fourier Transform","display_name":"QFT","color":"black","arity":4,"parameters":[]}}]}}},"qubitOrder":[0,1,2,3,4,5,6],"qubitPositions":[0,1,2,3,4,5,6],"timePosition":8,"info_bubble_child":"$L6"}],"$L7","$L8","$L9","$La"]]}],"$Lb"]}],"$Lc"]}],["$Ld","$Le","$Lf"],"$L10"]}],"loading":null,"isPartial":false}
+6:["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/qpe_in_hhl","children":["Gate: ","Quantum Phase Estimation"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container"}],["$","br",null,{}],["$","h2",null,{"children":"Operation Information"}],["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit","s 1, 2, 3, 4, 5, 6","."]}],["$","div","inv",{"children":"This gate is inverted."}]]}]]}]]}]
+7:["$","$L2","4",{"operation":{"qubits":[0,1,2,3,4,5,6],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"barrier","full_name":"Barrier","display_name":"","color":"white","arity":1,"parameters":[],"documentation_file":"barrier.mdx"}},"qubitOrder":[0,1,2,3,4,5,6],"qubitPositions":[0,1,2,3,4,5,6],"timePosition":11,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/barrier","children":["Gate: ","Barrier"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container","children":[["$","h3",null,{"children":"Barrier"}],"\n",["$","p",null,{"children":"This gate serves as a visual separator to temporally align other gates in a quantum circuit.\nThe barrier does not affect the function of the circuit."}]]}],["$","br",null,{}],["$","h2",null,{"children":"Operation Information"}],["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit","s 0, 1, 2, 3, 4, 5, 6","."]}]]}]]}]]}]}]
+8:["$","$L2","5",{"operation":{"qubits":[0],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":{"gate_id":"measure","full_name":"Measure","display_name":"⦨","color":"darkgrey","arity":1,"parameters":[],"documentation_file":"measure.mdx"}},"qubitOrder":"$7:props:qubitOrder","qubitPositions":"$7:props:qubitPositions","timePosition":12,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/measure","children":["Gate: ","Measure"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container","children":[["$","h3",null,{"children":"Measurement"}],"\n",["$","p",null,{"children":["This gate conducts a measurement on a single qubit, collapsing its state to ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-1-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-1-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}],["$","path",null,{"id":"MJX-1-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-1-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"30","xlinkHref":"#MJX-1-TEX-N-30"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-1-TEX-N-27E9"}]}]]}]}]}]]}]}]," or ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-2-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-2-TEX-N-31","d":"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"}],["$","path",null,{"id":"MJX-2-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-2-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-2-TEX-N-31"}]}]}],"$L11"]}]}]}]]}]}]," and storing the result in a classical bit."]}],"$L12"]}],"$L13","$L14","$L15"]}]]}]}]
+9:["$","$L2","6",{"operation":{"qubits":[5],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":"$8:props:operation:gate"},"qubitOrder":"$7:props:qubitOrder","qubitPositions":"$7:props:qubitPositions","timePosition":12,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/measure","children":["Gate: ","Measure"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container","children":[["$","h3",null,{"children":"Measurement"}],"\n",["$","p",null,{"children":["This gate conducts a measurement on a single qubit, collapsing its state to ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-1-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-1-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}],["$","path",null,{"id":"MJX-1-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-1-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"30","xlinkHref":"#MJX-1-TEX-N-30"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-1-TEX-N-27E9"}]}]]}]}]}]]}]}]," or ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-2-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-2-TEX-N-31","d":"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"}],["$","path",null,{"id":"MJX-2-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-2-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-2-TEX-N-31"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-2-TEX-N-27E9"}]}]]}]}]}]]}]}]," and storing the result in a classical bit."]}],"$L16"]}],"$L17","$L18","$L19"]}]]}]}]
+a:["$","$L2","7",{"operation":{"qubits":[6],"controls":[],"anticontrols":[],"inverse":false,"exponent":1,"parameter_values":[],"gate":"$8:props:operation:gate"},"qubitOrder":"$7:props:qubitOrder","qubitPositions":"$7:props:qubitPositions","timePosition":12,"info_bubble_child":["$","$L3",null,{"className":"info-bubbles-module__XJ90dq__gate-info-bubble","children":[["$","$L4",null,{"children":["$","$L5",null,{"href":"/gates/measure","children":["Gate: ","Measure"]}]}],["$","div",null,{"children":["$undefined",["$","div",null,{"id":"gate-information-container","children":[["$","h3",null,{"children":"Measurement"}],"\n",["$","p",null,{"children":["This gate conducts a measurement on a single qubit, collapsing its state to ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-1-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-1-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}],["$","path",null,{"id":"MJX-1-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-1-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"30","xlinkHref":"#MJX-1-TEX-N-30"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-1-TEX-N-27E9"}]}]]}]}]}]]}]}]," or ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-2-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-2-TEX-N-31","d":"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"}],["$","path",null,{"id":"MJX-2-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-2-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-2-TEX-N-31"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-2-TEX-N-27E9"}]}]]}]}]}]]}]}]," and storing the result in a classical bit."]}],"$L1a"]}],"$L1b","$L1c","$L1d"]}]]}]}]
+b:["$","div",null,{"id":"circuit-qubit-label-container","className":"circuit-module__VVaLHq__circuit-qubit-label-container","children":[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-register","title":"ancilla register","children":[["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-align-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text","children":"ancilla"}]}]}],[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":0}]]]}],["$","div","1",{"className":"circuit-module__VVaLHq__circuit-register","title":"clock register","children":[["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-align-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text","children":"clock"}]}]}],[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":1}],["$","div","1",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":2}],["$","div","2",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":3}],["$","div","3",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":4}]]]}],["$","div","2",{"className":"circuit-module__VVaLHq__circuit-register","title":"state register","children":[["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text-align-container","children":["$","div",null,{"className":"circuit-module__VVaLHq__circuit-register-text","children":"state"}]}]}],[["$","div","0",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":5}],["$","div","1",{"className":"circuit-module__VVaLHq__circuit-qubit-label","children":6}]]]}]]}]
+c:["$","div",null,{"id":"circuit-information-container","className":"page-module__h31L-W__circuit-information-container","children":[["$","h3",null,{"children":"Algorithm Overview"}],"\n",["$","p",null,{"children":["The HHL algorithm is a quantum circuit that inverts a Hermitian matrix, ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"0"},"xmlns":"http://www.w3.org/2000/svg","width":"1.697ex","height":"1.62ex","role":"img","focusable":"false","viewBox":"0 -716 750 716","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-1-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-1-TEX-I-1D434"}]}]}]}]]}]}],",\nand encodes the dot product of the inverted matrix and a vector ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"0.971ex","height":"2.507ex","role":"img","focusable":"false","viewBox":"0 -1097 429 1108","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-2-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}],["$","path",null,{"id":"MJX-2-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-2-TEX-I-1D44F"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(214.5,283) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-2-TEX-N-20D7"}]}]]}]}]}]}]]}]}]," into a\nquantum state, hence finding the solution, ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.294ex","height":"1.937ex","role":"img","focusable":"false","viewBox":"0 -845 572 856","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-3-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}],"$L1e"]}],"$L1f"]}]}],", to the linear system of\nequations ","$L20","."]}],"\n","$L21","\n","$L22","\n","$L23","\n","$L24","\n","$L25","\n","$L26","\n","$L27","\n","$L28","\n","$L29","\n","$L2a","\n","$L2b","\n","$L2c","\n","$L2d","\n","$L2e","\n","$L2f","\n","$L30","$L31"]}]
+d:["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/cc3b33deb8fca551.css","precedence":"next"}]
+e:["$","script","script-0",{"src":"/quantum-computing-edu/_next/static/chunks/7ef0393121fcc08b.js","async":true}]
+f:["$","script","script-1",{"src":"/quantum-computing-edu/_next/static/chunks/5c40f29512625e1a.js","async":true}]
+10:["$","$L32",null,{"children":["$","$33",null,{"name":"Next.MetadataOutlet","children":"$@34"}]}]
+11:["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-2-TEX-N-27E9"}]}]
+35:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+12:["$","style",null,{"children":"$35"}]
+13:["$","br",null,{}]
+14:["$","h2",null,{"children":"Operation Information"}]
+15:["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit"," 0","."]}]]}]
+36:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+16:["$","style",null,{"children":"$36"}]
+17:["$","br",null,{}]
+18:["$","h2",null,{"children":"Operation Information"}]
+19:["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit"," 5","."]}]]}]
+37:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+1a:["$","style",null,{"children":"$37"}]
+1b:["$","br",null,{}]
+1c:["$","h2",null,{"children":"Operation Information"}]
+1d:["$","div",null,{"children":[["$","div","qubits",{"children":["This gate is applied to qubit"," 6","."]}]]}]
+1e:["$","path",null,{"id":"MJX-3-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}]
+1f:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-3-TEX-I-1D465"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(313.8,31) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-3-TEX-N-20D7"}]}]]}]}]}]}]
+20:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.186ex"},"xmlns":"http://www.w3.org/2000/svg","width":"6.979ex","height":"2.667ex","role":"img","focusable":"false","viewBox":"0 -1097 3084.6 1179","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-4-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}],["$","path",null,{"id":"MJX-4-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}],["$","path",null,{"id":"MJX-4-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}],["$","path",null,{"id":"MJX-4-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-4-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-4-TEX-I-1D434"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(750,0)","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-4-TEX-I-1D465"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(313.8,31) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-4-TEX-N-20D7"}]}]]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1599.8,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-4-TEX-N-3D"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(2655.6,0)","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-4-TEX-I-1D44F"}]}],"$L38"]}]}]]}]}]]}]}]
+21:["$","h3",null,{"children":"Circuit Explanation"}]
+22:["$","p",null,{"children":["The HHL circuit spans three quantum registers: the state register, with\n",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.546ex"},"xmlns":"http://www.w3.org/2000/svg","width":"11.514ex","height":"2.116ex","role":"img","focusable":"false","viewBox":"0 -694 5089.1 935.4","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-5-TEX-I-1D45B","d":"M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"}],["$","path",null,{"id":"MJX-5-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}],["$","path",null,{"id":"MJX-5-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-5-TEX-N-6C","d":"M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"}],["$","path",null,{"id":"MJX-5-TEX-N-6F","d":"M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"}],["$","path",null,{"id":"MJX-5-TEX-N-67","d":"M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z"}],["$","path",null,{"id":"MJX-5-TEX-N-32","d":"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"}],"$L39","$L3a"]}],"$L3b"]}]}]," qubits;\nthe eigenvalue register, with ","$L3c"," qubits;\nand an auxiliary register with a single qubit, also known as the ancilla qubit.\nThe state register is initialised to encode ","$L3d"," into a quantum state ","$L3e",".\nAll other qubits are initialised to ","$L3f",".\nThe precision of the algorithm is defined by ","$L40",", as the eigenvalues are encoded in\nbinary form into the eigenvalue register."]}]
+23:["$","p",null,{"children":["Let ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.666ex"},"xmlns":"http://www.w3.org/2000/svg","width":"3.65ex","height":"2.363ex","role":"img","focusable":"false","viewBox":"0 -750 1613.3 1044.2","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-11-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-11-TEX-I-1D462","d":"M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"}],["$","path",null,{"id":"MJX-11-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}],["$","path",null,{"id":"MJX-11-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mrow","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-11-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D462","xlinkHref":"#MJX-11-TEX-I-1D462"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(605,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-11-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1224.3,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-11-TEX-N-27E9"}]}]]}]}]}]]}]}]," be the eigenvector basis of ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"0"},"xmlns":"http://www.w3.org/2000/svg","width":"1.697ex","height":"1.62ex","role":"img","focusable":"false","viewBox":"0 -716 750 716","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-12-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}]}],"$L41"]}]}],", such that\n","$L42",",\nwhere ","$L43"," are the eigenvalues of ","$L44",".\nThe HHL algorithm uses Quantum Phase Estimation (QPE) as a subroutine to find the\neigenvalues, ","$L45",", of the given matrix ","$L46","."]}]
+24:["$","p",null,{"children":["It then uses controlled rotations to invert the eigenvalues in a process called\nAncilla Quantum Encoding (AQE), and uses inverse QPE to uncompute the inverted\neigenvalues, such that the final quantum state encodes ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.294ex","height":"1.937ex","role":"img","focusable":"false","viewBox":"0 -845 572 856","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-18-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}],["$","path",null,{"id":"MJX-18-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-18-TEX-I-1D465"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(313.8,31) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-18-TEX-N-20D7"}]}]]}]}]}]}]]}]}]," in the amplitudes of\nthe quantum state.\nAt the end of the algorithm, an observable constructed for the specific application\nis applied to the state to learn some information from it.\nIf the full solution, ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.294ex","height":"1.937ex","role":"img","focusable":"false","viewBox":"0 -845 572 856","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-19-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}],["$","path",null,{"id":"MJX-19-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}]]}],"$L47"]}]}],", to the equation ","$L48"," is needed,\nthen a measurement of all qubits from many executions of the circuit is required."]}]
+25:["$","h3",null,{"children":"Mathematical Proofs"}]
+26:["$","p",null,{"children":"Final state:"}]
+27:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","display":"true","children":["$","svg",null,{"style":{"verticalAlign":"-3.014ex"},"xmlns":"http://www.w3.org/2000/svg","width":"36.379ex","height":"7.045ex","role":"img","focusable":"false","viewBox":"0 -1781.9 16079.7 3114.1","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-21-TEX-LO-2211","d":"M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"}],["$","path",null,{"id":"MJX-21-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}],["$","path",null,{"id":"MJX-21-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-21-TEX-N-31","d":"M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"}],["$","path",null,{"id":"MJX-21-TEX-I-1D441","d":"M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"}],["$","path",null,{"id":"MJX-21-TEX-I-1D6FD","d":"M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z"}],["$","path",null,{"id":"MJX-21-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],"$L49","$L4a","$L4b","$L4c","$L4d","$L4e","$L4f","$L50","$L51","$L52","$L53"]}],"$L54"]}]}]
+28:["$","p",null,{"children":"Success rate:"}]
+29:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","display":"true","children":["$","svg",null,{"style":{"verticalAlign":"-3.006ex"},"xmlns":"http://www.w3.org/2000/svg","width":"19.813ex","height":"6.599ex","role":"img","focusable":"false","viewBox":"0 -1588.2 8757.2 2916.8","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-22-TEX-I-1D443","d":"M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"}],["$","path",null,{"id":"MJX-22-TEX-N-73","d":"M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"}],["$","path",null,{"id":"MJX-22-TEX-N-75","d":"M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"}],["$","path",null,{"id":"MJX-22-TEX-N-63","d":"M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"}],["$","path",null,{"id":"MJX-22-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-22-TEX-I-1D436","d":"M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"}],["$","path",null,{"id":"MJX-22-TEX-N-32","d":"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"}],"$L55","$L56","$L57","$L58","$L59"]}],"$L5a"]}]}]
+2a:["$","h3",null,{"children":"Literature"}]
+2b:["$","p",null,{"children":"Quantum algorithm for linear systems of equations"}]
+2c:["$","p",null,{"children":"[citation]"}]
+2d:["$","h3",null,{"children":"Use Cases"}]
+2e:["$","h3",null,{"children":"Extra Information"}]
+2f:["$","h4",null,{"children":"Theoretical problems"}]
+30:["$","h4",null,{"children":"Implementation problems"}]
+5b:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+31:["$","style",null,{"children":"$5b"}]
+34:null
+38:["$","g",null,{"data-mml-node":"mo","transform":"translate(214.5,283) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-4-TEX-N-20D7"}]}]
+39:["$","path",null,{"id":"MJX-5-TEX-N-2061","d":""}]
+3a:["$","path",null,{"id":"MJX-5-TEX-I-1D441","d":"M234 637Q231 637 226 637Q201 637 196 638T191 649Q191 676 202 682Q204 683 299 683Q376 683 387 683T401 677Q612 181 616 168L670 381Q723 592 723 606Q723 633 659 637Q635 637 635 648Q635 650 637 660Q641 676 643 679T653 683Q656 683 684 682T767 680Q817 680 843 681T873 682Q888 682 888 672Q888 650 880 642Q878 637 858 637Q787 633 769 597L620 7Q618 0 599 0Q585 0 582 2Q579 5 453 305L326 604L261 344Q196 88 196 79Q201 46 268 46H278Q284 41 284 38T282 19Q278 6 272 0H259Q228 2 151 2Q123 2 100 2T63 2T46 1Q31 1 31 10Q31 14 34 26T39 40Q41 46 62 46Q130 49 150 85Q154 91 221 362L289 634Q287 635 234 637Z"}]
+3b:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D45B","xlinkHref":"#MJX-5-TEX-I-1D45B"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(633,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-5-TEX-I-1D44F"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1264.1,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-5-TEX-N-3D"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(2319.9,0)","children":[["$","g",null,{"data-mml-node":"mi","children":[["$","use",null,{"data-c":"6C","xlinkHref":"#MJX-5-TEX-N-6C"}],["$","use",null,{"data-c":"6F","xlinkHref":"#MJX-5-TEX-N-6F","transform":"translate(278,0)"}],["$","use",null,{"data-c":"67","xlinkHref":"#MJX-5-TEX-N-67","transform":"translate(778,0)"}]]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(1311,-241.4) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-5-TEX-N-32"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(4034.5,0)","children":["$","use",null,{"data-c":"2061","xlinkHref":"#MJX-5-TEX-N-2061"}]}],["$","g",null,{"data-mml-node":"mi","transform":"translate(4201.1,0)","children":["$","use",null,{"data-c":"1D441","xlinkHref":"#MJX-5-TEX-I-1D441"}]}]]}]}]
+3c:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.357ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.022ex","height":"1.357ex","role":"img","focusable":"false","viewBox":"0 -442 893.7 599.8","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-6-TEX-I-1D45B","d":"M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"}],["$","path",null,{"id":"MJX-6-TEX-I-1D459","d":"M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D45B","xlinkHref":"#MJX-6-TEX-I-1D45B"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(633,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D459","xlinkHref":"#MJX-6-TEX-I-1D459"}]}]}]]}]}]}]]}]}]
+3d:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"0.971ex","height":"2.507ex","role":"img","focusable":"false","viewBox":"0 -1097 429 1108","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-7-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}],["$","path",null,{"id":"MJX-7-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-7-TEX-I-1D44F"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(214.5,283) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-7-TEX-N-20D7"}]}]]}]}]}]}]]}]}]
+3e:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.48ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1096 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-8-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-8-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}],["$","path",null,{"id":"MJX-8-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-8-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-8-TEX-I-1D44F"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(707,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-8-TEX-N-27E9"}]}]]}]}]}]]}]}]
+3f:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.566ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.64ex","height":"2.262ex","role":"img","focusable":"false","viewBox":"0 -750 1167 1000","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-9-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-9-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}],["$","path",null,{"id":"MJX-9-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-9-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(278,0)","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"30","xlinkHref":"#MJX-9-TEX-N-30"}]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-9-TEX-N-27E9"}]}]]}]}]}]]}]}]
+40:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.357ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.022ex","height":"1.357ex","role":"img","focusable":"false","viewBox":"0 -442 893.7 599.8","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-10-TEX-I-1D45B","d":"M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"}],["$","path",null,{"id":"MJX-10-TEX-I-1D459","d":"M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D45B","xlinkHref":"#MJX-10-TEX-I-1D45B"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(633,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D459","xlinkHref":"#MJX-10-TEX-I-1D459"}]}]}]]}]}]}]]}]}]
+41:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-12-TEX-I-1D434"}]}]}]}]
+42:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.666ex"},"xmlns":"http://www.w3.org/2000/svg","width":"14.934ex","height":"2.363ex","role":"img","focusable":"false","viewBox":"0 -750 6600.9 1044.2","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-13-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}],["$","path",null,{"id":"MJX-13-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}],["$","path",null,{"id":"MJX-13-TEX-I-1D462","d":"M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"}],["$","path",null,{"id":"MJX-13-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}],["$","path",null,{"id":"MJX-13-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}],["$","path",null,{"id":"MJX-13-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-13-TEX-I-1D706","d":"M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-13-TEX-I-1D434"}]}],["$","g",null,{"data-mml-node":"mrow","transform":"translate(916.7,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-13-TEX-N-7C"}]}],"$L5c","$L5d"]}],"$L5e","$L5f","$L60"]}]}]]}]}]
+43:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.666ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.166ex","height":"2.236ex","role":"img","focusable":"false","viewBox":"0 -694 957.3 988.2","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-14-TEX-I-1D706","d":"M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"}],["$","path",null,{"id":"MJX-14-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-14-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-14-TEX-I-1D457"}]}]}]]}]}]}]]}]}]
+44:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"0"},"xmlns":"http://www.w3.org/2000/svg","width":"1.697ex","height":"1.62ex","role":"img","focusable":"false","viewBox":"0 -716 750 716","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-15-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-15-TEX-I-1D434"}]}]}]}]]}]}]
+45:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.666ex"},"xmlns":"http://www.w3.org/2000/svg","width":"2.166ex","height":"2.236ex","role":"img","focusable":"false","viewBox":"0 -694 957.3 988.2","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-16-TEX-I-1D706","d":"M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"}],["$","path",null,{"id":"MJX-16-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-16-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-16-TEX-I-1D457"}]}]}]]}]}]}]]}]}]
+46:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"0"},"xmlns":"http://www.w3.org/2000/svg","width":"1.697ex","height":"1.62ex","role":"img","focusable":"false","viewBox":"0 -716 750 716","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-17-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-17-TEX-I-1D434"}]}]}]}]]}]}]
+47:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-19-TEX-I-1D465"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(313.8,31) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-19-TEX-N-20D7"}]}]]}]}]}]}]
+48:["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.186ex"},"xmlns":"http://www.w3.org/2000/svg","width":"6.979ex","height":"2.667ex","role":"img","focusable":"false","viewBox":"0 -1097 3084.6 1179","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":[["$","path",null,{"id":"MJX-20-TEX-I-1D434","d":"M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"}],["$","path",null,{"id":"MJX-20-TEX-I-1D465","d":"M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"}],["$","path",null,{"id":"MJX-20-TEX-N-20D7","d":"M377 694Q377 702 382 708T397 714Q404 714 409 709Q414 705 419 690Q429 653 460 633Q471 626 471 615Q471 606 468 603T454 594Q411 572 379 531Q377 529 374 525T369 519T364 517T357 516Q350 516 344 521T337 536Q337 555 384 595H213L42 596Q29 605 29 615Q29 622 42 635H401Q377 673 377 694Z"}],["$","path",null,{"id":"MJX-20-TEX-N-3D","d":"M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"}],["$","path",null,{"id":"MJX-20-TEX-I-1D44F","d":"M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"}]]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D434","xlinkHref":"#MJX-20-TEX-I-1D434"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(750,0)","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D465","xlinkHref":"#MJX-20-TEX-I-1D465"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(313.8,31) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-20-TEX-N-20D7"}]}]]}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1599.8,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-20-TEX-N-3D"}]}],["$","g",null,{"data-mml-node":"TeXAtom","data-mjx-texclass":"ORD","transform":"translate(2655.6,0)","children":["$","g",null,{"data-mml-node":"mover","children":[["$","g",null,{"data-mml-node":"mi","children":"$L61"}],"$L62"]}]}]]}]}]]}]}]
+49:["$","path",null,{"id":"MJX-21-TEX-I-1D462","d":"M21 287Q21 295 30 318T55 370T99 420T158 442Q204 442 227 417T250 358Q250 340 216 246T182 105Q182 62 196 45T238 27T291 44T328 78L339 95Q341 99 377 247Q407 367 413 387T427 416Q444 431 463 431Q480 431 488 421T496 402L420 84Q419 79 419 68Q419 43 426 35T447 26Q469 29 482 57T512 145Q514 153 532 153Q551 153 551 144Q550 139 549 130T540 98T523 55T498 17T462 -8Q454 -10 438 -10Q372 -10 347 46Q345 45 336 36T318 21T296 6T267 -6T233 -11Q189 -11 155 7Q103 38 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z"}]
+4a:["$","path",null,{"id":"MJX-21-TEX-N-27E9","d":"M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"}]
+4b:["$","path",null,{"id":"MJX-21-TEX-S4-28","d":"M758 -1237T758 -1240T752 -1249H736Q718 -1249 717 -1248Q711 -1245 672 -1199Q237 -706 237 251T672 1700Q697 1730 716 1749Q718 1750 735 1750H752Q758 1744 758 1741Q758 1737 740 1713T689 1644T619 1537T540 1380T463 1176Q348 802 348 251Q348 -242 441 -599T744 -1218Q758 -1237 758 -1240Z"}]
+4c:["$","path",null,{"id":"MJX-21-TEX-S4-221A","d":"M983 1739Q988 1750 1001 1750Q1008 1750 1013 1745T1020 1733Q1020 1726 742 244T460 -1241Q458 -1250 439 -1250H436Q424 -1250 424 -1248L410 -1166Q395 -1083 367 -920T312 -601L201 44L137 -83L111 -57L187 96L264 247Q265 246 369 -357Q470 -958 473 -963L727 384Q979 1729 983 1739Z"}]
+4d:["$","path",null,{"id":"MJX-21-TEX-N-2212","d":"M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"}]
+4e:["$","path",null,{"id":"MJX-21-TEX-I-1D436","d":"M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"}]
+4f:["$","path",null,{"id":"MJX-21-TEX-N-32","d":"M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"}]
+50:["$","path",null,{"id":"MJX-21-TEX-I-1D706","d":"M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"}]
+51:["$","path",null,{"id":"MJX-21-TEX-N-30","d":"M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"}]
+52:["$","path",null,{"id":"MJX-21-TEX-N-2B","d":"M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"}]
+53:["$","path",null,{"id":"MJX-21-TEX-S4-29","d":"M33 1741Q33 1750 51 1750H60H65Q73 1750 81 1743T119 1700Q554 1207 554 251Q554 -707 119 -1199Q76 -1250 66 -1250Q65 -1250 62 -1250T56 -1249Q55 -1249 53 -1249T49 -1250Q33 -1250 33 -1239Q33 -1236 50 -1214T98 -1150T163 -1052T238 -910T311 -727Q443 -335 443 251Q443 402 436 532T405 831T339 1142T224 1438T50 1716Q33 1737 33 1741Z"}]
+54:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"munderover","children":[["$","g",null,{"data-mml-node":"mo","children":["$","use",null,{"data-c":"2211","xlinkHref":"#MJX-21-TEX-LO-2211"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(124.5,-1087.9) scale(0.707)","data-mjx-texclass":"ORD","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(412,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-21-TEX-N-3D"}]}],["$","g",null,{"data-mml-node":"mn","transform":"translate(1190,0)","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-21-TEX-N-31"}]}]]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(408,1150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D441","xlinkHref":"#MJX-21-TEX-I-1D441"}]}]}]]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(1610.7,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D6FD","xlinkHref":"#MJX-21-TEX-I-1D6FD"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(599,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mrow","transform":"translate(2717.7,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-21-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D462","xlinkHref":"#MJX-21-TEX-I-1D462"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(605,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1224.3,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-21-TEX-N-27E9"}]}]]}],["$","g",null,{"data-mml-node":"mrow","transform":"translate(4497.7,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"28","xlinkHref":"#MJX-21-TEX-S4-28"}]}],["$","g",null,{"data-mml-node":"msqrt","transform":"translate(792,0)","children":[["$","g",null,{"transform":"translate(1020,0)","children":[["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"31","xlinkHref":"#MJX-21-TEX-N-31"}]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(722.2,0)","children":["$","use",null,{"data-c":"2212","xlinkHref":"#MJX-21-TEX-N-2212"}]}],["$","g",null,{"data-mml-node":"mfrac","transform":"translate(1722.4,0)","children":[["$","g",null,{"data-mml-node":"msup","transform":"translate(220,676)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D436","xlinkHref":"#MJX-21-TEX-I-1D436"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(845.3,289) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-21-TEX-N-32"}]}]}]]}],["$","g",null,{"data-mml-node":"msubsup","transform":"translate(334.6,-784.5)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-21-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,353.6) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-21-TEX-N-32"}]}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-293.8) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}]}]]}],["$","rect",null,{"width":"1448.8","height":"60","x":"120","y":"220"}]]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(0,-28.1)","children":["$","use",null,{"data-c":"221A","xlinkHref":"#MJX-21-TEX-S4-221A"}]}],["$","rect",null,{"width":"3411.2","height":"60","x":"1020","y":"1661.9"}]]}],["$","g",null,{"data-mml-node":"mrow","transform":"translate(5389.9,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-21-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"mn","transform":"translate(278,0)","children":"$L63"}],"$L64"]}],"$L65","$L66","$L67","$L68"]}]]}]}]
+55:["$","path",null,{"id":"MJX-22-TEX-LO-2211","d":"M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"}]
+56:["$","path",null,{"id":"MJX-22-TEX-I-1D457","d":"M297 596Q297 627 318 644T361 661Q378 661 389 651T403 623Q403 595 384 576T340 557Q322 557 310 567T297 596ZM288 376Q288 405 262 405Q240 405 220 393T185 362T161 325T144 293L137 279Q135 278 121 278H107Q101 284 101 286T105 299Q126 348 164 391T252 441Q253 441 260 441T272 442Q296 441 316 432Q341 418 354 401T367 348V332L318 133Q267 -67 264 -75Q246 -125 194 -164T75 -204Q25 -204 7 -183T-12 -137Q-12 -110 7 -91T53 -71Q70 -71 82 -81T95 -112Q95 -148 63 -167Q69 -168 77 -168Q111 -168 139 -140T182 -74L193 -32Q204 11 219 72T251 197T278 308T289 365Q289 372 288 376Z"}]
+57:["$","path",null,{"id":"MJX-22-TEX-N-7C","d":"M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"}]
+58:["$","path",null,{"id":"MJX-22-TEX-I-1D6FD","d":"M29 -194Q23 -188 23 -186Q23 -183 102 134T186 465Q208 533 243 584T309 658Q365 705 429 705H431Q493 705 533 667T573 570Q573 465 469 396L482 383Q533 332 533 252Q533 139 448 65T257 -10Q227 -10 203 -2T165 17T143 40T131 59T126 65L62 -188Q60 -194 42 -194H29ZM353 431Q392 431 427 419L432 422Q436 426 439 429T449 439T461 453T472 471T484 495T493 524T501 560Q503 569 503 593Q503 611 502 616Q487 667 426 667Q384 667 347 643T286 582T247 514T224 455Q219 439 186 308T152 168Q151 163 151 147Q151 99 173 68Q204 26 260 26Q302 26 349 51T425 137Q441 171 449 214T457 279Q457 337 422 372Q380 358 347 358H337Q258 358 258 389Q258 396 261 403Q275 431 353 431Z"}]
+59:["$","path",null,{"id":"MJX-22-TEX-I-1D706","d":"M166 673Q166 685 183 694H202Q292 691 316 644Q322 629 373 486T474 207T524 67Q531 47 537 34T546 15T551 6T555 2T556 -2T550 -11H482Q457 3 450 18T399 152L354 277L340 262Q327 246 293 207T236 141Q211 112 174 69Q123 9 111 -1T83 -12Q47 -12 47 20Q47 37 61 52T199 187Q229 216 266 252T321 306L338 322Q338 323 288 462T234 612Q214 657 183 657Q166 657 166 673Z"}]
+5a:["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":[["$","g",null,{"data-mml-node":"msub","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D443","xlinkHref":"#MJX-22-TEX-I-1D443"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(675,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mtext","children":[["$","use",null,{"data-c":"73","xlinkHref":"#MJX-22-TEX-N-73"}],["$","use",null,{"data-c":"75","xlinkHref":"#MJX-22-TEX-N-75","transform":"translate(394,0)"}],["$","use",null,{"data-c":"63","xlinkHref":"#MJX-22-TEX-N-63","transform":"translate(950,0)"}],["$","use",null,{"data-c":"63","xlinkHref":"#MJX-22-TEX-N-63","transform":"translate(1394,0)"}]]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(2302.4,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-22-TEX-N-3D"}]}],["$","g",null,{"data-mml-node":"msup","transform":"translate(3358.2,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D436","xlinkHref":"#MJX-22-TEX-I-1D436"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(845.3,413) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-22-TEX-N-32"}]}]}]]}],["$","g",null,{"data-mml-node":"munder","transform":"translate(4773.7,0)","children":[["$","g",null,{"data-mml-node":"mo","children":["$","use",null,{"data-c":"2211","xlinkHref":"#MJX-22-TEX-LO-2211"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(576.3,-1084.4) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-22-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mfrac","transform":"translate(6384.4,0)","children":[["$","g",null,{"data-mml-node":"mrow","transform":"translate(220,754.2)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-22-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D6FD","xlinkHref":"#MJX-22-TEX-I-1D6FD"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(599,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-22-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"msup","transform":"translate(1218.3,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-22-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(311,363) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-22-TEX-N-32"}]}]}]]}]]}],["$","g",null,{"data-mml-node":"msubsup","transform":"translate(676.7,-784.5)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-22-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,353.6) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mn","children":["$","use",null,{"data-c":"32","xlinkHref":"#MJX-22-TEX-N-32"}]}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-293.8) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-22-TEX-I-1D457"}]}]}]]}],["$","rect",null,{"width":"2132.9","height":"60","x":"120","y":"220"}]]}]]}]}]
+5c:["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D462","xlinkHref":"#MJX-13-TEX-I-1D462"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(605,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-13-TEX-I-1D457"}]}]}]]}]
+5d:["$","g",null,{"data-mml-node":"mo","transform":"translate(1224.3,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-13-TEX-N-27E9"}]}]
+5e:["$","g",null,{"data-mml-node":"mo","transform":"translate(2807.8,0)","children":["$","use",null,{"data-c":"3D","xlinkHref":"#MJX-13-TEX-N-3D"}]}]
+5f:["$","g",null,{"data-mml-node":"msub","transform":"translate(3863.6,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-13-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-13-TEX-I-1D457"}]}]}]]}]
+60:["$","g",null,{"data-mml-node":"mrow","transform":"translate(4987.5,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-13-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D462","xlinkHref":"#MJX-13-TEX-I-1D462"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(605,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-13-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1224.3,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-13-TEX-N-27E9"}]}]]}]
+61:["$","use",null,{"data-c":"1D44F","xlinkHref":"#MJX-20-TEX-I-1D44F"}]
+62:["$","g",null,{"data-mml-node":"mo","transform":"translate(214.5,283) translate(-250 0)","children":["$","use",null,{"data-c":"20D7","xlinkHref":"#MJX-20-TEX-N-20D7"}]}]
+63:["$","use",null,{"data-c":"30","xlinkHref":"#MJX-21-TEX-N-30"}]
+64:["$","g",null,{"data-mml-node":"mo","transform":"translate(778,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-21-TEX-N-27E9"}]}]
+65:["$","g",null,{"data-mml-node":"mo","transform":"translate(6779.1,0)","children":["$","use",null,{"data-c":"2B","xlinkHref":"#MJX-21-TEX-N-2B"}]}]
+66:["$","g",null,{"data-mml-node":"mfrac","transform":"translate(7779.4,0)","children":[["$","g",null,{"data-mml-node":"mi","transform":"translate(318.7,676)","children":["$","use",null,{"data-c":"1D436","xlinkHref":"#MJX-21-TEX-I-1D436"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(220,-686)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D706","xlinkHref":"#MJX-21-TEX-I-1D706"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(616,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}]}]]}],["$","rect",null,{"width":"1157.3","height":"60","x":"120","y":"220"}]]}]
+67:["$","g",null,{"data-mml-node":"mrow","transform":"translate(9176.7,0)","children":[["$","g",null,{"data-mml-node":"mo","transform":"translate(0 -0.5)","children":["$","use",null,{"data-c":"7C","xlinkHref":"#MJX-21-TEX-N-7C"}]}],["$","g",null,{"data-mml-node":"msub","transform":"translate(278,0)","children":[["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D462","xlinkHref":"#MJX-21-TEX-I-1D462"}]}],["$","g",null,{"data-mml-node":"TeXAtom","transform":"translate(605,-150) scale(0.707)","data-mjx-texclass":"ORD","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D457","xlinkHref":"#MJX-21-TEX-I-1D457"}]}]}]]}],["$","g",null,{"data-mml-node":"mo","transform":"translate(1224.3,0)","children":["$","use",null,{"data-c":"27E9","xlinkHref":"#MJX-21-TEX-N-27E9"}]}]]}]
+68:["$","g",null,{"data-mml-node":"mo","transform":"translate(10790,0) translate(0 -0.5)","children":["$","use",null,{"data-c":"29","xlinkHref":"#MJX-21-TEX-S4-29"}]}]
