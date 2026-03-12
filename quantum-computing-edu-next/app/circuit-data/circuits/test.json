@@ -243,8 +243,7 @@
     {
       "gate_id": "h",
       "qubits": [0],
-      "controls": [1],
-      "anticontrols": [0]
+      "controls": [1]
     },
     {
       "gate_id": "rx",
