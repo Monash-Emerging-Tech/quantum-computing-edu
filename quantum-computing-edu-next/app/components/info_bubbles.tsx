@@ -13,6 +13,9 @@ import { Operation } from '@/app/circuit-data/circuit-parsing';
 
 import UnitaryMatrixVisual from "@/app/components/matrix";
 
+// Import MathJax components
+import { MathJaxContext, MathJax } from "nextjs-mathjax";
+
 import {
   PopoverContent,
   //PopoverDescription,
@@ -75,6 +78,19 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
   operation.parameter_values.forEach(({symbol, value}) => {
     operation_info.push(<div key={"param"+symbol}>Parameter {symbol} = {value}.</div>);
   });
+  if (operation.controls.length > 0 || operation.anticontrols.length > 0) {
+    operation_info.push(<div key={"controlslist"}>
+      This gate is enabled if:
+      <ul>
+        {operation.controls.map((control) =>
+          <li key={"control"+control}>qubit {control} is |1⟩</li>
+        )}
+        {operation.anticontrols.map((anticontrol) =>
+          <li key={"anticontrol"+anticontrol}>qubit {anticontrol} is |0⟩</li>
+        )}
+      </ul>
+    </div>);
+  }
   
   return (
     <div>
