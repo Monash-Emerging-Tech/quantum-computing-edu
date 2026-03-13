@@ -8,42 +8,196 @@ equations $A\vec{x} = \vec{b}$.
 
 ### Circuit Explanation
 
+In the following, consider the system of linear equations in matrix form: $A\vec{x} = \vec{b}$,
+where $A$ is an $N \times N$ square matrix, $\vec{b}$ is an $N$-dimensional
+vector, and $\vec{x}$ is the solution vector.
+$
+\newcommand{\sdim}{N}
+\newcommand{\sregb}{n_{b}}
+\newcommand{\nregc}{n_{c}}
+\newcommand{\eigprec}{2^{\nregc}}
+\newcommand{\hstime}{t_{0}}
+\newcommand{\eigs}{\lambda_{j}}
+\newcommand{\phases}{\phi_{j}}
+\newcommand{\accfreq}{\omega_{j}}
+$
+<br />
+
 The HHL circuit spans three quantum registers: the state register, with
 $n_{b} = \log_{2} N$ qubits;
-the eigenvalue register, with $n_{l}$ qubits;
+the eigenvalue register, with $\nregc$ qubits;
 and an auxiliary register with a single qubit, also known as the ancilla qubit.
-The state register is initialised to encode $$\vec{b}$$ into a quantum state $$\ket{b}$$.
-All other qubits are initialised to $$\ket{0}$$.
-The precision of the algorithm is defined by $$n_{l}$$, as the eigenvalues are encoded in
+The state register is initialised to encode $\vec{b}$ into a quantum state $\ket{b}$.
+All other qubits are initialised to $\ket{0}$.
+The precision of the algorithm is defined by $\nregc$, as the eigenvalues are encoded in
 binary form into the eigenvalue register.
+<br />
 
-Let $$\left\lvert u_{j} \right\rangle$$ be the eigenvector basis of $$A$$, such that
-$$A \left\lvert u_{j} \right\rangle = \lambda_{j} \left\lvert u_{j} \right\rangle$$,
-where $$\lambda_{j}$$ are the eigenvalues of $$A$$.
-The HHL algorithm uses Quantum Phase Estimation (QPE) as a subroutine to find the
-eigenvalues, $$\lambda_{j}$$, of the given matrix $$A$$.
+The circuit displayed above is for a system of $N = 4$ linear equations ($\sregb = 2$),
+with precision $\nregc = 4$ eigenvalue qubits.
+<br />
+
+The first operation in the circuit, labelled $\Psi$, represents an
+[initialize](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.Initialize)
+instruction, which initialises the state register to the quantum state $\ket{b}$
+(equivalent to the normalised form of $\vec{b}$).
+<br />
+
+Next, the HHL algorithm uses Quantum Phase Estimation (QPE) as a subroutine to find the
+eigenvalues, $\eigs$, of the given matrix $A$, as shown in the circuit above.
+<br />
 
 It then uses controlled rotations to invert the eigenvalues in a process called
-Ancilla Quantum Encoding (AQE), and uses inverse QPE to uncompute the inverted
-eigenvalues, such that the final quantum state encodes $$\vec{x}$$ in the amplitudes of
-the quantum state.
+Ancilla Quantum Encoding (AQE), and uses inverse QPE (that's the second QPE gate,
+with the dagger to indicate inverse) to "uncompute" the inverted
+eigenvalues, such that the final quantum state encodes $\vec{x}$ in the **amplitudes** of
+the state register.
+<br />
+
 At the end of the algorithm, an observable constructed for the specific application
 is applied to the state to learn some information from it.
-If the full solution, $$\vec{x}$$, to the equation $$A\vec{x} = \vec{b}$$ is needed,
-then a measurement of all qubits from many executions of the circuit is required.
+The observable is a subcircuit that manipulates the state before measurement.
+In the vast majority of cases HHL will be executed many times, with the measurements
+sampling a probability distrubtion, which is generally what is wanted as output.
+
+If the full solution, $\vec{x}$, to the equation $A\vec{x} = \vec{b}$ is needed,
+then the observable changes nothing (is just the identity matrix) and measurements
+of the state and ancilla qubits from many executions of the circuit are required.
+<br />
+
+If all goes well, the final state of the clock register should be all zeroes.
+Measurements of these qubits may be used to verify that the circuit worked correctly,
+and get an estimate of the error due to noise.
 
 
 ### Mathematical Proofs
 
-Final state:
+Let $\left\lvert u_{j} \right\rangle$ be the eigenvector basis of $A$, such that
+$A \left\lvert u_{j} \right\rangle = \eigs \left\lvert u_{j} \right\rangle$, where $\eigs$ are the eigenvalues of $A$.
+
+$A$ can be written as a sum of eigenvectors, $A = \sum_{j=1}^{N} \eigs \left\lvert u_{j} \right\rangle \left\langle u_{j} \right\rvert$.
+$A$ is diagonal in its eigenvector basis, so its inverse can be written as
+$A^{-1} = \sum_{j=1}^{N} \eigs^{-1} \left\lvert u_{j} \right\rangle \left\langle u_{j} \right\rvert$.
+
+The vector, $\vec{b}$, and its corresponding quantum state $\left\lvert b \right\rangle$
+can also be represented in the eigenvector basis of $A$,
+as below:
 $$
-  \sum_{j=1}^{N} \beta_{j} \left\lvert u_{j} \right\rangle \left( \sqrt{1 - \frac{C^{2}}{\lambda_{j}^{2}}}\left\lvert 0 \right\rangle + \frac{C}{\lambda_{j}}\left\lvert u_{j} \right\rangle \right)
+\begin{equation}
+    \left\lvert b \right\rangle
+    = \sum_{i=1}^{N} b_{i} \left\lvert i \right\rangle
+    = \sum_{j=1}^{N} \beta_{j} \left\lvert u_{j} \right\rangle
+    \quad\quad (1)
+    \label{eq:b-vec-sum}
+\end{equation}
+$$
+The values $\beta_{j}$ are the components of the transformed vector in $A$'s eigenvector basis.
+
+It follows that the solution state, $\left\lvert x \right\rangle$, can be encoded as follows:
+$$
+\begin{equation}
+    \left\lvert x \right\rangle
+    = A^{-1} \left\lvert b \right\rangle
+    = \sum_{j=1}^{N} \beta_{j} \lambda_{j}^{-1} \left\lvert u_{j} \right\rangle
+    \quad\quad (2)
+    \label{eq:x-vec-sum}
+\end{equation}
 $$
 
-Success rate:
+The goal of the HHL algorithm is to convert the state $\left\lvert b \right\rangle$ into
+$\left\lvert x \right\rangle$ in a quantum circuit, using the aforementioned mathematical
+relationships [Reference "HHL step-by-step walkthrough"].
+<br />
+
+The total HHL state, $\Psi$, is initialised such that the state register is in the initial state
+$\left\lvert b \right\rangle$:
 $$
-  P_{\text{succ}} = C^{2} \sum_{j} \frac{\lvert \beta_{j} \rvert^{2}}{\lambda_{j}^{2}}
+\begin{equation}
+    \Psi_{1}
+    = \left\lvert b \right\rangle_{b} \ket{0}_{c}^{\otimes \nregc} \left\lvert 0 \right\rangle_{a}
+    \label{eq:state-1}
+\end{equation}
 $$
+Where the subscripts $b$, $c$, and $a$ are labels to keep track of the state, eigenvalue, and auxiliary (ancilla) registers, respectively.
+
+Using equation 1, this state may be written as:
+$$
+\begin{equation}
+    \Psi_{1}
+    = \sum_{j=1}^{N} \beta_{j} \left\lvert u_{j} \right\rangle_{b} \ket{0}_{c}^{\otimes \nregc} \left\lvert 0 \right\rangle_{a}
+    \label{eq:state-1.1}
+\end{equation}
+$$
+
+The HHL algorithm uses Quantum Phase Estimation (QPE) as a subroutine to find the
+eigenvalues, $\eigs$, of the given matrix $A$.
+During QPE, each eigenvalue of $A$ is encoded into a phase, $\phases$, theoretically defined as:
+$$
+\begin{equation}
+    \phases
+    = \frac{\eigs \hstime}{2\pi}
+    \label{eq:qpe-phase-theory}
+\end{equation}
+$$
+However, in practice, the phases are rounded to a precision defined by $\nregc$:
+$$
+\begin{equation}
+    \phases
+    = \frac{1}{\eigprec}
+    \left\lfloor \frac{\eigprec \eigs \hstime}{2\pi} + \frac{1}{2} \right\rfloor
+    (\text{mod}\; 1)
+    \label{eq:qpe-phase}
+\end{equation}
+$$
+Thus, the precision of the algorithm is defined by $\nregc$, as the phases are encoded into the eigenvalue register in binary form.
+<br />
+
+After QPE, the $c$ register contains the binary-encoded eigenvalues of $A$:
+$$
+\begin{equation}
+    \Psi_{2}
+    = \sum_{j=1}^{N} \beta_{j} \left\lvert u_{j} \right\rangle_{b} \left\lvert \eigprec\phases \right\rangle_{c} \left\lvert 0 \right\rangle_{a}
+    \label{eq:state-2}
+\end{equation}
+$$
+
+HHL then uses controlled rotations to encode the eigenvalues into the amplitude
+of the ancilla qubit in a process called Ancilla Quantum Encoding (AQE):
+$$
+\begin{equation}
+    \Psi_{3}
+    = \sum_{j=1}^{N} \beta_{j} \left\lvert u_{j} \right\rangle_{b} \left\lvert \eigprec\phases \right\rangle_{c} \left( \sqrt{1 - \frac{C^{2}}{\eigs^{2}}} \ket{0}_{a} + \frac{C}{\eigs} \ket{1}_{a} \right)
+    \quad\quad (3)
+    \label{eq:state-3}
+\end{equation}
+$$
+Where $C$ is a constant with the restriction $\left\lvert C \right\rvert \le \min\left\lvert \lambda_{j} \right\rvert$.
+
+The HHL algorithm succeeds if the ancilla qubit collapses to a $\ket{1}$ during measurement.
+Thus, the theoretical success rate of the algorithm can be derived from equation 3:
+$$
+\begin{equation}
+    P_{\text{succ}} = C^{2} \sum_{j=1}^{\sdim} \frac{\lvert \beta_{j} \rvert^{2}}{\eigs^{2}}
+    \label{eq:hhl-success-rate}
+\end{equation}
+$$
+$C$ is hence chosen to be as large as possible, to maximise the success rate of the algorithm.
+<br />
+
+Finally, inverse QPE is used to
+disentangle the $b$ and $c$ registers, such that (by equation 2)
+the final quantum state encodes $\vec{x}$ in the amplitudes of the quantum state.
+For simplicity, the following equation **only shows the post-selected state**
+where the ancilla qubit is 1 (hence, this is not a complete state).
+$$
+\begin{equation}
+    \Psi_{4}
+    = \sum_{j=1}^{N} \beta_{j} \eigs^{-1} \left\lvert u_{j} \right\rangle_{b} \ket{0}_{c}^{\otimes \nregc} \ket{1}_{a}
+    = \ket{x}_{b} \ket{0}_{c}^{\otimes \nregc} \ket{1}_{a}
+    \label{eq:state-4}
+\end{equation}
+$$
+
 
 
 ### Literature
