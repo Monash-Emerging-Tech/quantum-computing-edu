@@ -10,7 +10,7 @@ to be able to learn about and understand complex quantum circuits.
 The source for project is hosted on GitHub at [Monash-Emerging-Tech/quantum-computing-edu](https://github.com/Monash-Emerging-Tech/quantum-computing-edu).
 <br />
 
-The current version of the website is deployed at [nowhere yet].
+The current version of the website is deployed on [GitHub pages](https://monash-emerging-tech.github.io/quantum-computing-edu/).
 
 
 
