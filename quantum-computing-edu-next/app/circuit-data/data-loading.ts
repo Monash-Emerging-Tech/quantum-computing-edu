@@ -68,7 +68,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
         if (error instanceof CircuitNotFoundError || error instanceof GateNotFoundError) {
           // A gate uses a currently-unknown circuit, or a circuit uses a currently-unknown gate
           i += 1;
-          console.warn(error.message);
+          console.warn("Dependency not loaded yet:", error.message);
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           gate_data.splice(i, 1);
@@ -94,7 +94,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
         if (error instanceof CircuitNotFoundError || error instanceof GateNotFoundError) {
           // A gate uses a currently-unknown circuit, or a circuit uses a currently-unknown gate
           i += 1;
-          console.warn(error.message);
+          console.warn("Dependency not loaded yet:", error.message);
         } else if (error instanceof GateParsingError || error instanceof CircuitParsingError) {
           // There was an error parsing the gate or subcircuit
           circuit_data.splice(i, 1);
