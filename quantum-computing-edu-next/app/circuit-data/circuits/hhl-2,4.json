@@ -40,7 +40,8 @@
         "full_name": "Quantum Phase Estimation",
         "display_name": "QPE",
         "color": "green",
-        "arity": 6
+        "arity": 6,
+        "subcircuit_id": "qpe_2_4"
       },
       "qubits": [1,2,3,4,5,6],
       "controls": [],
