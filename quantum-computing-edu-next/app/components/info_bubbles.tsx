@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Operation } from '@/app/circuit-data/circuit-parsing';
 
 import UnitaryMatrixVisual from "@/app/components/matrix";
+import Circuit from "@/app/components/circuit";
 
 // Import MathJax components
 import { MathJaxContext, MathJax } from "nextjs-mathjax";
@@ -95,6 +96,7 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
   return (
     <div>
       { operation.gate.unitary ? <UnitaryMatrixVisual matrix={operation.gate.unitary} /> : <></> }
+      { operation.gate.subcircuit ? <Circuit circuit={operation.gate.subcircuit}/> : <></> }
       
       <div id="gate-information-container" className={styles["gate-information-container"]}>
         <MarkdownPage />
