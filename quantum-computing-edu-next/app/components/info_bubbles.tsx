@@ -64,6 +64,17 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
       const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${operation.gate.documentation_file}`);
       MarkdownPage = MarkdownPage_import;
     }
+  } else if (operation.gate.subcircuit && operation.gate.subcircuit.documentation_file !== undefined && operation.gate.documentation_file !== "") {
+    // If the gate is defined by a subcircuit, try to find its documentation instead
+    if (fs.existsSync(`${process.cwd()}/app/circuit-data/popup-descriptions/${operation.gate.subcircuit.documentation_file}`)) {
+      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/popup-descriptions/${operation.gate.subcircuit.documentation_file}`);
+      MarkdownPage = MarkdownPage_import;
+      
+    } else if (fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${operation.gate.subcircuit.documentation_file}`)) {
+      // Fall back to the full-page circuit information
+      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${operation.gate.subcircuit.documentation_file}`);
+      MarkdownPage = MarkdownPage_import;
+    }
   }
   
   // Add information about the operation (the specific instance of the gate in the context of the circuit)
