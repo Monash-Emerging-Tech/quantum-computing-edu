@@ -2,6 +2,7 @@
   "circuit_id": "qpe_2_4",
   "full_name": "Quantum Phase Estimation",
   "display_name": "QPE",
+  "documentation_file": "qpe.mdx",
   "registers": [
     {
       "name": "clock",
