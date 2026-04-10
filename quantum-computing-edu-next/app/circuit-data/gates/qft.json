@@ -1,0 +1,8 @@
+{
+  "gate_id": "qft",
+  "full_name": "Quantum Fourier Transform",
+  "display_name": "QFT",
+  "color": "black",
+  "arity": 1,
+  "documentation_file": "qft.mdx"
+}

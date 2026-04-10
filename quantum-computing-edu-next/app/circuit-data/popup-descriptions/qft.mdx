@@ -1,0 +1,30 @@
+### Quantum Fourier Transform
+
+The Quantum Fourier Transform is a quantum operation that applies the
+Discrete Fourier Transform to a set of qubits.
+<br />
+
+The Discrete Fourier Transform converts a list of complex numbers into a list of frequency components.
+The Quantum Fourier Transform acts on amplitudes of a quantum state, revealing details about
+periodic signals that may be hidden in the amplitudes.
+
+
+### Mathematical Definition
+
+The $2^{n} \times 2^{n}$ unitary matrix defining the QFT operation applied to $n$ qubits is defined as follows:
+$$
+\text{QFT}_{2^{n}} = \frac{1}{2^{\frac{n}{2}}} \sum_{x=0}^{2^{n}-1} \sum_{y=0}^{2^{n}-1} e^{\pi i \frac{xy}{2^{n-1}}} \ket{x} \bra{y}
+$$
+
+
+
+### Resources
+
+See the Qiskit documentation for the qft gate:
+[https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.QFT](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.QFT)
+<br />
+
+Lesson 7 in John Watrous' *Understanding Quantum Information & Computation* — [Phase Estimation and Factoring](https://www.youtube.com/watch?v=4nT0BTUxhJY&list=PLOFEBzvs-VvqKKMXX4vbi4EB1uaErFMSO&index=9).
+
+A [written paper](https://arxiv.org/abs/2507.11536) is also available.
+
