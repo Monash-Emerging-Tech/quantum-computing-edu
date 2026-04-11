@@ -103,6 +103,23 @@
       "gate_id": "qft",
       "qubits": [0,1,2,3],
       "inverse": true
+    },
+    
+    {
+      "gate_id": "measure",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [1]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [2]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [3]
     }
   ]
 }
