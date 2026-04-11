@@ -100,13 +100,7 @@
       "exponent": 8
     },
     {
-      "custom_gate": {
-        "gate_id": "QFT",
-        "full_name": "Quantum Fourier Transform",
-        "display_name": "QFT",
-        "color": "black",
-        "arity": 4
-      },
+      "gate_id": "qft",
       "qubits": [0,1,2,3],
       "inverse": true
     }
