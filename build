@@ -9,3 +9,5 @@ npm run build:gh-pages
 # Add .nojekyll file to GitHub pages build
 source .env.gh-pages
 touch dist/$NEXT_PUBLIC_BUILD/.nojekyll
+
+# rsync -rl -t -pg -v --del --exclude ".git" "./quantum-computing-edu-next/dist/gh-pages/" "../gh-pages/"
