@@ -1,8 +1,15 @@
 ### Algorithm Overview
 
-Quantum Phase Estimation is ...
+Quantum Phase Estimation is a quantum circuit that solves the phase estimation problem in a quantum circuit.
+
+QPE can be used to find the spectral decomposition of a unitary matrix, encoding its eigenvalues into binary format.
 
 
-### Circuit Explanation
+### Phase estimation problem
+We are given, as input, a description of a unitary quantum operation $U$ that operates on $n$ qubits,
+and an $n$-qubit quantum state $\ket{\psi}$. We are promised that $\ket{\psi}$ is an eigenvector of $U$.
+
+The output is an approximation of $\theta \in \left[ 0, 1 \right)$ satisfying $U \ket{\psi} = e^{2 \pi i \theta} \ket{\psi}$.
+That is, $e^{2 \pi i \theta}$ is an eigenvalue of $U$ corresponding to the eigenvector $\ket{\psi}$.
 
 
