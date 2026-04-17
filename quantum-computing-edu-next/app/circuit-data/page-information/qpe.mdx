@@ -1,25 +1,150 @@
 ### Algorithm Overview
 
-Quantum Phase Estimation is ...
+Quantum Phase Estimation is a quantum circuit that finds the spectral decomposition of a unitary matrix, encoding its eigenvalues into binary format.
+$
+\newcommand{\matu}{U}
+\newcommand{\opu}{U}
+\newcommand{\sdim}{N}
+\newcommand{\numq}{n}
+\newcommand{\eigs}{\lambda_{j}}
+\newcommand{\phase}{\theta}
+\newcommand{\phases}{\theta_{j}}
+$
+<br />
+
+#### Phase estimation problem
+We are given, as input, a description of a unitary quantum operation $\opu$ that operates on $n$ qubits,
+and an $n$-qubit quantum state $\ket{\psi}$. We are promised that $\ket{\psi}$ is an eigenvector of $\opu$.
+
+The output is an approximation of $\phase \in \left[ 0, 1 \right)$ satisfying $\opu \ket{\psi} = e^{2 \pi i \phase} \ket{\psi}$.
+That is, $e^{2 \pi i \phase}$ is an eigenvalue of $\opu$ corresponding to the eigenvector $\ket{\psi}$.
 
 
-### Circuit Explanation
+
+### Circuit Explanation and Proof
+
+In the following, consider an $N \times N$ unitary matrix $U$.
+<br />
+
+#### Spectral theorem
+By the Spectral theorem, which applies to all *normal* matrices (a superset of unitary matrices), $U$ can be represented by its eigenvalues and eigenvectors:
+$$
+\matu = \sum_{j=1}^{N} \eigs \ket{u_{j}} \bra{u_{j}}
+$$
+where $\ket{u_{j}}$ are eigenvectors of $\matu$, with corresponding eigenvalues $\eigs$.
+
+Additionally, all eigenvalues are complex numbers with magnitude 1:
+$$
+\eigs = e^{2\pi i \phases}
+$$
+where $\phase \in [0, 1)$.
+<br />
+
+$\phase$ can be approximated by a fraction:
+$$
+\phase \approx \frac{y}{2^{m}}
+$$
+where $y \in \left\{ 0,1,2, \dots, 2^{m}-1 \right\}$
+and $m$ is a positive integer.
+<br />
 
 
+#### Phase kickback
+Phase kickback is the primary mechanism making QPE work, allowing some information
+about $\phase$ to be encoded into the state of a control qubit.
+<br />
+
+Consider a circuit with a controlled-unitary operation, $\opu$, where a Hadamard gate is first
+applied to the control qubit, then the controlled-unitary operation is applied, then another
+Hadamard gate is applied to the control qubit before it is measured.
+
+Additionally, the input state of all the qubits except for the control qubit is an eigenvector, $\ket{\psi}$, of $\opu$.
+
+[Future: Insert Phase kickback circuit]
+<br />
+
+The initial state of the circuit is:
+$$
+\ket{\Psi_{0}} = \ket{\psi}\ket{0}
+$$
+
+After the first Hadamard gate, the state becomes:
+$$
+\ket{\Psi_{1}} = \ket{\psi}\ket{+}
+$$
+
+After the controlled-U operation is performed, the state becomes:
+$$
+\ket{\Psi_{2}} = \frac{1}{\sqrt{2}}\ket{\psi}\ket{0} + \frac{1}{\sqrt{2}}\left( \opu\ket{\psi} \right) \ket{1}
+$$
+Since we know that $\ket{\psi}$ is an eigenvector of $\opu$ with eigenvalue $e^{2\pi i \phase}$,
+we can express $\ket{\Psi_{2}}$ as:
+$$
+\ket{\Psi_{2}}
+= \frac{1}{\sqrt{2}}\ket{\psi}\ket{0} + \frac{e^{2\pi i \phase}}{\sqrt{2}}\ket{\psi}\ket{1}
+= \ket{\psi} \otimes \left( \frac{1}{\sqrt{2}}\ket{0} + \frac{e^{2\pi i \phase}}{\sqrt{2}}\ket{1} \right)
+$$
+
+After the second Hadamard gate is performed, the final state is:
+$$
+\ket{\Psi_{3}}
+= \ket{\psi} \otimes \left( \frac{1 + e^{2\pi i \phase}}{2}\ket{0} + \frac{1 - e^{2\pi i \phase}}{2}\ket{1} \right)
+$$
+
+In the case of phase kickback, the control qubit is the only qubit whose state is changed —
+the eigenvector register remains unchanged. This means that the eigenvector state can be reused.
+
+If the control qubit is measured, the probability of each outcome is as follows:
+$$
+\Pr \left( \ket{0} \right)
+= \left\lvert \frac{1 + e^{2\pi i \phase}}{2} \right\rvert^{2}
+= \cos^{2}\left( \pi \phase \right)
+$$
+$$
+\Pr \left( \ket{1} \right)
+= \left\lvert \frac{1 - e^{2\pi i \phase}}{2} \right\rvert^{2}
+= \sin^{2}\left( \pi \phase \right)
+$$
+
+Hence, by measuring this control qubit, we gain some information about the value of $\phase$
+without changing the state of the qubits in the state register.
+
+<br />
+
+If we apply the controlled $\opu$ gate twice, the probabilities become
+$\Pr \left( \ket{0} \right) = \cos^{2}\left( 2 \pi \phase \right)$ and
+$\Pr \left( \ket{1} \right) = \sin^{2}\left( 2 \pi \phase \right)$.
+
+Repeating it four times changes the coefficient of $\phase$ to $4 \pi$, and so on.
+
+Hence, by using multiple ($m$) instances of phase kickback, a binary approximation of $\phase \approx \frac{y}{2^{m}}$ can be found.
+
+Looking at the central section of the QPE circuit, you can see how phase kickback
+is performed with different numbers of controlled $\opu$ operations.
+
+<br />
 
 
-### Mathematical Proofs
+#### Quantum Fourier Transform
 
+Finally, the inverse QFT is performed on the clock register to convert the frequency information
+about $\phase$ into the amplitudes of the clock qubits, allowing the binary representation of $y$ to be measured.
 
 
 
 ### Literature
 
+Lesson 7 in John Watrous' *Understanding Quantum Information & Computation* — [Phase Estimation and Factoring](https://www.youtube.com/watch?v=4nT0BTUxhJY&list=PLOFEBzvs-VvqKKMXX4vbi4EB1uaErFMSO&index=9).
 
+A [written paper](https://arxiv.org/abs/2507.11536) is also available.
 
 ### Use Cases
 
+Quantum Phase Estimation is used as a subcircuit in Shor's Algorithm, the [Harrow-Hassidim-Lloyd algorithm](/circuits/hhl_2_4), and others.
+
 ### Extra Information
+
+#### Initialising the state register to an arbitrary vector
 
 #### Theoretical problems
 
