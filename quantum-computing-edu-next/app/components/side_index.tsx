@@ -21,7 +21,7 @@ export default function SideIndexMenu() {
     <header>
       <Link href="/" className={styles["side-index-link-nounderline"]}>
         <h2 className={styles["index-header"]+" "+styles["index-home"]}>
-          Home
+          QCET
         </h2>
       </Link>
     </header>

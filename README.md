@@ -1,4 +1,4 @@
-# MNET Interactive Quantum Computing Education Website
+# MNET Quantum Circuit Education Tool (QCET)
 
 This project part of [MNET's](https://monashemerging.tech/) **Quantum Computing** portfolio.
 <br />
