@@ -1,9 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from '@next/mdx';
 
-//import remarkMath from 'remark-math'
-//import rehypeMathJax from 'rehype-mathjax'
-
 const nextConfig: NextConfig = {
   output: 'export',
   distDir: `dist/${process.env.NEXT_PUBLIC_BUILD}`,
@@ -21,11 +18,16 @@ const withMDX = createMDX({
   options: {
     remarkPlugins: [
       'remark-math',
-      //remarkMath
     ],
     rehypePlugins: [
       'rehype-mathjax',
-      //rehypeMathJax
+      ['rehype-citation', {
+        bibliography: 'citation/references.bib',
+        csl: 'citation/ieee.csl',
+        lang: 'en-US',
+        linkCitations: true,
+        showTooltips: true,
+      }],
     ],
   },
 });
