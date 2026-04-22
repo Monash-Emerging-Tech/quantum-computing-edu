@@ -41,9 +41,10 @@ The Next JS project root is `/quantum-computing-edu-next`.
 ### Packages
 
 The Next JS site uses the following notable packages:
-- [`@next/mdx`](https://www.npmjs.com/package/@next/mdx)
-  - with [`rehype-mathjax`](https://www.npmjs.com/package/rehype-mathjax)
-  - and [`remark-math`](https://www.npmjs.com/package/remark-math)
+- [`@next/mdx`](https://www.npmjs.com/package/@next/mdx) with:
+  - [`remark-math`](https://www.npmjs.com/package/remark-math);
+  - [`rehype-mathjax`](https://www.npmjs.com/package/rehype-mathjax);
+  - [`rehype-citation`](https://www.npmjs.com/package/rehype-citation);
 - [`nextjs-mathjax`](https://www.npmjs.com/package/nextjs-mathjax)
 - [`mathjs`](https://www.npmjs.com/package/mathjs)
 
@@ -51,7 +52,7 @@ The Next JS site uses the following notable packages:
 
 `next.config.ts` is modified as follows:
 - includes 'md' and 'mdx' page extensions;
-- activates the `remark-math` and `rehype-mathjax` mdx plugins;
+- activates the remark and rehype plugins with their respective options;
 - specifies that the site should be exported as a static site when built;
 - defines destination directories for builds.
 <br />
@@ -62,7 +63,7 @@ The `"scripts"` section in `package.json` is modified to include a definition fo
 `tsconfig.json` specifies some TypeScript options, all of which are left as reasonable defaults.
 <br />
 
-`mdx-components.tsx` can specify custom mdx behaviour, but is currently unmodified (there are no custom components or behaviour defined).
+`mdx-components.tsx` defines custom mdx components and styles.
 
 ### Environment files
 
