@@ -42,3 +42,11 @@ For more detail about the project structure, see the [`quantum-computing-edu-nex
 This project is licensed under the MIT license, and was created by MNET students within Monash University, following all University guidelines.
 
 
+
+## Acknowledgements
+
+- Monash University.
+- Monash Nexus for Emerging Technology (MNET) student team at Monash University.
+- The [CSL project](https://citationstyles.org/), for supplying `ieee.csl` and `apa.csl`.
+
+
