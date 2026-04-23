@@ -1,12 +1,10 @@
 import LoadCircuit from "@/app/components/circuit-with-loader";
 
-# QCET
-
-## Harrow-Hassidim-Lloyd algorithm
+# Harrow-Hassidim-Lloyd algorithm
 
 <LoadCircuit circuit_id="hhl_2_4" />
 
-### Algorithm Overview
+## Algorithm Overview
 
 The HHL algorithm is a quantum circuit that inverts a Hermitian matrix, $A$,
 and encodes the dot product of the inverted matrix and a vector $\vec{b}$ into a
@@ -14,7 +12,7 @@ quantum state, hence finding the solution, $\vec{x}$, to the linear system of
 equations $A\vec{x} = \vec{b}$.
 
 
-### Circuit Explanation
+## Circuit Explanation
 
 In the following, consider the system of linear equations in matrix form: $A\vec{x} = \vec{b}$,
 where $A$ is an $N \times N$ square matrix, $\vec{b}$ is an $N$-dimensional
@@ -78,7 +76,7 @@ Measurements of these qubits may be used to verify that the circuit worked corre
 and get an estimate of the error due to noise.
 
 
-### Mathematical Proofs
+## Mathematical Proofs
 
 Let $\left\lvert u_{j} \right\rangle$ be the eigenvector basis of $A$, such that
 $A \left\lvert u_{j} \right\rangle = \eigs \left\lvert u_{j} \right\rangle$, where $\eigs$ are the eigenvalues of $A$.
@@ -208,18 +206,18 @@ $$
 
 
 
-### Literature
+## Literature
 
 Quantum algorithm for linear systems of equations
 
 [citation]
 
 
-### Use Cases
+## Use Cases
 
-### Extra Information
+## Extra Information
 
-#### Theoretical problems
+### Theoretical problems
 
-#### Implementation problems
+### Implementation problems
 

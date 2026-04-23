@@ -1,12 +1,10 @@
 import LoadCircuit from "@/app/components/circuit-with-loader";
 
-# QCET
-
-## Quantum Phase Estimation
+# Quantum Phase Estimation
 
 <LoadCircuit circuit_id="qpe_2_4" />
 
-### Algorithm Overview
+## Algorithm Overview
 
 Quantum Phase Estimation is a quantum circuit that solves the phase estimation problem in a quantum circuit.
 
@@ -22,7 +20,7 @@ $
 $
 <br />
 
-#### Phase estimation problem
+### Phase estimation problem
 We are given, as input, a description of a unitary quantum operation $\opu$ that operates on $n$ qubits,
 and an $n$-qubit quantum state $\ket{\psi}$. We are promised that $\ket{\psi}$ is an eigenvector of $\opu$.
 
@@ -31,12 +29,12 @@ That is, $e^{2 \pi i \phase}$ is an eigenvalue of $\opu$ corresponding to the ei
 
 
 
-### Circuit Explanation and Proof
+## Circuit Explanation and Proof
 
 In the following, consider an $N \times N$ unitary matrix $U$.
 <br />
 
-#### Spectral theorem
+### Spectral theorem
 By the Spectral theorem, which applies to all *normal* matrices (a superset of unitary matrices), $U$ can be represented by its eigenvalues and eigenvectors:
 $$
 \matu = \sum_{j=1}^{N} \eigs \ket{u_{j}} \bra{u_{j}}
@@ -59,7 +57,7 @@ and $m$ is a positive integer.
 <br />
 
 
-#### Phase kickback
+### Phase kickback
 Phase kickback is the primary mechanism making QPE work, allowing some information
 about $\phase$ to be encoded into the state of a control qubit. [@jwatrous2025UQIC] [@youtube_qiskit_Phase_Estimation_and_Factoring]
 <br />
@@ -135,28 +133,28 @@ is performed with different numbers of controlled $\opu$ operations.
 <br />
 
 
-#### Quantum Fourier Transform
+### Quantum Fourier Transform
 
 Finally, the inverse QFT is performed on the clock register to convert the frequency information
 about $\phase$ into the amplitudes of the clock qubits, allowing the binary representation of $y$ to be measured.
 
 
 
-### Literature
+## Literature
 
 [^ref]
 
 <br />
 
-### Use Cases
+## Use Cases
 
 Quantum Phase Estimation is used as a subcircuit in Shor's Algorithm, the [Harrow-Hassidim-Lloyd algorithm](/circuits/hhl_2_4), and others.
 
-### Extra Information
+## Extra Information
 
-#### Initialising the state register to an arbitrary vector
+### Initialising the state register to an arbitrary vector
 
-#### Theoretical problems
+### Theoretical problems
 
-#### Implementation problems
+### Implementation problems
 
