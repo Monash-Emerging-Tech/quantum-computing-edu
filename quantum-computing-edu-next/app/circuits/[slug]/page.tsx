@@ -61,19 +61,7 @@ async function Content({ slug, circuit_map }: { slug: string, circuit_map: Circu
   
   return (
     <div id="circuit-page-container" className={styles["circuit-page-container"]}>
-      <h1 id="page-header"  className={styles["page-header"]}>
-        Interactive Quantum Circuits
-      </h1>
-      
-      <h2 id="circuit-header" className={styles["circuit-header"]}>
-        {circuit.full_name}
-      </h2>
-      
-      <Circuit circuit={circuit} />
-      
-      <div id="circuit-information-container" className={styles["circuit-information-container"]}>
-        <MarkdownPage />
-      </div>
+      <MarkdownPage />
     </div>
   )
 }
