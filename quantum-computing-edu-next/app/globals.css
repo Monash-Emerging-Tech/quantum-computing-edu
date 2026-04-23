@@ -71,3 +71,24 @@ ul {
 li {
   margin-left: 1em;
 }
+
+/* Style references/citations in the bibliography */
+.csl-bib-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+/* Make the reference number appear in line with the reference text */
+.csl-entry {
+  display: flex;
+  flex-direction: row;
+}
+
+.csl-left-margin {
+  margin-right: 2em;
+}
+
+/*.csl-right-inline {
+  
+}*/
