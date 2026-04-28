@@ -22,7 +22,7 @@ const withMDX = createMDX({
     rehypePlugins: [
       'rehype-mathjax',
       ['rehype-citation', {
-        bibliography: 'citation/references.bib',
+        bibliography: 'data/references.bib',
         csl: 'citation/ieee.csl',
         lang: 'en-US',
         linkCitations: true,
