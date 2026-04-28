@@ -84,61 +84,61 @@ This page needs to become a proper introductory page, with links to getting-star
 
 ### Circuit data
 
-The two files `app/circuit-data/circuit-parsing.ts` and `app/circuit-data/data-loading.ts`
+The two files `lib/circuit-parsing.ts` and `lib/data-loading.ts`
 define functions that handle loading circuit data from JSON files and parsing it into relevant objects.
 <br />
 
-`app/circuit-data/circuits/` stores quantum circuit definitions in the data format defined by `/schemas/quantum-circuit-schema.json`.
+`data/circuits/` stores quantum circuit definitions in the data format defined by `/schemas/quantum-circuit-schema.json`.
 <br />
 
-`app/circuit-data/gates/` stores quantum gate definitions in the data format defined by `/schemas/quantum-gate-schema.json`.
+`data/gates/` stores quantum gate definitions in the data format defined by `/schemas/quantum-gate-schema.json`.
 <br />
 
-`app/circuit-data/page-information/` stores markdown files that contain information on gates and circuits.
+`data/page-information/` stores markdown files that contain information on gates and circuits.
 When the site is built, these files are converted into pages attached to the gate and circuit definitions.
 <br />
 
-`app/circuit-data/popup-descriptions/` stores smaller markdown files that contain information on gates
+`data/popup-descriptions/` stores smaller markdown files that contain information on gates
 and circuits to be displayed in popups opened from the interactive circuit interface.
-These are generally cut-down copies from `app/circuit-data/page-information/`.
+These are generally cut-down copies of `data/page-information/`.
 
 ### Circuit pages
 
 `app/circuits/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
 
-Each circuit defined in `app/circuit-data/circuits/` gets one page that displays the circuit in the interactive
-interface with information about it from `app/circuit-data/page-information/`.
+Each circuit defined in `data/circuits/` gets one page that displays the circuit in the interactive
+interface with information about it from `data/page-information/`.
 
 ### Gate pages
 
 `app/gates/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
 
-Each gate defined in `app/circuit-data/gates/` gets one page that displays the definition of the gate
-with information about it from `app/circuit-data/page-information/`.
+Each gate defined in `data/gates/` gets one page that displays the definition of the gate
+with information about it from `data/page-information/`.
 
 ### Components
 
-`app/components/circuit.tsx` defines the interactive circuit interface component.
+`components/circuit.tsx` defines the interactive circuit interface component.
 <br />
 
-`app/components/gate.tsx` defines the operation components used in the interactive circuit interface.
+`components/gate.tsx` defines the operation components used in the interactive circuit interface.
 <br />
 
-`app/components/info_bubbles.tsx` defines the popup components included in the interactive circuit interface.
+`components/info_bubbles.tsx` defines the popup components included in the interactive circuit interface.
 
-Info bubbles use components defined in `app/components/popover.tsx`, which is from [Floating UI](https://floating-ui.com/docs/popover) (also licensed under MIT).
+Info bubbles use components defined in `components/popover.tsx`, which is from [Floating UI](https://floating-ui.com/docs/popover) (also licensed under MIT).
 <br />
 
-`app/components/matrix.tsx` defines a component that parses the
+`components/matrix.tsx` defines a component that parses the
 stringified form of a matrix definition and displays it in a nice format
 using [NextJS MathJax](https://www.npmjs.com/package/nextjs-mathjax).
 <br />
 
-`app/components/side_index.tsx` defines the components used in the page index that is displayed on the left side of the page.
+`components/side_index.tsx` defines the components used in the page index that is displayed on the left side of the page.
 
 ### Meta documentation
 
-`app/doc-data/` contains documentation stored in markdown format that
+`data/docs/` contains documentation stored in markdown format that
 informs users and developers about various parts of this project and website.
 That includes this very documentation you're reading now!
 <br />
