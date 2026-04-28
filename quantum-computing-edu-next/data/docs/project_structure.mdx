@@ -84,10 +84,6 @@ This page needs to become a proper introductory page, with links to getting-star
 
 ### Circuit data
 
-The two files `lib/circuit-parsing.ts` and `lib/data-loading.ts`
-define functions that handle loading circuit data from JSON files and parsing it into relevant objects.
-<br />
-
 `data/circuits/` stores quantum circuit definitions in the data format defined by `/schemas/quantum-circuit-schema.json`.
 <br />
 
@@ -153,6 +149,18 @@ Currently `citation/ieee.csl` is used for IEEE format.
 
 BibTeX citation entries can be inserted into `data/references.bib`.
 These entries are defined globally for the site, so they can be referenced from any page.
+
+### Shared functionality code
+
+The `lib/` directory contains code that may be used in multiple areas of the project, and could be used outside of the project as well.
+<br />
+
+The two files `lib/circuit-parsing.ts` and `lib/data-loading.ts`
+define functions that handle loading circuit data from JSON files and parsing it into relevant objects.
+<br />
+
+Similarly, `lib/load-docs-list.ts`
+defines functions that handle loading meta documentation data to create a list of corresponding pages.
 
 
 <br />
