@@ -9,8 +9,8 @@ import Link from "next/link";
 
 import styles from "./side_index.module.css";
 
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
-import { loadDocPagesList } from '@/app/doc-data/load-docs-list';
+import { loadGatesAndCircuits } from '@/lib/data-loading';
+import { loadDocPagesList } from '@/lib/load-docs-list';
 
 export default function SideIndexMenu() {
   // Load all the gates and circuits in the database

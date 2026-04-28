@@ -5,7 +5,7 @@
  * Functions for the interactive circuit.
  */
 
-import { Operation } from "@/app/circuit-data/circuit-parsing";
+import { Operation } from "@/lib/circuit-parsing";
 
 /**
  * Calculate the visual width & height of a gate

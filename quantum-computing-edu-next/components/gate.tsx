@@ -11,7 +11,7 @@ import { useState, useEffect } from "react";
 //import Link from "next/link";
 
 // Import types and basic gates
-import { Gate, QuantumCircuit, Operation } from "@/app/circuit-data/circuit-parsing";
+import { Gate, QuantumCircuit, Operation } from "@/lib/circuit-parsing";
 
 import { calculateGateDimensions, calculateOperationSpan } from "./circuit-functions";
 

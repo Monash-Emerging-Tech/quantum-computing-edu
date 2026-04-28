@@ -10,10 +10,10 @@ import { cache } from "react";
 import fs from "fs";
 import path from "path";
 
-import { parseGate, parseCircuit, Gate, QuantumCircuit, GateData, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError, QuantumCircuitData, GateMap, CircuitMap } from '@/app/circuit-data/circuit-parsing';
+import { parseGate, parseCircuit, Gate, QuantumCircuit, GateData, GateParsingError, CircuitParsingError, CircuitNotFoundError, GateNotFoundError, QuantumCircuitData, GateMap, CircuitMap } from '@/lib/circuit-parsing';
 
-const gateDataDir = path.join(process.cwd(), "app/circuit-data/gates/");
-const circuitDataDir = path.join(process.cwd(), "app/circuit-data/circuits/");
+const gateDataDir = path.join(process.cwd(), "data/gates/");
+const circuitDataDir = path.join(process.cwd(), "data/circuits/");
 
 /**
  * 

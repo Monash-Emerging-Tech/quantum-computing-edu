@@ -12,7 +12,7 @@
 import { create, all } from 'mathjs';
 const math = create(all, { });
 
-import { StringExpressionUnitary, Gate, QuantumCircuit, Operation, parseUnitary } from "@/app/circuit-data/circuit-parsing";
+import { StringExpressionUnitary, Gate, QuantumCircuit, Operation, parseUnitary } from "@/lib/circuit-parsing";
 
 import styles from "./matrix.module.css";
 

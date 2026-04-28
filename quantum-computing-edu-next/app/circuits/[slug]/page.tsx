@@ -7,10 +7,8 @@
 
 import fs from "fs";
 
-import { CircuitMap, QuantumCircuit } from '@/app/circuit-data/circuit-parsing';
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
-
-import Circuit from "@/app/components/circuit";
+import { CircuitMap, QuantumCircuit } from '@/lib/circuit-parsing';
+import { loadGatesAndCircuits } from '@/lib/data-loading';
 
 import styles from "./page.module.css";
 
@@ -53,9 +51,9 @@ async function Content({ slug, circuit_map }: { slug: string, circuit_map: Circu
   if (
     circuit.documentation_file !== undefined &&
     circuit.documentation_file !== "" &&
-    fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${circuit.documentation_file}`)
+    fs.existsSync(`${process.cwd()}/data/page-information/${circuit.documentation_file}`)
   ) {
-    const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${circuit.documentation_file}`);
+    const { default: MarkdownPage_import } = await import(`@/data/page-information/${circuit.documentation_file}`);
     MarkdownPage = MarkdownPage_import;
   }
   

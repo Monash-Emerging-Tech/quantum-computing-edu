@@ -9,13 +9,17 @@ import fs from "fs";
 
 import Link from "next/link";
 
-import { Operation } from '@/app/circuit-data/circuit-parsing';
+import { Operation } from '@/lib/circuit-parsing';
 
-import UnitaryMatrixVisual from "@/app/components/matrix";
-import Circuit from "@/app/components/circuit";
+import UnitaryMatrixVisual from "@/components/matrix";
+import Circuit from "@/components/circuit";
+
+const popupDescDir = "data/popup-descriptions";
+const pageInfoDir = "data/page-information";
+
 
 // Import MathJax components
-import { MathJaxContext, MathJax } from "nextjs-mathjax";
+//import { MathJaxContext, MathJax } from "nextjs-mathjax";
 
 import {
   PopoverContent,
@@ -55,24 +59,24 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
     operation.gate.documentation_file !== ""
   ) {
     // Look for the popup description first
-    if (fs.existsSync(`${process.cwd()}/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`)) {
-      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/popup-descriptions/${operation.gate.documentation_file}`);
+    if (fs.existsSync(`${process.cwd()}/${popupDescDir}/${operation.gate.documentation_file}`)) {
+      const { default: MarkdownPage_import } = await import(`@/${popupDescDir}/${operation.gate.documentation_file}`);
       MarkdownPage = MarkdownPage_import;
       
-    } else if (fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${operation.gate.documentation_file}`)) {
+    } else if (fs.existsSync(`${process.cwd()}/${pageInfoDir}/${operation.gate.documentation_file}`)) {
       // Fall back to the full-page gate information
-      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${operation.gate.documentation_file}`);
+      const { default: MarkdownPage_import } = await import(`@/${pageInfoDir}/${operation.gate.documentation_file}`);
       MarkdownPage = MarkdownPage_import;
     }
   } else if (operation.gate.subcircuit && operation.gate.subcircuit.documentation_file !== undefined && operation.gate.documentation_file !== "") {
     // If the gate is defined by a subcircuit, try to find its documentation instead
-    if (fs.existsSync(`${process.cwd()}/app/circuit-data/popup-descriptions/${operation.gate.subcircuit.documentation_file}`)) {
-      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/popup-descriptions/${operation.gate.subcircuit.documentation_file}`);
+    if (fs.existsSync(`${process.cwd()}/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`)) {
+      const { default: MarkdownPage_import } = await import(`@/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`);
       MarkdownPage = MarkdownPage_import;
       
-    } else if (fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${operation.gate.subcircuit.documentation_file}`)) {
+    } else if (fs.existsSync(`${process.cwd()}/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`)) {
       // Fall back to the full-page circuit information
-      const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${operation.gate.subcircuit.documentation_file}`);
+      const { default: MarkdownPage_import } = await import(`@/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`);
       MarkdownPage = MarkdownPage_import;
     }
   }

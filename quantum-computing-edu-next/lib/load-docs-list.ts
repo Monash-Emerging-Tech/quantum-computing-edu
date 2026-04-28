@@ -10,7 +10,7 @@ import { cache } from "react";
 import fs from "fs";
 import path from "path";
 
-const docDataDir = path.join(process.cwd(), "app/doc-data/");
+const docDataDir = path.join(process.cwd(), "data/docs/");
 
 type DocFile = {
   doc_name: string,

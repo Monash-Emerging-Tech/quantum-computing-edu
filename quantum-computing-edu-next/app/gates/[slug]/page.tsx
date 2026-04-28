@@ -7,10 +7,10 @@
 
 import fs from "fs";
 
-import { GateMap, Gate } from '@/app/circuit-data/circuit-parsing';
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { GateMap, Gate } from '@/lib/circuit-parsing';
+import { loadGatesAndCircuits } from '@/lib/data-loading';
 
-import UnitaryMatrixVisual from "@/app/components/matrix";
+import UnitaryMatrixVisual from "@/components/matrix";
 
 import styles from "./page.module.css";
 
@@ -53,9 +53,9 @@ async function Content({ slug, gate_map }: { slug: string, gate_map: GateMap }) 
   if (
     gate.documentation_file !== undefined &&
     gate.documentation_file !== "" &&
-    fs.existsSync(`${process.cwd()}/app/circuit-data/page-information/${gate.documentation_file}`)
+    fs.existsSync(`${process.cwd()}/data/page-information/${gate.documentation_file}`)
   ) {
-    const { default: MarkdownPage_import } = await import(`@/app/circuit-data/page-information/${gate.documentation_file}`);
+    const { default: MarkdownPage_import } = await import(`@/data/page-information/${gate.documentation_file}`);
     MarkdownPage = MarkdownPage_import;
   }
   

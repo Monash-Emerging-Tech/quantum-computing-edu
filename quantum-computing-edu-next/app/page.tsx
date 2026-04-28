@@ -9,7 +9,7 @@ import Link from "next/link";
 
 import styles from "./page.module.css";
 
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { loadGatesAndCircuits } from '@/lib/data-loading';
 
 export default function Home() {
   return <HomePage />;

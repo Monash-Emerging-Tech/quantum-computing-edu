@@ -5,8 +5,8 @@
  * Server-side components for the interactive circuit.
  */
 
-import { CircuitMap, QuantumCircuit } from '@/app/circuit-data/circuit-parsing';
-import { loadGatesAndCircuits } from '@/app/circuit-data/data-loading';
+import { CircuitMap, QuantumCircuit } from '@/lib/circuit-parsing';
+import { loadGatesAndCircuits } from '@/lib/data-loading';
 
 import Circuit from "./circuit";
 

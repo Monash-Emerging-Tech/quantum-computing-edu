@@ -6,7 +6,7 @@
  */
 
 // Import types and basic gates
-import { QuantumCircuit, Operation } from "@/app/circuit-data/circuit-parsing";
+import { QuantumCircuit, Operation } from "@/lib/circuit-parsing";
 
 import styles from "./circuit.module.css";
 

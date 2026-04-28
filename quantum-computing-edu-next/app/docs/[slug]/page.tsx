@@ -7,7 +7,7 @@
 
 import fs from "fs";
 
-import { loadDocPagesList } from '@/app/doc-data/load-docs-list';
+import { loadDocPagesList } from '@/lib/load-docs-list';
 
 import styles from "./page.module.css";
 
@@ -42,11 +42,11 @@ async function Content({ slug }: { slug: string }) {
     slug !== undefined &&
     slug !== "" &&
     matching_docs.length > 0 &&
-    fs.existsSync(`${process.cwd()}/app/doc-data/${matching_docs[0].doc_name}.${matching_docs[0].file_extension}`)
+    fs.existsSync(`${process.cwd()}/data/docs/${matching_docs[0].doc_name}.${matching_docs[0].file_extension}`)
   ) {
     // NOTE: Something weird can happen during build time here, where .md file extensions can cause a cryptic build error.
     // This particular code seems stable, but changing this could cause issues.
-    const { default: MarkdownPage_import } = await import(`@/app/doc-data/${matching_docs[0].doc_name}.${matching_docs[0].file_extension}`);
+    const { default: MarkdownPage_import } = await import(`@/data/docs/${matching_docs[0].doc_name}.${matching_docs[0].file_extension}`);
     MarkdownPage = MarkdownPage_import;
   }
   
