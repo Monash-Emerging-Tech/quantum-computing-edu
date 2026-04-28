@@ -1,6 +1,8 @@
 /**
  * Interactive quantum computing education web interface
  * MNET 2025
+ * 
+ * JSX component to create a HTML comment.
  */
 
 /**
@@ -13,4 +15,4 @@ const HtmlComment = ({text}: {text: string}) => {
   return (<script type="text/comment" dangerouslySetInnerHTML={{ __html: html }} />);
 };
 
-export {HtmlComment}
+export default HtmlComment;
