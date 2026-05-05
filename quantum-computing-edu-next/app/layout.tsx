@@ -19,11 +19,20 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/**
+ * Global site metadata. The title template allows per-page titles (set via
+ * generateMetadata in each route) to appear as "Page Title | Interactive
+ * Quantum Circuits" in the browser tab. The default is used on pages that do
+ * not define their own title.
+ */
 export const metadata: Metadata = {
   //metadataBase: new URL(""),
   
-  title: "Interactive Quantum Circuits",
-  description: "Interactive quantum computing education tool",
+  title: {
+    default: "QCET",
+    template: "%s | QCET",
+  },
+  description: "Quantum Circuit Education Tool (QCET) is an interactive web interface built for teaching quantum computing and quantum circuits by the MNET Quantum Projects team.",
   other: {author: "MNET"},
   
   //openGraph: {

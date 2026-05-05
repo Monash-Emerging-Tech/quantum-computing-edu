@@ -6,10 +6,32 @@
  */
 
 import fs from "fs";
+import type { Metadata } from "next";
 
 import { loadDocPagesList } from '@/lib/load-docs-list';
 
 import styles from "./page.module.css";
+
+/**
+ * Generates per-page metadata for docs pages.
+ */
+export async function generateMetadata({ params }: PageProps<'/docs/[slug]'>): Promise<Metadata> {
+  const { slug } = await params;
+  const all_docs = loadDocPagesList();
+  const match = all_docs.find(({ doc_name }) => doc_name === slug);
+  if (!match || !fs.existsSync(`${process.cwd()}/data/docs/${match.doc_name}.${match.file_extension}`)) {
+    return { title: slug };
+  }
+  try {
+    const { frontmatter } = await import(`@/data/docs/${match.doc_name}.${match.file_extension}`);
+    return {
+      title: frontmatter?.title ?? slug,
+      description: frontmatter?.description,
+    };
+  } catch {
+    return { title: slug };
+  }
+}
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {

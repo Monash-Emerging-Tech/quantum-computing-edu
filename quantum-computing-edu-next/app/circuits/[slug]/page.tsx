@@ -6,11 +6,25 @@
  */
 
 import fs from "fs";
+import type { Metadata } from "next";
 
 import { CircuitMap, QuantumCircuit } from '@/lib/circuit-parsing';
 import { loadGatesAndCircuits } from '@/lib/data-loading';
 
 import styles from "./page.module.css";
+
+/**
+ * Generates per-page metadata for circuit pages. 
+ */
+export async function generateMetadata({ params }: PageProps<'/circuits/[slug]'>): Promise<Metadata> {
+  const { slug } = await params;
+  const [, circuit_map] = loadGatesAndCircuits();
+  const circuit = circuit_map.get(slug);
+  return {
+    title: circuit?.full_name ?? slug,
+    description: circuit?.full_name ? `Learn about the ${circuit.full_name} quantum circuit` : undefined,
+  };
+}
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {

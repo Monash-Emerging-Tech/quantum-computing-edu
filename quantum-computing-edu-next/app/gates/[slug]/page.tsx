@@ -6,6 +6,7 @@
  */
 
 import fs from "fs";
+import type { Metadata } from "next";
 
 import { GateMap, Gate } from '@/lib/circuit-parsing';
 import { loadGatesAndCircuits } from '@/lib/data-loading';
@@ -13,6 +14,19 @@ import { loadGatesAndCircuits } from '@/lib/data-loading';
 import UnitaryMatrixVisual from "@/components/matrix";
 
 import styles from "./page.module.css";
+
+/**
+ * Generates per-page metadata for gate pages.
+ */
+export async function generateMetadata({ params }: PageProps<'/gates/[slug]'>): Promise<Metadata> {
+  const { slug } = await params;
+  const [gate_map] = loadGatesAndCircuits();
+  const gate = gate_map.get(slug);
+  return {
+    title: gate?.full_name ?? slug,
+    description: gate?.full_name ? `Learn about the ${gate.full_name} quantum gate` : undefined,
+  };
+}
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {

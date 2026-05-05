@@ -23,7 +23,9 @@
     "react-dom": "^19.2.3",
     "rehype-citation": "^2.3.2",
     "rehype-mathjax": "^7.1.0",
-    "remark-math": "^6.0.0"
+    "remark-frontmatter": "^5.0.0",
+    "remark-math": "^6.0.0",
+    "remark-mdx-frontmatter": "^5.2.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
