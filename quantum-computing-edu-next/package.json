@@ -24,6 +24,7 @@
     "rehype-citation": "^2.3.2",
     "rehype-mathjax": "^7.1.0",
     "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
     "remark-math": "^6.0.0",
     "remark-mdx-frontmatter": "^5.2.0"
   },

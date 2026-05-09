@@ -12,3 +12,9 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+node_modules
+.gitignore
+package-lock.json
+package.json
+quantum-computing-edu-next/package-lock.json
+.gitignore
