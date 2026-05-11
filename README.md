@@ -29,7 +29,8 @@ To run the Next JS website for development purposes, execute the `run-dev` Bash 
 
 To build the Next JS website, execute the `build` Bash script, which produces a static website as output in `quantum-computing-edu-next/dist/production/`.
 
-
+## Troubleshooring
+For common issues consult TROUBLESHOOTING.md
 
 ## Project structure
 

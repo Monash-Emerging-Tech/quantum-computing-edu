@@ -1,0 +1,14 @@
+{
+  "gate_id": "cnot",
+  "full_name": "CNot Gate",
+  "display_name": "cnot",
+  "color": "white",
+  "arity": 2,
+  "unitary": [
+    [1,0,0,0],
+    [0,1,0,0],
+    [0,0,0,1],
+    [0,0,1,0]
+  ],
+  "documentation_file": "cnot.mdx"
+}

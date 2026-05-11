@@ -1,0 +1,51 @@
+{
+  "circuit_id": "toffoli",
+  "full_name": "Toffoli Gate",
+  "display_name": "CCNOT",
+
+  "registers": [
+    {
+      "name": "control_a",
+      "description": "First control qubit.",
+      "qubits": [0]
+    },
+    {
+      "name": "control_b",
+      "description": "Second control qubit.",
+      "qubits": [1]
+    },
+    {
+      "name": "target",
+      "description": "Target qubit that flips only when both control qubits are |1⟩.",
+      "qubits": [2]
+    }
+  ],
+
+  "operations": [
+    {
+      "gate_id": "x",
+      "qubits": [2],
+      "controls": [0,1],
+      "anticontrols": [],
+      "inverse": false
+    },
+
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1,2]
+    },
+
+    {
+      "gate_id": "measure",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [1]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [2]
+    }
+  ]
+}

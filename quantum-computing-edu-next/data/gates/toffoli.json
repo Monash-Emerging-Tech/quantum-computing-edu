@@ -1,0 +1,18 @@
+{
+  "gate_id": "toffoli",
+  "full_name": "Toffoli Gate",
+  "display_name": "TOFFOLI",
+  "color": "black",
+  "arity": 3,
+  "unitary": [
+    [1,0,0,0,0,0,0,0],
+    [0,1,0,0,0,0,0,0],
+    [0,0,1,0,0,0,0,0],
+    [0,0,0,1,0,0,0,0],
+    [0,0,0,0,1,0,0,0],
+    [0,0,0,0,0,1,0,0],
+    [0,0,0,0,0,0,0,1],
+    [0,0,0,0,0,0,1,0]
+  ],
+  "documentation_file": "toffoli.mdx"
+}
