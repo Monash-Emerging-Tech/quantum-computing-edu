@@ -1,0 +1,42 @@
+{
+  "circuit_id": "cnot",
+  "full_name": "Controlled NOT Gate",
+  "display_name": "CNOT",
+
+  "registers": [
+    {
+      "name": "control",
+      "description": "Control qubit. If this qubit is |1⟩, the target qubit is flipped.",
+      "qubits": [0]
+    },
+    {
+      "name": "target",
+      "description": "Target qubit that is flipped when the control qubit is |1⟩.",
+      "qubits": [1]
+    }
+  ],
+
+  "operations": [
+    {
+      "gate_id": "x",
+      "qubits": [1],
+      "controls": [0],
+      "anticontrols": [],
+      "inverse": false
+    },
+
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1]
+    },
+
+    {
+      "gate_id": "measure",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "measure",
+      "qubits": [1]
+    }
+  ]
+}

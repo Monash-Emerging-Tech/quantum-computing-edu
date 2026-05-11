@@ -20,6 +20,7 @@ const withMDX = createMDX({
       'remark-frontmatter',
       'remark-mdx-frontmatter',
       'remark-math',
+      'remark-gfm'
     ],
     rehypePlugins: [
       'rehype-mathjax',
