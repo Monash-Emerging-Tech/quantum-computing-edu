@@ -28,24 +28,6 @@
       "controls": [0,1],
       "anticontrols": [],
       "inverse": false
-    },
-
-    {
-      "gate_id": "barrier",
-      "qubits": [0,1,2]
-    },
-
-    {
-      "gate_id": "measure",
-      "qubits": [0]
-    },
-    {
-      "gate_id": "measure",
-      "qubits": [1]
-    },
-    {
-      "gate_id": "measure",
-      "qubits": [2]
     }
   ]
 }
