@@ -1,0 +1,58 @@
+{
+  "circuit_id": "deutsch",
+  "full_name": "Deutsch Algorithm",
+  "display_name": "Deutsch",
+  "documentation_file": "deutsch.mdx",
+  "registers": [
+    {
+      "name": "input",
+      "description": "Input qubit used to query the oracle.",
+      "qubits": [0]
+    },
+    {
+      "name": "output",
+      "description": "Output qubit used by the oracle for phase kickback.",
+      "qubits": [1]
+    }
+  ],
+  "operations": [
+    {
+      "gate_id": "x",
+      "qubits": [1]
+    },
+
+    {
+      "gate_id": "h",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "h",
+      "qubits": [1]
+    },
+
+    {
+      "custom_gate": {
+        "gate_id": "Uf",
+        "full_name": "Deutsch Oracle",
+        "display_name": "Uf",
+        "color": "green",
+        "arity": 2
+      },
+      "qubits": [0,1]
+    },
+
+    {
+      "gate_id": "barrier",
+      "qubits": [0,1]
+    },
+    {
+      "gate_id": "h",
+      "qubits": [0]
+    },
+
+    {
+      "gate_id": "measure",
+      "qubits": [0]
+    }
+  ]
+}
