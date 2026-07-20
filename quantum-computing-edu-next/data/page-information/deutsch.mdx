@@ -5,3 +5,118 @@ import LoadCircuit from "@/components/circuit-with-loader";
 <LoadCircuit circuit_id="deutsch" />
 
 ## Algorithm Overview
+
+The Deutsch Algorithm offers arguably the simplest example of how quantum computers can utilise superposition to solve problems more efficiently than standard computers. <br/>
+
+### The problem:
+
+Given an arbitrary function, $f(x)$, that accepts a single bit as input and returns a single bit, determine whether the function is balanced or constant. 
+That is, whether both outputs are the same, or differ. 
+<br/>
+
+$$
+\text{Constant: }f(0)=f(1),\qquad\text{Balanced: } f(0) \neq f(1)
+$$
+
+<br/>
+With traditional computation, two queries would be required to solve this problem, simply evaluating $f(0)$ and $f(1)$ and confirming whether or not they are equal.
+
+For simple functions, this is trivial, however consider an arbitrary function that offers some challenge in its computation, solving this problem with a single query would certainly be beneficial.
+<br/>
+
+### The solution:
+
+Begin with the initial state,
+$$
+\ket{\pi_0}=\ket{0}\ket{1}
+$$
+
+After the passing through the first set of Hadamard gates, the initial state is transformed into $\ket{-}\ket{+}$
+
+$$
+\ket{\pi_1}=\ket{-}\ket{+}
+$$
+
+Recall that
+$$
+\ket{-}=\frac{1}{\sqrt{2}}(\ket{0}-\ket{1}),\qquad\ket{+}=\frac{1}{\sqrt{2}}(\ket{0}+\ket{1}).
+$$
+
+$$
+\therefore\ket{\pi_1}=\frac{1}{2}(\ket{0}-\ket{1})\ket{0}+\frac{1}{2}(\ket{0}-\ket{1})\ket{1}.
+$$
+
+Next the phase oracle is applied, since the input is in a superposition, the matrix is distributed into each of the superposition states, leaving us with a state of
+
+$$
+\ket{\pi_2}=\frac{1}{\sqrt{2}}(U_f\ket{0}\ket{-}+U_f\ket{1}\ket{-})
+$$
+
+$$
+=\frac{1}{2}(\ket{0\oplus f(0)}-\ket{1\oplus f(0)})\ket{0}+\frac{1}{2}(\ket{0\oplus f(1)}-\ket{1\oplus f(1)})\ket{1}.
+$$
+
+However, recalling that 
+$$
+\ket{0\oplus b}-\ket{1\oplus b}
+=
+(-1)^b(\ket{0}-\ket{1}),
+$$
+
+The state can be further simplified to
+$$
+\ket{\pi_2}=\frac{1}{2}(\ket{0}-\ket{1})((-1)^{f(0)}\ket{0}+(-1)^{f(1)}\ket{1})
+$$
+
+Before applying the final Hadamard gate to the first qubit, consider each case individually, firstly that $f$ is constant
+
+$$
+\implies f(0) = f(1)
+$$
+$$
+\therefore (-1)^{f(0)}\ket{0}+(-1)^{f(1)}\ket{1}=\pm(\ket{0}+\ket{1})=\pm\sqrt{2}\ket{+}
+$$
+Applying the final gate gives a final state of
+$$
+\ket{\pi_3}=\pm\ket{0}\ket{-}
+$$
+The first qubit will always be measures as a 0.
+
+In the other case, where $f$ is balanced
+$$
+\implies f(0) = f(1)
+$$
+$$
+\therefore (-1)^{f(0)}\ket{0}+(-1)^{f(1)}\ket{1}=\pm(\ket{0}-\ket{1})=\pm\sqrt{2}\ket{-}
+$$
+Applying the final gate gives a final state of
+$$
+\ket{\pi_3}=\pm\ket{1}\ket{-}
+$$
+The first qubit will always be measures as a 1.
+
+
+Hence, if $f$ is constant, then a 0 will be measured in the first qubit and conversely if $f$ is balanced a 1 will be measured.
+
+$$
+f \text{ constant} \implies \text{ first qubit is 0}
+$$
+$$
+f \text{ balanced} \implies \text{ first qubit is 1}
+$$
+### Solution explanation:
+
+
+## Literature
+
+## Use Cases
+
+## Extra Information
+https://www.youtube.com/watch?v=7MdEHsRZxvo
+
+https://www.youtube.com/watch?v=QcK0GK7DUh8
+
+https://quantum.cloud.ibm.com/learning/en/courses/fundamentals-of-quantum-algorithms/quantum-query-algorithms/deutsch-algorithm
+### Theoretical problems
+
+### Implementation problems

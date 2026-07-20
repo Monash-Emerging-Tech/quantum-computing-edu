@@ -1,0 +1,8 @@
+{
+  "gate_id": "phase-oracle",
+  "full_name": "Phase Oracle",
+  "display_name": "Uf",
+  "color": "green",
+  "arity": 2,
+  "documentation_file": "phase-oracle.mdx"
+}
