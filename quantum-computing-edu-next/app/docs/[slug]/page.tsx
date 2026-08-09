@@ -8,7 +8,7 @@
 import fs from "fs";
 import type { Metadata } from "next";
 
-import { loadDocPagesList } from '@/lib/load-docs-list';
+import { loadDocPagesList } from '@/lib/load-pages-list';
 
 import styles from "./page.module.css";
 
