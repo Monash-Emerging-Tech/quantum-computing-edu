@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "build:gh-pages": "env-cmd -f .env.gh-pages next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "ts:check": "tsc --noEmit"
   },
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
