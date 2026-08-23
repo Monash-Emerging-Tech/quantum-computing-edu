@@ -1,0 +1,7 @@
+*          text=auto
+
+*.md       text diff=markdown
+*.mdx      text diff=markdown
+
+*.sh       text eol=lf
+*.bash     text eol=lf
