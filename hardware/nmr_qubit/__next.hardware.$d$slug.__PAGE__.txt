@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[97367,["/quantum-computing-edu/_next/static/chunks/13h-0fd.p-1ga.js","/quantum-computing-edu/_next/static/chunks/0qub~g53n1xsn.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+:HL["/quantum-computing-edu/_next/static/chunks/0mtcuu7cd2iei.css","style"]
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"hardware-page-container","children":[["$","h1",null,{"children":"NMR Qubit"}],"\n",["$","p",null,{"children":"This section contains information about NMR Qubit and the hardware aspects of the QBIT quantum computing project."}],"\n",["$","p",null,{"children":"(Additional content and documentation will be added progressively.)"}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/0mtcuu7cd2iei.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wa_w82H_H306lVznYF4vG"}
+4:null
