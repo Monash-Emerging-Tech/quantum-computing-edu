@@ -1,79 +1,99 @@
 /**
  * Interactive quantum computing education web interface
  * MNET 2025
- * 
+ *
  * Page generator for quantum circuit information pages (part of a dynamic route).
  */
 
+import { CircuitMap, QuantumCircuit } from "@/lib/circuit-parsing";
+import { loadGatesAndCircuits } from "@/lib/data-loading";
 import fs from "fs";
 import type { Metadata } from "next";
-
-import { CircuitMap, QuantumCircuit } from '@/lib/circuit-parsing';
-import { loadGatesAndCircuits } from '@/lib/data-loading';
-
 import styles from "./page.module.css";
 
 /**
- * Generates per-page metadata for circuit pages. 
+ * Generates per-page metadata for circuit pages.
  */
-export async function generateMetadata({ params }: PageProps<'/circuits/[slug]'>): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps<"/circuits/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const [, circuit_map] = loadGatesAndCircuits();
   const circuit = circuit_map.get(slug);
   return {
     title: circuit?.full_name ?? slug,
-    description: circuit?.full_name ? `Learn about the ${circuit.full_name} quantum circuit` : undefined,
+    description: circuit?.full_name
+      ? `Learn about the ${circuit.full_name} quantum circuit`
+      : undefined,
   };
 }
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {
-  const [_gate_map, circuit_map] = loadGatesAndCircuits();
-  return circuit_map.values().map((circuit) => ({slug: circuit.circuit_id})).toArray();
+  const [, circuit_map] = loadGatesAndCircuits();
+  return circuit_map
+    .values()
+    .map(circuit => ({ slug: circuit.circuit_id }))
+    .toArray();
 }
 
 /**
- * 
+ *
  * @param params Page properties to retrieve the slug in the dynamic route segment
  * @returns React component for the page
  */
-export default async function Page({ params }: PageProps<'/circuits/[slug]'>) {
+export default async function Page({ params }: PageProps<"/circuits/[slug]">) {
   const { slug } = await params;
-  
+
   // Load all the gates and circuits in the database
   const [gate_map, circuit_map] = loadGatesAndCircuits();
-  console.log("Loaded "+gate_map.size+" gates and "+circuit_map.size+" circuits.");
-  
-  return <Content slug={slug} circuit_map={circuit_map} />
+  console.log(
+    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits."
+  );
+
+  return <Content slug={slug} circuit_map={circuit_map} />;
 }
 
 /**
  * Create the interactive circuit page
  * @returns JSX content for the circuit page
  */
-async function Content({ slug, circuit_map }: { slug: string, circuit_map: CircuitMap }) {
+async function Content({
+  slug,
+  circuit_map,
+}: {
+  slug: string;
+  circuit_map: CircuitMap;
+}) {
   // Check if the page slug corresponds to a valid circuit id
   if (!circuit_map.has(slug)) {
-    throw new Error("There is no quantum circuit with id "+slug);
+    throw new Error("There is no quantum circuit with id " + slug);
   }
-  
+
   // Get the relevant quantum circuit from the circuit map
   const circuit: QuantumCircuit = circuit_map.get(slug)!;
-  
+
   // Attempt to import the circuit documentation from the relevant markdown file, if it is defined & it exists
   let MarkdownPage = () => <></>;
   if (
     circuit.documentation_file !== undefined &&
     circuit.documentation_file !== "" &&
-    fs.existsSync(`${process.cwd()}/data/page-information/${circuit.documentation_file}`)
+    fs.existsSync(
+      `${process.cwd()}/data/page-information/${circuit.documentation_file}`
+    )
   ) {
-    const { default: MarkdownPage_import } = await import(`@/data/page-information/${circuit.documentation_file}`);
+    const { default: MarkdownPage_import } = await import(
+      `@/data/page-information/${circuit.documentation_file}`
+    );
     MarkdownPage = MarkdownPage_import;
   }
-  
+
   return (
-    <div id="circuit-page-container" className={styles["circuit-page-container"]}>
+    <div
+      id="circuit-page-container"
+      className={styles["circuit-page-container"]}
+    >
       <MarkdownPage />
     </div>
-  )
+  );
 }

@@ -82,7 +82,7 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
   }
   
   // Add information about the operation (the specific instance of the gate in the context of the circuit)
-  let operation_info = [
+  const operation_info = [
     <div key="qubits">This gate is applied to qubit{operation.qubits.length > 1 ? ("s "+operation.qubits.join(", ")) : (" "+operation.qubits[0])}.</div>
   ];
   if (operation.inverse) {
