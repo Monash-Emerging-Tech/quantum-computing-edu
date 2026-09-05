@@ -3,11 +3,11 @@
 /* Container element around the entire interactive circuit */
 .circuit-container {
   background: grey;
-  
+
   position: relative;
-  
+
   overflow-x: scroll;
-  
+
   --register-label-container-width: 4em;
   --register-label-width: 2em;
   --qubit-line-margin: 1.5em;
@@ -22,7 +22,7 @@
 /* Contains the vertical bar to the left of the circuit that labels the registers and qubits */
 .circuit-qubit-label-container {
   width: var(--register-label-container-width);
-  
+
   position: absolute;
   top: 0;
   left: 0;
@@ -38,13 +38,13 @@
   position: absolute;
   left: 0;
   top: 0;
-  
+
   width: var(--register-label-width);
   height: 100%;
-  
+
   border-top: 1px solid white;
   border-bottom: 1px solid white;
-  
+
   display: flex;
   align-items: center;
 }
@@ -59,16 +59,16 @@
 .circuit-register-text {
   transform: rotate(-90deg);
   position: relative;
-  
+
   /*text-align: center;*/
   width: 0;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: visible;
   white-space: nowrap;
-  
+
   margin: auto;
 }
 
@@ -85,9 +85,9 @@
 /* Element containing the qubit lines and gate elements */
 .circuit-grid {
   position: relative;
-  
+
   margin-left: var(--register-label-container-width);
-  
+
   display: flex;
   flex-direction: column;
 }
@@ -97,7 +97,7 @@
   border-top: 1px solid white;
   margin-top: var(--qubit-line-margin);
   margin-bottom: calc(var(--qubit-line-margin) - 1px);
-  
+
   width: 100%;
   height: 1px;
 }
@@ -114,31 +114,31 @@
 
 .circuit-gate {
   position: relative;
-  
+
   width: var(--gate-size);
   height: var(--gate-size);
   background: red;
   /*margin-left: calc(var(--gate-size) / -2);*/
   margin-top: calc(var(--gate-size) / -2);
-  
+
   /*padding-top: 0.2em;*/
-  
+
   text-align: center;
   white-space: nowrap;
-  
+
   cursor: pointer;
 }
 
 .circuit-control-line {
   position: absolute;
-  
+
   width: 0.2em;
   margin-left: -0.1em;
 }
 
 .circuit-control-circle {
   position: absolute;
-  
+
   width: 0.8em;
   height: 0.8em;
   border-radius: 50%;
@@ -149,7 +149,7 @@
 
 .circuit-anticontrol-circle {
   position: absolute;
-  
+
   width: 0.8em;
   height: 0.8em;
   border-radius: 50%;

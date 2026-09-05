@@ -107,7 +107,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
         const new_circuit = parseCircuit(
           circuit_data[i],
           gate_map,
-          circuit_map
+          circuit_map,
         );
         // Remove the circuit from the list of pending circuit data
         circuit_data.splice(i, 1);
@@ -144,7 +144,7 @@ const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
           gate_data.map(gate => gate.gate_id).toString() +
           "] and circuits [" +
           circuit_data.map(circuit => circuit.circuit_id).toString() +
-          "]"
+          "]",
       );
     }
 

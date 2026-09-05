@@ -4,17 +4,17 @@
   position: absolute;
   top: 0px;
   left: 0px;
-  
+
   background: white;
   border: 1px solid red;
-  
+
   padding: 0.2em 0.5em;
-  
+
   height: 20em;
-  
+
   /*display: inline-block;*/
   /*display: none;*/
-  
+
   /*z-index: 100;*/
 }
 

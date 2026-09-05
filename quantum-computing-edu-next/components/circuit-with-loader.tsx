@@ -17,7 +17,7 @@ import Circuit from "./circuit";
 const LoadCircuit = ({ circuit_id }: { circuit_id: string }) => {
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits."
+    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
   );
 
   const circuit: QuantumCircuit = circuit_map.get(circuit_id)!;

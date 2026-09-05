@@ -3,11 +3,10 @@
  * MNET 2025
  */
 
+import SideIndexMenu from "@/components/side_index";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-import SideIndexMenu from '@/components/side_index';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,14 +26,15 @@ const geistMono = Geist_Mono({
  */
 export const metadata: Metadata = {
   //metadataBase: new URL(""),
-  
+
   title: {
     default: "QCET",
     template: "%s | QCET",
   },
-  description: "Quantum Circuit Education Tool (QCET) is an interactive web interface built for teaching quantum computing and quantum circuits by the MNET Quantum Projects team.",
-  other: {author: "MNET"},
-  
+  description:
+    "Quantum Circuit Education Tool (QCET) is an interactive web interface built for teaching quantum computing and quantum circuits by the MNET Quantum Projects team.",
+  other: { author: "MNET" },
+
   //openGraph: {
   //  title: "",
   //  type: "website",
@@ -52,8 +52,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/svg+xml" href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`} />
-        <link rel="shortcut icon" type="image/svg+xml" href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`} />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`}
+        />
+        <link
+          rel="shortcut icon"
+          type="image/svg+xml"
+          href={`${process.env.NEXT_PUBLIC_BASEPATH}/favicon.svg`}
+        />
         <meta name="theme-color" content="#000000" />
         <meta name="color-scheme" content="light dark" />
         <meta name="darkreader-lock" />

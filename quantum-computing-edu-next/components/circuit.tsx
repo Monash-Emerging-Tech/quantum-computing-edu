@@ -34,7 +34,7 @@ const Circuit = ({ circuit }: { circuit: QuantumCircuit }) => {
 
     // Find the qubit with the rightmost gate position
     const gatePos = Math.max(
-      ...covered_qubits_filled.map(q => qubitLastGatePos[q])
+      ...covered_qubits_filled.map(q => qubitLastGatePos[q]),
     );
 
     // Get the width of the gate
@@ -51,7 +51,7 @@ const Circuit = ({ circuit }: { circuit: QuantumCircuit }) => {
     <div id="circuit-container" className={styles["circuit-container"]}>
       <div id="circuit-grid" className={styles["circuit-grid"]}>
         {circuit.registers.map(({ name, qubits }) =>
-          qubits.map((qb, i) => <QubitLine key={i} name={name} />)
+          qubits.map((qb, i) => <QubitLine key={i} name={name} />),
         )}
         {circuit.operations.map((operation, i) => (
           <OperationComponent

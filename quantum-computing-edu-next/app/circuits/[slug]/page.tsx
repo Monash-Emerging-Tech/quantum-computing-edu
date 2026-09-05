@@ -48,7 +48,7 @@ export default async function Page({ params }: PageProps<"/circuits/[slug]">) {
   // Load all the gates and circuits in the database
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits."
+    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
   );
 
   return <Content slug={slug} circuit_map={circuit_map} />;
@@ -79,7 +79,7 @@ async function Content({
     circuit.documentation_file !== undefined &&
     circuit.documentation_file !== "" &&
     fs.existsSync(
-      `${process.cwd()}/data/page-information/${circuit.documentation_file}`
+      `${process.cwd()}/data/page-information/${circuit.documentation_file}`,
     )
   ) {
     const { default: MarkdownPage_import } = await import(

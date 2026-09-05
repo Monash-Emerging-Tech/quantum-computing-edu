@@ -204,7 +204,7 @@ class GateNotFoundError extends CircuitParsingError {
 const parseGate = (
   gate_data: GateData,
   gate_map: GateMap,
-  circuit_map: CircuitMap
+  circuit_map: CircuitMap,
 ): Gate => {
   // Copy basic attributes
   const gate_base_obj = {
@@ -223,7 +223,7 @@ const parseGate = (
     // Defined by a unitary matrix
     const unitary_string = parseUnitary(
       gate_data.unitary,
-      gate_base_obj.parameters
+      gate_base_obj.parameters,
     );
     return {
       ...gate_base_obj,
@@ -247,7 +247,7 @@ const parseGate = (
       throw new CircuitNotFoundError(
         "Circuit with id " +
           gate_data.subcircuit_id +
-          " does not exist in the given circuit map."
+          " does not exist in the given circuit map.",
       );
     }
   }
@@ -263,7 +263,7 @@ const parseGate = (
 const parseCircuit = (
   circuit_data: QuantumCircuitData,
   gate_map: GateMap,
-  circuit_map: CircuitMap
+  circuit_map: CircuitMap,
 ): QuantumCircuit => ({
   // Copy basic attributes
   circuit_id: circuit_data.circuit_id,
@@ -273,7 +273,7 @@ const parseCircuit = (
 
   // Copy registers directly (no formatting changes)
   registers: circuit_data.registers.map(
-    register_data => register_data as Register
+    register_data => register_data as Register,
   ),
 
   // Parse operations
@@ -307,7 +307,7 @@ const parseCircuit = (
         throw new GateNotFoundError(
           "Gate with id " +
             operation_data.gate_id +
-            " does not exist in the given gate map."
+            " does not exist in the given gate map.",
         );
       }
     } else if (operation_data.custom_gate) {
@@ -320,11 +320,11 @@ const parseCircuit = (
       throw new CircuitParsingError(
         "JSON data for circuit " +
           circuit_data.circuit_id +
-          " contains an operation with no defined gate."
+          " contains an operation with no defined gate.",
       );
     }
   }),
-}) /* as QuantumCircuit*/;
+}); /* as QuantumCircuit*/
 
 /**
  * Parse and validate a unitary matrix from JSON data
@@ -334,13 +334,13 @@ const parseCircuit = (
  */
 const parseUnitary = (
   matrix_data: MatrixData,
-  parameters: GateParameter[]
+  parameters: GateParameter[],
 ): StringExpressionUnitary => {
   // Verify matrix is square and has a size equal to 2^n, where n ≥ 1.
   const size = matrix_data.length;
   if (size <= 1 || Math.log2(size) % 1 != 0) {
     throw new GateParsingError(
-      "Given matrix data doesn't have valid dimensions. Must be a square matrix with width equal to 2^n, where n is an integer >= 1."
+      "Given matrix data doesn't have valid dimensions. Must be a square matrix with width equal to 2^n, where n is an integer >= 1.",
     );
   }
 
@@ -389,12 +389,12 @@ const parseUnitary = (
                 //}
               } else {
                 throw new GateParsingError(
-                  "Matrix cell is not of the correct type"
+                  "Matrix cell is not of the correct type",
                 );
               }
             })
             .toString() +
-          "]"
+          "]",
       )
       .toString() +
     "]";
@@ -423,7 +423,7 @@ const parseUnitary = (
   } catch (error: any) {
     throw new GateParsingError(
       "Creating a Math JS matrix from the parsed and evaluated matrix string failed with error: " +
-        error.message
+        error.message,
     );
   }
 
@@ -432,13 +432,13 @@ const parseUnitary = (
   try {
     cancelled_unitary = math.multiply(
       unitary_evaluated,
-      math.transpose(math.conj(unitary_evaluated))
+      math.transpose(math.conj(unitary_evaluated)),
     );
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     throw new GateParsingError(
       "Multiplying the inverse of the unitary matrix by its conjugate transpose failed with error: " +
-        error.message
+        error.message,
     );
   }
 

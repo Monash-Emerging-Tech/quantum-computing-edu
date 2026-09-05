@@ -5,14 +5,13 @@
  * Load page data from MDX files.
  */
 
-import { cache } from "react";
-
 import fs from "fs";
 import path from "path";
+import { cache } from "react";
 
 type PageFile = {
-  page_name: string,
-  file_extension: string
+  page_name: string;
+  file_extension: string;
 };
 
 /**
@@ -24,16 +23,17 @@ type PageFile = {
 const loadPagesList = cache((section: string): PageFile[] => {
   const dataDir = path.join(process.cwd(), "data", section);
 
-  return fs.readdirSync(dataDir)
+  return fs
+    .readdirSync(dataDir)
     .filter(file => file.endsWith(".mdx") || file.endsWith(".md"))
-    .map((page) => {
+    .map(page => {
       // Split on the last occurrence of '.'
       const [name, extension] = page.split(/\.(?=[^.]+$)/);
 
       // Restructure data into object
       return {
         page_name: name,
-        file_extension: extension
+        file_extension: extension,
       };
     })
     .toSorted((a, b) => a.page_name.localeCompare(b.page_name));

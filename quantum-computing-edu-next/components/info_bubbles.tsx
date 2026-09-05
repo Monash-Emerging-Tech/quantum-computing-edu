@@ -1,57 +1,44 @@
 /**
  * Interactive quantum computing education web interface
  * MNET 2025
- * 
+ *
  * Components for the the information bubbles that pop up upon hover.
  */
 
-import fs from "fs";
-
-import Link from "next/link";
-
-import { Operation } from '@/lib/circuit-parsing';
-
-import UnitaryMatrixVisual from "@/components/matrix";
 import Circuit from "@/components/circuit";
+import UnitaryMatrixVisual from "@/components/matrix";
+import { Operation } from "@/lib/circuit-parsing";
+import fs from "fs";
+import Link from "next/link";
+import styles from "./info-bubbles.module.css";
+import { PopoverContent, PopoverHeading } from "./popover";
 
 const popupDescDir = "data/popup-descriptions";
 const pageInfoDir = "data/page-information";
-
-
-// Import MathJax components
-//import { MathJaxContext, MathJax } from "nextjs-mathjax";
-
-import {
-  PopoverContent,
-  //PopoverDescription,
-  PopoverHeading,
-  //PopoverClose
-} from "./popover";
-
-import styles from "./info-bubbles.module.css";
 
 /**
  * Create an information bubble
  * @returns JSX information bubble element
  */
-const GateInfoBubble = ({operation}: {operation: Operation}) => {
-  return <PopoverContent className={styles["gate-info-bubble"]}>
-    <PopoverHeading>
-      <Link href={"/gates/"+operation.gate.gate_id}>
-        Gate: {operation.gate.full_name}
-      </Link>
-    </PopoverHeading>
-    <GatePopoverDescription operation={operation} />
-  </PopoverContent>;
-}
+const GateInfoBubble = ({ operation }: { operation: Operation }) => {
+  return (
+    <PopoverContent className={styles["gate-info-bubble"]}>
+      <PopoverHeading>
+        <Link href={"/gates/" + operation.gate.gate_id}>
+          Gate: {operation.gate.full_name}
+        </Link>
+      </PopoverHeading>
+      <GatePopoverDescription operation={operation} />
+    </PopoverContent>
+  );
+};
 
 /**
  * Create the operation information popup content
  * @param operation operation object containing all relevant information about the operation in the context of the circuit
  * @returns JSX content for the operation popup
  */
-async function GatePopoverDescription({operation}: {operation: Operation}) {
-  
+async function GatePopoverDescription({ operation }: { operation: Operation }) {
   // Attempt to import the gate documentation from the relevant markdown file, if it is defined & it exists
   let MarkdownPage = () => <></>;
   if (
@@ -59,71 +46,122 @@ async function GatePopoverDescription({operation}: {operation: Operation}) {
     operation.gate.documentation_file !== ""
   ) {
     // Look for the popup description first
-    if (fs.existsSync(`${process.cwd()}/${popupDescDir}/${operation.gate.documentation_file}`)) {
-      const { default: MarkdownPage_import } = await import(`@/${popupDescDir}/${operation.gate.documentation_file}`);
+    if (
+      fs.existsSync(
+        `${process.cwd()}/${popupDescDir}/${operation.gate.documentation_file}`,
+      )
+    ) {
+      const { default: MarkdownPage_import } = await import(
+        `@/${popupDescDir}/${operation.gate.documentation_file}`
+      );
       MarkdownPage = MarkdownPage_import;
-      
-    } else if (fs.existsSync(`${process.cwd()}/${pageInfoDir}/${operation.gate.documentation_file}`)) {
+    } else if (
+      fs.existsSync(
+        `${process.cwd()}/${pageInfoDir}/${operation.gate.documentation_file}`,
+      )
+    ) {
       // Fall back to the full-page gate information
-      const { default: MarkdownPage_import } = await import(`@/${pageInfoDir}/${operation.gate.documentation_file}`);
+      const { default: MarkdownPage_import } = await import(
+        `@/${pageInfoDir}/${operation.gate.documentation_file}`
+      );
       MarkdownPage = MarkdownPage_import;
     }
-  } else if (operation.gate.subcircuit && operation.gate.subcircuit.documentation_file !== undefined && operation.gate.documentation_file !== "") {
+  } else if (
+    operation.gate.subcircuit &&
+    operation.gate.subcircuit.documentation_file !== undefined &&
+    operation.gate.documentation_file !== ""
+  ) {
     // If the gate is defined by a subcircuit, try to find its documentation instead
-    if (fs.existsSync(`${process.cwd()}/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`)) {
-      const { default: MarkdownPage_import } = await import(`@/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`);
+    if (
+      fs.existsSync(
+        `${process.cwd()}/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`,
+      )
+    ) {
+      const { default: MarkdownPage_import } = await import(
+        `@/${popupDescDir}/${operation.gate.subcircuit.documentation_file}`
+      );
       MarkdownPage = MarkdownPage_import;
-      
-    } else if (fs.existsSync(`${process.cwd()}/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`)) {
+    } else if (
+      fs.existsSync(
+        `${process.cwd()}/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`,
+      )
+    ) {
       // Fall back to the full-page circuit information
-      const { default: MarkdownPage_import } = await import(`@/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`);
+      const { default: MarkdownPage_import } = await import(
+        `@/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`
+      );
       MarkdownPage = MarkdownPage_import;
     }
   }
-  
+
   // Add information about the operation (the specific instance of the gate in the context of the circuit)
   const operation_info = [
-    <div key="qubits">This gate is applied to qubit{operation.qubits.length > 1 ? ("s "+operation.qubits.join(", ")) : (" "+operation.qubits[0])}.</div>
+    <div key="qubits">
+      This gate is applied to qubit
+      {operation.qubits.length > 1
+        ? "s " + operation.qubits.join(", ")
+        : " " + operation.qubits[0]}
+      .
+    </div>,
   ];
   if (operation.inverse) {
     operation_info.push(<div key="inv">This gate is inverted.</div>);
   }
   if (operation.exponent > 1) {
-    operation_info.push(<div key="exp">This gate is repeated {operation.exponent} times.</div>);
+    operation_info.push(
+      <div key="exp">This gate is repeated {operation.exponent} times.</div>,
+    );
   }
-  operation.parameter_values.forEach(({symbol, value}) => {
-    operation_info.push(<div key={"param"+symbol}>Parameter {symbol} = {value}.</div>);
+  operation.parameter_values.forEach(({ symbol, value }) => {
+    operation_info.push(
+      <div key={"param" + symbol}>
+        Parameter {symbol} = {value}.
+      </div>,
+    );
   });
   if (operation.controls.length > 0 || operation.anticontrols.length > 0) {
-    operation_info.push(<div key={"controlslist"}>
-      This gate is enabled if:
-      <ul>
-        {operation.controls.map((control) =>
-          <li key={"control"+control}>qubit {control} is |1⟩</li>
-        )}
-        {operation.anticontrols.map((anticontrol) =>
-          <li key={"anticontrol"+anticontrol}>qubit {anticontrol} is |0⟩</li>
-        )}
-      </ul>
-    </div>);
+    operation_info.push(
+      <div key={"controlslist"}>
+        This gate is enabled if:
+        <ul>
+          {operation.controls.map(control => (
+            <li key={"control" + control}>qubit {control} is |1⟩</li>
+          ))}
+          {operation.anticontrols.map(anticontrol => (
+            <li key={"anticontrol" + anticontrol}>
+              qubit {anticontrol} is |0⟩
+            </li>
+          ))}
+        </ul>
+      </div>,
+    );
   }
-  
+
   return (
     <div>
-      { operation.gate.unitary ? <UnitaryMatrixVisual matrix={operation.gate.unitary} /> : <></> }
-      { operation.gate.subcircuit ? <Circuit circuit={operation.gate.subcircuit}/> : <></> }
-      
-      <div id="gate-information-container" className={styles["gate-information-container"]}>
+      {operation.gate.unitary ? (
+        <UnitaryMatrixVisual matrix={operation.gate.unitary} />
+      ) : (
+        <></>
+      )}
+      {operation.gate.subcircuit ? (
+        <Circuit circuit={operation.gate.subcircuit} />
+      ) : (
+        <></>
+      )}
+
+      <div
+        id="gate-information-container"
+        className={styles["gate-information-container"]}
+      >
         <MarkdownPage />
       </div>
-      
-      <br/>
+
+      <br />
       <h2>Operation Information</h2>
-      <div>
-        {operation_info}
-      </div>
+      <div>{operation_info}</div>
     </div>
-  )
+  );
 }
 
 export default GateInfoBubble;

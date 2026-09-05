@@ -9,12 +9,12 @@
 
 import { Operation } from "@/lib/circuit-parsing";
 import { useEffect, useState } from "react";
-import { calculateGateDimensions, calculateOperationSpan } from "./circuit-functions";
-import styles from "./circuit.module.css";
 import {
-  Popover,
-  PopoverTrigger,
-} from "./popover";
+  calculateGateDimensions,
+  calculateOperationSpan,
+} from "./circuit-functions";
+import styles from "./circuit.module.css";
+import { Popover, PopoverTrigger } from "./popover";
 
 /**
  * Create quantum gate (operation) visual in the context of a circuit
@@ -25,21 +25,19 @@ import {
  * @param info_bubble_child Child information bubble element
  * @returns JSX element
  */
-const OperationComponent = (
-  {
-    operation,
-    qubitOrder,
-    qubitPositions,
-    timePosition,
-    info_bubble_child
-  }: {
-    operation: Operation,
-    qubitOrder: Array<number>,
-    qubitPositions: Array<number>,
-    timePosition: number,
-    info_bubble_child: React.ReactNode
-  }
-) => {
+const OperationComponent = ({
+  operation,
+  qubitOrder,
+  qubitPositions,
+  timePosition,
+  info_bubble_child,
+}: {
+  operation: Operation;
+  qubitOrder: Array<number>;
+  qubitPositions: Array<number>;
+  timePosition: number;
+  info_bubble_child: React.ReactNode;
+}) => {
   const [lineSeparation, setLineSeparation] = useState(0);
   const [gateBaseSize, setGateWidth] = useState(0);
   const [gateMargin, setGateMargin] = useState(0);
@@ -55,9 +53,15 @@ const OperationComponent = (
 
     // Calculate sizes (in em)
     const computedStyle = window.getComputedStyle(container);
-    const lineSeparationStyle = parseFloat(computedStyle.getPropertyValue("--qubit-line-margin"));
-    const gateWidthStyle = parseFloat(computedStyle.getPropertyValue("--gate-size"));
-    const gateMarginStyle = parseFloat(computedStyle.getPropertyValue("--gate-h-margin"));
+    const lineSeparationStyle = parseFloat(
+      computedStyle.getPropertyValue("--qubit-line-margin"),
+    );
+    const gateWidthStyle = parseFloat(
+      computedStyle.getPropertyValue("--gate-size"),
+    );
+    const gateMarginStyle = parseFloat(
+      computedStyle.getPropertyValue("--gate-h-margin"),
+    );
 
     setLineSeparation(lineSeparationStyle);
     setGateWidth(gateWidthStyle);
@@ -65,68 +69,77 @@ const OperationComponent = (
   }, []);
 
   // Find gate position and vertical span
-  const upperQubitPos = Math.min(...operation.qubits.map(q => qubitPositions[q]));
+  const upperQubitPos = Math.min(
+    ...operation.qubits.map(q => qubitPositions[q]),
+  );
   //const lowerQubitPos = Math.max(...operation.qubits.map(q => qubitPositions[q]));
   //const gateHeight = lowerQubitPos - upperQubitPos + 1;
   //const gateWidth = Math.round(Math.log2(gateHeight+1));
 
-  const [gateWidth, gateHeight] = calculateGateDimensions(operation, qubitPositions);
+  const [gateWidth, gateHeight] = calculateGateDimensions(
+    operation,
+    qubitPositions,
+  );
 
-  const [min_qubit_pos, , covered_positions_filled] = calculateOperationSpan(operation, qubitOrder, qubitPositions);
+  const [min_qubit_pos, , covered_positions_filled] = calculateOperationSpan(
+    operation,
+    qubitOrder,
+    qubitPositions,
+  );
 
-  return <div
-    className={styles["circuit-operation-container"]}
-    style={{
-      top: (upperQubitPos+0.5)*lineSeparation*2 + "em",
-      left: (timePosition * gateMargin * 3 + 1) + "em",
-    }}
-  >
-    <ControlLineComponent
-      operation={operation}
-      lineSeparation={lineSeparation}
-      gateBaseSize={gateBaseSize}
-      gateMargin={gateMargin}
-      gateWidth={gateWidth}
-      lineHeight={covered_positions_filled.length}
-      topOffset={min_qubit_pos - upperQubitPos}
-    />
-    {
-      operation.controls.map((ctrl_qubit) => <ControlCircleComponent
-        key={ctrl_qubit}
+  return (
+    <div
+      className={styles["circuit-operation-container"]}
+      style={{
+        top: (upperQubitPos + 0.5) * lineSeparation * 2 + "em",
+        left: timePosition * gateMargin * 3 + 1 + "em",
+      }}
+    >
+      <ControlLineComponent
         operation={operation}
         lineSeparation={lineSeparation}
         gateBaseSize={gateBaseSize}
         gateMargin={gateMargin}
         gateWidth={gateWidth}
-        topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
-        targetState={true}
-      />)
-    }
-    {
-      operation.anticontrols.map((ctrl_qubit) => <ControlCircleComponent
-        key={ctrl_qubit}
+        lineHeight={covered_positions_filled.length}
+        topOffset={min_qubit_pos - upperQubitPos}
+      />
+      {operation.controls.map(ctrl_qubit => (
+        <ControlCircleComponent
+          key={ctrl_qubit}
+          operation={operation}
+          lineSeparation={lineSeparation}
+          gateBaseSize={gateBaseSize}
+          gateMargin={gateMargin}
+          gateWidth={gateWidth}
+          topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
+          targetState={true}
+        />
+      ))}
+      {operation.anticontrols.map(ctrl_qubit => (
+        <ControlCircleComponent
+          key={ctrl_qubit}
+          operation={operation}
+          lineSeparation={lineSeparation}
+          gateBaseSize={gateBaseSize}
+          gateMargin={gateMargin}
+          gateWidth={gateWidth}
+          topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
+          targetState={false}
+        />
+      ))}
+      <GateComponent
         operation={operation}
         lineSeparation={lineSeparation}
         gateBaseSize={gateBaseSize}
         gateMargin={gateMargin}
         gateWidth={gateWidth}
-        topOffset={qubitPositions[ctrl_qubit] - upperQubitPos}
-        targetState={false}
-      />)
-    }
-    <GateComponent
-      operation={operation}
-      lineSeparation={lineSeparation}
-      gateBaseSize={gateBaseSize}
-      gateMargin={gateMargin}
-      gateWidth={gateWidth}
-      gateHeight={gateHeight}
-      info_bubble_child={info_bubble_child}
-    />
-  </div>
-}
-
-
+        gateHeight={gateHeight}
+        info_bubble_child={info_bubble_child}
+      />
+    </div>
+  );
+};
 
 /**
  * Create quantum gate visual independent of the circuit context
@@ -139,43 +152,54 @@ const OperationComponent = (
  * @param info_bubble_child Child information bubble element
  * @returns JSX element
  */
-const GateComponent = (
-  {
-    operation,
-    lineSeparation,
-    gateBaseSize,
-    gateMargin,
-    gateWidth,
-    gateHeight,
-    info_bubble_child
-  }: {
-    operation: Operation,
-    lineSeparation: number,
-    gateBaseSize: number,
-    gateMargin: number,
-    gateWidth: number,
-    gateHeight: number,
-    info_bubble_child: React.ReactNode
-  }
-) => <Popover>
-  <PopoverTrigger>
-    <div
-      className={styles["circuit-gate"]}
-      style={{
-        height: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
-        width: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1)) + "em",
-        lineHeight: ((gateHeight - 1) * lineSeparation * 2 + gateBaseSize) + "em",
-        background: operation.gate.color,
-      }}
-    >
-      {operation.gate.gate_id != "barrier" ? operation.gate.display_name : <></>}
-      {operation.exponent > 1 ? (<sup>{(operation.inverse ? "-" : "") + operation.exponent.toString()}</sup>) : (operation.inverse ? (<sup>†</sup>) : <></>)}
-    </div>
-  </PopoverTrigger>
-  {info_bubble_child}
-</Popover>;
-
-
+const GateComponent = ({
+  operation,
+  lineSeparation,
+  gateBaseSize,
+  gateMargin,
+  gateWidth,
+  gateHeight,
+  info_bubble_child,
+}: {
+  operation: Operation;
+  lineSeparation: number;
+  gateBaseSize: number;
+  gateMargin: number;
+  gateWidth: number;
+  gateHeight: number;
+  info_bubble_child: React.ReactNode;
+}) => (
+  <Popover>
+    <PopoverTrigger>
+      <div
+        className={styles["circuit-gate"]}
+        style={{
+          height: (gateHeight - 1) * lineSeparation * 2 + gateBaseSize + "em",
+          width: gateWidth * gateBaseSize + gateMargin * (gateWidth - 1) + "em",
+          lineHeight:
+            (gateHeight - 1) * lineSeparation * 2 + gateBaseSize + "em",
+          background: operation.gate.color,
+        }}
+      >
+        {operation.gate.gate_id != "barrier" ? (
+          operation.gate.display_name
+        ) : (
+          <></>
+        )}
+        {operation.exponent > 1 ? (
+          <sup>
+            {(operation.inverse ? "-" : "") + operation.exponent.toString()}
+          </sup>
+        ) : operation.inverse ? (
+          <sup>†</sup>
+        ) : (
+          <></>
+        )}
+      </div>
+    </PopoverTrigger>
+    {info_bubble_child}
+  </Popover>
+);
 
 /**
  * Create control line visual independent of the circuit context
@@ -188,36 +212,34 @@ const GateComponent = (
  * @param topOffset Upper positional offset of the line (in qubits)
  * @returns JSX element
  */
-const ControlLineComponent = (
-  {
-    operation,
-    lineSeparation,
-    gateBaseSize,
-    gateMargin,
-    gateWidth,
-    lineHeight,
-    topOffset
-  }: {
-    operation: Operation,
-    lineSeparation: number,
-    gateBaseSize: number,
-    gateMargin: number,
-    gateWidth: number,
-    lineHeight: number,
-    topOffset: number
-  }
-) =>
+const ControlLineComponent = ({
+  operation,
+  lineSeparation,
+  gateBaseSize,
+  gateMargin,
+  gateWidth,
+  lineHeight,
+  topOffset,
+}: {
+  operation: Operation;
+  lineSeparation: number;
+  gateBaseSize: number;
+  gateMargin: number;
+  gateWidth: number;
+  lineHeight: number;
+  topOffset: number;
+}) => (
   <div
     className={styles["circuit-control-line"]}
     style={{
       top: lineSeparation * topOffset * 2 + "em",
-      left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
-      height: lineSeparation * (lineHeight-1) * 2 + "em",
+      left:
+        (gateWidth * gateBaseSize + gateMargin * (gateWidth - 1)) / 2 + "em",
+      height: lineSeparation * (lineHeight - 1) * 2 + "em",
       background: operation.gate.color,
     }}
-  ></div>;
-
-
+  ></div>
+);
 
 /**
  * Create control point visual independent of the circuit context
@@ -231,34 +253,32 @@ const ControlLineComponent = (
  * @param targetState Whether the control is 1 (true) or 0 (false)
  * @returns JSX element
  */
-const ControlCircleComponent = (
-  {
-    operation,
-    lineSeparation,
-    gateBaseSize,
-    gateMargin,
-    gateWidth,
-    topOffset,
-    targetState
-  }: {
-    operation: Operation,
-    lineSeparation: number,
-    gateBaseSize: number,
-    gateMargin: number,
-    gateWidth: number,
-    topOffset: number,
-    targetState: boolean
-  }
-) =>
+const ControlCircleComponent = ({
+  operation,
+  lineSeparation,
+  gateBaseSize,
+  gateMargin,
+  gateWidth,
+  topOffset,
+  targetState,
+}: {
+  operation: Operation;
+  lineSeparation: number;
+  gateBaseSize: number;
+  gateMargin: number;
+  gateWidth: number;
+  topOffset: number;
+  targetState: boolean;
+}) => (
   <div
     className={styles[`circuit-${targetState ? "" : "anti"}control-circle`]}
     style={{
       top: lineSeparation * topOffset * 2 + "em",
-      left: (gateWidth * gateBaseSize + gateMargin * (gateWidth-1))/2 + "em",
+      left:
+        (gateWidth * gateBaseSize + gateMargin * (gateWidth - 1)) / 2 + "em",
       color: operation.gate.color,
     }}
-  ></div>;
-
-
+  ></div>
+);
 
 export default OperationComponent;

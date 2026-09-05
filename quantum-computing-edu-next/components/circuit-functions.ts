@@ -15,13 +15,13 @@ import { Operation } from "@/lib/circuit-parsing";
  */
 const calculateGateDimensions = (
   operation: Operation,
-  qubitPositions: number[]
+  qubitPositions: number[],
 ): [number, number] => {
   const upperQubitPos = Math.min(
-    ...operation.qubits.map(q => qubitPositions[q])
+    ...operation.qubits.map(q => qubitPositions[q]),
   );
   const lowerQubitPos = Math.max(
-    ...operation.qubits.map(q => qubitPositions[q])
+    ...operation.qubits.map(q => qubitPositions[q]),
   );
   const gateHeight = lowerQubitPos - upperQubitPos + 1;
   const gateWidth = Math.round(Math.log2(gateHeight + 1));
@@ -44,7 +44,7 @@ const calculateGateDimensions = (
 const calculateOperationSpan = (
   operation: Operation,
   qubitOrder: number[],
-  qubitPositions: number[]
+  qubitPositions: number[],
 ): [number, number, number[], number[]] => {
   // Get a list of explicitly covered qubit positions (including controls)
   const covered_positions = [
@@ -61,7 +61,7 @@ const calculateOperationSpan = (
     .map((_, j) => min_qubit_pos + j);
   // Create an array of qubit IDs between the extremes
   const covered_qubits_filled = covered_positions_filled.map(
-    pos => qubitOrder[pos]
+    pos => qubitOrder[pos],
   );
 
   return [

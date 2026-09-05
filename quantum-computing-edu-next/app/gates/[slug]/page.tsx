@@ -5,11 +5,11 @@
  * Page generator for quantum gate information pages (part of a dynamic route).
  */
 
+import UnitaryMatrixVisual from "@/components/matrix";
+import { Gate, GateMap } from "@/lib/circuit-parsing";
+import { loadGatesAndCircuits } from "@/lib/data-loading";
 import fs from "fs";
 import type { Metadata } from "next";
-import { GateMap, Gate } from "@/lib/circuit-parsing";
-import { loadGatesAndCircuits } from "@/lib/data-loading";
-import UnitaryMatrixVisual from "@/components/matrix";
 import styles from "./page.module.css";
 
 /**
@@ -49,7 +49,7 @@ export default async function Page({ params }: PageProps<"/gates/[slug]">) {
   // Load all the gates and circuits in the database
   const [gate_map, circuit_map] = loadGatesAndCircuits();
   console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits."
+    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
   );
 
   return <Content slug={slug} gate_map={gate_map} />;
@@ -80,7 +80,7 @@ async function Content({
     gate.documentation_file !== undefined &&
     gate.documentation_file !== "" &&
     fs.existsSync(
-      `${process.cwd()}/data/page-information/${gate.documentation_file}`
+      `${process.cwd()}/data/page-information/${gate.documentation_file}`,
     )
   ) {
     const { default: MarkdownPage_import } = await import(
