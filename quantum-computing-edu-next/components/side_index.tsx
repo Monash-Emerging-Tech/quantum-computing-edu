@@ -20,7 +20,7 @@ export default function SideIndexMenu() {
 
   return (
     <div className={styles["side-index-container"]}>
-      <Link href="/" className={styles["side-index-link-nounderline"]}>
+      <Link href="/" className={styles["side-index-link-no-underline"]}>
         <h2 className={styles["index-header"] + " " + styles["index-home"]}>
           QCET
         </h2>
@@ -44,7 +44,7 @@ export default function SideIndexMenu() {
                 <td>
                   <Link
                     href={"/gates/" + gate.gate_id}
-                    className={styles["side-index-link-nounderline"]}
+                    className={styles["side-index-link-no-underline"]}
                   >
                     <div className={styles["index-link-box"]}>
                       {gate.full_name}
@@ -64,27 +64,7 @@ export default function SideIndexMenu() {
           </tr>
         </thead>
         <tbody>
-          {circuit_map
-            .values()
-            .map(circuit => (
-              <tr
-                key={circuit.circuit_id}
-                id={"circuit-" + circuit.circuit_id}
-                className={styles["index-link-row"]}
-              >
-                <td>
-                  <Link
-                    href={"/circuits/" + circuit.circuit_id}
-                    className={styles["side-index-link-nounderline"]}
-                  >
-                    <div className={styles["index-link-box"]}>
-                      {circuit.full_name}
-                    </div>
-                  </Link>
-                </td>
-              </tr>
-            ))
-            .toArray()}
+          <SectionList section={"circuits"} />
         </tbody>
       </table>
 
@@ -95,25 +75,7 @@ export default function SideIndexMenu() {
           </tr>
         </thead>
         <tbody>
-          {loadPagesList("hardware").map(({ page_name }) => (
-            <tr
-              key={page_name}
-              id={"hardware-page-" + page_name}
-              className={styles["index-link-row"]}
-            >
-              <td>
-                <Link
-                  href={"/hardware/" + page_name}
-                  className={styles["side-index-link-nounderline"]}
-                >
-                  <div className={styles["index-link-box"]}>
-                    {page_name.charAt(0).toUpperCase() +
-                      page_name.slice(1).replaceAll("_", " ")}
-                  </div>
-                </Link>
-              </td>
-            </tr>
-          ))}
+          <SectionList section={"hardware"} />
         </tbody>
       </table>
 
@@ -124,27 +86,31 @@ export default function SideIndexMenu() {
           </tr>
         </thead>
         <tbody>
-          {loadPagesList("docs").map(({ page_name }) => (
-            <tr
-              key={page_name}
-              id={"doc-page-" + page_name}
-              className={styles["index-link-row"]}
-            >
-              <td>
-                <Link
-                  href={"/docs/" + page_name}
-                  className={styles["side-index-link-nounderline"]}
-                >
-                  <div className={styles["index-link-box"]}>
-                    {page_name.charAt(0).toUpperCase() +
-                      page_name.slice(1).replaceAll("_", " ")}
-                  </div>
-                </Link>
-              </td>
-            </tr>
-          ))}
+          <SectionList section={"docs"} />
         </tbody>
       </table>
     </div>
   );
 }
+
+const SectionList = ({ section }: { section: string }) => {
+  return loadPagesList(section).map(({ page_name }) => (
+    <tr
+      key={page_name}
+      id={`${section}-page-${page_name}`}
+      className={styles["index-link-row"]}
+    >
+      <td>
+        <Link
+          href={`/${section}/${page_name}`}
+          className={styles["side-index-link-no-underline"]}
+        >
+          <div className={styles["index-link-box"]}>
+            {page_name.charAt(0).toUpperCase() +
+              page_name.slice(1).replaceAll("_", " ")}
+          </div>
+        </Link>
+      </td>
+    </tr>
+  ));
+};

@@ -79,12 +79,10 @@ async function Content({
   if (
     gate.documentation_file !== undefined &&
     gate.documentation_file !== "" &&
-    fs.existsSync(
-      `${process.cwd()}/data/page-information/${gate.documentation_file}`,
-    )
+    fs.existsSync(`${process.cwd()}/data/gates/${gate.documentation_file}`)
   ) {
     const { default: MarkdownPage_import } = await import(
-      `@/data/page-information/${gate.documentation_file}`
+      `@/data/gates/${gate.documentation_file}`
     );
     MarkdownPage = MarkdownPage_import;
   }

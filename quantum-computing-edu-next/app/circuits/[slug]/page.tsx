@@ -5,8 +5,7 @@
  * Page generator for quantum circuit information pages (part of a dynamic route).
  */
 
-import { CircuitMap, QuantumCircuit } from "@/lib/circuit-parsing";
-import { loadGatesAndCircuits } from "@/lib/data-loading";
+import { loadPagesList } from "@/lib/load-pages-list";
 import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
@@ -18,23 +17,34 @@ export async function generateMetadata({
   params,
 }: PageProps<"/circuits/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const [, circuit_map] = loadGatesAndCircuits();
-  const circuit = circuit_map.get(slug);
-  return {
-    title: circuit?.full_name ?? slug,
-    description: circuit?.full_name
-      ? `Learn about the ${circuit.full_name} quantum circuit`
-      : undefined,
-  };
+  const all_pages = loadPagesList("circuits");
+  const match = all_pages.find(({ page_name }) => page_name === slug);
+  if (
+    !match ||
+    !fs.existsSync(
+      `${process.cwd()}/data/circuits/${match.page_name}.${match.file_extension}`,
+    )
+  ) {
+    return { title: slug };
+  }
+  try {
+    const { frontmatter } = await import(
+      `@/data/circuits/${match.page_name}.${match.file_extension}`
+    );
+    return {
+      title: frontmatter?.title ?? slug,
+      description: frontmatter?.description,
+    };
+  } catch {
+    return { title: slug };
+  }
 }
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {
-  const [, circuit_map] = loadGatesAndCircuits();
-  return circuit_map
-    .values()
-    .map(circuit => ({ slug: circuit.circuit_id }))
-    .toArray();
+  return loadPagesList("circuits").map(({ page_name }) => ({
+    slug: page_name,
+  }));
 }
 
 /**
@@ -45,53 +55,42 @@ export async function generateStaticParams() {
 export default async function Page({ params }: PageProps<"/circuits/[slug]">) {
   const { slug } = await params;
 
-  // Load all the gates and circuits in the database
-  const [gate_map, circuit_map] = loadGatesAndCircuits();
-  console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
-  );
-
-  return <Content slug={slug} circuit_map={circuit_map} />;
+  return <Content slug={slug} />;
 }
 
 /**
  * Create the interactive circuit page
  * @returns JSX content for the circuit page
  */
-async function Content({
-  slug,
-  circuit_map,
-}: {
-  slug: string;
-  circuit_map: CircuitMap;
-}) {
-  // Check if the page slug corresponds to a valid circuit id
-  if (!circuit_map.has(slug)) {
-    throw new Error("There is no quantum circuit with id " + slug);
-  }
+async function Content({ slug }: { slug: string }) {
+  const all_pages = loadPagesList("circuits");
 
-  // Get the relevant quantum circuit from the circuit map
-  const circuit: QuantumCircuit = circuit_map.get(slug)!;
+  const matching_pages = all_pages.filter(
+    ({ page_name }) => page_name === slug,
+  );
 
-  // Attempt to import the circuit documentation from the relevant markdown file, if it is defined & it exists
+  // Attempt to import the documentation from the relevant markdown file, if it is defined & it exists
   let MarkdownPage = () => <></>;
   if (
-    circuit.documentation_file !== undefined &&
-    circuit.documentation_file !== "" &&
+    slug !== undefined &&
+    slug !== "" &&
+    matching_pages.length > 0 &&
     fs.existsSync(
-      `${process.cwd()}/data/page-information/${circuit.documentation_file}`,
+      `${process.cwd()}/data/circuits/${matching_pages[0].page_name}.${matching_pages[0].file_extension}`,
     )
   ) {
+    // NOTE: Something weird can happen during build time here, where .md file extensions can cause a cryptic build error.
+    // This particular code seems stable, but changing this could cause issues.
     const { default: MarkdownPage_import } = await import(
-      `@/data/page-information/${circuit.documentation_file}`
+      `@/data/circuits/${matching_pages[0].page_name}.${matching_pages[0].file_extension}`
     );
     MarkdownPage = MarkdownPage_import;
   }
 
   return (
     <div
-      id="circuit-page-container"
-      className={styles["circuit-page-container"]}
+      id="circuits-page-container"
+      className={styles["circuits-page-container"]}
     >
       <MarkdownPage />
     </div>

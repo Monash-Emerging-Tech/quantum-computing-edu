@@ -1,6 +1,12 @@
+---
+title: "Deutsch's Algorithm"
+short-name: "Deutsch"
+description: "Learn how Deutsch's algorithm works"
+---
+
 import LoadCircuit from "@/components/circuit-with-loader";
 
-# Deutsch Algorithm
+# Deutsch's Algorithm
 
 <LoadCircuit circuit_id="deutsch" />
 
@@ -10,8 +16,8 @@ The Deutsch Algorithm offers arguably the simplest example of how quantum comput
 
 ### The problem:
 
-Given an arbitrary function, $f(x)$, that accepts a single bit as input and returns a single bit, determine whether the function is balanced or constant. 
-That is, whether both outputs are the same, or differ. 
+Given an arbitrary function, $f(x)$, that accepts a single bit as input and returns a single bit, determine whether the function is balanced or constant.
+That is, whether both outputs are the same, or differ.
 <br/>
 
 $$
@@ -56,7 +62,7 @@ $$
 =\frac{1}{2}(\ket{0\oplus f(0)}-\ket{1\oplus f(0)})\ket{0}+\frac{1}{2}(\ket{0\oplus f(1)}-\ket{1\oplus f(1)})\ket{1}.
 $$
 
-However, recalling that 
+However, recalling that
 $$
 \ket{0\oplus b}-\ket{1\oplus b}
 =

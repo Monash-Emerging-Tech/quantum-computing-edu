@@ -23,8 +23,8 @@ import fs from "fs";
 import path from "path";
 import { cache } from "react";
 
-const gateDataDir = path.join(process.cwd(), "data/gates/");
-const circuitDataDir = path.join(process.cwd(), "data/circuits/");
+const gateDataDir = path.join(process.cwd(), "data/gate-defs/");
+const circuitDataDir = path.join(process.cwd(), "data/circuit-defs/");
 
 /**
  *

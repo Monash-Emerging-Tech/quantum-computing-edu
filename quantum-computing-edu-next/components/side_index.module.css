@@ -19,7 +19,7 @@
   width: 100%;
 }
 
-.side-index-link-nounderline {
+.side-index-link-no-underline {
   text-decoration: none;
   color: var(--foreground);
 }

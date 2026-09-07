@@ -14,7 +14,8 @@ import styles from "./info-bubbles.module.css";
 import { PopoverContent, PopoverHeading } from "./popover";
 
 const popupDescDir = "data/popup-descriptions";
-const pageInfoDir = "data/page-information";
+const gatePageInfoDir = "data/gates";
+const circuitPageInfoDir = "data/circuits";
 
 /**
  * Create an information bubble
@@ -57,12 +58,12 @@ async function GatePopoverDescription({ operation }: { operation: Operation }) {
       MarkdownPage = MarkdownPage_import;
     } else if (
       fs.existsSync(
-        `${process.cwd()}/${pageInfoDir}/${operation.gate.documentation_file}`,
+        `${process.cwd()}/${gatePageInfoDir}/${operation.gate.documentation_file}`,
       )
     ) {
       // Fall back to the full-page gate information
       const { default: MarkdownPage_import } = await import(
-        `@/${pageInfoDir}/${operation.gate.documentation_file}`
+        `@/${gatePageInfoDir}/${operation.gate.documentation_file}`
       );
       MarkdownPage = MarkdownPage_import;
     }
@@ -83,12 +84,12 @@ async function GatePopoverDescription({ operation }: { operation: Operation }) {
       MarkdownPage = MarkdownPage_import;
     } else if (
       fs.existsSync(
-        `${process.cwd()}/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`,
+        `${process.cwd()}/${circuitPageInfoDir}/${operation.gate.subcircuit.documentation_file}`,
       )
     ) {
       // Fall back to the full-page circuit information
       const { default: MarkdownPage_import } = await import(
-        `@/${pageInfoDir}/${operation.gate.subcircuit.documentation_file}`
+        `@/${circuitPageInfoDir}/${operation.gate.subcircuit.documentation_file}`
       );
       MarkdownPage = MarkdownPage_import;
     }

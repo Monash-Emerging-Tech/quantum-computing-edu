@@ -1,3 +1,9 @@
+---
+title: "Harrow-Hassidim-Lloyd Algorithm"
+short-name: "HHL"
+description: "Learn how the Harrow-Hassidim-Lloyd (HHL) algorithm works"
+---
+
 import LoadCircuit from "@/components/circuit-with-loader";
 
 # Harrow-Hassidim-Lloyd algorithm
@@ -64,7 +70,7 @@ At the end of the algorithm, an observable constructed for the specific applicat
 is applied to the state to learn some information from it.
 The observable is a subcircuit that manipulates the state before measurement.
 In the vast majority of cases HHL will be executed many times, with the measurements
-sampling a probability distrubtion, which is generally what is wanted as output.
+sampling a probability distribution, which is generally what is wanted as output.
 
 If the full solution, $\vec{x}$, to the equation $A\vec{x} = \vec{b}$ is needed,
 then the observable changes nothing (is just the identity matrix) and measurements
