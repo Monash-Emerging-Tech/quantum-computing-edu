@@ -5,7 +5,7 @@
  * Page generator for meta documentation pages (part of a dynamic route).
  */
 
-import { loadPagesList } from "@/lib/load-pages-list";
+import { loadPagesList } from "@/lib/page-loading";
 import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";

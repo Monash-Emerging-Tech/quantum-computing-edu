@@ -6,7 +6,7 @@
  */
 
 import { loadGatesAndCircuits } from "@/lib/data-loading";
-import { loadPagesList } from "@/lib/load-pages-list";
+import { loadPagesList } from "@/lib/page-loading";
 import Link from "next/link";
 import styles from "./side_index.module.css";
 
