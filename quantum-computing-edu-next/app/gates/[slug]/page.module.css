@@ -1,7 +1,8 @@
 /*@import "tailwindcss";*/
 
-/*.gates-page-container {*/
+.gates-page-container {
   /*margin: auto;*/
   /*max-width: 100rem;*/
   /*max-width: 80rem;*/
-/*}*/
+  margin-bottom: 3em;
+}
