@@ -8,7 +8,6 @@
 import UnitaryMatrixVisual from "@/components/matrix";
 import { Gate, GateMap } from "@/lib/circuit-parsing";
 import { loadGatesAndCircuits } from "@/lib/data-loading";
-import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -74,17 +73,18 @@ async function Content({
   // Get the relevant quantum gate from the gate map
   const gate: Gate = gate_map.get(slug)!;
 
-  // Attempt to import the gate documentation from the relevant markdown file, if it is defined & it exists
-  let MarkdownPage = () => <></>;
-  if (
-    gate.documentation_file !== undefined &&
-    gate.documentation_file !== "" &&
-    fs.existsSync(`${process.cwd()}/data/gates/${gate.documentation_file}`)
-  ) {
-    const { default: MarkdownPage_import } = await import(
-      `@/data/gates/${gate.documentation_file}`
-    );
-    MarkdownPage = MarkdownPage_import;
+  let MarkdownPage = () => <div>The page couldn't be loaded.</div>;
+
+  // Attempt to import the documentation from the relevant markdown file
+  if (gate.documentation_file) {
+    try {
+      const { default: MarkdownPage_import } = await import(
+        `@/data/gates/${gate.documentation_file}`
+      );
+      MarkdownPage = MarkdownPage_import;
+    } catch {
+      console.error("Failed to load gates page " + gate.documentation_file);
+    }
   }
 
   return (

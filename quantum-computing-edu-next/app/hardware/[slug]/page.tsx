@@ -6,7 +6,6 @@
  */
 
 import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
-import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -49,28 +48,16 @@ export default async function Page({ params }: PageProps<"/hardware/[slug]">) {
  * @returns JSX content for the hardware page
  */
 async function Content({ slug }: { slug: string }) {
-  const all_hardware = loadPagesList("hardware");
+  let MarkdownPage = () => <div>The page couldn't be loaded.</div>;
 
-  const matching_hardware = all_hardware.filter(
-    ({ page_name }) => page_name === slug,
-  );
-
-  // Attempt to import the hardware from the relevant markdown file, if it is defined & it exists
-  let MarkdownPage = () => <></>;
-  if (
-    slug !== undefined &&
-    slug !== "" &&
-    matching_hardware.length > 0 &&
-    fs.existsSync(
-      `${process.cwd()}/data/hardware/${matching_hardware[0].page_name}.${matching_hardware[0].file_extension}`,
-    )
-  ) {
-    // NOTE: Something weird can happen during build time here, where .md file extensions can cause a cryptic build error.
-    // This particular code seems stable, but changing this could cause issues.
+  // Attempt to import the documentation from the relevant markdown file
+  try {
     const { default: MarkdownPage_import } = await import(
-      `@/data/hardware/${matching_hardware[0].page_name}.${matching_hardware[0].file_extension}`
+      `@/data/hardware/${slug}`
     );
     MarkdownPage = MarkdownPage_import;
+  } catch {
+    console.error("Failed to load hardware page " + slug);
   }
 
   return (

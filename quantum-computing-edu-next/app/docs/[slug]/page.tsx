@@ -6,7 +6,6 @@
  */
 
 import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
-import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -47,26 +46,16 @@ export default async function Page({ params }: PageProps<"/docs/[slug]">) {
  * @returns JSX content for the documentation page
  */
 async function Content({ slug }: { slug: string }) {
-  const all_docs = loadPagesList("docs");
+  let MarkdownPage = () => <div>The page couldn't be loaded.</div>;
 
-  const matching_docs = all_docs.filter(({ page_name }) => page_name === slug);
-
-  // Attempt to import the documentation from the relevant markdown file, if it is defined & it exists
-  let MarkdownPage = () => <></>;
-  if (
-    slug !== undefined &&
-    slug !== "" &&
-    matching_docs.length > 0 &&
-    fs.existsSync(
-      `${process.cwd()}/data/docs/${matching_docs[0].page_name}.${matching_docs[0].file_extension}`,
-    )
-  ) {
-    // NOTE: Something weird can happen during build time here, where .md file extensions can cause a cryptic build error.
-    // This particular code seems stable, but changing this could cause issues.
+  // Attempt to import the documentation from the relevant markdown file
+  try {
     const { default: MarkdownPage_import } = await import(
-      `@/data/docs/${matching_docs[0].page_name}.${matching_docs[0].file_extension}`
+      `@/data/docs/${slug}`
     );
     MarkdownPage = MarkdownPage_import;
+  } catch {
+    console.error("Failed to load docs page " + slug);
   }
 
   return (

@@ -6,7 +6,6 @@
  */
 
 import { loadPagesList, loadPageInformation } from "@/lib/page-loading";
-import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -48,28 +47,16 @@ export default async function Page({ params }: PageProps<"/circuits/[slug]">) {
  * @returns JSX content for the circuit page
  */
 async function Content({ slug }: { slug: string }) {
-  const all_pages = loadPagesList("circuits");
+  let MarkdownPage = () => <div>The page couldn't be loaded.</div>;
 
-  const matching_pages = all_pages.filter(
-    ({ page_name }) => page_name === slug,
-  );
-
-  // Attempt to import the documentation from the relevant markdown file, if it is defined & it exists
-  let MarkdownPage = () => <></>;
-  if (
-    slug !== undefined &&
-    slug !== "" &&
-    matching_pages.length > 0 &&
-    fs.existsSync(
-      `${process.cwd()}/data/circuits/${matching_pages[0].page_name}.${matching_pages[0].file_extension}`,
-    )
-  ) {
-    // NOTE: Something weird can happen during build time here, where .md file extensions can cause a cryptic build error.
-    // This particular code seems stable, but changing this could cause issues.
+  // Attempt to import the documentation from the relevant markdown file
+  try {
     const { default: MarkdownPage_import } = await import(
-      `@/data/circuits/${matching_pages[0].page_name}.${matching_pages[0].file_extension}`
+      `@/data/circuits/${slug}`
     );
     MarkdownPage = MarkdownPage_import;
+  } catch {
+    console.error("Failed to load circuit page " + slug);
   }
 
   return (
