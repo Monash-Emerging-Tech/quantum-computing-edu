@@ -32,12 +32,23 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.mdx",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "dist/dev/types/**/*.ts",
     "dist/dev/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    "dist"
+  ],
+  "mdx": {
+    "checkMdx": true,
+    "plugins": [
+      "remark-frontmatter",
+      "remark-mdx-frontmatter",
+      "remark-math",
+      "remark-gfm"
+    ]
+  }
 }
