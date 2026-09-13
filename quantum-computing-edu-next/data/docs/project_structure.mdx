@@ -23,10 +23,12 @@ cd ..
 <br />
 
 
-To run the Next JS website for development purposes, execute the `run-dev` Bash script in the repository root.
+To run the Next JS website for development purposes, execute the `run-dev` Bash script in the
+repository root.
 <br />
 
-To build the Next JS website, execute the `build` Bash script, which produces a static website as output in `quantum-computing-edu-next/dist/production/`.
+To build the Next JS website, execute the `build` Bash script, which produces a static website
+as output in `quantum-computing-edu-next/dist/production/`.
 
 The build script also builds the website for deployment on GitHub pages.
 A `.nojekyll` file is added by the script to ensure that the site is deployed correctly.
@@ -62,7 +64,8 @@ The Next JS site uses the following notable packages:
 - defines destination directories for builds.
 <br />
 
-The `"scripts"` section in `package.json` is modified to include a definition for the GitHub pages build script.
+The `"scripts"` section in `package.json` is modified to include a definition for the GitHub pages
+build script.
 <br />
 
 `tsconfig.json` specifies some TypeScript options, all of which are left as reasonable defaults.
@@ -72,50 +75,53 @@ The `"scripts"` section in `package.json` is modified to include a definition fo
 
 ### Environment files
 
-`.env.development` is used by `npm run dev`, and specifies `NEXT_PUBLIC_BUILD` and `NEXT_PUBLIC_BASEPATH` accordingly.
+`.env.development` is used by `npm run dev`, and specifies `NEXT_PUBLIC_BUILD` and
+`NEXT_PUBLIC_BASEPATH` accordingly.
 <br />
 
 `.env.production` is used by `npm run build`, and specifies `NEXT_PUBLIC_BUILD` accordingly.
-Currently it defines `NEXT_PUBLIC_BASEPATH` assuming that the site is hosted within a subdirectory `/quantum-computing-edu`.
+Currently it defines `NEXT_PUBLIC_BASEPATH` assuming that the site is hosted within a subdirectory
+`/quantum-computing-edu`.
 You may wish to edit this file for static site testing on your local machine.
 <br />
 
-`.env.gh-pages` is used by `npm run build:gh-pages`, and specifies `NEXT_PUBLIC_BUILD` and `NEXT_PUBLIC_BASEPATH` accordingly.
+`.env.gh-pages` is used by `npm run build:gh-pages`, and specifies `NEXT_PUBLIC_BUILD` and
+`NEXT_PUBLIC_BASEPATH` accordingly.
 
 ### Main page
 
 The current main page is a work-in-progress, with a page index as a placeholder.
-This page needs to become a proper introductory page, with links to getting-started documentation and notable circuits.
+This page needs to become a proper introductory page, with links to getting-started documentation
+and notable circuits.
 
 ### Circuit data
 
-`data/circuits/` stores quantum circuit definitions in the data format defined by `/schemas/quantum-circuit-schema.json`.
+`data/circuit-defs/` stores quantum circuit definitions in the data format defined by
+`/schemas/quantum-circuit-schema.json`.
 <br />
 
-`data/gates/` stores quantum gate definitions in the data format defined by `/schemas/quantum-gate-schema.json`.
+`data/gate-defs/` stores quantum gate definitions in the data format defined by
+`/schemas/quantum-gate-schema.json`.
 <br />
 
-`data/page-information/` stores markdown files that contain information on gates and circuits.
-When the site is built, these files are converted into pages attached to the gate and circuit definitions.
+`data/circuits/` and `data/gates/` store markdown files that contain information on circuits and
+gates, respectively.
+When the site is built, these files are converted into pages.
 <br />
 
 `data/popup-descriptions/` stores smaller markdown files that contain information on gates
 and circuits to be displayed in popups opened from the interactive circuit interface.
-These are generally cut-down copies of `data/page-information/`.
+These are generally cut-down copies of the pages in `data/gates/`.
 
-### Circuit pages
+### Page generation
 
 `app/circuits/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
 
-Each circuit defined in `data/circuits/` gets one page that displays the circuit in the interactive
-interface with information about it from `data/page-information/`.
+Each file in `data/circuits/` turns into one informational page, that generally displays a circuit
+defined in `data/circuit-defs/`.
+<br />
 
-### Gate pages
-
-`app/gates/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
-
-Each gate defined in `data/gates/` gets one page that displays the definition of the gate
-with information about it from `data/page-information/`.
+The same process is used for `gates`, `hardware`, and `docs`.
 
 ### Components
 
@@ -127,7 +133,8 @@ with information about it from `data/page-information/`.
 
 `components/info_bubbles.tsx` defines the popup components included in the interactive circuit interface.
 
-Info bubbles use components defined in `components/popover.tsx`, which is from [Floating UI](https://floating-ui.com/docs/popover) (also licensed under MIT).
+Info bubbles use components defined in `components/popover.tsx`, which is from
+[Floating UI](https://floating-ui.com/docs/popover) (also licensed under MIT).
 <br />
 
 `components/matrix.tsx` defines a component that parses the
@@ -135,7 +142,8 @@ stringified form of a matrix definition and displays it in a nice format
 using [NextJS MathJax](https://www.npmjs.com/package/nextjs-mathjax).
 <br />
 
-`components/side_index.tsx` defines the components used in the page index that is displayed on the left side of the page.
+`components/side_index.tsx` defines the components used in the page index that is displayed on the
+left side of the page.
 
 ### Meta documentation
 
@@ -144,11 +152,10 @@ informs users and developers about various parts of this project and website.
 That includes this very documentation you're reading now!
 <br />
 
-`app/docs/[slug]/page.tsx` is a dynamic route that is populated when the site is built.
-
 ### Citation and referencing
 
-`citation/` contains the style files (in [CSL format](https://github.com/citation-style-language/styles)) that define the citation style used on this site.
+`citation/` contains the style files (in [CSL format](https://github.com/citation-style-language/styles))
+that define the citation style used on this site.
 Currently `citation/ieee.csl` is used for IEEE format.
 <br />
 
@@ -157,11 +164,12 @@ These entries are defined globally for the site, so they can be referenced from 
 
 ### Shared functionality code
 
-The `lib/` directory contains code that may be used in multiple areas of the project, and could be used outside of the project as well.
+The `lib/` directory contains code that may be used in multiple areas of the project, and could be
+used outside of the project as well.
 <br />
 
-The two files `lib/circuit-parsing.ts` and `lib/data-loading.ts`
-define functions that handle loading circuit data from JSON files and parsing it into relevant objects.
+The two files `lib/circuit-parsing.ts` and `lib/data-loading.ts` define functions that handle
+loading circuit data from JSON files and parsing it into relevant objects.
 <br />
 
 Similarly, `lib/load-pages-list.ts`
