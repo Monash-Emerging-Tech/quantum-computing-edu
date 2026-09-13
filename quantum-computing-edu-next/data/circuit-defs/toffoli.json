@@ -5,14 +5,9 @@
 
   "registers": [
     {
-      "name": "control_a",
-      "description": "First control qubit.",
-      "qubits": [0]
-    },
-    {
-      "name": "control_b",
-      "description": "Second control qubit.",
-      "qubits": [1]
+      "name": "control",
+      "description": "Control qubits.",
+      "qubits": [0,1]
     },
     {
       "name": "target",
