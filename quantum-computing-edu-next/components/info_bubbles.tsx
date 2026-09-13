@@ -10,6 +10,7 @@ import UnitaryMatrixVisual from "@/components/matrix";
 import { Operation } from "@/lib/circuit-parsing";
 import fs from "fs";
 import Link from "next/link";
+import { cache } from "react";
 import styles from "./info-bubbles.module.css";
 import { PopoverContent, PopoverHeading } from "./popover";
 
@@ -45,7 +46,7 @@ const GateInfoBubble = ({ operation }: { operation: Operation }) => {
  * @param operation operation object containing all relevant information about the operation in the context of the circuit
  * @returns JSX content for the operation popup
  */
-async function GatePopoverDescription({ operation }: { operation: Operation }) {
+const GatePopoverDescription = cache(async ({ operation }: { operation: Operation }) => {
   // Attempt to import the gate documentation from the relevant markdown file, if it is defined & it exists
   let MarkdownPage = () => <></>;
   if (
@@ -169,6 +170,6 @@ async function GatePopoverDescription({ operation }: { operation: Operation }) {
       <div>{operation_info}</div>
     </div>
   );
-}
+})
 
 export default GateInfoBubble;

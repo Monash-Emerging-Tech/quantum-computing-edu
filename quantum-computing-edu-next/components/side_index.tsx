@@ -5,19 +5,11 @@
  * Vertical page index displayed on the side of a page.
  */
 
-import { loadGatesAndCircuits } from "@/lib/data-loading";
 import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
 import Link from "next/link";
 import styles from "./side_index.module.css";
 
 export default function SideIndexMenu() {
-  // Load all the gates and circuits in the database
-  const [gate_map, circuit_map] = loadGatesAndCircuits();
-
-  console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
-  );
-
   return (
     <div className={styles["side-index-container"]}>
       <Link href="/" className={styles["side-index-link-no-underline"]}>

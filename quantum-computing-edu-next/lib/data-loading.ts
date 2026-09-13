@@ -27,11 +27,11 @@ const gateDataDir = path.join(process.cwd(), "data/gate-defs/");
 const circuitDataDir = path.join(process.cwd(), "data/circuit-defs/");
 
 /**
- *
- * @param data_file_name
- * @returns
+ * Load circuit or gate data from a JSON file
+ * @param data_file_name Name of the file (including extension)
+ * @param directory Directory the file is in
  */
-const loadDataFile = (data_file_name: string, directory: string): unknown => {
+const loadDataFile = (data_file_name: string, directory: string): object => {
   // Construct file path to gate JSON file corresponding to the slug
   const file_path = path.join(directory, data_file_name);
 
@@ -45,8 +45,8 @@ const loadDataFile = (data_file_name: string, directory: string): unknown => {
 };
 
 /**
- *
- * @returns
+ * Load the gate and circuit maps, resolving dependencies recursively until done.
+ * @returns Tuple of the gate and circuit maps.
  */
 const loadGatesAndCircuits = cache((): [GateMap, CircuitMap] => {
   const gate_data = fs
