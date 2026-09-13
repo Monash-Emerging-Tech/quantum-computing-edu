@@ -1,4 +1,14 @@
-### RZ Gate
+---
+title: "Rotate about Z"
+short-name: "RZ"
+description: "Summary of the RZ quantum gate."
+---
+
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
+
+# RZ Gate
+
+<LoadGateMatrix gate_id="rz" />
 
 This gate applies a rotation of $\phi$ radians about the $z$-axis to a single qubit.
 
@@ -9,12 +19,12 @@ $$
 where $Z$ is the [Pauli Z gate](/gates/z).
 
 
-### Parameters
+## Parameters
 
 $\phi \in \mathbb{R}$:  Angle to rotate the state by, in radians.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the rz gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RZGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RZGate)

@@ -1,6 +1,17 @@
-### S Gate
+---
+title: "S gate"
+short-name: "S"
+description: "Summary of the S quantum gate."
+---
 
-This gate applies a rotation of $\frac{\pi}{2}$ radians about the $z$-axis to a single qubit, incuding a $\frac{\pi}{2}$ phase.
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
+
+# S Gate
+
+<LoadGateMatrix gate_id="s" />
+
+This gate applies a rotation of $\frac{\pi}{2}$ radians about the $z$-axis to a single qubit,
+including a $\frac{\pi}{2}$ phase.
 
 It is equivalent to the following:
 $$
@@ -9,7 +20,7 @@ $$
 See the [P](./phase) and [Z](/gates/z) gates.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the s gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.SGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.SGate)

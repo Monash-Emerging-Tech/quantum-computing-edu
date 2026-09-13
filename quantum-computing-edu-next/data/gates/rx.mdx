@@ -1,4 +1,14 @@
-### RX Gate
+---
+title: "Rotate about X"
+short-name: "RX"
+description: "Summary of the RX quantum gate."
+---
+
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
+
+# RX Gate
+
+<LoadGateMatrix gate_id="rx" />
 
 This gate applies a rotation of $\theta$ radians about the $x$-axis to a single qubit.
 
@@ -9,12 +19,12 @@ $$
 where $X$ is the [Pauli X gate](/gates/x).
 
 
-### Parameters
+## Parameters
 
 $\theta \in \mathbb{R}$: Angle to rotate the state by, in radians.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the rx gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RXGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RXGate)

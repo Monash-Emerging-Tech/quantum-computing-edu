@@ -1,12 +1,20 @@
+---
+title: "Controlled-NOT gate"
+short-name: "CNOT"
+description: "Information about controlled quantum gates, with CNOT as an example."
+---
+
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
 import LoadCircuit from "@/components/circuit-with-loader";
 
 # CNOT Gate
 
+<LoadGateMatrix gate_id="cnot" />
 <LoadCircuit circuit_id="cnot" />
 The CNOT gate is a two-qubit quantum gate that flips a target qubit if the control bit is in state $\ket{1}$, otherwise it leaves it unaltered.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the cnot gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CXGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CXGate)

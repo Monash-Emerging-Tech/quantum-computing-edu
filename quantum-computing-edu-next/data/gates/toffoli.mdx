@@ -1,12 +1,21 @@
+---
+title: "Controlled-NOT gate"
+short-name: "CNOT"
+description: "Information about controlled quantum gates, with CNOT as an example."
+---
+
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
 import LoadCircuit from "@/components/circuit-with-loader";
 
 # Toffoli Gate
 
+<LoadGateMatrix gate_id="toffoli" />
 <LoadCircuit circuit_id="toffoli" />
+
 The Toffoli gate is a three-qubit quantum gate that flips a target qubit if both control qubits is in state $\ket{1}$, otherwise it leaves it unaltered.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the cnot gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CCXGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CCXGate)

@@ -1,6 +1,17 @@
-### T Gate
+---
+title: "T gate"
+short-name: "T"
+description: "Summary of the T quantum gate."
+---
 
-This gate applies a rotation of $\frac{\pi}{4}$ radians about the $z$-axis to a single qubit, incuding a $\frac{\pi}{4}$ phase.
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
+
+# T Gate
+
+<LoadGateMatrix gate_id="t" />
+
+This gate applies a rotation of $\frac{\pi}{4}$ radians about the $z$-axis to a single qubit,
+including a $\frac{\pi}{4}$ phase.
 
 It is equivalent to the following:
 $$
@@ -9,7 +20,7 @@ $$
 See the [P](/gates/phase), [S](/gates/s) and [Z](/gates/z) gates.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the t gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.TGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.TGate)

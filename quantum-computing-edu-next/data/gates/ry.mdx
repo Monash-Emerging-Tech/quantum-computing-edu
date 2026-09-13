@@ -1,4 +1,14 @@
-### RY Gate
+---
+title: "Rotate about Y"
+short-name: "RY"
+description: "Summary of the RY quantum gate."
+---
+
+import LoadGateMatrix from "@/components/gate-matrix-with-loader";
+
+# RY Gate
+
+<LoadGateMatrix gate_id="ry" />
 
 This gate applies a rotation of $\theta$ radians about the $y$-axis to a single qubit.
 
@@ -9,12 +19,12 @@ $$
 where $Y$ is the [Pauli Y gate](/gates/y).
 
 
-### Parameters
+## Parameters
 
 $\theta \in \mathbb{R}$: Angle to rotate the state by, in radians.
 
 
-### Resources
+## Resources
 
 See the Qiskit documentation for the ry gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RYGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.RYGate)

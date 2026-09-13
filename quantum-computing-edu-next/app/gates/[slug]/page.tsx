@@ -5,7 +5,6 @@
  * Page generator for quantum gate information pages (part of a dynamic route).
  */
 
-import UnitaryMatrixVisual from "@/components/matrix";
 import { Gate, GateMap } from "@/lib/circuit-parsing";
 import { loadGatesAndCircuits } from "@/lib/data-loading";
 import type { Metadata } from "next";
@@ -88,23 +87,11 @@ async function Content({
   }
 
   return (
-    <div id="gate-page-container" className={styles["gate-page-container"]}>
-      <h1 id="page-header" className={styles["page-header"]}>
-        Quantum Gate
-      </h1>
-
-      <h2 id="circuit-header" className={styles["circuit-header"]}>
-        {gate.full_name}
-      </h2>
-
-      {gate.unitary ? <UnitaryMatrixVisual matrix={gate.unitary} /> : <></>}
-
-      <div
-        id="gate-information-container"
-        className={styles["gate-information-container"]}
-      >
-        <MarkdownPage />
-      </div>
+    <div
+      id="gate-page-container"
+      className={styles["gate-page-container"]}
+    >
+      <MarkdownPage />
     </div>
   );
 }
