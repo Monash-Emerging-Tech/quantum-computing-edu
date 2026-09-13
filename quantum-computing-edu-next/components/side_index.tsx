@@ -29,42 +29,22 @@ export default function SideIndexMenu() {
       <table className={styles["index-table"]}>
         <thead>
           <tr>
-            <th className={styles["index-header"]}>Gates</th>
+            <th className={styles["index-header"]}>Circuits</th>
           </tr>
         </thead>
         <tbody>
-          {gate_map
-            .values()
-            .map(gate => (
-              <tr
-                key={gate.gate_id}
-                id={"gate-" + gate.gate_id}
-                className={styles["index-link-row"]}
-              >
-                <td>
-                  <Link
-                    href={"/gates/" + gate.gate_id}
-                    className={styles["side-index-link-no-underline"]}
-                  >
-                    <div className={styles["index-link-box"]}>
-                      {gate.full_name}
-                    </div>
-                  </Link>
-                </td>
-              </tr>
-            ))
-            .toArray()}
+          <SectionList section={"circuits"} />
         </tbody>
       </table>
 
       <table className={styles["index-table"]}>
         <thead>
           <tr>
-            <th className={styles["index-header"]}>Circuits</th>
+            <th className={styles["index-header"]}>Gates</th>
           </tr>
         </thead>
         <tbody>
-          <SectionList section={"circuits"} />
+          <SectionList section={"gates"} />
         </tbody>
       </table>
 

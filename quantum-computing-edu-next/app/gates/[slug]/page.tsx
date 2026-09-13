@@ -5,8 +5,7 @@
  * Page generator for quantum gate information pages (part of a dynamic route).
  */
 
-import { Gate, GateMap } from "@/lib/circuit-parsing";
-import { loadGatesAndCircuits } from "@/lib/data-loading";
+import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -17,23 +16,19 @@ export async function generateMetadata({
   params,
 }: PageProps<"/gates/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const [gate_map] = loadGatesAndCircuits();
-  const gate = gate_map.get(slug);
+  const pageInfo = await loadPageInformation("gates", slug);
   return {
-    title: gate?.full_name ?? slug,
-    description: gate?.full_name
-      ? `Learn about the ${gate.full_name} quantum gate`
-      : undefined,
+    title: pageInfo.title ?? slug,
+    description:
+      pageInfo?.description ?? `Learn about the ${slug} quantum gate.`,
   };
 }
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)
 export async function generateStaticParams() {
-  const [gate_map] = loadGatesAndCircuits();
-  return gate_map
-    .values()
-    .map(gate => ({ slug: gate.gate_id }))
-    .toArray();
+  return loadPagesList("gates").map(({ page_name }) => ({
+    slug: page_name,
+  }));
 }
 
 /**
@@ -43,54 +38,28 @@ export async function generateStaticParams() {
  */
 export default async function Page({ params }: PageProps<"/gates/[slug]">) {
   const { slug } = await params;
-
-  // Load all the gates and circuits in the database
-  const [gate_map, circuit_map] = loadGatesAndCircuits();
-  console.log(
-    "Loaded " + gate_map.size + " gates and " + circuit_map.size + " circuits.",
-  );
-
-  return <Content slug={slug} gate_map={gate_map} />;
+  return <Content slug={slug} />;
 }
 
 /**
  * Create the gate information page
  * @returns JSX content for the gate page
  */
-async function Content({
-  slug,
-  gate_map,
-}: {
-  slug: string;
-  gate_map: GateMap;
-}) {
-  // Check if the page slug corresponds to a valid gate id
-  if (!gate_map.has(slug)) {
-    throw new Error("There is no quantum gate with id " + slug);
-  }
-
-  // Get the relevant quantum gate from the gate map
-  const gate: Gate = gate_map.get(slug)!;
-
+async function Content({ slug }: { slug: string }) {
   let MarkdownPage = () => <div>The page couldn't be loaded.</div>;
 
   // Attempt to import the documentation from the relevant markdown file
-  if (gate.documentation_file) {
-    try {
-      const { default: MarkdownPage_import } = await import(
-        `@/data/gates/${gate.documentation_file}`
-      );
-      MarkdownPage = MarkdownPage_import;
-    } catch {
-      console.error("Failed to load gates page " + gate.documentation_file);
-    }
+  try {
+    const { default: MarkdownPage_import } = await import(
+      `@/data/gates/${slug}`
+    );
+    MarkdownPage = MarkdownPage_import;
+  } catch {
+    console.error("Failed to load gate page " + slug);
   }
 
   return (
-    <div
-      id="gate-page-container"
-      className={styles["gate-page-container"]}
-    >
+    <div id="gates-page-container" className={styles["gates-page-container"]}>
       <MarkdownPage />
     </div>
   );
