@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
-import createMDX from '@next/mdx';
+import createMDX from "@next/mdx";
 
 const nextConfig: NextConfig = {
-  output: 'export',
+  output: "export",
   distDir: `dist/${process.env.NEXT_PUBLIC_BUILD}`,
   basePath: process.env.NEXT_PUBLIC_BASEPATH,
   trailingSlash: true,
@@ -10,27 +10,48 @@ const nextConfig: NextConfig = {
   //experimental: {
   //  inlineCss: true,
   //},
-  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  pageExtensions: ["js", "jsx", "ts", "tsx"],
+  turbopack: {
+    resolveExtensions: [
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx",
+      ".md",
+      ".mdx",
+      ".mjs",
+      ".json",
+    ],
+    rules: {
+      // Treat any non-importable files that can be found in data/ as assets.
+      "*.bib": {
+        type: "asset",
+      },
+    },
+  },
 };
 
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
     remarkPlugins: [
-      'remark-frontmatter',
-      'remark-mdx-frontmatter',
-      'remark-math',
-      'remark-gfm'
+      "remark-frontmatter",
+      "remark-mdx-frontmatter",
+      "remark-math",
+      "remark-gfm",
     ],
     rehypePlugins: [
-      'rehype-mathjax',
-      ['rehype-citation', {
-        bibliography: 'data/references.bib',
-        csl: 'citation/ieee.csl',
-        lang: 'en-US',
-        linkCitations: true,
-        showTooltips: true,
-      }],
+      "rehype-mathjax",
+      [
+        "rehype-citation",
+        {
+          bibliography: "data/references.bib",
+          csl: "citation/ieee.csl",
+          lang: "en-US",
+          linkCitations: true,
+          showTooltips: true,
+        },
+      ],
     ],
   },
 });
