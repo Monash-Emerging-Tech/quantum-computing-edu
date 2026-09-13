@@ -25,9 +25,15 @@ const GateInfoBubble = ({ operation }: { operation: Operation }) => {
   return (
     <PopoverContent className={styles["gate-info-bubble"]}>
       <PopoverHeading>
-        <Link href={"/gates/" + operation.gate.gate_id}>
-          Gate: {operation.gate.full_name}
-        </Link>
+        {operation.gate.documentation_file ? (
+          <Link
+            href={"/gates/" + operation.gate.documentation_file?.split(".")[0]}
+          >
+            Gate: {operation.gate.full_name}
+          </Link>
+        ) : (
+          `Gate: ${operation.gate.full_name}`
+        )}
       </PopoverHeading>
       <GatePopoverDescription operation={operation} />
     </PopoverContent>
