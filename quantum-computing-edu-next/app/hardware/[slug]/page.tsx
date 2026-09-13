@@ -5,7 +5,7 @@
  * Page generator for hardware pages (part of a dynamic route).
  */
 
-import { loadPagesList } from "@/lib/page-loading";
+import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
 import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
@@ -17,27 +17,11 @@ export async function generateMetadata({
   params,
 }: PageProps<"/hardware/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const all_hardware = loadPagesList("hardware");
-  const match = all_hardware.find(({ page_name }) => page_name === slug);
-  if (
-    !match ||
-    !fs.existsSync(
-      `${process.cwd()}/data/hardware/${match.page_name}.${match.file_extension}`,
-    )
-  ) {
-    return { title: slug };
-  }
-  try {
-    const { frontmatter } = await import(
-      `@/data/hardware/${match.page_name}.${match.file_extension}`
-    );
-    return {
-      title: frontmatter?.title ?? slug,
-      description: frontmatter?.description,
-    };
-  } catch {
-    return { title: slug };
-  }
+  const pageInfo = await loadPageInformation("hardware", slug);
+  return {
+    title: pageInfo.title ?? slug,
+    description: pageInfo?.description ?? `Information about quantum hardware.`,
+  };
 }
 
 /**

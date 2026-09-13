@@ -5,7 +5,7 @@
  * Page generator for quantum circuit information pages (part of a dynamic route).
  */
 
-import { loadPagesList } from "@/lib/page-loading";
+import { loadPagesList, loadPageInformation } from "@/lib/page-loading";
 import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
@@ -17,27 +17,12 @@ export async function generateMetadata({
   params,
 }: PageProps<"/circuits/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const all_pages = loadPagesList("circuits");
-  const match = all_pages.find(({ page_name }) => page_name === slug);
-  if (
-    !match ||
-    !fs.existsSync(
-      `${process.cwd()}/data/circuits/${match.page_name}.${match.file_extension}`,
-    )
-  ) {
-    return { title: slug };
-  }
-  try {
-    const { frontmatter } = await import(
-      `@/data/circuits/${match.page_name}.${match.file_extension}`
-    );
-    return {
-      title: frontmatter?.title ?? slug,
-      description: frontmatter?.description,
-    };
-  } catch {
-    return { title: slug };
-  }
+  const pageInfo = await loadPageInformation("circuits", slug);
+  return {
+    title: pageInfo.title ?? slug,
+    description:
+      pageInfo?.description ?? `Information about the ${slug} quantum circuit.`,
+  };
 }
 
 // Ensure that some core gates have pre-built pages (this is entirely optional)

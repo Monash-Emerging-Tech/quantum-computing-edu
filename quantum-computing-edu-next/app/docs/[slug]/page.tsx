@@ -5,7 +5,7 @@
  * Page generator for meta documentation pages (part of a dynamic route).
  */
 
-import { loadPagesList } from "@/lib/page-loading";
+import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
 import fs from "fs";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
@@ -17,27 +17,11 @@ export async function generateMetadata({
   params,
 }: PageProps<"/docs/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const all_docs = loadPagesList("docs");
-  const match = all_docs.find(({ page_name }) => page_name === slug);
-  if (
-    !match ||
-    !fs.existsSync(
-      `${process.cwd()}/data/docs/${match.page_name}.${match.file_extension}`,
-    )
-  ) {
-    return { title: slug };
-  }
-  try {
-    const { frontmatter } = await import(
-      `@/data/docs/${match.page_name}.${match.file_extension}`
-    );
-    return {
-      title: frontmatter?.title ?? slug,
-      description: frontmatter?.description,
-    };
-  } catch {
-    return { title: slug };
-  }
+  const pageInfo = await loadPageInformation("docs", slug);
+  return {
+    title: pageInfo.title ?? slug,
+    description: pageInfo?.description ?? `QCET documentation.`,
+  };
 }
 
 /**
