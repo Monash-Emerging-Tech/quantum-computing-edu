@@ -14,6 +14,13 @@ type PageFile = {
   file_extension: string;
 };
 
+type PageInfo = {
+  file_path: string;
+  title?: string;
+  short_name?: string;
+  description?: string;
+};
+
 /**
  * Load a list of pages from a data section.
  *
@@ -39,4 +46,30 @@ const loadPagesList = cache((section: string): PageFile[] => {
     .toSorted((a, b) => a.page_name.localeCompare(b.page_name));
 });
 
-export { loadPagesList };
+/**
+ * Load the frontmatter metadata from a page source file.
+ *
+ * @param section Name of the section in the data directory
+ * @param page_name Name or sub-path of the page in the data section
+ * @returns Page metadata
+ */
+const loadPageInformation = cache(
+  async (section: string, page_name: string): Promise<PageInfo> => {
+    try {
+      const { frontmatter } = await import(
+        /* turbopackOptional: true */ `@/data/${section}/${page_name}`
+      );
+      return {
+        file_path: `@/data/${section}/${page_name}`,
+        title: frontmatter?.title,
+        short_name: frontmatter["short-name"],
+        description: frontmatter?.description,
+      };
+    } catch {
+      return { file_path: `@/data/${section}/${page_name}` };
+    }
+  },
+);
+
+export type { PageInfo };
+export { loadPagesList, loadPageInformation };
