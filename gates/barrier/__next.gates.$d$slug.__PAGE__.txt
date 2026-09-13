@@ -1,6 +1,21 @@
 1:"$Sreact.fragment"
-2:I[97367,["/quantum-computing-edu/_next/static/chunks/13h-0fd.p-1ga.js","/quantum-computing-edu/_next/static/chunks/0qub~g53n1xsn.js"],"OutletBoundary"]
+2:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"OutletBoundary"]
 3:"$Sreact.suspense"
-:HL["/quantum-computing-edu/_next/static/chunks/11nqf.8g5uiol.css","style"]
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"gate-page-container","children":[["$","h1",null,{"id":"page-header","children":"Quantum Gate"}],["$","h2",null,{"id":"circuit-header","children":"Barrier"}],"$undefined",["$","div",null,{"id":"gate-information-container","className":"page-module__hWbR0a__gate-information-container","children":[["$","h3",null,{"children":"Barrier"}],"\n",["$","p",null,{"children":"This gate serves as a visual separator to temporally align other gates in a quantum circuit.\nThe barrier does not affect the function of the circuit."}]]}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/11nqf.8g5uiol.css","precedence":"next"}],["$","script","script-0",{"src":"/quantum-computing-edu/_next/static/chunks/09kq3raaowx2d.js","async":true}],["$","script","script-1",{"src":"/quantum-computing-edu/_next/static/chunks/074~q1nckx6b2.js","async":true}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wa_w82H_H306lVznYF4vG"}
+7:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"ViewportBoundary"]
+8:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"MetadataBoundary"]
+a:I[39756,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+b:I[37457,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+:HL["/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","style"]
+6:X
+d:X
+d:C
+0:{"buildId":"6SK0v0OqB2_12ujyhD60t","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"gates-page-container","className":"page-module__hWbR0a__gates-page-container","children":[["$","h1",null,{"children":"Barrier gate"}],"\n",["$","p",null,{"children":"This gate serves as a visual separator to temporally align other gates in a quantum circuit.\nThe barrier does not affect the function of the circuit."}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","precedence":"next"}]],["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":"$@5","staleTime":"$6","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L7",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L8",null,{"children":["$","$3",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Barrier | QCET"}],["$","meta","1",{"name":"description","content":"Explanation of barriers in quantum circuits."}],["$","meta","2",{"name":"author","content":"MNET"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@9","staleTime":"$6","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}]}]]}],"isPartial":"$@c","staleTime":"$6","varyParams":"$d"},{"rsc":["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}]}]]}],"isPartial":"$@e","staleTime":"$6","varyParams":"$d"}],"isUpgradeableISRFallback":false,"a":"$@f","rootVaryParams":null,"needsRuntimeRequest":"$@10"}
 4:null
+10:true
+6:300
+6:C
+f:0
+9:"$undefined"
+c:"$undefined"
+e:"$undefined"
+5:"$undefined"

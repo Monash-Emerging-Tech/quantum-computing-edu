@@ -1,7 +1,22 @@
 1:"$Sreact.fragment"
-2:I[22016,["/quantum-computing-edu/_next/static/chunks/13h-0fd.p-1ga.js","/quantum-computing-edu/_next/static/chunks/0qub~g53n1xsn.js"],""]
-3:I[97367,["/quantum-computing-edu/_next/static/chunks/13h-0fd.p-1ga.js","/quantum-computing-edu/_next/static/chunks/0qub~g53n1xsn.js"],"OutletBoundary"]
+2:I[22016,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],""]
+3:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"OutletBoundary"]
 4:"$Sreact.suspense"
-:HL["/quantum-computing-edu/_next/static/chunks/0mtcuu7cd2iei.css","style"]
-0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"docs-page-container","children":[["$","h1",null,{"children":"Adding quantum circuits"}],"\n",["$","h2",null,{"children":"Circuit schema"}],"\n",["$","p",null,{"children":["See the circuit schema ",["$","code",null,{"children":"quantum-circuit-schema.json"}],"\n",["$","$L2",null,{"href":"https://github.com/Monash-Emerging-Tech/quantum-computing-edu/tree/main/schemas","target":"_blank","children":"in this project's Git repository"}],"\nfor the rules for defining the JSON circuit data."]}],"\n",["$","h2",null,{"children":"Circuit ID"}],"\n",["$","p",null,{"children":"Make sure your circuit is defined by a unique circuit identifier (a short string)."}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/0mtcuu7cd2iei.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"wa_w82H_H306lVznYF4vG"}
+8:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"ViewportBoundary"]
+9:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"MetadataBoundary"]
+b:I[39756,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+c:I[37457,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+:HL["/quantum-computing-edu/_next/static/chunks/1z_mbvpkjhpd5.css","style"]
+7:X
+e:X
+e:C
+0:{"buildId":"6SK0v0OqB2_12ujyhD60t","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"docs-page-container","children":[["$","h1",null,{"children":"Adding quantum circuits"}],"\n",["$","h2",null,{"children":"Circuit schema"}],"\n",["$","p",null,{"children":["See the circuit schema ",["$","code",null,{"children":"quantum-circuit-schema.json"}],"\n",["$","$L2",null,{"href":"https://github.com/Monash-Emerging-Tech/quantum-computing-edu/tree/main/schemas","target":"_blank","children":"in this project's Git repository"}],"\nfor the rules for defining the JSON circuit data."]}],"\n",["$","h2",null,{"children":"Circuit ID"}],"\n",["$","p",null,{"children":"Make sure your circuit is defined by a unique circuit identifier (a short string)."}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/1z_mbvpkjhpd5.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Adding Quantum Circuits | QCET"}],["$","meta","1",{"name":"description","content":"Guide for defining and adding new quantum circuits to the project"}],["$","meta","2",{"name":"author","content":"MNET"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@a","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@d","staleTime":"$7","varyParams":"$e"},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@f","staleTime":"$7","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
 5:null
+11:true
+7:300
+7:C
+10:0
+a:"$undefined"
+d:"$undefined"
+f:"$undefined"
+6:"$undefined"

@@ -1,0 +1,174 @@
+1:"$Sreact.fragment"
+2:I[22016,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],""]
+22:I[39756,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+23:I[37457,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+28:I[68027,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default",1]
+:HL["/quantum-computing-edu/_next/static/chunks/36pji7f6gcv58.css","style"]
+:HL["/quantum-computing-edu/_next/static/chunks/1irygtawk0m2v.css","style"]
+:HL["/quantum-computing-edu/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/quantum-computing-edu/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","style"]
+26:X
+0:{"P":null,"c":["","gates","pauli-z",""],"q":"","i":false,"f":[[["",{"children":["gates",{"children":[["slug","pauli-z","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/36pji7f6gcv58.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/1irygtawk0m2v.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","type":"image/svg+xml","href":"/quantum-computing-edu/favicon.svg"}],["$","link",null,{"rel":"shortcut icon","type":"image/svg+xml","href":"/quantum-computing-edu/favicon.svg"}],["$","meta",null,{"name":"theme-color","content":"#000000"}],["$","meta",null,{"name":"color-scheme","content":"light dark"}],["$","meta",null,{"name":"darkreader-lock"}]]}],["$","body",null,{"className":"geist_a71539c9-module__T19VSG__variable geist_mono_8d43a2aa-module__8Li5zG__variable antialiased","children":[["$","div",null,{"className":"side_index-module__jJMORG__side-index-container","children":[["$","$L2",null,{"href":"/","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","h2",null,{"className":"side_index-module__jJMORG__index-header side_index-module__jJMORG__index-home","children":"QCET"}]}],["$","table",null,{"className":"side_index-module__jJMORG__index-table","children":[["$","thead",null,{"children":["$","tr",null,{"children":["$","th",null,{"className":"side_index-module__jJMORG__index-header","children":"Circuits"}]}]}],["$","tbody",null,{"children":["$@3","$@4","$@5","$@6"]}]]}],["$","table",null,{"className":"side_index-module__jJMORG__index-table","children":[["$","thead",null,{"children":["$","tr",null,{"children":["$","th",null,{"className":"side_index-module__jJMORG__index-header","children":"Gates"}]}]}],["$","tbody",null,{"children":["$@7","$@8","$@9","$@a","$@b","$@c","$@d","$@e","$@f","$@10","$@11","$@12","$@13","$@14","$@15","$@16","$@17","$@18"]}]]}],["$","table",null,{"className":"side_index-module__jJMORG__index-table","children":[["$","thead",null,{"children":["$","tr",null,{"children":["$","th",null,{"className":"side_index-module__jJMORG__index-header","children":"Hardware"}]}]}],["$","tbody",null,{"children":["$@19"]}]]}],["$","table",null,{"className":"side_index-module__jJMORG__index-table","children":[["$","thead",null,{"children":["$","tr",null,{"children":["$","th",null,{"className":"side_index-module__jJMORG__index-header","children":"Documentation"}]}]}],["$","tbody",null,{"children":["$@1a","$@1b","$@1c","$@1d","$@1e","$@1f","$@20","$@21"]}]]}]]}],["$","$L22",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L23",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L23",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L22",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":"$L24","templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["$L25",{},null,false,null]},null,false,"$26"]},null,false,"$26"]},null,false,null],"$L27",false]],"m":"$undefined","G":["$28",["$L29","$L2a"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"6SK0v0OqB2_12ujyhD60t"}
+2c:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"OutletBoundary"]
+2d:"$Sreact.suspense"
+2f:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"ViewportBoundary"]
+31:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"MetadataBoundary"]
+24:["$","$L23",null,{}]
+25:["$","$1","c",{"children":["$L2b",[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","$L2c",null,{"children":["$","$2d",null,{"name":"Next.MetadataOutlet","children":"$@2e"}]}]]}]
+27:["$","$1","h",{"children":[null,["$","$L2f",null,{"children":"$L30"}],["$","div",null,{"hidden":true,"children":["$","$L31",null,{"children":["$","$2d",null,{"name":"Next.Metadata","children":"$L32"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+29:["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/36pji7f6gcv58.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+2a:["$","link","1",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/1irygtawk0m2v.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+26:C
+3:["$","tr","deutsch",{"id":"circuits-page-deutsch","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/circuits/deutsch","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Deutsch's Algorithm"}]}]}]}]
+4:["$","tr","hhl",{"id":"circuits-page-hhl","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/circuits/hhl","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Harrow-Hassidim-Lloyd Algorithm"}]}]}]}]
+5:["$","tr","qpe",{"id":"circuits-page-qpe","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/circuits/qpe","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Quantum Phase Estimation"}]}]}]}]
+6:["$","tr","test-circuit",{"id":"circuits-page-test-circuit","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/circuits/test-circuit","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Test circuit"}]}]}]}]
+7:["$","tr","barrier",{"id":"gates-page-barrier","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/barrier","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Barrier"}]}]}]}]
+8:["$","tr","cnot",{"id":"gates-page-cnot","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/cnot","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Controlled-NOT gate"}]}]}]}]
+9:["$","tr","hadamard",{"id":"gates-page-hadamard","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/hadamard","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Hadamard gate"}]}]}]}]
+a:["$","tr","identity",{"id":"gates-page-identity","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/identity","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Identity gate"}]}]}]}]
+b:["$","tr","measure",{"id":"gates-page-measure","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/measure","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Measurement"}]}]}]}]
+c:["$","tr","pauli-x",{"id":"gates-page-pauli-x","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/pauli-x","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Pauli X gate"}]}]}]}]
+d:["$","tr","pauli-y",{"id":"gates-page-pauli-y","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/pauli-y","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Pauli Y gate"}]}]}]}]
+e:["$","tr","pauli-z",{"id":"gates-page-pauli-z","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/pauli-z","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Pauli Z gate"}]}]}]}]
+f:["$","tr","phase",{"id":"gates-page-phase","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/phase","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Phase gate"}]}]}]}]
+10:["$","tr","phase-oracle",{"id":"gates-page-phase-oracle","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/phase-oracle","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Phase Oracle"}]}]}]}]
+11:["$","tr","qft",{"id":"gates-page-qft","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/qft","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Quantum Fourier Transform"}]}]}]}]
+12:["$","tr","rx",{"id":"gates-page-rx","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/rx","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Rotate about X"}]}]}]}]
+13:["$","tr","ry",{"id":"gates-page-ry","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/ry","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Rotate about Y"}]}]}]}]
+14:["$","tr","rz",{"id":"gates-page-rz","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/rz","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Rotate about Z"}]}]}]}]
+15:["$","tr","s",{"id":"gates-page-s","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/s","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"S gate"}]}]}]}]
+16:["$","tr","swap",{"id":"gates-page-swap","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/swap","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"SWAP gate"}]}]}]}]
+17:["$","tr","t",{"id":"gates-page-t","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/t","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"T gate"}]}]}]}]
+18:["$","tr","toffoli",{"id":"gates-page-toffoli","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/gates/toffoli","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Toffoli gate"}]}]}]}]
+19:["$","tr","nmr_qubit",{"id":"hardware-page-nmr_qubit","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/hardware/nmr_qubit","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"NMR Qubit"}]}]}]}]
+1a:["$","tr","adding_circuits",{"id":"docs-page-adding_circuits","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/adding_circuits","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Adding Quantum Circuits"}]}]}]}]
+1b:["$","tr","adding_gates",{"id":"docs-page-adding_gates","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/adding_gates","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Adding Quantum Gates"}]}]}]}]
+1c:["$","tr","gates_and_operations",{"id":"docs-page-gates_and_operations","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/gates_and_operations","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Quantum Gates and Operations"}]}]}]}]
+1d:["$","tr","getting_started",{"id":"docs-page-getting_started","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/getting_started","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Getting Started"}]}]}]}]
+1e:["$","tr","interactive_circuits",{"id":"docs-page-interactive_circuits","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/interactive_circuits","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Interactive Quantum Circuits"}]}]}]}]
+1f:["$","tr","project_structure",{"id":"docs-page-project_structure","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/project_structure","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Project Structure"}]}]}]}]
+20:["$","tr","schemas",{"id":"docs-page-schemas","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/schemas","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"JSON Schemas"}]}]}]}]
+21:["$","tr","terminology",{"id":"docs-page-terminology","className":"side_index-module__jJMORG__index-link-row","children":["$","td",null,{"children":["$","$L2",null,{"href":"/docs/terminology","className":"side_index-module__jJMORG__side-index-link-no-underline","children":["$","div",null,{"className":"side_index-module__jJMORG__index-link-box","children":"Glossary"}]}]}]}]
+33:I[77028,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+34:T811,
+mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+  min-height: 1px;
+  min-width: 1px;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][display="true"][width="full"] {
+  display: flex;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line], svg[data-table] > g > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame], svg[data-table] > g > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed, svg[data-table] > g > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted, svg[data-table] > g > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > g > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] path[data-c], mjx-container[jax="SVG"] use[data-c] {
+  stroke-width: 3;
+}
+2b:["$","div",null,{"id":"gates-page-container","className":"page-module__hWbR0a__gates-page-container","children":[["$","h1",null,{"children":"Pauli Z Gate"}],"\n",["$","$L33",null,{"matrix":"[[1,0],[0,-1]]"}],"\n",["$","p",null,{"children":["This gate applies a rotation of ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.29ex","height":"1ex","role":"img","focusable":"false","viewBox":"0 -431 570 442","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-1-TEX-I-1D70B","d":"M132 -11Q98 -11 98 22V33L111 61Q186 219 220 334L228 358H196Q158 358 142 355T103 336Q92 329 81 318T62 297T53 285Q51 284 38 284Q19 284 19 294Q19 300 38 329T93 391T164 429Q171 431 389 431Q549 431 553 430Q573 423 573 402Q573 371 541 360Q535 358 472 358H408L405 341Q393 269 393 222Q393 170 402 129T421 65T431 37Q431 20 417 5T381 -10Q370 -10 363 -7T347 17T331 77Q330 86 330 121Q330 170 339 226T357 318T367 358H269L268 354Q268 351 249 275T206 114T175 17Q164 -11 132 -11Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D70B","xlinkHref":"#MJX-1-TEX-I-1D70B"}]}]}]}]]}]}]," radians about the ",["$","mjx-container",null,{"className":"MathJax","jax":"SVG","children":["$","svg",null,{"style":{"verticalAlign":"-0.025ex"},"xmlns":"http://www.w3.org/2000/svg","width":"1.052ex","height":"1.025ex","role":"img","focusable":"false","viewBox":"0 -442 465 453","xmlnsXlink":"http://www.w3.org/1999/xlink","children":[["$","defs",null,{"children":["$","path",null,{"id":"MJX-2-TEX-I-1D467","d":"M347 338Q337 338 294 349T231 360Q211 360 197 356T174 346T162 335T155 324L153 320Q150 317 138 317Q117 317 117 325Q117 330 120 339Q133 378 163 406T229 440Q241 442 246 442Q271 442 291 425T329 392T367 375Q389 375 411 408T434 441Q435 442 449 442H462Q468 436 468 434Q468 430 463 420T449 399T432 377T418 358L411 349Q368 298 275 214T160 106L148 94L163 93Q185 93 227 82T290 71Q328 71 360 90T402 140Q406 149 409 151T424 153Q443 153 443 143Q443 138 442 134Q425 72 376 31T278 -11Q252 -11 232 6T193 40T155 57Q111 57 76 -3Q70 -11 59 -11H54H41Q35 -5 35 -2Q35 13 93 84Q132 129 225 214T340 322Q352 338 347 338Z"}]}],["$","g",null,{"stroke":"currentColor","fill":"currentColor","strokeWidth":"0","transform":"scale(1,-1)","children":["$","g",null,{"data-mml-node":"math","children":["$","g",null,{"data-mml-node":"mi","children":["$","use",null,{"data-c":"1D467","xlinkHref":"#MJX-2-TEX-I-1D467"}]}]}]}]]}]}],"-axis."]}],"\n",["$","h2",null,{"children":"Resources"}],"\n",["$","p",null,{"children":["See the Qiskit documentation for the z gate:\n",["$","$L2",null,{"href":"https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.ZGate","target":"_blank","children":"https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.ZGate"}]]}],["$","style",null,{"children":"$34"}]]}]
+30:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+2e:null
+32:[["$","title","0",{"children":"Pauli Z gate | QCET"}],["$","meta","1",{"name":"description","content":"Summary of the Pauli-Z quantum gate."}],["$","meta","2",{"name":"author","content":"MNET"}]]

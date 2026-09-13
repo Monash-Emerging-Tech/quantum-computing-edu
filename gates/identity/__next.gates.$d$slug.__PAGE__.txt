@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[77028,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+3:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"ViewportBoundary"]
+9:I[97367,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"MetadataBoundary"]
+b:I[39756,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+c:I[37457,["/quantum-computing-edu/_next/static/chunks/3hjwledgbplym.js","/quantum-computing-edu/_next/static/chunks/2lhkzd14lf9vu.js","/quantum-computing-edu/_next/static/chunks/0f1y38wlztdic.js"],"default"]
+:HL["/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","style"]
+7:X
+e:X
+e:C
+0:{"buildId":"6SK0v0OqB2_12ujyhD60t","data":[{"rsc":["$","$1","c",{"children":[["$","div",null,{"id":"gates-page-container","className":"page-module__hWbR0a__gates-page-container","children":[["$","h1",null,{"children":"Identity gate"}],"\n",["$","$L2",null,{"matrix":"[[1,0],[0,1]]"}],"\n",["$","p",null,{"children":"This gate performs no action on the qubit it operates on (no-op)."}]]}],[["$","link","0",{"rel":"stylesheet","href":"/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","precedence":"next"}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Identity gate | QCET"}],["$","meta","1",{"name":"description","content":"Summary of the identity date in quantum circuits, for completeness."}],["$","meta","2",{"name":"author","content":"MNET"}]]}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"isPartial":"$@a","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@d","staleTime":"$7","varyParams":"$e"},{"rsc":["$","$1","c",{"children":[null,["$","$Lb",null,{"parallelRouterKey":"children","template":["$","$Lc",null,{}]}]]}],"isPartial":"$@f","staleTime":"$7","varyParams":"$e"}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+5:null
+11:true
+7:300
+7:C
+10:0
+a:"$undefined"
+d:"$undefined"
+f:"$undefined"
+6:"$undefined"

@@ -1,5 +1,6 @@
-:HL["/quantum-computing-edu/_next/static/chunks/02xwr4tq88dvl.css","style"]
-:HL["/quantum-computing-edu/_next/static/media/797e433ab948586e-s.p.08e28id.o-okb.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/quantum-computing-edu/_next/static/media/caa3a2e1cccd8315-s.p.09~u27dqhyhd6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-:HL["/quantum-computing-edu/_next/static/chunks/11nqf.8g5uiol.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"gates","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"cnot","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}},"staleTime":300,"buildId":"wa_w82H_H306lVznYF4vG"}
+:HL["/quantum-computing-edu/_next/static/chunks/36pji7f6gcv58.css","style"]
+:HL["/quantum-computing-edu/_next/static/chunks/1irygtawk0m2v.css","style"]
+:HL["/quantum-computing-edu/_next/static/media/797e433ab948586e-s.p.0r6juujl39pe6.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/quantum-computing-edu/_next/static/media/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/quantum-computing-edu/_next/static/chunks/3d2gh4mucui58.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"gates","param":null,"prefetchHints":4160,"slots":{"children":{"name":"slug","param":{"type":"d","key":"cnot","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"6SK0v0OqB2_12ujyhD60t"}
