@@ -6,7 +6,7 @@
  */
 
 import { loadGatesAndCircuits } from "@/lib/data-loading";
-import { loadPagesList } from "@/lib/page-loading";
+import { loadPageInformation, loadPagesList } from "@/lib/page-loading";
 import Link from "next/link";
 import styles from "./side_index.module.css";
 
@@ -93,8 +93,8 @@ export default function SideIndexMenu() {
   );
 }
 
-const SectionList = ({ section }: { section: string }) => {
-  return loadPagesList(section).map(({ page_name }) => (
+const SectionList = ({ section }: { section: string }) =>
+  loadPagesList(section).map(async ({ page_name }) => (
     <tr
       key={page_name}
       id={`${section}-page-${page_name}`}
@@ -106,11 +106,11 @@ const SectionList = ({ section }: { section: string }) => {
           className={styles["side-index-link-no-underline"]}
         >
           <div className={styles["index-link-box"]}>
-            {page_name.charAt(0).toUpperCase() +
-              page_name.slice(1).replaceAll("_", " ")}
+            {(await loadPageInformation(section, page_name)).title ??
+              page_name.charAt(0).toUpperCase() +
+                page_name.slice(1).replaceAll("_", " ")}
           </div>
         </Link>
       </td>
     </tr>
   ));
-};
