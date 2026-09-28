@@ -1,0 +1,14 @@
+{
+  "gate_id": "cz",
+  "full_name": "Controlled-Z Gate",
+  "display_name": "CZ",
+  "color": "white",
+  "arity": 2,
+  "unitary": [
+    [1,0,0,0],
+    [0,1,0,0],
+    [0,0,1,0],
+    [0,0,0,-1]
+  ],
+  "documentation_file": "cz.mdx"
+}
