@@ -9,12 +9,40 @@ import LoadCircuit from "@/components/circuit-with-loader";
 
 # CNOT Gate
 
-<LoadGateMatrix gate_id="cnot" />
-<LoadCircuit circuit_id="cnot" />
+<LoadGateMatrix gate_id="cnot"/>
+<LoadCircuit circuit_id="cnot"/>
 The CNOT gate is a two-qubit quantum gate that flips a target qubit if the control bit is in state $\ket{1}$, otherwise it leaves it unaltered.
+
+
+## Entangled States
+In a classical CNOT gate, the control bit(s) are never affected by the control gate. This isn't true for quantum control gates.
+
+<br/>
+For example, consider the following circuit starting in $\ket{00}$:
+<LoadCircuit circuit_id="cnot-example"/>
+
+$$
+\ket{\psi_{before}} = \ket{+-} = \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \frac{\ket{0} - \ket{1}}{\sqrt{2}}
+= \frac{1}{2}(\ket{00} - \ket{01} + \ket{10} - \ket{11})
+$$
+
+After applying CNOT, the output produced will be:
+
+$$
+\ket{\psi_{after}} = \frac{1}{2} (\ket{00} - \ket{01} + \ket{11} - \ket{10})
+= \frac{1}{2}\ket{0} (\ket{0} - \ket{1}) - \frac{1}{2}\ket{1} (\ket{0} - \ket{1})
+= \frac{1}{\sqrt{2}} (\ket{0} - \ket{1})\ket{-}
+= \ket{--}
+$$
+The control qubit has changed from $\ket{+}$ to $\ket{-}$ !
+
+<br/>
+To understand this example a little better, notice that flipping the second bit has no effect on $\ket{\psi}$ in $Z$-space.
+
+The only thing that occurs is the exchanging of signs between $\ket{10}$ and $\ket{11}$, which ends up affecting the control bit in $X$-space.
 
 
 ## Resources
 
-See the Qiskit documentation for the cnot gate:
+See the Qiskit documentation for the CNOT gate:
 [https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CXGate](https://quantum.cloud.ibm.com/docs/en/api/qiskit/qiskit.circuit.library.CXGate)

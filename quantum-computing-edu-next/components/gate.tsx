@@ -169,6 +169,7 @@ const GateComponent = ({
   gateHeight: number;
   info_bubble_child: React.ReactNode;
 }) => (
+  operation.gate.gate_id === "blank" ? "" :
   <Popover>
     <PopoverTrigger>
       <div
