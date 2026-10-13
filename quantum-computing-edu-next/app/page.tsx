@@ -27,6 +27,14 @@ const HomePage = () => {
           Interactive Quantum Circuits
         </h1>
       </header>
+      
+      <p>
+        The primary purpose of this project is to make it easier for people of various skill and knowledge levels to be able to learn about and understand complex quantum circuits.
+      </p>
+      
+      <h2>New here?</h2>
+      <div><Link href="/docs/getting_started/">Getting started</Link></div>
+      <div><Link href="/docs/terminology/">Terminology</Link></div>
 
       <h2>Gates:</h2>
       <div id="gates-list">
