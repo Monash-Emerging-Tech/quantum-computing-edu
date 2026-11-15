@@ -1,7 +1,7 @@
 {
   "gate_id": "cnot",
   "full_name": "CNot Gate",
-  "display_name": "cnot",
+  "display_name": "CN",
   "color": "white",
   "arity": 2,
   "unitary": [

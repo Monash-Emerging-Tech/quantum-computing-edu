@@ -1,0 +1,43 @@
+{
+  "circuit_id": "cnot-example",
+  "full_name": "CNOT Example",
+  "display_name": "CNOT ex.",
+
+  "registers": [
+    {
+      "name": "control",
+      "description": "Control qubit. If this qubit is |1⟩, the target qubit is flipped.",
+      "qubits": [0]
+    },
+    {
+      "name": "target",
+      "description": "Target qubit that is flipped when the control qubit is |1⟩.",
+      "qubits": [1]
+    }
+  ],
+
+  "operations": [
+    {
+      "gate_id": "blank",
+      "qubits": [0]
+    },
+    {
+      "gate_id": "h",
+      "qubits": [0]
+    },
+
+    {
+      "gate_id": "x",
+      "qubits": [1]
+    },
+    {
+      "gate_id": "h",
+      "qubits": [1]
+    },
+    {
+      "gate_id": "cnot",
+      "qubits": [1],
+      "controls": [0]
+    }
+  ]
+}
